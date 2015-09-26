@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dominion.Ecotope.Native", "Native\Native.vcxproj", "{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominion.Ecotope.Managed", "Managed\Dominion.Ecotope.Managed.csproj", "{585E3F0B-DFA0-4DBF-8CA0-0048CF42ECB8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dominion.Ecotope.Native.Tester", "Native.Tester\Native.Tester.vcxproj", "{73254EE9-2F51-44F1-A6E5-C6EA20B65135}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dominion.Ecotope.Syntax", "Syntax\Syntax.vcxproj", "{4A850A80-9840-4BF5-834F-C79368B02885}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC} = {7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}.Debug|Win32.Build.0 = Debug|Win32
+		{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}.Release|Any CPU.ActiveCfg = Release|Win32
+		{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}.Release|Win32.ActiveCfg = Release|Win32
+		{7B5DE6D3-AF7B-4C30-926B-5906915FB4AC}.Release|Win32.Build.0 = Release|Win32
+		{585E3F0B-DFA0-4DBF-8CA0-0048CF42ECB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{585E3F0B-DFA0-4DBF-8CA0-0048CF42ECB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{585E3F0B-DFA0-4DBF-8CA0-0048CF42ECB8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{585E3F0B-DFA0-4DBF-8CA0-0048CF42ECB8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{585E3F0B-DFA0-4DBF-8CA0-0048CF42ECB8}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{585E3F0B-DFA0-4DBF-8CA0-0048CF42ECB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{585E3F0B-DFA0-4DBF-8CA0-0048CF42ECB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{585E3F0B-DFA0-4DBF-8CA0-0048CF42ECB8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{585E3F0B-DFA0-4DBF-8CA0-0048CF42ECB8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{585E3F0B-DFA0-4DBF-8CA0-0048CF42ECB8}.Release|Win32.ActiveCfg = Release|Any CPU
+		{73254EE9-2F51-44F1-A6E5-C6EA20B65135}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{73254EE9-2F51-44F1-A6E5-C6EA20B65135}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{73254EE9-2F51-44F1-A6E5-C6EA20B65135}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{73254EE9-2F51-44F1-A6E5-C6EA20B65135}.Debug|Win32.ActiveCfg = Debug|Win32
+		{73254EE9-2F51-44F1-A6E5-C6EA20B65135}.Debug|Win32.Build.0 = Debug|Win32
+		{73254EE9-2F51-44F1-A6E5-C6EA20B65135}.Release|Any CPU.ActiveCfg = Release|Win32
+		{73254EE9-2F51-44F1-A6E5-C6EA20B65135}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{73254EE9-2F51-44F1-A6E5-C6EA20B65135}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{73254EE9-2F51-44F1-A6E5-C6EA20B65135}.Release|Win32.ActiveCfg = Release|Win32
+		{73254EE9-2F51-44F1-A6E5-C6EA20B65135}.Release|Win32.Build.0 = Release|Win32
+		{4A850A80-9840-4BF5-834F-C79368B02885}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{4A850A80-9840-4BF5-834F-C79368B02885}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{4A850A80-9840-4BF5-834F-C79368B02885}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{4A850A80-9840-4BF5-834F-C79368B02885}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4A850A80-9840-4BF5-834F-C79368B02885}.Debug|Win32.Build.0 = Debug|Win32
+		{4A850A80-9840-4BF5-834F-C79368B02885}.Release|Any CPU.ActiveCfg = Release|Win32
+		{4A850A80-9840-4BF5-834F-C79368B02885}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{4A850A80-9840-4BF5-834F-C79368B02885}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{4A850A80-9840-4BF5-834F-C79368B02885}.Release|Win32.ActiveCfg = Release|Win32
+		{4A850A80-9840-4BF5-834F-C79368B02885}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://arcanesoftware.visualstudio.com/defaultcollection
+		SccProjectUniqueName0 = Managed\\Dominion.Ecotope.Managed.csproj
+		SccProjectName0 = Managed
+		SccLocalPath0 = Managed
+		SccProjectUniqueName1 = Native.Tester\\Native.Tester.vcxproj
+		SccProjectName1 = Native.Tester
+		SccLocalPath1 = Native.Tester
+		SccLocalPath2 = .
+		SccProjectUniqueName3 = Native\\Native.vcxproj
+		SccProjectName3 = Native
+		SccLocalPath3 = Native
+		SccProjectUniqueName4 = Syntax\\Syntax.vcxproj
+		SccProjectName4 = Syntax
+		SccLocalPath4 = Syntax
+	EndGlobalSection
+EndGlobal
