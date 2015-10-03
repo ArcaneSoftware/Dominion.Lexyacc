@@ -94,7 +94,7 @@
     <ClInclude Include="ProducingValidatable.h" />
     <ClInclude Include="Productor.h" />
     <ClInclude Include="Variable.h" />
-    <ClInclude Include="AbstractSyntax.h" />
+    <ClInclude Include="AbstractSyntaxTree.h" />
     <ClInclude Include="Scalar.h" />
     <ClInclude Include="UnacceptableWordException.h" />
   </ItemGroup>

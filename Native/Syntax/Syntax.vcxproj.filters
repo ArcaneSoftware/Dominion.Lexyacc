@@ -12,8 +12,8 @@
     <ClInclude Include="UnacceptableWordException.h">
       <Filter>Failure</Filter>
     </ClInclude>
-    <ClInclude Include="AbstractSyntax.h" />
     <ClInclude Include="Scalar.h" />
+    <ClInclude Include="AbstractSyntaxTree.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Failure">

@@ -9,43 +9,43 @@
 
 BEGIN_DOMINION_SYNTAX
 //*****************************************************************************************************************//
-//CAbstractSyntax
+//CAbstractSyntaxTree
 //
 //*****************************************************************************************************************//
 template<typename TESyntax>
-class LIBRARY_EXPORT CAbstractSyntax : public CObject
+class LIBRARY_EXPORT CAbstractSyntaxTree : public CObject
 {
 public:
-  TYPEDEF(CAbstractSyntax<TESyntax>, Class, CLASS);
+  TYPEDEF(CAbstractSyntaxTree<TESyntax>, Class, CLASS);
   CLASS_INHERITOR(CObject, Class);
   typedef const TESyntax T_SYNTAX_TYPE;
 
-  CAbstractSyntax() :
+  CAbstractSyntaxTree() :
     _livingLine(NIL_LINE)
   {
   }
 
-  CAbstractSyntax(CLASS& that) :
+  CAbstractSyntaxTree(CLASS& that) :
     CObject(that),
     _syntaxType(that._syntaxType),
     _livingLine(that._livingLine)
   {
   }
 
-  CAbstractSyntax(CLASS&& that) :
+  CAbstractSyntaxTree(CLASS&& that) :
     CObject(that),
     _syntaxType(move(that._syntaxType)),
     _livingLine(move(that._livingLine))
   {
   }
 
-  explicit CAbstractSyntax(TESyntax syntaxType, int32_t livingLine = NIL_LINE) :
+  explicit CAbstractSyntaxTree(TESyntax syntaxType, int32_t livingLine = NIL_LINE) :
     _syntaxType(syntaxType),
     _livingLine(livingLine)
   {
   }
 
-  virtual ~CAbstractSyntax()
+  virtual ~CAbstractSyntaxTree()
   {
   }
   //{
