@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>TransactSQL</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>Dominion.Compilation.TransactSQL</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>../../../;../../Using;$(IncludePath)</IncludePath>
+    <LibraryPath>../Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>../../../;../../Using;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;TRANSACTSQL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Native.Syntax.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;TRANSACTSQL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;TRANSACTSQL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Native.Syntax.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;TRANSACTSQL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ArgumentSyntax.h" />
+    <ClInclude Include="AssignedFieldSyntax.h" />
+    <ClInclude Include="AssignVariableSyntax.h" />
+    <ClInclude Include="BlockSyntax.h" />
+    <ClInclude Include="CaseSyntax.h" />
+    <ClInclude Include="ChainSyntax.h" />
+    <ClInclude Include="TransactSQLSyntax.h" />
+    <ClInclude Include="ConstantSyntax.h" />
+    <ClInclude Include="Context.h" />
+    <ClInclude Include="CreateProcedureSyntax.h" />
+    <ClInclude Include="DeclareVariablesSyntax.h" />
+    <ClInclude Include="Dependence.h" />
+    <ClInclude Include="Elementary.h" />
+    <ClInclude Include="ExecProcedureSyntax.h" />
+    <ClInclude Include="FieldAliasSyntax.h" />
+    <ClInclude Include="FlowSyntax.h" />
+    <ClInclude Include="FunctionSyntax.h" />
+    <ClInclude Include="GrammarEnum.h" />
+    <ClInclude Include="JoinEntitySyntax.h" />
+    <ClInclude Include="MissSyntaxException.h" />
+    <ClInclude Include="OperationSyntax.h" />
+    <ClInclude Include="OrderedFieldSyntax.h" />
+    <ClInclude Include="SelectedFieldSyntax.h" />
+    <ClInclude Include="SelectEntitySyntax.h" />
+    <ClInclude Include="SQLVariable.h" />
+    <ClInclude Include="SyntaxEnum.h" />
+    <ClInclude Include="ASTs.h" />
+    <ClInclude Include="TopSyntax.h" />
+    <ClInclude Include="VariableDefinitionSyntax.h" />
+    <ClInclude Include="VariableReference.h" />
+    <ClInclude Include="VariableSyntax.h" />
+    <ClInclude Include="WhenSyntax.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArgumentSyntax.cpp" />
+    <ClCompile Include="AssignedFieldSyntax.cpp" />
+    <ClCompile Include="AssignVariableSyntax.cpp" />
+    <ClCompile Include="BlockSyntax.cpp" />
+    <ClCompile Include="CaseSyntax.cpp" />
+    <ClCompile Include="ChainSyntax.cpp" />
+    <ClCompile Include="TransactSQLSyntax.cpp" />
+    <ClCompile Include="ConstantSyntax.cpp" />
+    <ClCompile Include="Context.cpp" />
+    <ClCompile Include="CreateProcedureSyntax.cpp" />
+    <ClCompile Include="DeclareVariablesSyntax.cpp" />
+    <ClCompile Include="ExecProcedureSyntax.cpp" />
+    <ClCompile Include="FieldAliasSyntax.cpp" />
+    <ClCompile Include="FlowSyntax.cpp" />
+    <ClCompile Include="FunctionSyntax.cpp" />
+    <ClCompile Include="GrammarEnum.cpp" />
+    <ClCompile Include="JoinEntitySyntax.cpp" />
+    <ClCompile Include="MissSyntaxException.cpp" />
+    <ClCompile Include="OperationSyntax.cpp" />
+    <ClCompile Include="OrderedFieldSyntax.cpp" />
+    <ClCompile Include="SelectedFieldSyntax.cpp" />
+    <ClCompile Include="SelectEntitySyntax.cpp" />
+    <ClCompile Include="SQLVariable.cpp" />
+    <ClCompile Include="SyntaxEnum.cpp" />
+    <ClCompile Include="TopSyntax.cpp" />
+    <ClCompile Include="VariableDefinitionSyntax.cpp" />
+    <ClCompile Include="VariableReference.cpp" />
+    <ClCompile Include="VariableSyntax.cpp" />
+    <ClCompile Include="WhenSyntax.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

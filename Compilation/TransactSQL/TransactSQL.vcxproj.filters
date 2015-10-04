@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Egine">
+      <UniqueIdentifier>{a83a9525-9927-4c76-b370-826cf40c306d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Failure">
+      <UniqueIdentifier>{5bd210eb-94d9-4af1-9120-465faebec970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax">
+      <UniqueIdentifier>{528b0adc-30ed-4407-8f08-e4d3a1189957}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax\ASTs">
+      <UniqueIdentifier>{1528f2b7-381a-4e98-9e4e-7732831ac68b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax\ASTs\Reference">
+      <UniqueIdentifier>{54004537-9f6a-499a-8350-a64de7461315}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax\Elementary">
+      <UniqueIdentifier>{b5c7b93b-1236-4c69-ac60-a43c415f96bc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dependence.h" />
+    <ClInclude Include="ArgumentSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="AssignedFieldSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="AssignVariableSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="CaseSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="ChainSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateProcedureSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="DeclareVariablesSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="ExecProcedureSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldAliasSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="FlowSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="Context.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="GrammarEnum.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="MissSyntaxException.h">
+      <Filter>Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="SQLVariable.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="SyntaxEnum.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="Elementary.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableReference.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="JoinEntitySyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="OperationSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="OrderedFieldSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectedFieldSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectEntitySyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="TopSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableDefinitionSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="WhenSyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="ASTs.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactSQLSyntax.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArgumentSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="AssignedFieldSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="AssignVariableSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="CaseSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="ChainSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcedureSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="DeclareVariablesSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="ExecProcedureSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldAliasSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="FlowSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="Context.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
+    <ClCompile Include="GrammarEnum.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="MissSyntaxException.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="SQLVariable.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
+    <ClCompile Include="SyntaxEnum.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
+    <ClCompile Include="VariableReference.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
+    <ClCompile Include="JoinEntitySyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="OperationSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="OrderedFieldSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectedFieldSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectEntitySyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="TopSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="VariableDefinitionSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="WhenSyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="VariableSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="TransactSQLSyntax.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
