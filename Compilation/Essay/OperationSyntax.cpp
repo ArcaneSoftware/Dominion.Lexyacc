@@ -30,8 +30,8 @@ COperationSyntax::COperationSyntax(C_OPERATION_SYNTAX&& that) :
 }
 
 COperationSyntax::COperationSyntax(int32_t livingLine,
-                                   EOperationType operationType,
                                    int32_t leftOperandIndex,
+                                   EOperationType operationType,
                                    int32_t rightOperandIndex) :
   CEssaySyntax(ESyntaxType::Operation, livingLine),
   _operationType(operationType),

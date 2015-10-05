@@ -21,16 +21,16 @@ public:
   CVariableSyntax();
   CVariableSyntax(C_VARIABLE_SYNTAX& that);
   CVariableSyntax(C_VARIABLE_SYNTAX&& that);
-  CVariableSyntax(int32_t livingLine, WSTRING& nameSpace, WSTRING& name);
+  CVariableSyntax(int32_t livingLine, WSTRING& space, WSTRING& name);
   virtual ~CVariableSyntax();
 
-  CLASS_PROPERTY(wstring, _nameSpace, NameSpace);
+  CLASS_PROPERTY(wstring, _space, Space);
   CLASS_PROPERTY(wstring, _name, Name);
 
   C_VARIABLE_SYNTAX& operator=(C_VARIABLE_SYNTAX& that);
 
 private:
-  wstring _nameSpace;
+  wstring _space;
   wstring _name;
 };
 

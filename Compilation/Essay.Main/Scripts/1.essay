@@ -1,0 +1,4 @@
+namespace Customer
+{
+	var a = 4;
+}

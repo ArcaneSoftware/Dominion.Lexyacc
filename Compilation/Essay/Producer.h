@@ -62,18 +62,23 @@ public:
   wstring GetError() const;
   //Reference
   CProductor Scalar(C_SCALAR_SYNTAX& syntax);
-  //Component
+  //Composition
   CProductor Chain(C_CHAIN_SYNTAX& syntax);
   CProductor UnaryOperation(C_OPERATION_SYNTAX& syntax);
   CProductor BinaryOperation(C_OPERATION_SYNTAX& syntax);
+  //Statement
+  CProductor DefineVariable(C_DEFINE_VARIABLE_SYNTAX& syntax);
 
   shared_ptr<CEssaySyntax> GetSyntax(int32_t syntaxIndex) const;
   WSTRING& GetFile() const;
   void SetEntry(int32_t entry);
 
+  CLASS_PROPERTY(wstring, _parsingSpace, ParsingSpace);
+
   C_PRODUCER& operator=(C_PRODUCER& that);
 
 private:
+  wstring _parsingSpace;
   wstring _file;
   CContext _context;
   vector<CError> _errorVector;

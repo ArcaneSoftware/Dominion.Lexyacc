@@ -90,6 +90,11 @@ CProductor CProducer::BinaryOperation(C_OPERATION_SYNTAX& syntax)
   return Produce<COperationSyntax>(syntax, errors);
 }
 
+CProductor CProducer::DefineVariable(C_DEFINE_VARIABLE_SYNTAX& syntax)
+{
+  return Produce<CDefineVariableSyntax>(syntax);
+}
+
 shared_ptr<CEssaySyntax> CProducer::GetSyntax(int32_t syntaxIndex) const
 {
   return _context.GetSyntax(syntaxIndex);

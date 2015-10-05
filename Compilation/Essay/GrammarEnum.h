@@ -86,5 +86,14 @@ public:
 
   C_OPERATION_ENUM& operator=(C_OPERATION_ENUM& that);
 };
+//*****************************************************************************************************************//
+//CEOperationType
+//
+//*****************************************************************************************************************//
+enum class LIBRARY_EXPORT EVariableType
+{
+  Atom,
+  Object,
+};
 
 END_DOMINION_COMPILATION_ESSAY

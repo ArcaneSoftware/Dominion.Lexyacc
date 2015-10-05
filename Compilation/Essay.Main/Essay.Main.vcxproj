@@ -19,22 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6C301935-AB8F-43C1-A8B1-A28355AC6B0B}</ProjectGuid>
+    <ProjectGuid>{42BBA399-9FE9-4B42-9CCF-C4983B27A0EF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Essay</RootNamespace>
+    <RootNamespace>EssayMain</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>Dominion.Compilation.Essay</ProjectName>
+    <ProjectName>Dominion.Compilation.Essay.Main</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <CLRSupport>true</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -42,13 +42,13 @@
     <CLRSupport>true</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -93,16 +93,13 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ESSAY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;Dominion.Compilation.Essay.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>FixFiles.cmd</Command>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -110,10 +107,10 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;ESSAY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -125,18 +122,15 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ESSAY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;Dominion.Compilation.Essay.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>FixFiles.cmd</Command>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -146,62 +140,20 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;ESSAY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ASTs.h" />
-    <ClInclude Include="ChainSyntax.h" />
-    <ClInclude Include="Context.h" />
-    <ClInclude Include="DefineVariableSyntax.h" />
-    <ClInclude Include="Engine.h" />
-    <ClInclude Include="Function.h" />
-    <ClInclude Include="NoneIndexSyntaxValidator.h" />
-    <ClInclude Include="NullOperationValidator.h" />
-    <ClInclude Include="Parser.yy.h" />
-    <ClInclude Include="position.hh" />
-    <ClInclude Include="Producer.h" />
-    <ClInclude Include="ScalarSyntax.h" />
-    <ClInclude Include="Elementary.h" />
-    <ClInclude Include="EssaySyntax.h" />
-    <ClInclude Include="Dependence.h" />
-    <ClInclude Include="GrammarEnum.h" />
-    <ClInclude Include="OperationSyntax.h" />
-    <ClInclude Include="Scanner.h" />
-    <ClInclude Include="stack.hh" />
-    <ClInclude Include="SyntaxEnum.h" />
-    <ClInclude Include="Validators.h" />
-    <ClInclude Include="VariableSyntax.h" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ChainSyntax.cpp" />
-    <ClCompile Include="Context.cpp" />
-    <ClCompile Include="DefineVariableSyntax.cpp" />
-    <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="Function.cpp" />
-    <ClCompile Include="NoneIndexSyntaxValidator.cpp" />
-    <ClCompile Include="NullOperationValidator.cpp" />
-    <ClCompile Include="Parser.yy.cpp" />
-    <ClCompile Include="Producer.cpp" />
-    <ClCompile Include="ScalarSyntax.cpp" />
-    <ClCompile Include="EssaySyntax.cpp" />
-    <ClCompile Include="GrammarEnum.cpp" />
-    <ClCompile Include="OperationSyntax.cpp" />
-    <ClCompile Include="Scanner.cpp" />
-    <ClCompile Include="Scanner.ll.cpp" />
-    <ClCompile Include="SyntaxEnum.cpp" />
-    <ClCompile Include="VariableSyntax.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="FixFiles.cmd" />
-    <None Include="Parser.yy" />
-    <None Include="Scanner.ll" />
+    <None Include="Scripts\1.essay" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

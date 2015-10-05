@@ -30,8 +30,8 @@ using namespace Dominion::Compilation::Essay;
 %token _EOF_ 0
 %token EOL
 %token Nil
-%token Equal NotEqual Greater GreaterEqual Less LessEqual Match NotMatch And Or
-%token If Else Var Return Function
+%token Equal NotEqual Greater GreaterEqual Less LessEqual Match NotMatch And Or Xor
+%token Namespace If Else Var Return Function Object
 
 %token <numeric> Numeric
 %token <litera> Identifier
@@ -40,7 +40,7 @@ using namespace Dominion::Compilation::Essay;
 
 %type <node> PARAMETER PARAMETER_CHAIN ARGUMENT ARGUMENT_CHAIN DEFINE_FUNCTION DEFINE_FUNCTION_CHAIN
 %type <node> ESSAY EXPRESSION SCALAR VARIABLE FUNCTION VARIABLE_PROPERTY VARIABLE_METHED
-%type <node> STATEMENT BLOCK FLOW EXPRESS DEFINE_VARIABLE
+%type <node> BLOCK STATEMENT FLOW DEFINE_VARIABLE
 
 %left And Or
 %left Equal NotEqual Match NotMatch
@@ -64,74 +64,163 @@ using namespace Dominion::Compilation::Essay;
 %}
 %%
 SCALAR:
-  Nil{
-    
+  Nil
+	{
+    $$ = _producer.Scalar(CScalarSyntax(YY_LIVING_LINE, CScalar())).GetIndex();
   }|
-  Numeric{
-    
+  Numeric
+	{
+    $$ = _producer.Scalar(CScalarSyntax(YY_LIVING_LINE, CScalar($1))).GetIndex();
   }|
-  String{
-    
+  String
+	{
+    $$ = _producer.Scalar(CScalarSyntax(YY_LIVING_LINE, CScalar(*$1))).GetIndex();
   }|
-  Boolean{
-    
+  Boolean
+	{
+    $$ = _producer.Scalar(CScalarSyntax(YY_LIVING_LINE, CScalar($1))).GetIndex();
   };
 
-EXPRESSION: {
-  $$ = -1;
+EXPRESSION:
+	{
+		$$ = -1;
   }|
-  SCALAR{
+  SCALAR
+	{
     $$ = $1;
   }|
-  EXPRESSION '+' EXPRESSION {
+  EXPRESSION '+' EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::Add, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
+  }|
+  EXPRESSION '-' EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::Subtract, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
     
   }|
-  EXPRESSION '-' EXPRESSION {
+  EXPRESSION '*' EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::Multiply, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
     
   }|
-  EXPRESSION '*' EXPRESSION {
-    
+  EXPRESSION '/' EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::Divide, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  EXPRESSION '/' EXPRESSION {
-    
+  EXPRESSION '%' EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::Modulo, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  EXPRESSION Equal EXPRESSION {
-    
+  EXPRESSION Equal EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::Equal, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  EXPRESSION NotEqual EXPRESSION {
-    
+  EXPRESSION NotEqual EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::NotEqual, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  EXPRESSION Match EXPRESSION {
-    
+  EXPRESSION Match EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::Match, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  EXPRESSION NotMatch EXPRESSION {
-    
+  EXPRESSION NotMatch EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::NotMatch, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  EXPRESSION Greater EXPRESSION {
-    
+  EXPRESSION Greater EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::Greater, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  EXPRESSION GreaterEqual EXPRESSION {
-    
+  EXPRESSION GreaterEqual EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::GreaterEqual, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  EXPRESSION Less EXPRESSION {
-    
+  EXPRESSION Less EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::Less, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  EXPRESSION LessEqual EXPRESSION {
-    
+  EXPRESSION LessEqual EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::LessEqual, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  EXPRESSION And EXPRESSION {
-    
+  EXPRESSION And EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::And, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  EXPRESSION Or EXPRESSION {
+  EXPRESSION Or EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::Or, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
   }|
-  '(' EXPRESSION ')' {
+  EXPRESSION Xor EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, $1, EOperationType::Xor, $3);
+		auto result = _producer.BinaryOperation(syntax);
+
+		YY_REDUCE(result);
+  }|
+  '!' EXPRESSION
+	{
+    auto syntax = COperationSyntax(YY_LIVING_LINE, NONE_INDEX, EOperationType::Not, $2);
+		auto result = _producer.UnaryOperation(syntax);
+
+		YY_REDUCE(result);
+  }|
+  '(' EXPRESSION ')'
+	{
     $$ = $2;
   }|
-  VARIABLE {
-    
+  VARIABLE
+	{
+    $$ = $1;
   }|
-  FUNCTION {
-    
+  FUNCTION
+	{
+    $$ = $1;
   }|
   VARIABLE_PROPERTY {
     
@@ -178,11 +267,19 @@ FUNCTION:
   };
 
 DEFINE_VARIABLE:
-  Var Identifier ';'{
-    
+  Var Identifier ';'
+	{
+    auto syntax = CDefineVariableSyntax(YY_LIVING_LINE, EVariableType::Atom, _producer.GetParsingSpace(), *$2, NONE_INDEX);
+		auto result = _producer.DefineVariable(syntax);
+
+		YY_REDUCE(result);
   }|
-  Var Identifier '=' EXPRESSION ';' {
-    
+  Var Identifier '=' EXPRESSION ';'
+	{
+    auto syntax = CDefineVariableSyntax(YY_LIVING_LINE, EVariableType::Atom, _producer.GetParsingSpace(), *$2, $4);
+		auto result = _producer.DefineVariable(syntax);
+
+		YY_REDUCE(result);
   };
   
 VARIABLE_PROPERTY:
@@ -208,11 +305,6 @@ DEFINE_FUNCTION:
     
   };
   
-EXPRESS:
-  EXPRESSION ';' {
-
-  };
-
 FLOW:
   If '(' EXPRESSION ')' {
   };
@@ -232,19 +324,25 @@ STATEMENT:
   ASSIGN_VARIABLE {
     
   }|
-  EXPRESS {
+  EXPRESSION ';'{
     
   };
   
-BLOCK:{
-    $$ = -1;
+BLOCK:
+	{
+    $$ = NONE_INDEX;
   }| STATEMENT BLOCK {
 	};
 
 ESSAY:
-  DEFINE_FUNCTION_CHAIN {
-    
-  };
+  Namespace Identifier
+	{
+		_producer.SetParsingSpace(*$2);
+	}
+	'{' BLOCK '}'
+	{
+		$$ = -1;
+	}
 
 %%
 void CParser::error(const CParser::location_type& location, const std::string& message)

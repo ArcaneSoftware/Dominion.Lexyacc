@@ -15,19 +15,18 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 enum class LIBRARY_EXPORT ESyntaxType
 {
   Empty = 0,
-  //part
+  //Reference
+  Scalar,
+  Variable,
+  Function,
+  //Composition
   Chain,
+  Operation,
   Parameter,
   Argurment,
   //Statement
   Block,
   Flow,
-  Scalar,
-  Variable,
-  VariableProperty,
-  VariableMethod,
-  Function,
-  Operation,
   DefineVariable,
   AssignVariable,
   DefineFunction,

@@ -155,16 +155,19 @@ namespace Dominion { namespace Compilation { namespace Essay {
      NotMatch = 267,
      And = 268,
      Or = 269,
-     If = 270,
-     Else = 271,
-     Var = 272,
-     Return = 273,
-     Function = 274,
-     Numeric = 275,
-     Identifier = 276,
-     String = 277,
-     Boolean = 278,
-     UMINUS = 279
+     Xor = 270,
+     Namespace = 271,
+     If = 272,
+     Else = 273,
+     Var = 274,
+     Return = 275,
+     Function = 276,
+     Object = 277,
+     Numeric = 278,
+     Identifier = 279,
+     String = 280,
+     Boolean = 281,
+     UMINUS = 282
    };
 
     };
@@ -289,7 +292,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
     /// For each rule, the index of the first RHS symbol in \a yyrhs_.
     static const unsigned char yyprhs_[];
     /// For each rule, its source line number.
-    static const unsigned char yyrline_[];
+    static const unsigned short int yyrline_[];
     /// For each scanner token number, its symbol number.
     static const unsigned short int yytoken_number_[];
     /// Report on the debug stream that the rule \a r is going to be reduced.
@@ -342,7 +345,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
 } } } // Dominion::Compilation::Essay
 
 /* Line 35 of lalr1.cc  */
-#line 346 "Parser.yy.h"
+#line 349 "Parser.yy.h"
 
 
 

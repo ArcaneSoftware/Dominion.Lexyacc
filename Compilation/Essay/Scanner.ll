@@ -4,7 +4,6 @@
 //AUTHOR:
 //SUMMARY:
 //********************************************************************************************************************//
-#include "Dominion/Native/Syntax/UnacceptableWordException.h"
 #include "Dominion/Compilation/Essay/Scanner.h"
 
 using namespace std;
@@ -26,7 +25,7 @@ using namespace Dominion::Compilation::Essay;
 	yylloc->step();
 %}
 
-"+"|"-"|"*"|"/"|"%"|"="|"!"|";"|"("|")"|"{"|"}"|"["|"]"|"@"|"#"|"~"|"$"|","|"." {
+"+"|"-"|"*"|"/"|"%"|"="|"!"|";"|"("|")"|"{"|"}"|"["|"]"|"@"|"#"|"$"|","|"." {
   return static_cast<YToken>(yytext[0]);
 }
 
@@ -36,7 +35,7 @@ using namespace Dominion::Compilation::Essay;
 "!=" {
   return YToken::NotEqual;
 }
-"~" {
+"~~" {
   return YToken::Match;
 }
 "!~" {
@@ -71,7 +70,6 @@ using namespace Dominion::Compilation::Essay;
 
   return YToken::Boolean;
 }
-
 "nil" {
   return YToken::Nil;
 }
@@ -80,6 +78,9 @@ using namespace Dominion::Compilation::Essay;
   return YToken::Var;
 }
 
+"namespace" {
+	return YToken::Namespace;
+}
 "if" {
   return YToken::If;
 }
@@ -89,6 +90,9 @@ using namespace Dominion::Compilation::Essay;
 
 "function" {
   return YToken::Function;
+}
+"object" {
+	return YToken::Object;
 }
 
 "\"" {

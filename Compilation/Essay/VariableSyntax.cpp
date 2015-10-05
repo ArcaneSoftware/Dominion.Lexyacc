@@ -16,21 +16,21 @@ CVariableSyntax::CVariableSyntax() :
 
 CVariableSyntax::CVariableSyntax(C_VARIABLE_SYNTAX& that) :
   CEssaySyntax(that),
-  _nameSpace(that._nameSpace),
+  _space(that._space),
   _name(that._name)
 {
 }
 
 CVariableSyntax::CVariableSyntax(C_VARIABLE_SYNTAX&& that) :
   CEssaySyntax(that),
-  _nameSpace(move(that._nameSpace)),
+  _space(move(that._space)),
   _name(move(that._name))
 {
 }
 
-CVariableSyntax::CVariableSyntax(int32_t livingLine, WSTRING& nameSpace, WSTRING& name) :
+CVariableSyntax::CVariableSyntax(int32_t livingLine, WSTRING& space, WSTRING& name) :
   CEssaySyntax(ESyntaxType::Variable, livingLine),
-  _nameSpace(nameSpace),
+  _space(space),
   _name(name)
 {
 }
@@ -43,7 +43,7 @@ C_VARIABLE_SYNTAX& CVariableSyntax::operator=(C_VARIABLE_SYNTAX& that)
 {
   CEssaySyntax::operator=(that);
 
-  _nameSpace = that._nameSpace;
+  _space = that._space;
   _name = that._name;
 
   return *this;
