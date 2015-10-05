@@ -44,6 +44,7 @@ using namespace std;
   #undef COMPILER_VC2010
   #undef COMPILER_VC2012
   #undef COMPILER_VC2013
+	#undef COMPILER_VC2015
 
   #define COMPILER_MSC
   #if _MSC_VER == 1200
@@ -58,7 +59,14 @@ using namespace std;
     #define COMPILER_VC2012
   #elif _MSC_VER == 1800
     #define COMPILER_VC2013
+	#elif _MSC_VER == 1900
+	#define COMPILER_VC2015
   #endif
+
+
+	#ifdef __cplusplus_cli
+	#define COMPILER_MSC_CLR
+	#endif
 #endif
 
 #ifdef __BORLANDC__
@@ -98,7 +106,9 @@ using namespace std;
 #ifdef COMPILER_MSC
   #include <windows.h>
   #include <typeinfo.h>
-  #include <vcclr.h>
+	#ifdef COMPILER_MSC_CLR
+		#include <vcclr.h>
+	#endif
 #endif
 
 #ifdef COMPILER_BCB
@@ -110,18 +120,18 @@ using namespace std;
 //Instruction
 //*******************************************************************************************************************//
 #ifdef COMPILER_MSC
-  #undef INSTRUCTION_X86
-  #undef INSTRUCTION_X64
-  #undef INSTRUCTION_IA64
+  #undef MACHINE_X86
+  #undef MACHINE_X64
+  #undef MACHINE_IA64
 
   #ifdef _M_IX86
-    #define INSTRUCTION_X86
+    #define MACHINE_X86
   #endif
   #ifdef _M_X64
-    #define INSTRUCTION_X64
+    #define MACHINE_X64
   #endif
   #ifdef _M_IA64
-    #define INSTRUCTION_IA64
+    #define MACHINE_IA64
   #endif
 #endif
 

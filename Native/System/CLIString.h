@@ -4,6 +4,7 @@
 //SUMMARY:
 //*******************************************************************************************************************//
 #pragma once
+#ifdef COMPILER_MSC_CLR
 
 #include "Dominion/Native/System/Base.h"
 
@@ -19,3 +20,4 @@ public:
 };
 
 END_DOMINION
+#endif

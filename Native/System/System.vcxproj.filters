@@ -1,102 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="CLIString.cpp">
-      <Filter>CLI</Filter>
-    </ClCompile>
-    <ClCompile Include="AbstractMethodException.cpp">
-      <Filter>Failure</Filter>
-    </ClCompile>
-    <ClCompile Include="Atom.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Bool.cpp">
-      <Filter>Types</Filter>
-    </ClCompile>
-    <ClCompile Include="Case.cpp">
-      <Filter>Failure</Filter>
-    </ClCompile>
-    <ClCompile Include="CaughtException.cpp">
-      <Filter>Failure</Filter>
-    </ClCompile>
-    <ClCompile Include="EmptyStringException.cpp">
-      <Filter>Failure</Filter>
-    </ClCompile>
-    <ClCompile Include="Troublespot.cpp">
-      <Filter>Failure</Filter>
-    </ClCompile>
-    <ClCompile Include="ZeroException.cpp">
-      <Filter>Failure</Filter>
-    </ClCompile>
-    <ClCompile Include="SubscriptOverflowException.cpp">
-      <Filter>Failure</Filter>
-    </ClCompile>
-    <ClCompile Include="FileStream.cpp">
-      <Filter>IO</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Exception.cpp">
-      <Filter>Failure</Filter>
-    </ClCompile>
-    <ClCompile Include="ExceedMemoryException.cpp">
-      <Filter>Failure</Filter>
-    </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="InvokingException.cpp">
-      <Filter>Failure</Filter>
-    </ClCompile>
-    <ClCompile Include="FileStreamException.cpp">
-      <Filter>IO</Filter>
-    </ClCompile>
-    <ClCompile Include="FilePath.cpp">
-      <Filter>IO</Filter>
-    </ClCompile>
+    <Filter Include="Base">
+      <UniqueIdentifier>{79396776-d2f1-438d-a8b4-2a64ff8395e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Failure">
+      <UniqueIdentifier>{8d3386d8-5cfa-4741-9208-a2e912a922aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CLI">
+      <UniqueIdentifier>{a86e0ceb-2d5e-4003-8bd6-200400b667ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO">
+      <UniqueIdentifier>{53d2b8c2-f052-450e-9a82-4d8ce670a177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Types">
+      <UniqueIdentifier>{140269ab-a46f-4390-82b8-74cc03803a6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Atom.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Base.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Comparable.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Filterable.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="NumericInfo.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Precompiled.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Standard.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="StringBuilder.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="StringTemplate.h">
-      <Filter>Base</Filter>
-    </ClInclude>
     <ClInclude Include="AbstractMethodException.h">
       <Filter>Failure</Filter>
     </ClInclude>
-    <ClInclude Include="Case.h">
+    <ClInclude Include="CaughtException.h">
       <Filter>Failure</Filter>
     </ClInclude>
-    <ClInclude Include="CaughtException.h">
+    <ClInclude Include="CLIString.h">
+      <Filter>CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="Bool.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Failure.h">
       <Filter>Failure</Filter>
     </ClInclude>
     <ClInclude Include="EmptyStringException.h">
@@ -105,44 +39,26 @@
     <ClInclude Include="ExceedMemoryException.h">
       <Filter>Failure</Filter>
     </ClInclude>
+    <ClInclude Include="Comparable.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom.h">
+      <Filter>Base</Filter>
+    </ClInclude>
     <ClInclude Include="Exception.h">
       <Filter>Failure</Filter>
     </ClInclude>
-    <ClInclude Include="Failure.h">
+    <ClInclude Include="Case.h">
       <Filter>Failure</Filter>
     </ClInclude>
-    <ClInclude Include="InexistentKeyException.h">
-      <Filter>Failure</Filter>
+    <ClInclude Include="Precompiled.h">
+      <Filter>Base</Filter>
     </ClInclude>
-    <ClInclude Include="InvokingException.h">
-      <Filter>Failure</Filter>
-    </ClInclude>
-    <ClInclude Include="NullException.h">
-      <Filter>Failure</Filter>
-    </ClInclude>
-    <ClInclude Include="Troublespot.h">
-      <Filter>Failure</Filter>
-    </ClInclude>
-    <ClInclude Include="ZeroException.h">
-      <Filter>Failure</Filter>
-    </ClInclude>
-    <ClInclude Include="Bool.h">
+    <ClInclude Include="Enum.h">
       <Filter>Types</Filter>
-    </ClInclude>
-    <ClInclude Include="Integer.h">
-      <Filter>Types</Filter>
-    </ClInclude>
-    <ClInclude Include="Types.h">
-      <Filter>Types</Filter>
-    </ClInclude>
-    <ClInclude Include="FileStreamException.h">
-      <Filter>IO</Filter>
-    </ClInclude>
-    <ClInclude Include="SubjectFileStream.h">
-      <Filter>IO</Filter>
-    </ClInclude>
-    <ClInclude Include="SubjectPersisting.h">
-      <Filter>IO</Filter>
     </ClInclude>
     <ClInclude Include="FilePath.h">
       <Filter>IO</Filter>
@@ -150,37 +66,121 @@
     <ClInclude Include="FileStream.h">
       <Filter>IO</Filter>
     </ClInclude>
-    <ClInclude Include="Enum.h">
+    <ClInclude Include="FileStreamException.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="Filterable.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="InexistentKeyException.h">
+      <Filter>Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="Integer.h">
       <Filter>Types</Filter>
     </ClInclude>
-    <ClInclude Include="SubscriptOverflowException.h">
+    <ClInclude Include="InvokingException.h">
+      <Filter>Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="NullException.h">
+      <Filter>Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="NumericInfo.h">
       <Filter>Failure</Filter>
     </ClInclude>
     <ClInclude Include="Observed.h">
       <Filter>Base</Filter>
     </ClInclude>
+    <ClInclude Include="SubscriptOverflowException.h">
+      <Filter>Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>Types</Filter>
+    </ClInclude>
     <ClInclude Include="Selector.h">
       <Filter>Types</Filter>
     </ClInclude>
-    <ClInclude Include="CLIString.h">
-      <Filter>CLI</Filter>
+    <ClInclude Include="Standard.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="SubjectFileStream.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="SubjectPersisting.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="Troublespot.h">
+      <Filter>Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="ZeroException.h">
+      <Filter>Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="StringBuilder.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="StringTemplate.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Base">
-      <UniqueIdentifier>{58c998df-0a2c-40fa-b7b5-ecdf269a1101}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Failure">
-      <UniqueIdentifier>{be6acce4-411b-46a9-b677-15d46429cc0d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Types">
-      <UniqueIdentifier>{d7e0bbcc-7db4-445c-892d-671ebb592eb8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="IO">
-      <UniqueIdentifier>{3b0f9171-7555-4892-9da6-9d1dbc019dc4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="CLI">
-      <UniqueIdentifier>{4fcba6a6-a2c7-4b9c-8545-eaeb231f6633}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="AbstractMethodException.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="CaughtException.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="CLIString.cpp">
+      <Filter>CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="Bool.cpp">
+      <Filter>Types</Filter>
+    </ClCompile>
+    <ClCompile Include="EmptyStringException.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="ExceedMemoryException.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="Case.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="FilePath.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="FileStream.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="FileStreamException.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="InvokingException.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="SubscriptOverflowException.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="Troublespot.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="ZeroException.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

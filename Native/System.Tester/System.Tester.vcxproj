@@ -18,7 +18,7 @@
     <SccProvider>SAK</SccProvider>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>SystemTester</RootNamespace>
-    <ProjectName>Dominion.Ecotope.Native.Tester</ProjectName>
+    <ProjectName>Dominion.Native.System.Tester</ProjectName>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -71,7 +71,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Dominion.Ecotope.Native.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Dominion.Native.System.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -91,7 +91,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Dominion.Ecotope.Native.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Dominion.Native.System.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

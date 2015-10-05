@@ -3,6 +3,7 @@
 //AUTHOR:
 //SUMMARY:
 //*******************************************************************************************************************//
+#ifdef COMPILER_MSC_CLR
 #include "CLIString.h"
 
 using namespace System::Runtime::InteropServices;
@@ -26,3 +27,4 @@ String^ CLIString::NativeToCLI(char* input)
 {
   return Marshal::PtrToStringAuto((IntPtr)input);
 }
+#endif
