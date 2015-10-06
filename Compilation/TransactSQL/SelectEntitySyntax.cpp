@@ -11,12 +11,12 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 CSelectEntitySyntax::CSelectEntitySyntax() :
   CTransactSQLSyntax(ESyntaxType::SelectEntity),
-  _topIndex(NONE_INDEX),
-  _selectedFieldChainIndex(NONE_INDEX),
-  _fromAliasChainIndex(NONE_INDEX),
-  _joinChainIndex(NONE_INDEX),
-  _whereIndex(NONE_INDEX),
-  _orderedFieldChainIndex(NONE_INDEX)
+  _topIndex(NONE_ID),
+  _selectedFieldChainIndex(NONE_ID),
+  _fromAliasChainIndex(NONE_ID),
+  _joinChainIndex(NONE_ID),
+  _whereIndex(NONE_ID),
+  _orderedFieldChainIndex(NONE_ID)
 {
 }
 

@@ -26,8 +26,8 @@ public:
   CSQLVariable(C_SQL_VARIABLE& that);
   CSQLVariable(C_SQL_VARIABLE&& that);
   CSQLVariable(WSTRING& name,
-               int32_t initialValue = NONE_INDEX,
-               int32_t realValue = NONE_INDEX,
+               int32_t initialValue = NONE_ID,
+               int32_t realValue = NONE_ID,
                bool isArgument = false);
   virtual ~CSQLVariable();
 

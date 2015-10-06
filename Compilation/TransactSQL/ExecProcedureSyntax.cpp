@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 CExecProcedureSyntax::CExecProcedureSyntax() :
   CTransactSQLSyntax(ESyntaxType::ExecProcedure),
-  _argumentChainIndex(NONE_INDEX)
+  _argumentChainIndex(NONE_ID)
 {
 }
 

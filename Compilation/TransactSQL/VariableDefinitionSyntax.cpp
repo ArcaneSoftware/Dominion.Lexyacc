@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 CVariableDefinitionSyntax::CVariableDefinitionSyntax() :
   CTransactSQLSyntax(ESyntaxType::VariableDefinition),
-  _valueIndex(NONE_INDEX),
+  _valueIndex(NONE_ID),
   _output(false)
 {
 }

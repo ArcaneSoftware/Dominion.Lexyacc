@@ -159,6 +159,8 @@
     <ClInclude Include="Dependence.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="Failure.h" />
+    <ClInclude Include="Identifier.h" />
+    <ClInclude Include="Namespace.h" />
     <ClInclude Include="Productor.h" />
     <ClInclude Include="Scalar.h" />
     <ClInclude Include="UnacceptableWordException.h" />
@@ -167,6 +169,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Error.cpp" />
+    <ClCompile Include="Identifier.cpp" />
+    <ClCompile Include="Namespace.cpp" />
     <ClCompile Include="Productor.cpp" />
     <ClCompile Include="Scalar.cpp" />
     <ClCompile Include="UnacceptableWordException.cpp" />

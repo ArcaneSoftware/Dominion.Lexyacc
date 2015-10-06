@@ -12,7 +12,7 @@ using namespace Dominion::Compilation::TransactSQL;
 COrderedFieldSyntax::COrderedFieldSyntax() :
   CTransactSQLSyntax(ESyntaxType::OrderedField),
   _orderByType(EOrderByType::Asc),
-  _identifierIndex(NONE_INDEX)
+  _identifierIndex(NONE_ID)
 {
 }
 

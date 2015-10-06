@@ -3,40 +3,40 @@
 //AUTHOR:
 //SUMMARY:
 //*******************************************************************************************************************//
-#include "VariableSyntax.h"
+#include "VariableAST.h"
 
 using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
-//CVariableSyntax
+//CVariableAST
 //*******************************************************************************************************************//
-CVariableSyntax::CVariableSyntax() :
+CVariableAST::CVariableAST() :
   CTransactSQLSyntax(ESyntaxType::Variable)
 {
 }
 
-CVariableSyntax::CVariableSyntax(C_VARIABLE_SYNTAX& that) :
+CVariableAST::CVariableAST(C_VARIABLE_AST& that) :
   CTransactSQLSyntax(that),
   _name(that._name)
 {
 }
 
-CVariableSyntax::CVariableSyntax(C_VARIABLE_SYNTAX&& that) :
+CVariableAST::CVariableAST(C_VARIABLE_AST&& that) :
   CTransactSQLSyntax(that),
   _name(move(that._name))
 {
 }
 
-CVariableSyntax::CVariableSyntax(int32_t livingLine, WSTRING& name) :
+CVariableAST::CVariableAST(int32_t livingLine, WSTRING& name) :
   CTransactSQLSyntax(ESyntaxType::Variable, livingLine),
   _name(name)
 {
 }
 
-CVariableSyntax::~CVariableSyntax()
+CVariableAST::~CVariableAST()
 {
 }
 
-C_VARIABLE_SYNTAX& CVariableSyntax::operator=(C_VARIABLE_SYNTAX& that)
+C_VARIABLE_AST& CVariableAST::operator=(C_VARIABLE_AST& that)
 {
   CTransactSQLSyntax::operator=(that);
   _name = that._name;

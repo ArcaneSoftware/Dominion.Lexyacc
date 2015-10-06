@@ -3,13 +3,13 @@
 //AUTHOR:
 //SUMMARY:
 //*******************************************************************************************************************//
-#include "SyntaxEnum.h"
+#include "ASTEnum.h"
 
 using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
-//CESyntaxType
+//CASTTypeEnum
 //*******************************************************************************************************************//
-map<wstring, ESyntaxType> CESyntaxType::STRING_TO_VALUE()
+map<wstring, ESyntaxType> CASTTypeEnum::STRING_TO_VALUE()
 {
   map<wstring, ESyntaxType> map;
 
@@ -40,7 +40,7 @@ map<wstring, ESyntaxType> CESyntaxType::STRING_TO_VALUE()
   return move(map);
 }
 
-map<ESyntaxType, wstring> CESyntaxType::VALUE_TO_STRING()
+map<ESyntaxType, wstring> CASTTypeEnum::VALUE_TO_STRING()
 {
   map<ESyntaxType, wstring> map;
 
@@ -71,35 +71,35 @@ map<ESyntaxType, wstring> CESyntaxType::VALUE_TO_STRING()
   return move(map);
 }
 
-CESyntaxType::CESyntaxType()
+CASTTypeEnum::CASTTypeEnum()
 {
 }
 
-CESyntaxType::CESyntaxType(CE_SYNTAX_TYPE& that) :
+CASTTypeEnum::CASTTypeEnum(C_AST_TYPE_ENUM& that) :
   CEnum(that)
 {
 }
 
-CESyntaxType::CESyntaxType(CE_SYNTAX_TYPE&& that) :
+CASTTypeEnum::CASTTypeEnum(C_AST_TYPE_ENUM&& that) :
   CEnum(that)
 {
 }
 
-CESyntaxType::CESyntaxType(ESyntaxType value) :
+CASTTypeEnum::CASTTypeEnum(ESyntaxType value) :
   CEnum(value, STRING_TO_VALUE, VALUE_TO_STRING)
 {
 }
 
-CESyntaxType::CESyntaxType(WSTRING& valueString) :
+CASTTypeEnum::CASTTypeEnum(WSTRING& valueString) :
   CEnum(valueString, STRING_TO_VALUE, VALUE_TO_STRING)
 {
 }
 
-CESyntaxType::~CESyntaxType()
+CASTTypeEnum::~CASTTypeEnum()
 {
 }
 
-CE_SYNTAX_TYPE& CESyntaxType::operator=(CE_SYNTAX_TYPE& that)
+C_AST_TYPE_ENUM& CASTTypeEnum::operator=(C_AST_TYPE_ENUM& that)
 {
   CEnum<ESyntaxType>::operator=(that);
 

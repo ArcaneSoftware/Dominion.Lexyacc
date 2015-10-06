@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 CFieldAliasSyntax::CFieldAliasSyntax() :
   CTransactSQLSyntax(ESyntaxType::FieldAlias),
-  _expressionIndex(NONE_INDEX)
+  _expressionIndex(NONE_ID)
 {
 }
 

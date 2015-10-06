@@ -120,6 +120,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>FixFiles.cmd</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -159,6 +162,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>FixFiles.cmd</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ASTs.h" />
@@ -167,7 +173,8 @@
     <ClInclude Include="DefineVariableSyntax.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Function.h" />
-    <ClInclude Include="NoneIndexSyntaxValidator.h" />
+    <ClInclude Include="SpaceStack.h" />
+    <ClInclude Include="NoneSyntaxValidator.h" />
     <ClInclude Include="NullOperationValidator.h" />
     <ClInclude Include="Parser.yy.h" />
     <ClInclude Include="position.hh" />
@@ -190,7 +197,8 @@
     <ClCompile Include="DefineVariableSyntax.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Function.cpp" />
-    <ClCompile Include="NoneIndexSyntaxValidator.cpp" />
+    <ClCompile Include="SpaceStack.cpp" />
+    <ClCompile Include="NoneSyntaxValidator.cpp" />
     <ClCompile Include="NullOperationValidator.cpp" />
     <ClCompile Include="Parser.yy.cpp" />
     <ClCompile Include="Producer.cpp" />

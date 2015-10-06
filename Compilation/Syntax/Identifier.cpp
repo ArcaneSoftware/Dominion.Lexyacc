@@ -3,49 +3,53 @@
 //AUTHOR:
 //SUMMARY:
 //*******************************************************************************************************************//
-#include "Productor.h"
+#include "Identifier.h"
 
-using namespace Dominion;
 using namespace Dominion::Compilation::Syntax;
 //*******************************************************************************************************************//
-//CProductor
+//CIdentifier
 //*******************************************************************************************************************//
-CProductor::CProductor() :
-  _successed(false),
-  _id(NONE_ID)
+CIdentifier::CIdentifier()
 {
 }
 
-CProductor::CProductor(C_PRODUCTOR& that) :
+CIdentifier::CIdentifier(C_IDENTIFIER& that) :
   CObject(that),
-  _successed(that._successed),
-  _id(that._id)
+  _namespace(that._namespace),
+  _name(that._name)
 {
 }
 
-CProductor::CProductor(C_PRODUCTOR&& that) :
+CIdentifier::CIdentifier(C_IDENTIFIER&& that) :
   CObject(that),
-  _successed(move(that._successed)),
-  _id(move(that._id))
+  _namespace(move(that._namespace)),
+  _name(move(that._name))
 {
 }
 
-CProductor::CProductor(bool successed, int32_t id) :
-  _successed(successed),
-  _id(id)
+CIdentifier::CIdentifier(C_NAMESPACE& _namespace_, WSTRING& name) :
+  _namespace(_namespace_),
+  _name(name)
 {
 }
 
-CProductor::~CProductor()
+CIdentifier::~CIdentifier()
 {
 }
 
-C_PRODUCTOR& CProductor::operator=(C_PRODUCTOR& that)
+wstring CIdentifier::ToString() const
+{
+  return _namespace.Empty() ?
+         _name :
+         _namespace.ToString() + L"." + _name;
+}
+
+C_IDENTIFIER& CIdentifier::operator=(C_IDENTIFIER& that)
 {
   CObject::operator=(that);
 
-  _successed = that._successed;
-  _id = that._id;
+  _namespace = that._namespace;
+  _name = that._name;
 
   return *this;
 }

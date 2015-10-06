@@ -12,8 +12,8 @@ using namespace Dominion::Compilation::TransactSQL;;
 //*******************************************************************************************************************//
 CCreateProcedureSyntax::CCreateProcedureSyntax() :
   CTransactSQLSyntax(ESyntaxType::CreateProcedure),
-  _variableDefinitionChainIndex(NONE_INDEX),
-  _blockIndex(NONE_INDEX)
+  _variableDefinitionChainIndex(NONE_ID),
+  _blockIndex(NONE_ID)
 {
 }
 

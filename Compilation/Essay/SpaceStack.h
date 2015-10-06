@@ -5,22 +5,27 @@
 //*******************************************************************************************************************//
 #pragma once
 
-#include "Dominion/Compilation/TransactSQL/GrammarEnum.h"
-#include "Dominion/Compilation/TransactSQL/SQLVariable.h"
-#include "Dominion/Compilation/TransactSQL/ASTEnum.h"
-#include "Dominion/Compilation/TransactSQL/Context.h"
-#include "Dominion/Compilation/TransactSQL/TransactSQLSyntax.h"
+#include "Dominion/Compilation/Essay/Elementary.h"
 
-BEGIN_DOMINION_COMPILATION_TRANSACTSQL
+BEGIN_DOMINION_COMPILATION_ESSAY
 //*****************************************************************************************************************//
-//ERangeKeyword
+//CSpaceStack
 //
 //*****************************************************************************************************************//
-enum class LIBRARY_EXPORT ERangeKeyword
+CLASS_DECLARATION(CSpaceStack, C_SPACE_STACK);
+class LIBRARY_EXPORT CSpaceStack : public CStack<wstring>
 {
-  All,
-  Some,
-  Any
+public:
+  CLASS_INHERITOR(CStack<wstring>, CSpaceStack);
+
+  CSpaceStack();
+  CSpaceStack(C_SPACE_STACK& that);
+  CSpaceStack(C_SPACE_STACK&& that);
+  virtual ~CSpaceStack();
+
+  CNamespace GetNamespace() const;
+
+  C_SPACE_STACK& operator=(C_SPACE_STACK& that);
 };
 
-END_DOMINION_COMPILATION_TRANSACTSQL
+END_DOMINION_COMPILATION_ESSAY

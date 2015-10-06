@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 CFunctionSyntax::CFunctionSyntax() :
   CTransactSQLSyntax(ESyntaxType::Function),
-  _argumentChainIndex(NONE_INDEX)
+  _argumentChainIndex(NONE_ID)
 {
 }
 

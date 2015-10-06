@@ -33,12 +33,15 @@ void F2()
   }
 }
 
-void F3(char i[32])
+void F3()
 {
-  strcpy(i, "124");
+  CNamespace ns(L"Dominion");
+
+  auto pns = ns.GetParent();
+  auto s = pns.ToString();
 }
 
 void main()
 {
-  F2();
+  F3();
 }

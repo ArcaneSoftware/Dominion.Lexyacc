@@ -72,24 +72,24 @@ enum class LIBRARY_EXPORT EOperationType
   IsNotNull
 };
 //*****************************************************************************************************************//
-//CEOperationType
+//COperationTypeEnum
 //
 //*****************************************************************************************************************//
-CLASS_DECLARATION(CEOperationType, CE_OPERATION_TYPE);
-class LIBRARY_EXPORT CEOperationType : public CEnum<EOperationType>
+CLASS_DECLARATION(COperationTypeEnum, CE_OPERATION_TYPE);
+class LIBRARY_EXPORT COperationTypeEnum : public CEnum<EOperationType>
 {
 public:
-  CLASS_INHERITOR(CEnum<EOperationType>, CEOperationType);
+  CLASS_INHERITOR(CEnum<EOperationType>, COperationTypeEnum);
 
   static map<wstring, EOperationType> STRING_TO_VALUE();
   static map<EOperationType, wstring> VALUE_TO_STRING();
 
-  CEOperationType();
-  CEOperationType(CE_OPERATION_TYPE& that);
-  CEOperationType(CE_OPERATION_TYPE&& that);
-  explicit CEOperationType(EOperationType value);
-  explicit CEOperationType(WSTRING& valueString);
-  virtual ~CEOperationType();
+  COperationTypeEnum();
+  COperationTypeEnum(CE_OPERATION_TYPE& that);
+  COperationTypeEnum(CE_OPERATION_TYPE&& that);
+  explicit COperationTypeEnum(EOperationType value);
+  explicit COperationTypeEnum(WSTRING& valueString);
+  virtual ~COperationTypeEnum();
 
   CE_OPERATION_TYPE& operator=(CE_OPERATION_TYPE& that);
 };

@@ -64,9 +64,9 @@ C_FLOW_ENUM& CEFlowType::operator=(C_FLOW_ENUM& that)
   return *this;
 }
 //*******************************************************************************************************************//
-//CEOperationType
+//COperationTypeEnum
 //*******************************************************************************************************************//
-map<wstring, EOperationType> CEOperationType::STRING_TO_VALUE()
+map<wstring, EOperationType> COperationTypeEnum::STRING_TO_VALUE()
 {
   map<wstring, EOperationType> map;
 
@@ -99,7 +99,7 @@ map<wstring, EOperationType> CEOperationType::STRING_TO_VALUE()
   return move(map);
 }
 
-map<EOperationType, wstring> CEOperationType::VALUE_TO_STRING()
+map<EOperationType, wstring> COperationTypeEnum::VALUE_TO_STRING()
 {
   map<EOperationType, wstring> map;
 
@@ -132,35 +132,35 @@ map<EOperationType, wstring> CEOperationType::VALUE_TO_STRING()
   return move(map);
 }
 
-CEOperationType::CEOperationType()
+COperationTypeEnum::COperationTypeEnum()
 {
 }
 
-CEOperationType::CEOperationType(CE_OPERATION_TYPE& that) :
+COperationTypeEnum::COperationTypeEnum(CE_OPERATION_TYPE& that) :
   CEnum(that)
 {
 }
 
-CEOperationType::CEOperationType(CE_OPERATION_TYPE&& that) :
+COperationTypeEnum::COperationTypeEnum(CE_OPERATION_TYPE&& that) :
   CEnum(that)
 {
 }
 
-CEOperationType::CEOperationType(EOperationType value) :
+COperationTypeEnum::COperationTypeEnum(EOperationType value) :
   CEnum(value, STRING_TO_VALUE, VALUE_TO_STRING)
 {
 }
 
-CEOperationType::CEOperationType(WSTRING& valueString) :
+COperationTypeEnum::COperationTypeEnum(WSTRING& valueString) :
   CEnum(valueString, STRING_TO_VALUE, VALUE_TO_STRING)
 {
 }
 
-CEOperationType::~CEOperationType()
+COperationTypeEnum::~COperationTypeEnum()
 {
 }
 
-CE_OPERATION_TYPE& CEOperationType::operator=(CE_OPERATION_TYPE& that)
+CE_OPERATION_TYPE& COperationTypeEnum::operator=(CE_OPERATION_TYPE& that)
 {
   CEnum<EOperationType>::operator=(that);
 

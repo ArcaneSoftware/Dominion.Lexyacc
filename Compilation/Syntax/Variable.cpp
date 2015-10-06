@@ -5,40 +5,39 @@
 //********************************************************************************************************************//
 #include "Variable.h"
 
-using namespace Dominion;
 using namespace Dominion::Compilation::Syntax;
 //********************************************************************************************************************//
 //CVariable
 //********************************************************************************************************************//
 CVariable::CVariable() :
-  _isArgument(false),
-  _initialValueIndex(NONE_INDEX),
-  _realValueIndex(NONE_INDEX)
+  _initialValueID(NONE_ID),
+  _realValueID(NONE_ID),
+  _isArgument(false)
 {
 }
 
 CVariable::CVariable(C_VARIABLE& that) :
   CObject(that),
-  _name(that._name),
-  _initialValueIndex(that._initialValueIndex),
-  _realValueIndex(that._realValueIndex),
+  _identifier(that._identifier),
+  _initialValueID(that._initialValueID),
+  _realValueID(that._realValueID),
   _isArgument(that._isArgument)
 {
 }
 
 CVariable::CVariable(C_VARIABLE&& that) :
   CObject(that),
-  _name(move(that._name)),
-  _initialValueIndex(move(that._initialValueIndex)),
-  _realValueIndex(move(that._realValueIndex)),
+  _identifier(move(that._identifier)),
+  _initialValueID(move(that._initialValueID)),
+  _realValueID(move(that._realValueID)),
   _isArgument(move(that._isArgument))
 {
 }
 
-CVariable::CVariable(WSTRING& name, int32_t initialValueIndex, int32_t realValueIndex, bool isArgument) :
-  _name(name),
-  _initialValueIndex(initialValueIndex),
-  _realValueIndex(realValueIndex),
+CVariable::CVariable(C_IDENTIFIER& identifier, int32_t initialValueID, int32_t realValueID, bool isArgument) :
+  _identifier(identifier),
+  _initialValueID(initialValueID),
+  _realValueID(realValueID),
   _isArgument(isArgument)
 {
 }
@@ -49,21 +48,21 @@ CVariable::~CVariable()
 
 bool CVariable::IsNilValue() const
 {
-  return GetSuitedValueIndex() == NONE_INDEX;
+  return GetSuitedValueIndex() == NONE_ID;
 }
 
 int32_t CVariable::GetSuitedValueIndex() const
 {
-  return _realValueIndex == NONE_INDEX ? _initialValueIndex : _realValueIndex;
+  return _realValueID == NONE_ID ? _initialValueID : _realValueID;
 }
 
 C_VARIABLE& CVariable::operator=(C_VARIABLE& that)
 {
   CObject::operator=(that);
 
-  _name = that._name;
-  _initialValueIndex = that._initialValueIndex;
-  _realValueIndex = that._realValueIndex;
+  _identifier = that._identifier;
+  _initialValueID = that._initialValueID;
+  _realValueID = that._realValueID;
   _isArgument = that._isArgument;
 
   return *this;

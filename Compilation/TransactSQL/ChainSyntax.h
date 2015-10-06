@@ -9,29 +9,29 @@
 
 BEGIN_DOMINION_COMPILATION_TRANSACTSQL
 //*****************************************************************************************************************//
-//CChainSyntax
+//CChainAST
 //
 //*****************************************************************************************************************//
-CLASS_DECLARATION(CChainSyntax, C_CHAIN_SYNTAX);
-class LIBRARY_EXPORT CChainSyntax : public CTransactSQLSyntax
+CLASS_DECLARATION(CChainAST, C_CHAIN_AST);
+class LIBRARY_EXPORT CChainAST : public CTransactSQLSyntax
 {
 public:
-  CLASS_INHERITOR(CTransactSQLSyntax, CChainSyntax);
+  CLASS_INHERITOR(CTransactSQLSyntax, CChainAST);
 
-  CChainSyntax();
-  CChainSyntax(C_CHAIN_SYNTAX& that);
-  CChainSyntax(C_CHAIN_SYNTAX&& that);
-  CChainSyntax(int32_t livingLine, int32_t currentIndex, int32_t nextIndex);
-  virtual ~CChainSyntax();
+  CChainAST();
+  CChainAST(C_CHAIN_AST& that);
+  CChainAST(C_CHAIN_AST&& that);
+  CChainAST(int32_t livingLine, int32_t currentID, int32_t nextID);
+  virtual ~CChainAST();
 
-  CLASS_PROPERTY(int32_t, _currentIndex, CurrentIndex);
-  CLASS_PROPERTY(int32_t, _nextIndex, NextIndex);
+  CLASS_PROPERTY(int32_t, _currentID, CurrentID);
+  CLASS_PROPERTY(int32_t, _nextID, NextID);
 
-  C_CHAIN_SYNTAX& operator=(C_CHAIN_SYNTAX& that);
+  C_CHAIN_AST& operator=(C_CHAIN_AST& that);
 
 private:
-  int32_t _currentIndex;
-  int32_t _nextIndex;
+  int32_t _currentID;
+  int32_t _nextID;
 };
 
 END_DOMINION_COMPILATION_TRANSACTSQL

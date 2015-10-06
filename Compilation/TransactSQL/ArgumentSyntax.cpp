@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;;
 //*******************************************************************************************************************//
 CArgumentSyntax::CArgumentSyntax() :
   CTransactSQLSyntax(ESyntaxType::Argument),
-  _valueIndex(NONE_INDEX),
+  _valueIndex(NONE_ID),
   _output(false)
 {
 }

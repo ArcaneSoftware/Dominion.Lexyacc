@@ -3,59 +3,59 @@
 //AUTHOR:
 //SUMMARY:
 //*******************************************************************************************************************//
-#include "OperationSyntax.h"
+#include "OperationAST.h"
 
 using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
-//COperationSyntax
+//COperationAST
 //*******************************************************************************************************************//
-COperationSyntax::COperationSyntax() :
+COperationAST::COperationAST() :
   CTransactSQLSyntax(ESyntaxType::Operation)
 {
 }
-COperationSyntax::COperationSyntax(C_OPERATION_SYNTAX& that) :
+COperationAST::COperationAST(C_OPERATION_AST& that) :
   CTransactSQLSyntax(that),
   _operationType(that._operationType),
-  _leftOperandIndex(that._leftOperandIndex),
+  _leftOperandID(that._leftOperandID),
   _centerOperandIndex(that._centerOperandIndex),
-  _rightOperandIndex(that._rightOperandIndex)
+  _rightOperandID(that._rightOperandID)
 {
 }
 
-COperationSyntax::COperationSyntax(C_OPERATION_SYNTAX&& that) :
+COperationAST::COperationAST(C_OPERATION_AST&& that) :
   CTransactSQLSyntax(that),
   _operationType(move(that._operationType)),
-  _leftOperandIndex(move(that._leftOperandIndex)),
+  _leftOperandID(move(that._leftOperandID)),
   _centerOperandIndex(move(that._centerOperandIndex)),
-  _rightOperandIndex(move(that._rightOperandIndex))
+  _rightOperandID(move(that._rightOperandID))
 {
 }
 
-COperationSyntax::COperationSyntax(int32_t livingLine,
+COperationAST::COperationAST(int32_t livingLine,
                                    EOperationType operationType,
-                                   int32_t leftOperandIndex,
+                                   int32_t leftOperandID,
                                    int32_t centerOperandIndex,
-                                   int32_t rightOperandIndex) :
+                                   int32_t rightOperandID) :
   CTransactSQLSyntax(ESyntaxType::Operation, livingLine),
   _operationType(operationType),
-  _leftOperandIndex(leftOperandIndex),
+  _leftOperandID(leftOperandID),
   _centerOperandIndex(centerOperandIndex),
-  _rightOperandIndex(rightOperandIndex)
+  _rightOperandID(rightOperandID)
 {
 }
 
-COperationSyntax::~COperationSyntax()
+COperationAST::~COperationAST()
 {
 }
 
-C_OPERATION_SYNTAX& COperationSyntax::operator=(C_OPERATION_SYNTAX& that)
+C_OPERATION_AST& COperationAST::operator=(C_OPERATION_AST& that)
 {
   CTransactSQLSyntax::operator=(that);
 
   _operationType = that._operationType;
-  _leftOperandIndex = that._leftOperandIndex;
+  _leftOperandID = that._leftOperandID;
   _centerOperandIndex = that._centerOperandIndex;
-  _rightOperandIndex = that._rightOperandIndex;
+  _rightOperandID = that._rightOperandID;
 
   return *this;
 }

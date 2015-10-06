@@ -5,8 +5,8 @@
 //*******************************************************************************************************************//
 #pragma once
 
-#include "Dominion/Compilation/Essay/Elementary.h"
 #include "Dominion/Compilation/Essay/ASTs.h"
+#include "Dominion/Compilation/Essay/SpaceStack.h"
 
 BEGIN_DOMINION_COMPILATION_ESSAY
 //*****************************************************************************************************************//
@@ -37,7 +37,7 @@ protected:
   template<typename TSyntax>
   CProductor Produce(const TSyntax& syntax, const vector<CError>& errorVector)
   {
-    int32_t index = NONE_INDEX;
+    int32_t index = NONE_ID;
     auto successed = true;
 
     for (auto each : errorVector)
@@ -69,19 +69,19 @@ public:
   //Statement
   CProductor DefineVariable(C_DEFINE_VARIABLE_SYNTAX& syntax);
 
-  shared_ptr<CEssaySyntax> GetSyntax(int32_t syntaxIndex) const;
+  shared_ptr<CEssaySyntax> GetSyntax(int32_t syntaxID) const;
   WSTRING& GetFile() const;
-  void SetEntry(int32_t entry);
+  void SetEntry(int32_t entryID);
 
-  CLASS_PROPERTY(wstring, _parsingSpace, ParsingSpace);
+  void PushSpace(WSTRING& space);
 
   C_PRODUCER& operator=(C_PRODUCER& that);
 
 private:
-  wstring _parsingSpace;
   wstring _file;
   CContext _context;
   vector<CError> _errorVector;
+  CSpaceStack _spaceStack;
 };
 
 END_DOMINION_COMPILATION_ESSAY

@@ -12,9 +12,9 @@ using namespace Dominion::Compilation::TransactSQL;
 CFlowSyntax::CFlowSyntax() :
   CTransactSQLSyntax(ESyntaxType::Flow),
   _flowType(EFlowType::If),
-  _conditionIndex(NONE_INDEX),
-  _thenBlockIndex(NONE_INDEX),
-  _elseBlockIndex(NONE_INDEX)
+  _conditionIndex(NONE_ID),
+  _thenBlockIndex(NONE_ID),
+  _elseBlockIndex(NONE_ID)
 {
 }
 

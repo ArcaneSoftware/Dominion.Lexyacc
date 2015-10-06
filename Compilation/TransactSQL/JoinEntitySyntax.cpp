@@ -12,8 +12,8 @@ using namespace Dominion::Compilation::TransactSQL;
 CJoinEntitySyntax::CJoinEntitySyntax() :
   CTransactSQLSyntax(ESyntaxType::JoinEntity),
   _joinType(EJoinType::JoinEntity),
-  _aliasIndex(NONE_INDEX),
-  _conditionIndex(NONE_INDEX)
+  _aliasIndex(NONE_ID),
+  _conditionIndex(NONE_ID)
 {
 }
 

@@ -35,10 +35,10 @@ Block,
 */
 
 #include "Dominion/Compilation/TransactSQL/ConstantSyntax.h"
-#include "Dominion/Compilation/TransactSQL/VariableSyntax.h"
+#include "Dominion/Compilation/TransactSQL/VariableAST.h"
 #include "Dominion/Compilation/TransactSQL/FunctionSyntax.h"
-#include "Dominion/Compilation/TransactSQL/ChainSyntax.h"
-#include "Dominion/Compilation/TransactSQL/OperationSyntax.h"
+#include "Dominion/Compilation/TransactSQL/ChainAST.h"
+#include "Dominion/Compilation/TransactSQL/OperationAST.h"
 #include "Dominion/Compilation/TransactSQL/CaseSyntax.h"
 #include "Dominion/Compilation/TransactSQL/WhenSyntax.h"
 #include "Dominion/Compilation/TransactSQL/VariableDefinitionSyntax.h"

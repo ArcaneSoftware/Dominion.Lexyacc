@@ -9,3 +9,4 @@
 #include "Dominion/Native/System/Integer.h"
 #include "Dominion/Native/System/Bool.h"
 #include "Dominion/Native/System/Selector.h"
+#include "Dominion/Native/System/Stack.h"

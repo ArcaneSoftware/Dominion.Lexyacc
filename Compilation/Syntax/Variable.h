@@ -5,7 +5,7 @@
 //********************************************************************************************************************//
 #pragma once
 
-#include "Dominion/Compilation/Syntax/Dependence.h"
+#include "Dominion/Compilation/Syntax/Identifier.h"
 
 BEGIN_DOMINION_COMPILATION_SYNTAX
 //****************************************************************************************************************//
@@ -17,29 +17,30 @@ class LIBRARY_EXPORT CVariable : public CObject
 {
 public:
   CLASS_INHERITOR(CObject, CVariable);
+
   CVariable();
   CVariable(C_VARIABLE& that);
   CVariable(C_VARIABLE&& that);
-  CVariable(WSTRING& name,
-            int32_t initialValueIndex = NONE_INDEX,
-            int32_t realValueIndex = NONE_INDEX,
+  CVariable(C_IDENTIFIER& identifier,
+            int32_t initialValueID = NONE_ID,
+            int32_t realValueID = NONE_ID,
             bool isArgument = false);
   virtual ~CVariable();
 
   bool IsNilValue() const;
   int32_t GetSuitedValueIndex() const;
 
-  CLASS_PROPERTY(wstring, _name, Name);
-  CLASS_PROPERTY(int32_t, _initialValueIndex, InitialValueIndex);
-  CLASS_PROPERTY(int32_t, _realValueIndex, RealValueIndex);
+  CLASS_PROPERTY(CIdentifier, _identifier, Identifier);
+  CLASS_PROPERTY(int32_t, _initialValueID, InitialValueID);
+  CLASS_PROPERTY(int32_t, _realValueID, RealValueID);
   CLASS_PROPERTY(bool, _isArgument, IsArgument);
 
   C_VARIABLE& operator=(C_VARIABLE& that);
 
 private:
-  wstring _name;
-  int32_t _initialValueIndex;
-  int32_t _realValueIndex;
+  CIdentifier _identifier;
+  int32_t _initialValueID;
+  int32_t _realValueID;
   bool _isArgument;
 };
 

@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;;
 //*******************************************************************************************************************//
 CDeclareVariablesSyntax::CDeclareVariablesSyntax() :
   CTransactSQLSyntax(ESyntaxType::DeclareVariables),
-  _variableDefinitionChainIndex(NONE_INDEX)
+  _variableDefinitionChainIndex(NONE_ID)
 {
 }
 

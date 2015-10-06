@@ -9,24 +9,24 @@
 
 BEGIN_DOMINION_COMPILATION_TRANSACTSQL
 //*****************************************************************************************************************//
-//CVariableSyntax
+//CVariableAST
 //
 //*****************************************************************************************************************//
-CLASS_DECLARATION(CVariableSyntax, C_VARIABLE_SYNTAX);
-class LIBRARY_EXPORT CVariableSyntax : public CTransactSQLSyntax
+CLASS_DECLARATION(CVariableAST, C_VARIABLE_AST);
+class LIBRARY_EXPORT CVariableAST : public CTransactSQLSyntax
 {
 public:
-  CLASS_INHERITOR(CTransactSQLSyntax, CVariableSyntax);
+  CLASS_INHERITOR(CTransactSQLSyntax, CVariableAST);
 
-  CVariableSyntax();
-  CVariableSyntax(C_VARIABLE_SYNTAX& that);
-  CVariableSyntax(C_VARIABLE_SYNTAX&& that);
-  CVariableSyntax(int32_t livingLine, WSTRING& name);
-  virtual ~CVariableSyntax();
+  CVariableAST();
+  CVariableAST(C_VARIABLE_AST& that);
+  CVariableAST(C_VARIABLE_AST&& that);
+  CVariableAST(int32_t livingLine, WSTRING& name);
+  virtual ~CVariableAST();
 
   CLASS_PROPERTY(wstring, _name, Name);
 
-  C_VARIABLE_SYNTAX& operator=(C_VARIABLE_SYNTAX& that);
+  C_VARIABLE_AST& operator=(C_VARIABLE_AST& that);
 
 private:
   wstring _name;

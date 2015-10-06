@@ -9,16 +9,16 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 //CMissSyntaxException
 //*******************************************************************************************************************//
-wstring CMissSyntaxException::MAKE_NOTE(int32_t syntax)
+wstring CMissSyntaxException::MAKE_NOTE(int32_t ast)
 {
-  return CWStringTemplate(L"Miss syntax index:[%x];").Format(syntax);
+  return CWStringTemplate(L"Miss ast index:[%x];").Format(ast);
 }
 
-void CMissSyntaxException::CHECK(size_t syntax, C_CONTEXT& context, C_TROUBLESPOT& troublespot)
+void CMissSyntaxException::CHECK(size_t ast, C_CONTEXT& context, C_TROUBLESPOT& troublespot)
 {
-  if (!context.ExistSyntax(syntax))
+  if (!context.ExistSyntax(ast))
   {
-    throw CExceedMemoryException(CTroublespot(troublespot).AppendNote(MAKE_NOTE(syntax)));
+    throw CExceedMemoryException(CTroublespot(troublespot).AppendNote(MAKE_NOTE(ast)));
   }
 }
 

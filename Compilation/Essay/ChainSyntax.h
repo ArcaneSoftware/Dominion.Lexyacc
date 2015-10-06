@@ -21,17 +21,17 @@ public:
   CChainSyntax();
   CChainSyntax(C_CHAIN_SYNTAX& that);
   CChainSyntax(C_CHAIN_SYNTAX&& that);
-  CChainSyntax(int32_t livingLine, int32_t currentIndex, int32_t nextIndex);
+  CChainSyntax(int32_t livingLine, int32_t currentID, int32_t nextID);
   virtual ~CChainSyntax();
 
-  CLASS_PROPERTY(int32_t, _currentIndex, CurrentIndex);
-  CLASS_PROPERTY(int32_t, _nextIndex, NextIndex);
+  CLASS_PROPERTY(int32_t, _currentID, CurrentID);
+  CLASS_PROPERTY(int32_t, _nextID, NextID);
 
   C_CHAIN_SYNTAX& operator=(C_CHAIN_SYNTAX& that);
 
 private:
-  int32_t _currentIndex;
-  int32_t _nextIndex;
+  int32_t _currentID;
+  int32_t _nextID;
 };
 
 END_DOMINION_COMPILATION_ESSAY

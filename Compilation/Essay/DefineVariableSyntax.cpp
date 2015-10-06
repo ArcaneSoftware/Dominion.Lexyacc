@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::Essay;
 //*******************************************************************************************************************//
 CDefineVariableSyntax::CDefineVariableSyntax() :
   CEssaySyntax(ESyntaxType::DefineVariable),
-  _initialValueIndex(NONE_INDEX)
+  _initialValueID(NONE_ID)
 {
 }
 
@@ -20,7 +20,7 @@ CDefineVariableSyntax::CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX& that) :
   _variableType(that._variableType),
   _space(that._space),
   _name(that._name),
-  _initialValueIndex(that._initialValueIndex)
+  _initialValueID(that._initialValueID)
 {
 }
 
@@ -29,20 +29,20 @@ CDefineVariableSyntax::CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX&& that) :
   _variableType(move(that._variableType)),
   _space(move(that._space)),
   _name(move(that._name)),
-  _initialValueIndex(move(that._initialValueIndex))
+  _initialValueID(move(that._initialValueID))
 {
 }
 
 CDefineVariableSyntax::CDefineVariableSyntax(int32_t livingLine,
                                              EVariableType variableType,
-                                             WSTRING& space,
+                                             C_NAMESPACE& _namespace_,
                                              WSTRING& name,
-                                             int32_t initialValueIndex) :
+                                             int32_t initialValueID) :
   CEssaySyntax(ESyntaxType::DefineVariable, livingLine),
   _variableType(variableType),
   _space(space),
   _name(name),
-  _initialValueIndex(initialValueIndex)
+  _initialValueID(initialValueID)
 {
 }
 
@@ -57,7 +57,7 @@ C_DEFINE_VARIABLE_SYNTAX& CDefineVariableSyntax::operator=(C_DEFINE_VARIABLE_SYN
   _variableType = that._variableType;
   _space = that._space;
   _name = that._name;
-  _initialValueIndex = that._initialValueIndex;
+  _initialValueID = that._initialValueID;
 
   return *this;
 }

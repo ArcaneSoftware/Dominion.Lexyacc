@@ -42,26 +42,26 @@ enum class LIBRARY_EXPORT ESyntaxType
   Block,
 };
 //*****************************************************************************************************************//
-//CESyntaxType
+//CASTTypeEnum
 //
 //*****************************************************************************************************************//
-CLASS_DECLARATION(CESyntaxType, CE_SYNTAX_TYPE);
-class LIBRARY_EXPORT CESyntaxType : public CEnum<ESyntaxType>
+CLASS_DECLARATION(CASTTypeEnum, C_AST_TYPE_ENUM);
+class LIBRARY_EXPORT CASTTypeEnum : public CEnum<ESyntaxType>
 {
 public:
-  CLASS_INHERITOR(CEnum<ESyntaxType>, CESyntaxType);
+  CLASS_INHERITOR(CEnum<ESyntaxType>, CASTTypeEnum);
 
   static map<wstring, ESyntaxType> STRING_TO_VALUE();
   static map<ESyntaxType, wstring> VALUE_TO_STRING();
 
-  CESyntaxType();
-  CESyntaxType(CE_SYNTAX_TYPE& that);
-  CESyntaxType(CE_SYNTAX_TYPE&& that);
-  explicit CESyntaxType(ESyntaxType value);
-  explicit CESyntaxType(WSTRING& valueString);
-  virtual ~CESyntaxType();
+  CASTTypeEnum();
+  CASTTypeEnum(C_AST_TYPE_ENUM& that);
+  CASTTypeEnum(C_AST_TYPE_ENUM&& that);
+  explicit CASTTypeEnum(ESyntaxType value);
+  explicit CASTTypeEnum(WSTRING& valueString);
+  virtual ~CASTTypeEnum();
 
-  CE_SYNTAX_TYPE& operator=(CE_SYNTAX_TYPE& that);
+  C_AST_TYPE_ENUM& operator=(C_AST_TYPE_ENUM& that);
 };
 
 END_DOMINION_COMPILATION_TRANSACTSQL

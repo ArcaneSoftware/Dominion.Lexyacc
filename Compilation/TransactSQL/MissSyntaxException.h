@@ -18,8 +18,8 @@ class LIBRARY_EXPORT CMissSyntaxException : public CException
 public:
   CLASS_INHERITOR(CException, CMissSyntaxException);
 
-  inline static wstring MAKE_NOTE(int32_t syntax);
-  inline static void CHECK(size_t syntax, C_CONTEXT& context, C_TROUBLESPOT& troublespot) throw();
+  inline static wstring MAKE_NOTE(int32_t ast);
+  inline static void CHECK(size_t ast, C_CONTEXT& context, C_TROUBLESPOT& troublespot) throw();
 
 protected:
   CMissSyntaxException();

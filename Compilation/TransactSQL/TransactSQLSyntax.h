@@ -5,7 +5,7 @@
 //*******************************************************************************************************************//
 #pragma once
 
-#include "Dominion/Compilation/TransactSQL/SyntaxEnum.h"
+#include "Dominion/Compilation/TransactSQL/ASTEnum.h"
 
 using namespace Dominion::Syntax;
 

@@ -3,48 +3,48 @@
 //AUTHOR:
 //SUMMARY:
 //*******************************************************************************************************************//
-#include "ChainSyntax.h"
+#include "ChainAST.h"
 
 using namespace Dominion::Compilation::TransactSQL;;
 //*******************************************************************************************************************//
-//CChainSyntax
+//CChainAST
 //*******************************************************************************************************************//
-CChainSyntax::CChainSyntax() :
+CChainAST::CChainAST() :
   CTransactSQLSyntax(ESyntaxType::Chain),
-  _currentIndex(NONE_INDEX),
-  _nextIndex(NONE_INDEX)
+  _currentID(NONE_ID),
+  _nextID(NONE_ID)
 {
 }
 
-CChainSyntax::CChainSyntax(C_CHAIN_SYNTAX& that) :
+CChainAST::CChainAST(C_CHAIN_AST& that) :
   CTransactSQLSyntax(that),
-  _currentIndex(that._currentIndex),
-  _nextIndex(that._nextIndex)
+  _currentID(that._currentID),
+  _nextID(that._nextID)
 {
 }
 
-CChainSyntax::CChainSyntax(C_CHAIN_SYNTAX&& that) :
+CChainAST::CChainAST(C_CHAIN_AST&& that) :
   CTransactSQLSyntax(that),
-  _currentIndex(move(that._currentIndex)),
-  _nextIndex(move(that._nextIndex))
+  _currentID(move(that._currentID)),
+  _nextID(move(that._nextID))
 {
 }
 
-CChainSyntax::CChainSyntax(int32_t livingLine, int32_t currentIndex, int32_t nextIndex) :
+CChainAST::CChainAST(int32_t livingLine, int32_t currentID, int32_t nextID) :
   CTransactSQLSyntax(ESyntaxType::Chain, livingLine),
-  _currentIndex(currentIndex),
-  _nextIndex(nextIndex)
+  _currentID(currentID),
+  _nextID(nextID)
 {
 }
 
-CChainSyntax::~CChainSyntax()
+CChainAST::~CChainAST()
 {
 }
 
-C_CHAIN_SYNTAX& CChainSyntax::operator=(C_CHAIN_SYNTAX& that)
+C_CHAIN_AST& CChainAST::operator=(C_CHAIN_AST& that)
 {
   CTransactSQLSyntax::operator=(that);
-  _currentIndex = that._currentIndex;
-  _nextIndex = that._nextIndex;
+  _currentID = that._currentID;
+  _nextID = that._nextID;
   return *this;
 }

@@ -21,17 +21,17 @@ public:
   CProductor();
   CProductor(C_PRODUCTOR& that);
   CProductor(C_PRODUCTOR&& that);
-  explicit CProductor(bool successed, int32_t index);
+  explicit CProductor(bool successed, int32_t id);
   virtual ~CProductor();
 
   CLASS_PROPERTY(bool, _successed, Successed);
-  CLASS_PROPERTY(int32_t, _index, Index);
+  CLASS_PROPERTY(int32_t, _id, ID);
 
   C_PRODUCTOR& operator=(C_PRODUCTOR& that);
 
 protected:
   bool _successed;
-  int32_t _index;
+  int32_t _id;
 };
 
 END_DOMINION_COMPILATION_SYNTAX

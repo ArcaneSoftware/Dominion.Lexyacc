@@ -9,38 +9,38 @@
 
 BEGIN_DOMINION_COMPILATION_TRANSACTSQL
 //*****************************************************************************************************************//
-//COperationSyntax
+//COperationAST
 //
 //*****************************************************************************************************************//
-CLASS_DECLARATION(COperationSyntax, C_OPERATION_SYNTAX);
-class LIBRARY_EXPORT COperationSyntax : public CTransactSQLSyntax
+CLASS_DECLARATION(COperationAST, C_OPERATION_AST);
+class LIBRARY_EXPORT COperationAST : public CTransactSQLSyntax
 {
 public:
-  CLASS_INHERITOR(CTransactSQLSyntax, COperationSyntax);
+  CLASS_INHERITOR(CTransactSQLSyntax, COperationAST);
 
-  COperationSyntax();
-  COperationSyntax(C_OPERATION_SYNTAX& that);
-  COperationSyntax(C_OPERATION_SYNTAX&& that);
-  COperationSyntax(int32_t livingLine,
+  COperationAST();
+  COperationAST(C_OPERATION_AST& that);
+  COperationAST(C_OPERATION_AST&& that);
+  COperationAST(int32_t livingLine,
                    EOperationType operationType,
-                   int32_t leftOperandIndex,
+                   int32_t leftOperandID,
                    int32_t centerOperandIndex,
-                   int32_t rightOperandIndex);
-  virtual ~COperationSyntax();
+                   int32_t rightOperandID);
+  virtual ~COperationAST();
 
   CLASS_PROPERTY(EOperationType, _operationType, OperationType);
-  CLASS_PROPERTY(int32_t, _leftOperandIndex, LeftOperandIndex);
+  CLASS_PROPERTY(int32_t, _leftOperandID, LeftOperandID);
   CLASS_PROPERTY(int32_t, _centerOperandIndex, CenterOperandIndex);
-  CLASS_PROPERTY(int32_t, _rightOperandIndex, RightOperandIndex);
+  CLASS_PROPERTY(int32_t, _rightOperandID, RightOperandID);
 
 public:
-  C_OPERATION_SYNTAX& operator=(C_OPERATION_SYNTAX& that);
+  C_OPERATION_AST& operator=(C_OPERATION_AST& that);
 
 private:
   EOperationType _operationType;
-  int32_t _leftOperandIndex;
+  int32_t _leftOperandID;
   int32_t _centerOperandIndex;
-  int32_t _rightOperandIndex;
+  int32_t _rightOperandID;
 };
 
 END_DOMINION_COMPILATION_TRANSACTSQL

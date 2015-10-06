@@ -11,9 +11,9 @@ using namespace Dominion::Compilation::TransactSQL;;
 //*******************************************************************************************************************//
 CCaseSyntax::CCaseSyntax() :
   CTransactSQLSyntax(ESyntaxType::Case),
-  _conditionIndex(NONE_INDEX),
-  _whenChainIndex(NONE_INDEX),
-  _elseIndex(NONE_INDEX)
+  _conditionIndex(NONE_ID),
+  _whenChainIndex(NONE_ID),
+  _elseIndex(NONE_ID)
 {
 }
 

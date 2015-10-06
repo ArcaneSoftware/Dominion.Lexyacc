@@ -31,12 +31,12 @@ public:
   void DefineVariable(WSTRING& name, int32_t initialValue);
   bool ExistSyntax(int32_t index) const;
   bool DefinedVariable(WSTRING& name) const;
-  shared_ptr<CEssaySyntax> GetSyntax(int32_t syntaxIndex) const;
+  shared_ptr<CEssaySyntax> GetSyntax(int32_t syntaxID) const;
   int32_t AppendSyntax(CEssaySyntax* syntax);
 
   CLASS_PROPERTY(map<wstring _COMMA CVariable>, _definedVariableMap, DefinedVariableMap);
   CLASS_PROPERTY(vector<shared_ptr<CEssaySyntax>>, _syntaxVector, SyntaxVector);
-  CLASS_PROPERTY(int32_t, _entryIndex, EntryIndex);
+  CLASS_PROPERTY(int32_t, _entryID, EntryID);
 
 public:
   C_CONTEXT& operator=(C_CONTEXT& that);
@@ -44,7 +44,7 @@ public:
 private:
   map<wstring, CVariable> _definedVariableMap;
   vector<shared_ptr<CEssaySyntax>> _syntaxVector;
-  int32_t _entryIndex;
+  int32_t _entryID;
   FToVariableKey _ToVariableKey;
 };
 

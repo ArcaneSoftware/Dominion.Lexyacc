@@ -64,7 +64,7 @@ CProductor CProducer::Chain(C_CHAIN_SYNTAX& syntax)
 {
   auto errors = vector<CError>
   {
-    CNoneIndexSyntaxValidator().Validate(syntax, _context)
+    CNoneSyntaxValidator().Validate(syntax, _context)
   };
 
   return Produce<CChainSyntax>(syntax, errors);
@@ -95,9 +95,9 @@ CProductor CProducer::DefineVariable(C_DEFINE_VARIABLE_SYNTAX& syntax)
   return Produce<CDefineVariableSyntax>(syntax);
 }
 
-shared_ptr<CEssaySyntax> CProducer::GetSyntax(int32_t syntaxIndex) const
+shared_ptr<CEssaySyntax> CProducer::GetSyntax(int32_t syntaxID) const
 {
-  return _context.GetSyntax(syntaxIndex);
+  return _context.GetSyntax(syntaxID);
 }
 
 WSTRING& CProducer::GetFile() const
@@ -105,9 +105,14 @@ WSTRING& CProducer::GetFile() const
   return _file;
 }
 
-void CProducer::SetEntry(int32_t entry)
+void CProducer::SetEntry(int32_t entryID)
 {
-  _context.SetEntryIndex(entry);
+  _context.SetEntryID(entryID);
+}
+
+void CProducer::PushSpace(WSTRING& space)
+{
+  _spaceStack.Push(space);
 }
 
 C_PRODUCER& CProducer::operator=(C_PRODUCER& that)

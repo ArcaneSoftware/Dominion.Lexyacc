@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;;
 //*******************************************************************************************************************//
 CAssignVariableSyntax::CAssignVariableSyntax() :
   CTransactSQLSyntax(ESyntaxType::AssignVariable),
-  _valueIndex(NONE_INDEX)
+  _valueIndex(NONE_ID)
 {
 }
 

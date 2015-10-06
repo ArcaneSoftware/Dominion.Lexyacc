@@ -17,6 +17,8 @@
     <ClInclude Include="UnacceptableWordException.h">
       <Filter>Failure</Filter>
     </ClInclude>
+    <ClInclude Include="Namespace.h" />
+    <ClInclude Include="Identifier.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Error.cpp" />
@@ -26,5 +28,7 @@
     <ClCompile Include="UnacceptableWordException.cpp">
       <Filter>Failure</Filter>
     </ClCompile>
+    <ClCompile Include="Namespace.cpp" />
+    <ClCompile Include="Identifier.cpp" />
   </ItemGroup>
 </Project>

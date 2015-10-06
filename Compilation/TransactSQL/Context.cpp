@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;;
 //CContext
 //*******************************************************************************************************************//
 CContext::CContext() :
-  _entryIndex(NONE_INDEX),
+  _entryID(NONE_ID),
   _ToVariableKey(nullptr)
 {
 }
@@ -20,7 +20,7 @@ CContext::CContext(C_CONTEXT& that) :
   CObject(that),
   _definedVariableMap(that._definedVariableMap),
   _syntaxVector(that._syntaxVector),
-  _entryIndex(that._entryIndex),
+  _entryID(that._entryID),
   _ToVariableKey(that._ToVariableKey)
 {
 }
@@ -29,13 +29,13 @@ CContext::CContext(C_CONTEXT&& that) :
   CObject(that),
   _definedVariableMap(move(that._definedVariableMap)),
   _syntaxVector(move(that._syntaxVector)),
-  _entryIndex(move(that._entryIndex)),
+  _entryID(move(that._entryID)),
   _ToVariableKey(move(that._ToVariableKey))
 {
 }
 
 CContext::CContext(FToVariableKey ToVariableKey) :
-  _entryIndex(NONE_INDEX),
+  _entryID(NONE_ID),
   _ToVariableKey(ToVariableKey)
 {
 }
@@ -58,7 +58,7 @@ void CContext::DefineLocalVariable(WSTRING& name, int32_t initialValue)
 
 bool CContext::ExistSyntax(int32_t index) const
 {
-  return index != NONE_INDEX && index < _syntaxVector.size();
+  return index != NONE_ID && index < _syntaxVector.size();
 }
 
 bool CContext::DefinedLocalVariable(WSTRING& name) const
@@ -66,11 +66,11 @@ bool CContext::DefinedLocalVariable(WSTRING& name) const
   return _definedVariableMap.find(_ToVariableKey(name)) != _definedVariableMap.end();
 }
 
-shared_ptr<CTransactSQLSyntax> CContext::GetSyntax(int32_t syntaxIndex) const
+shared_ptr<CTransactSQLSyntax> CContext::GetSyntax(int32_t syntaxID) const
 {
-  if (ExistSyntax(syntaxIndex))
+  if (ExistSyntax(syntaxID))
   {
-    return _syntaxVector[syntaxIndex];
+    return _syntaxVector[syntaxID];
   }
   else
   {
@@ -78,9 +78,9 @@ shared_ptr<CTransactSQLSyntax> CContext::GetSyntax(int32_t syntaxIndex) const
   }
 }
 
-int32_t CContext::AppendSyntax(CTransactSQLSyntax* syntax)
+int32_t CContext::AppendAST(CTransactSQLSyntax* ast)
 {
-  _syntaxVector.push_back(shared_ptr<CTransactSQLSyntax>(syntax));
+  _syntaxVector.push_back(shared_ptr<CTransactSQLSyntax>(ast));
 
   return _syntaxVector.size() - 1;
 }
@@ -91,7 +91,7 @@ C_CONTEXT& CContext::operator=(C_CONTEXT& that)
 
   _definedVariableMap = that._definedVariableMap;
   _syntaxVector = that._syntaxVector;
-  _entryIndex = that._entryIndex;
+  _entryID = that._entryID;
   _ToVariableKey = that._ToVariableKey;
 
   return *this;

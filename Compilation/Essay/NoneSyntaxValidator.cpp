@@ -3,39 +3,39 @@
 //AUTHOR:
 //SUMMARY:
 //*******************************************************************************************************************//
-#include "NoneIndexSyntaxValidator.h"
+#include "NoneSyntaxValidator.h"
 
 using namespace Dominion::Compilation::Essay;
 //*******************************************************************************************************************//
-//CNoneIndexSyntaxValidator
+//CNoneSyntaxValidator
 //*******************************************************************************************************************//
-CNoneIndexSyntaxValidator::CNoneIndexSyntaxValidator()
+CNoneSyntaxValidator::CNoneSyntaxValidator()
 {
 }
 
-CNoneIndexSyntaxValidator::CNoneIndexSyntaxValidator(C_NONE_INDEX_SYNTAX_VALIDATOR& that) :
+CNoneSyntaxValidator::CNoneSyntaxValidator(C_NONE_SYNTAX_VALIDATOR& that) :
   CObject(that)
 {
 }
 
-CNoneIndexSyntaxValidator::CNoneIndexSyntaxValidator(C_NONE_INDEX_SYNTAX_VALIDATOR&& that) :
+CNoneSyntaxValidator::CNoneSyntaxValidator(C_NONE_SYNTAX_VALIDATOR&& that) :
   CObject(that)
 {
 }
 
-CNoneIndexSyntaxValidator::~CNoneIndexSyntaxValidator()
+CNoneSyntaxValidator::~CNoneSyntaxValidator()
 {
 }
 
-CError CNoneIndexSyntaxValidator::Validate(C_CHAIN_SYNTAX& syntax, C_CONTEXT& context) const
+CError CNoneSyntaxValidator::Validate(C_CHAIN_SYNTAX& syntax, C_CONTEXT& context) const
 {
   CError result;
 
-  if (syntax.GetCurrentIndex() == NONE_INDEX)
+  if (syntax.GetCurrentID() == NONE_ID)
   {
     result.SetSource(EErrorSource::Producing);
     result.SetLivingLine(syntax.GetLivingLine());
-    result.SetDescription(L"Indexless syntax of chain`s current.");
+    result.SetDescription(L"Indexless ast of chain`s current.");
   }
 
   return move(result);

@@ -126,6 +126,9 @@
     <ClInclude Include="Object.h">
       <Filter>Base</Filter>
     </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Types</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbstractMethodException.cpp">

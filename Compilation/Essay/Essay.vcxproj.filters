@@ -31,29 +31,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependence.h" />
-    <ClInclude Include="SyntaxEnum.h">
-      <Filter>Syntax\Elementary</Filter>
-    </ClInclude>
-    <ClInclude Include="EssaySyntax.h">
-      <Filter>Syntax\ASTs</Filter>
-    </ClInclude>
     <ClInclude Include="Elementary.h">
       <Filter>Syntax\Elementary</Filter>
     </ClInclude>
-    <ClInclude Include="ChainSyntax.h">
-      <Filter>Syntax\ASTs\Composition</Filter>
-    </ClInclude>
-    <ClInclude Include="VariableSyntax.h">
-      <Filter>Syntax\ASTs\Reference</Filter>
-    </ClInclude>
     <ClInclude Include="GrammarEnum.h">
       <Filter>Syntax</Filter>
-    </ClInclude>
-    <ClInclude Include="OperationSyntax.h">
-      <Filter>Syntax\ASTs\Composition</Filter>
-    </ClInclude>
-    <ClInclude Include="ScalarSyntax.h">
-      <Filter>Syntax\ASTs\Reference</Filter>
     </ClInclude>
     <ClInclude Include="Producer.h">
       <Filter>Engine\Producing</Filter>
@@ -63,9 +45,6 @@
     </ClInclude>
     <ClInclude Include="ASTs.h">
       <Filter>Syntax\ASTs</Filter>
-    </ClInclude>
-    <ClInclude Include="NoneIndexSyntaxValidator.h">
-      <Filter>Engine\Producing</Filter>
     </ClInclude>
     <ClInclude Include="Validators.h">
       <Filter>Engine\Producing</Filter>
@@ -91,40 +70,43 @@
     <ClInclude Include="Function.h">
       <Filter>Syntax\Elementary</Filter>
     </ClInclude>
+    <ClInclude Include="EssaySyntax.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
     <ClInclude Include="DefineVariableSyntax.h">
       <Filter>Syntax\ASTs\Statement</Filter>
     </ClInclude>
+    <ClInclude Include="VariableSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="ScalarSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="SyntaxEnum.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="ChainSyntax.h">
+      <Filter>Syntax\ASTs\Composition</Filter>
+    </ClInclude>
+    <ClInclude Include="OperationSyntax.h">
+      <Filter>Syntax\ASTs\Composition</Filter>
+    </ClInclude>
+    <ClInclude Include="NoneSyntaxValidator.h">
+      <Filter>Engine\Producing</Filter>
+    </ClInclude>
+    <ClInclude Include="SpaceStack.h">
+      <Filter>Engine\Producing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SyntaxEnum.cpp">
-      <Filter>Syntax\Elementary</Filter>
-    </ClCompile>
-    <ClCompile Include="EssaySyntax.cpp">
-      <Filter>Syntax\ASTs</Filter>
-    </ClCompile>
-    <ClCompile Include="ChainSyntax.cpp">
-      <Filter>Syntax\ASTs\Composition</Filter>
-    </ClCompile>
-    <ClCompile Include="VariableSyntax.cpp">
-      <Filter>Syntax\ASTs\Reference</Filter>
-    </ClCompile>
     <ClCompile Include="GrammarEnum.cpp">
       <Filter>Syntax</Filter>
-    </ClCompile>
-    <ClCompile Include="OperationSyntax.cpp">
-      <Filter>Syntax\ASTs\Composition</Filter>
-    </ClCompile>
-    <ClCompile Include="ScalarSyntax.cpp">
-      <Filter>Syntax\ASTs\Reference</Filter>
     </ClCompile>
     <ClCompile Include="Producer.cpp">
       <Filter>Engine\Producing</Filter>
     </ClCompile>
     <ClCompile Include="Context.cpp">
       <Filter>Syntax\Elementary</Filter>
-    </ClCompile>
-    <ClCompile Include="NoneIndexSyntaxValidator.cpp">
-      <Filter>Engine\Producing</Filter>
     </ClCompile>
     <ClCompile Include="NullOperationValidator.cpp">
       <Filter>Engine\Producing</Filter>
@@ -144,8 +126,32 @@
     <ClCompile Include="Function.cpp">
       <Filter>Syntax\Elementary</Filter>
     </ClCompile>
+    <ClCompile Include="EssaySyntax.cpp">
+      <Filter>Syntax\ASTs</Filter>
+    </ClCompile>
     <ClCompile Include="DefineVariableSyntax.cpp">
       <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="VariableSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="SyntaxEnum.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
+    <ClCompile Include="ChainSyntax.cpp">
+      <Filter>Syntax\ASTs\Composition</Filter>
+    </ClCompile>
+    <ClCompile Include="OperationSyntax.cpp">
+      <Filter>Syntax\ASTs\Composition</Filter>
+    </ClCompile>
+    <ClCompile Include="ScalarSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="NoneSyntaxValidator.cpp">
+      <Filter>Engine\Producing</Filter>
+    </ClCompile>
+    <ClCompile Include="SpaceStack.cpp">
+      <Filter>Engine\Producing</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

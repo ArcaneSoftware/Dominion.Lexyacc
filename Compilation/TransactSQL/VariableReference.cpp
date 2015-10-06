@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;
 //CVariableReference
 //*******************************************************************************************************************//
 CVariableReference::CVariableReference() :
-  _index(NONE_INDEX)
+  _index(NONE_ID)
 {
 }
 

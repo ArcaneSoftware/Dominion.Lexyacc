@@ -11,8 +11,8 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 CWhenSyntax::CWhenSyntax() :
   CTransactSQLSyntax(ESyntaxType::When),
-  _conditionIndex(NONE_INDEX),
-  _thenIndex(NONE_INDEX)
+  _conditionIndex(NONE_ID),
+  _thenIndex(NONE_ID)
 {
 }
 
