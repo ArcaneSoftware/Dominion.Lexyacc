@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;;
 //*******************************************************************************************************************//
 CArgumentSyntax::CArgumentSyntax() :
   CTransactSQLSyntax(ESyntaxType::Argument),
-  _valueIndex(NONE_ID),
+  _valueID(NONE_ID),
   _output(false)
 {
 }
@@ -19,7 +19,7 @@ CArgumentSyntax::CArgumentSyntax() :
 CArgumentSyntax::CArgumentSyntax(C_ARGUMENT_SYNTAX& that) :
   CTransactSQLSyntax(that),
   _parameterName(that._parameterName),
-  _valueIndex(that._valueIndex),
+  _valueID(that._valueID),
   _output(that._output)
 {
 }
@@ -27,15 +27,15 @@ CArgumentSyntax::CArgumentSyntax(C_ARGUMENT_SYNTAX& that) :
 CArgumentSyntax::CArgumentSyntax(C_ARGUMENT_SYNTAX&& that) :
   CTransactSQLSyntax(that),
   _parameterName(move(that._parameterName)),
-  _valueIndex(move(that._valueIndex)),
+  _valueID(move(that._valueID)),
   _output(move(that._output))
 {
 }
 
-CArgumentSyntax::CArgumentSyntax(int32_t livingLine, WSTRING& parameterName, int32_t valueIndex, bool output) :
+CArgumentSyntax::CArgumentSyntax(int32_t livingLine, WSTRING& parameterName, int32_t valueID, bool output) :
   CTransactSQLSyntax(ESyntaxType::Argument, livingLine),
   _parameterName(parameterName),
-  _valueIndex(valueIndex),
+  _valueID(valueID),
   _output(output)
 {
 }
@@ -49,7 +49,7 @@ C_ARGUMENT_SYNTAX& CArgumentSyntax::operator=(C_ARGUMENT_SYNTAX& that)
   CTransactSQLSyntax::operator=(that);
 
   _parameterName = that._parameterName;
-  _valueIndex = that._valueIndex;
+  _valueID = that._valueID;
   _output = that._output;
 
   return *this;

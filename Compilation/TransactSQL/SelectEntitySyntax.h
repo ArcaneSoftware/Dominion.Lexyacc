@@ -22,30 +22,30 @@ public:
   CSelectEntitySyntax(C_SELECT_ENTITY_SYNTAX& that);
   CSelectEntitySyntax(C_SELECT_ENTITY_SYNTAX&& that);
   CSelectEntitySyntax(int32_t livingLine,
-                      int32_t topIndex,
-                      int32_t selectedFieldChainIndex,
-                      int32_t fromAliasChainIndex,
-                      int32_t joinChainIndex,
-                      int32_t whereIndex,
-                      int32_t orderedFieldChainIndex);
+                      int32_t topID,
+                      int32_t selectedFieldChainID,
+                      int32_t fromAliasChainID,
+                      int32_t joinChainID,
+                      int32_t whereID,
+                      int32_t orderedFieldChainID);
   virtual ~CSelectEntitySyntax();
 
-  CLASS_PROPERTY(int32_t, _topIndex, TopIndex);
-  CLASS_PROPERTY(int32_t, _selectedFieldChainIndex, SelectedFieldChainIndex);
-  CLASS_PROPERTY(int32_t, _fromAliasChainIndex, FromAliasChainIndex);
-  CLASS_PROPERTY(int32_t, _joinChainIndex, JoinChainIndex);
-  CLASS_PROPERTY(int32_t, _whereIndex, WhereIndex);
-  CLASS_PROPERTY(int32_t, _orderedFieldChainIndex, OrderedFieldChainIndex);
+  CLASS_PROPERTY(int32_t, _topID, TopID);
+  CLASS_PROPERTY(int32_t, _selectedFieldChainID, SelectedFieldChainID);
+  CLASS_PROPERTY(int32_t, _fromAliasChainID, FromAliasChainID);
+  CLASS_PROPERTY(int32_t, _joinChainID, JoinChainID);
+  CLASS_PROPERTY(int32_t, _whereID, WhereID);
+  CLASS_PROPERTY(int32_t, _orderedFieldChainID, OrderedFieldChainID);
 
   C_SELECT_ENTITY_SYNTAX& operator=(C_SELECT_ENTITY_SYNTAX& that);
 
 private:
-  int32_t _topIndex;
-  int32_t _selectedFieldChainIndex;
-  int32_t _fromAliasChainIndex;
-  int32_t _joinChainIndex;
-  int32_t _whereIndex;
-  int32_t _orderedFieldChainIndex;
+  int32_t _topID;
+  int32_t _selectedFieldChainID;
+  int32_t _fromAliasChainID;
+  int32_t _joinChainID;
+  int32_t _whereID;
+  int32_t _orderedFieldChainID;
 };
 
 END_DOMINION_COMPILATION_TRANSACTSQL

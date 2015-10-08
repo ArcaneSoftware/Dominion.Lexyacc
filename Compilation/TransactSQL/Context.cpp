@@ -56,9 +56,9 @@ void CContext::DefineLocalVariable(WSTRING& name, int32_t initialValue)
   _definedVariableMap[_ToVariableKey(name)] = CSQLVariable(name, initialValue);
 }
 
-bool CContext::ExistSyntax(int32_t index) const
+bool CContext::ExistSyntax(int32_t ID) const
 {
-  return index != NONE_ID && index < _syntaxVector.size();
+  return ID != NONE_ID && ID < _syntaxVector.size();
 }
 
 bool CContext::DefinedLocalVariable(WSTRING& name) const

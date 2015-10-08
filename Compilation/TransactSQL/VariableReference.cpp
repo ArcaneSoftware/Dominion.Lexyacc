@@ -27,8 +27,8 @@ CVariableReference::CVariableReference(C_VARIABLE_REFERENCE&& that) :
 {
 }
 
-CVariableReference::CVariableReference(int32_t referenceIndex) :
-  _index(referenceIndex)
+CVariableReference::CVariableReference(int32_t referenceID) :
+  _index(referenceID)
 {
 }
 

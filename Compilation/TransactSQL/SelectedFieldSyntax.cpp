@@ -11,28 +11,28 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 CSelectedFieldSyntax::CSelectedFieldSyntax() :
   CTransactSQLSyntax(ESyntaxType::SelectedField),
-  _aliasIndex(NONE_ID),
+  _aliasID(NONE_ID),
   _all(false)
 {
 }
 
 CSelectedFieldSyntax::CSelectedFieldSyntax(C_SELECTED_FIELD_SYNTAX& that) :
   CTransactSQLSyntax(that),
-  _aliasIndex(that._aliasIndex),
+  _aliasID(that._aliasID),
   _all(that._all)
 {
 }
 
 CSelectedFieldSyntax::CSelectedFieldSyntax(C_SELECTED_FIELD_SYNTAX&& that) :
   CTransactSQLSyntax(that),
-  _aliasIndex(move(that._aliasIndex)),
+  _aliasID(move(that._aliasID)),
   _all(move(that._all))
 {
 }
 
-CSelectedFieldSyntax::CSelectedFieldSyntax(int32_t livingLine, int32_t aliasIndex, bool all) :
+CSelectedFieldSyntax::CSelectedFieldSyntax(int32_t livingLine, int32_t aliasID, bool all) :
   CTransactSQLSyntax(ESyntaxType::SelectedField, livingLine),
-  _aliasIndex(aliasIndex),
+  _aliasID(aliasID),
   _all(all)
 {
 }
@@ -44,7 +44,7 @@ CSelectedFieldSyntax::~CSelectedFieldSyntax()
 C_SELECTED_FIELD_SYNTAX& CSelectedFieldSyntax::operator=(C_SELECTED_FIELD_SYNTAX& that)
 {
   CTransactSQLSyntax::operator=(that);
-  _aliasIndex = that._aliasIndex;
+  _aliasID = that._aliasID;
   _all = that._all;
   return *this;
 }

@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 CVariableDefinitionSyntax::CVariableDefinitionSyntax() :
   CTransactSQLSyntax(ESyntaxType::VariableDefinition),
-  _valueIndex(NONE_ID),
+  _valueID(NONE_ID),
   _output(false)
 {
 }
@@ -20,7 +20,7 @@ CVariableDefinitionSyntax::CVariableDefinitionSyntax(C_VARIABLE_DEFINITION_SYNTA
   CTransactSQLSyntax(that),
   _variableName(that._variableName),
   _sqlType(that._sqlType),
-  _valueIndex(that._valueIndex),
+  _valueID(that._valueID),
   _output(that._output)
 {
 }
@@ -29,7 +29,7 @@ CVariableDefinitionSyntax::CVariableDefinitionSyntax(C_VARIABLE_DEFINITION_SYNTA
   CTransactSQLSyntax(that),
   _variableName(move(that._variableName)),
   _sqlType(move(that._sqlType)),
-  _valueIndex(move(that._valueIndex)),
+  _valueID(move(that._valueID)),
   _output(move(that._output))
 {
 }
@@ -37,12 +37,12 @@ CVariableDefinitionSyntax::CVariableDefinitionSyntax(C_VARIABLE_DEFINITION_SYNTA
 CVariableDefinitionSyntax::CVariableDefinitionSyntax(int32_t livingLine,
                                                      WSTRING& variableName,
                                                      WSTRING& sqlType,
-                                                     int32_t valueIndex,
+                                                     int32_t valueID,
                                                      bool output) :
   CTransactSQLSyntax(ESyntaxType::VariableDefinition, livingLine),
   _variableName(variableName),
   _sqlType(sqlType),
-  _valueIndex(valueIndex),
+  _valueID(valueID),
   _output(output)
 {
 }
@@ -61,7 +61,7 @@ C_VARIABLE_DEFINITION_SYNTAX& CVariableDefinitionSyntax::operator=(C_VARIABLE_DE
   CTransactSQLSyntax::operator=(that);
   _variableName = that._variableName;
   _sqlType = that._sqlType;
-  _valueIndex = that._valueIndex;
+  _valueID = that._valueID;
   _output = that._output;
   return *this;
 }

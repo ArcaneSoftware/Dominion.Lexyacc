@@ -24,13 +24,13 @@ public:
   COperationAST(int32_t livingLine,
                    EOperationType operationType,
                    int32_t leftOperandID,
-                   int32_t centerOperandIndex,
+                   int32_t centerOperandID,
                    int32_t rightOperandID);
   virtual ~COperationAST();
 
   CLASS_PROPERTY(EOperationType, _operationType, OperationType);
   CLASS_PROPERTY(int32_t, _leftOperandID, LeftOperandID);
-  CLASS_PROPERTY(int32_t, _centerOperandIndex, CenterOperandIndex);
+  CLASS_PROPERTY(int32_t, _centerOperandID, CenterOperandID);
   CLASS_PROPERTY(int32_t, _rightOperandID, RightOperandID);
 
 public:
@@ -39,7 +39,7 @@ public:
 private:
   EOperationType _operationType;
   int32_t _leftOperandID;
-  int32_t _centerOperandIndex;
+  int32_t _centerOperandID;
   int32_t _rightOperandID;
 };
 

@@ -11,28 +11,28 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 CFunctionSyntax::CFunctionSyntax() :
   CTransactSQLSyntax(ESyntaxType::Function),
-  _argumentChainIndex(NONE_ID)
+  _argumentChainID(NONE_ID)
 {
 }
 
 CFunctionSyntax::CFunctionSyntax(C_FUNCTION_SYNTAX& that) :
   CTransactSQLSyntax(that),
   _functionName(that._functionName),
-  _argumentChainIndex(that._argumentChainIndex)
+  _argumentChainID(that._argumentChainID)
 {
 }
 
 CFunctionSyntax::CFunctionSyntax(C_FUNCTION_SYNTAX&& that) :
   CTransactSQLSyntax(that),
   _functionName(move(that._functionName)),
-  _argumentChainIndex(move(that._argumentChainIndex))
+  _argumentChainID(move(that._argumentChainID))
 {
 }
 
-CFunctionSyntax::CFunctionSyntax(int32_t livingLine, WSTRING& functionName, int32_t argumentChainIndex) :
+CFunctionSyntax::CFunctionSyntax(int32_t livingLine, WSTRING& functionName, int32_t argumentChainID) :
   CTransactSQLSyntax(ESyntaxType::Function, livingLine),
   _functionName(functionName),
-  _argumentChainIndex(argumentChainIndex)
+  _argumentChainID(argumentChainID)
 {
 }
 
@@ -44,6 +44,6 @@ C_FUNCTION_SYNTAX& CFunctionSyntax::operator=(C_FUNCTION_SYNTAX& that)
 {
   CTransactSQLSyntax::operator=(that);
   _functionName = that._functionName;
-  _argumentChainIndex = that._argumentChainIndex;
+  _argumentChainID = that._argumentChainID;
   return *this;
 }

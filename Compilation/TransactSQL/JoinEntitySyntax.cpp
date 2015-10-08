@@ -12,35 +12,35 @@ using namespace Dominion::Compilation::TransactSQL;
 CJoinEntitySyntax::CJoinEntitySyntax() :
   CTransactSQLSyntax(ESyntaxType::JoinEntity),
   _joinType(EJoinType::JoinEntity),
-  _aliasIndex(NONE_ID),
-  _conditionIndex(NONE_ID)
+  _aliasID(NONE_ID),
+  _conditionID(NONE_ID)
 {
 }
 
 CJoinEntitySyntax::CJoinEntitySyntax(C_JOIN_ENTITY_SYNTAX& that) :
   CTransactSQLSyntax(that),
   _joinType(that._joinType),
-  _aliasIndex(that._aliasIndex),
-  _conditionIndex(that._conditionIndex)
+  _aliasID(that._aliasID),
+  _conditionID(that._conditionID)
 {
 }
 
 CJoinEntitySyntax::CJoinEntitySyntax(C_JOIN_ENTITY_SYNTAX&& that) :
   CTransactSQLSyntax(that),
   _joinType(move(that._joinType)),
-  _aliasIndex(move(that._aliasIndex)),
-  _conditionIndex(move(that._conditionIndex))
+  _aliasID(move(that._aliasID)),
+  _conditionID(move(that._conditionID))
 {
 }
 
 CJoinEntitySyntax::CJoinEntitySyntax(int32_t livingLine,
                                      EJoinType joinType,
-                                     int32_t aliasIndex,
-                                     int32_t conditionIndex) :
+                                     int32_t aliasID,
+                                     int32_t conditionID) :
   CTransactSQLSyntax(ESyntaxType::JoinEntity, livingLine),
   _joinType(joinType),
-  _aliasIndex(aliasIndex),
-  _conditionIndex(conditionIndex)
+  _aliasID(aliasID),
+  _conditionID(conditionID)
 {
 }
 
@@ -52,7 +52,7 @@ C_JOIN_ENTITY_SYNTAX& CJoinEntitySyntax::operator=(C_JOIN_ENTITY_SYNTAX& that)
 {
   CTransactSQLSyntax::operator=(that);
   _joinType = that._joinType;
-  _aliasIndex = that._aliasIndex;
-  _conditionIndex = that._conditionIndex;
+  _aliasID = that._aliasID;
+  _conditionID = that._conditionID;
   return *this;
 }

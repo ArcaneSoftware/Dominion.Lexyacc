@@ -21,16 +21,16 @@ public:
   CSelectedFieldSyntax();
   CSelectedFieldSyntax(C_SELECTED_FIELD_SYNTAX& that);
   CSelectedFieldSyntax(C_SELECTED_FIELD_SYNTAX&& that);
-  CSelectedFieldSyntax(int32_t livingLine, int32_t AliasIndex, bool all);
+  CSelectedFieldSyntax(int32_t livingLine, int32_t AliasID, bool all);
   virtual ~CSelectedFieldSyntax();
 
-  CLASS_PROPERTY(int32_t, _aliasIndex, AliasIndex);
+  CLASS_PROPERTY(int32_t, _aliasID, AliasID);
   CLASS_PROPERTY(bool, _all, All);
 
   C_SELECTED_FIELD_SYNTAX& operator=(C_SELECTED_FIELD_SYNTAX& that);
 
 private:
-  int32_t _aliasIndex;
+  int32_t _aliasID;
   bool _all;
 };
 

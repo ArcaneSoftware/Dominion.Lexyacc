@@ -11,25 +11,25 @@ using namespace Dominion::Compilation::TransactSQL;;
 //*******************************************************************************************************************//
 CDeclareVariablesSyntax::CDeclareVariablesSyntax() :
   CTransactSQLSyntax(ESyntaxType::DeclareVariables),
-  _variableDefinitionChainIndex(NONE_ID)
+  _variableDefinitionChainID(NONE_ID)
 {
 }
 
 CDeclareVariablesSyntax::CDeclareVariablesSyntax(C_DECLARE_VARIABLES_SYNTAX& that) :
   CTransactSQLSyntax(that),
-  _variableDefinitionChainIndex(that._variableDefinitionChainIndex)
+  _variableDefinitionChainID(that._variableDefinitionChainID)
 {
 }
 
 CDeclareVariablesSyntax::CDeclareVariablesSyntax(C_DECLARE_VARIABLES_SYNTAX&& that) :
   CTransactSQLSyntax(that),
-  _variableDefinitionChainIndex(move(that._variableDefinitionChainIndex))
+  _variableDefinitionChainID(move(that._variableDefinitionChainID))
 {
 }
 
-CDeclareVariablesSyntax::CDeclareVariablesSyntax(int32_t livingLine, int32_t variableDefinitionChainIndex) :
+CDeclareVariablesSyntax::CDeclareVariablesSyntax(int32_t livingLine, int32_t variableDefinitionChainID) :
   CTransactSQLSyntax(ESyntaxType::DeclareVariables, livingLine),
-  _variableDefinitionChainIndex(variableDefinitionChainIndex)
+  _variableDefinitionChainID(variableDefinitionChainID)
 {
 }
 
@@ -40,6 +40,6 @@ CDeclareVariablesSyntax::~CDeclareVariablesSyntax()
 C_DECLARE_VARIABLES_SYNTAX& CDeclareVariablesSyntax::operator=(C_DECLARE_VARIABLES_SYNTAX& that)
 {
   CTransactSQLSyntax::operator=(that);
-  _variableDefinitionChainIndex = that._variableDefinitionChainIndex;
+  _variableDefinitionChainID = that._variableDefinitionChainID;
   return *this;
 }

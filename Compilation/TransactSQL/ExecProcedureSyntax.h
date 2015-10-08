@@ -24,19 +24,19 @@ public:
   CExecProcedureSyntax(int32_t livingLine,
                        WSTRING& returnVariableName,
                        WSTRING& procedureName,
-                       int32_t argumentChainIndex);
+                       int32_t argumentChainID);
   virtual ~CExecProcedureSyntax();
 
   CLASS_PROPERTY(wstring, _returnVariableName, ReturnVariableName);
   CLASS_PROPERTY(wstring, _procedureName, ProcedureName);
-  CLASS_PROPERTY(int32_t, _argumentChainIndex, ArgumentChainIndex);
+  CLASS_PROPERTY(int32_t, _argumentChainID, ArgumentChainID);
 
   C_EXEC_PROCEDURE_SYNTAX& operator=(C_EXEC_PROCEDURE_SYNTAX& that);
 
 private:
   wstring _returnVariableName;
   wstring _procedureName;
-  int32_t _argumentChainIndex;
+  int32_t _argumentChainID;
 };
 
 END_DOMINION_COMPILATION_TRANSACTSQL

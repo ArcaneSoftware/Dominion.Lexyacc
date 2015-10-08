@@ -30,7 +30,7 @@ public:
 
   FToVariableKey ToVariableKey();
   void DefineLocalVariable(WSTRING& name, int32_t initialValue);
-  bool ExistSyntax(int32_t index) const;
+  bool ExistSyntax(int32_t ID) const;
   bool DefinedLocalVariable(WSTRING& name) const;
   shared_ptr<CTransactSQLSyntax> GetSyntax(int32_t syntaxID) const;
   int32_t AppendAST(CTransactSQLSyntax* ast);

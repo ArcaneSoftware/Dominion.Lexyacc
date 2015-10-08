@@ -21,17 +21,17 @@ public:
   CFunctionSyntax();
   CFunctionSyntax(C_FUNCTION_SYNTAX& that);
   CFunctionSyntax(C_FUNCTION_SYNTAX&& that);
-  CFunctionSyntax(int32_t livingLine, WSTRING& functionName, int32_t argumentChainIndex);
+  CFunctionSyntax(int32_t livingLine, WSTRING& functionName, int32_t argumentChainID);
   virtual ~CFunctionSyntax();
 
   CLASS_PROPERTY(wstring, _functionName, FunctionName);
-  CLASS_PROPERTY(int32_t, _argumentChainIndex, ArgumentChainIndex);
+  CLASS_PROPERTY(int32_t, _argumentChainID, ArgumentChainID);
 
   C_FUNCTION_SYNTAX& operator=(C_FUNCTION_SYNTAX& that);
 
 private:
   wstring _functionName;
-  int32_t _argumentChainIndex;
+  int32_t _argumentChainID;
 };
 
 END_DOMINION_COMPILATION_TRANSACTSQL

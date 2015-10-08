@@ -23,23 +23,23 @@ public:
   CFlowSyntax(C_FLOW_SYNTAX&& that);
   CFlowSyntax(int32_t livingLine,
               EFlowType flowType,
-              int32_t conditionIndex,
-              int32_t thenBlockIndex,
-              int32_t elseBlockIndex);
+              int32_t conditionID,
+              int32_t thenBlockID,
+              int32_t elseBlockID);
   virtual ~CFlowSyntax();
 
   CLASS_PROPERTY(EFlowType, _flowType, FlowType);
-  CLASS_PROPERTY(int32_t, _conditionIndex, ConditionIndex);
-  CLASS_PROPERTY(int32_t, _thenBlockIndex, ThenBlockIndex);
-  CLASS_PROPERTY(int32_t, _elseBlockIndex, ElseBlockIndex);
+  CLASS_PROPERTY(int32_t, _conditionID, ConditionID);
+  CLASS_PROPERTY(int32_t, _thenBlockID, ThenBlockID);
+  CLASS_PROPERTY(int32_t, _elseBlockID, ElseBlockID);
 
   C_FLOW_SYNTAX& operator=(C_FLOW_SYNTAX& that);
 
 private:
   EFlowType _flowType;
-  int32_t _conditionIndex;
-  int32_t _thenBlockIndex;
-  int32_t _elseBlockIndex;
+  int32_t _conditionID;
+  int32_t _thenBlockID;
+  int32_t _elseBlockID;
 };
 
 END_DOMINION_COMPILATION_TRANSACTSQL

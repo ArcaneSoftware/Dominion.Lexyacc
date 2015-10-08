@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 CExecProcedureSyntax::CExecProcedureSyntax() :
   CTransactSQLSyntax(ESyntaxType::ExecProcedure),
-  _argumentChainIndex(NONE_ID)
+  _argumentChainID(NONE_ID)
 {
 }
 
@@ -19,7 +19,7 @@ CExecProcedureSyntax::CExecProcedureSyntax(C_EXEC_PROCEDURE_SYNTAX& that) :
   CTransactSQLSyntax(that),
   _returnVariableName(that._returnVariableName),
   _procedureName(that._procedureName),
-  _argumentChainIndex(that._argumentChainIndex)
+  _argumentChainID(that._argumentChainID)
 {
 }
 
@@ -27,18 +27,18 @@ CExecProcedureSyntax::CExecProcedureSyntax(C_EXEC_PROCEDURE_SYNTAX&& that) :
   CTransactSQLSyntax(that),
   _returnVariableName(move(that._returnVariableName)),
   _procedureName(move(that._procedureName)),
-  _argumentChainIndex(move(that._argumentChainIndex))
+  _argumentChainID(move(that._argumentChainID))
 {
 }
 
 CExecProcedureSyntax::CExecProcedureSyntax(int32_t livingLine,
                                            WSTRING& returnVariableName,
                                            WSTRING& procedureName,
-                                           int32_t argumentChainIndex) :
+                                           int32_t argumentChainID) :
   CTransactSQLSyntax(ESyntaxType::ExecProcedure, livingLine),
   _returnVariableName(returnVariableName),
   _procedureName(procedureName),
-  _argumentChainIndex(argumentChainIndex)
+  _argumentChainID(argumentChainID)
 {
 }
 
@@ -51,6 +51,6 @@ C_EXEC_PROCEDURE_SYNTAX& CExecProcedureSyntax::operator=(C_EXEC_PROCEDURE_SYNTAX
   CTransactSQLSyntax::operator=(that);
   _returnVariableName = that._returnVariableName;
   _procedureName = that._procedureName;
-  _argumentChainIndex = that._argumentChainIndex;
+  _argumentChainID = that._argumentChainID;
   return *this;
 }

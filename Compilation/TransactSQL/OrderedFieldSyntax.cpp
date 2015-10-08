@@ -12,28 +12,28 @@ using namespace Dominion::Compilation::TransactSQL;
 COrderedFieldSyntax::COrderedFieldSyntax() :
   CTransactSQLSyntax(ESyntaxType::OrderedField),
   _orderByType(EOrderByType::Asc),
-  _identifierIndex(NONE_ID)
+  _identifierID(NONE_ID)
 {
 }
 
 COrderedFieldSyntax::COrderedFieldSyntax(C_ORDERED_FIELD_SYNTAX& that) :
   CTransactSQLSyntax(that),
   _orderByType(that._orderByType),
-  _identifierIndex(that._identifierIndex)
+  _identifierID(that._identifierID)
 {
 }
 
 COrderedFieldSyntax::COrderedFieldSyntax(C_ORDERED_FIELD_SYNTAX&& that) :
   CTransactSQLSyntax(that),
   _orderByType(move(that._orderByType)),
-  _identifierIndex(move(that._identifierIndex))
+  _identifierID(move(that._identifierID))
 {
 }
 
-COrderedFieldSyntax::COrderedFieldSyntax(int32_t livingLine, EOrderByType orderByType, int32_t identifierIndex) :
+COrderedFieldSyntax::COrderedFieldSyntax(int32_t livingLine, EOrderByType orderByType, int32_t identifierID) :
   CTransactSQLSyntax(ESyntaxType::OrderedField, livingLine),
   _orderByType(orderByType),
-  _identifierIndex(identifierIndex)
+  _identifierID(identifierID)
 {
 }
 
@@ -45,6 +45,6 @@ C_ORDERED_FIELD_SYNTAX& COrderedFieldSyntax::operator=(C_ORDERED_FIELD_SYNTAX& t
 {
   CTransactSQLSyntax::operator=(that);
   _orderByType = that._orderByType;
-  _identifierIndex = that._identifierIndex;
+  _identifierID = that._identifierID;
   return *this;
 }

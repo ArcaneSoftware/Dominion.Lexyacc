@@ -21,15 +21,15 @@ public:
   CDeclareVariablesSyntax();
   CDeclareVariablesSyntax(C_DECLARE_VARIABLES_SYNTAX& that);
   CDeclareVariablesSyntax(C_DECLARE_VARIABLES_SYNTAX&& that);
-  CDeclareVariablesSyntax(int32_t livingLine, int32_t variableDefinitionChainIndex);
+  CDeclareVariablesSyntax(int32_t livingLine, int32_t variableDefinitionChainID);
   virtual ~CDeclareVariablesSyntax();
 
-  CLASS_PROPERTY(int32_t, _variableDefinitionChainIndex, VariableDefinitionChainIndex);
+  CLASS_PROPERTY(int32_t, _variableDefinitionChainID, VariableDefinitionChainID);
 
   C_DECLARE_VARIABLES_SYNTAX& operator=(C_DECLARE_VARIABLES_SYNTAX& that);
 
 private:
-  int32_t _variableDefinitionChainIndex;
+  int32_t _variableDefinitionChainID;
 };
 END_DOMINION_COMPILATION_TRANSACTSQL
 

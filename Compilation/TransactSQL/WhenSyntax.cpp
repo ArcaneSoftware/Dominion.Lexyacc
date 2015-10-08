@@ -11,29 +11,29 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 CWhenSyntax::CWhenSyntax() :
   CTransactSQLSyntax(ESyntaxType::When),
-  _conditionIndex(NONE_ID),
-  _thenIndex(NONE_ID)
+  _conditionID(NONE_ID),
+  _thenID(NONE_ID)
 {
 }
 
 CWhenSyntax::CWhenSyntax(C_WHEN_SYNTAX& that) :
   CTransactSQLSyntax(that),
-  _conditionIndex(that._conditionIndex),
-  _thenIndex(that._thenIndex)
+  _conditionID(that._conditionID),
+  _thenID(that._thenID)
 {
 }
 
 CWhenSyntax::CWhenSyntax(C_WHEN_SYNTAX&& that) :
   CTransactSQLSyntax(that),
-  _conditionIndex(move(that._conditionIndex)),
-  _thenIndex(move(that._thenIndex))
+  _conditionID(move(that._conditionID)),
+  _thenID(move(that._thenID))
 {
 }
 
-CWhenSyntax::CWhenSyntax(int32_t livingLine, int32_t conditionIndex, int32_t whenIndex) :
+CWhenSyntax::CWhenSyntax(int32_t livingLine, int32_t conditionID, int32_t whenID) :
   CTransactSQLSyntax(ESyntaxType::When, livingLine),
-  _conditionIndex(conditionIndex),
-  _thenIndex(whenIndex)
+  _conditionID(conditionID),
+  _thenID(whenID)
 {
 }
 
@@ -44,7 +44,7 @@ CWhenSyntax::~CWhenSyntax()
 C_WHEN_SYNTAX& CWhenSyntax::operator=(C_WHEN_SYNTAX& that)
 {
   CTransactSQLSyntax::operator=(that);
-  _conditionIndex = that._conditionIndex;
-  _thenIndex = that._thenIndex;
+  _conditionID = that._conditionID;
+  _thenID = that._thenID;
   return *this;
 }

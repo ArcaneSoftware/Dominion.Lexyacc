@@ -12,35 +12,35 @@ using namespace Dominion::Compilation::TransactSQL;;
 //*******************************************************************************************************************//
 CCreateProcedureSyntax::CCreateProcedureSyntax() :
   CTransactSQLSyntax(ESyntaxType::CreateProcedure),
-  _variableDefinitionChainIndex(NONE_ID),
-  _blockIndex(NONE_ID)
+  _variableDefinitionChainID(NONE_ID),
+  _blockID(NONE_ID)
 {
 }
 
 CCreateProcedureSyntax::CCreateProcedureSyntax(C_CREATE_PROCEDURE_SYNTAX& that) :
   CTransactSQLSyntax(that),
   _procedureName(that._procedureName),
-  _variableDefinitionChainIndex(that._variableDefinitionChainIndex),
-  _blockIndex(that._blockIndex)
+  _variableDefinitionChainID(that._variableDefinitionChainID),
+  _blockID(that._blockID)
 {
 }
 
 CCreateProcedureSyntax::CCreateProcedureSyntax(C_CREATE_PROCEDURE_SYNTAX&& that) :
   CTransactSQLSyntax(that),
   _procedureName(move(that._procedureName)),
-  _variableDefinitionChainIndex(move(that._variableDefinitionChainIndex)),
-  _blockIndex(move(that._blockIndex))
+  _variableDefinitionChainID(move(that._variableDefinitionChainID)),
+  _blockID(move(that._blockID))
 {
 }
 
 CCreateProcedureSyntax::CCreateProcedureSyntax(int32_t livingLine,
                                                WSTRING& procedureName,
-                                               int32_t variableDefinitionChainIndex,
-                                               int32_t blockIndex) :
+                                               int32_t variableDefinitionChainID,
+                                               int32_t blockID) :
   CTransactSQLSyntax(ESyntaxType::CreateProcedure, livingLine),
   _procedureName(procedureName),
-  _variableDefinitionChainIndex(variableDefinitionChainIndex),
-  _blockIndex(blockIndex)
+  _variableDefinitionChainID(variableDefinitionChainID),
+  _blockID(blockID)
 {
 }
 
@@ -52,7 +52,7 @@ C_CREATE_PROCEDURE_SYNTAX& CCreateProcedureSyntax::operator=(C_CREATE_PROCEDURE_
 {
   CTransactSQLSyntax::operator=(that);
   _procedureName = that._procedureName;
-  _variableDefinitionChainIndex = that._variableDefinitionChainIndex;
-  _blockIndex = that._blockIndex;
+  _variableDefinitionChainID = that._variableDefinitionChainID;
+  _blockID = that._blockID;
   return *this;
 }

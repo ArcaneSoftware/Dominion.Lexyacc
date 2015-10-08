@@ -12,40 +12,40 @@ using namespace Dominion::Compilation::TransactSQL;
 CFlowSyntax::CFlowSyntax() :
   CTransactSQLSyntax(ESyntaxType::Flow),
   _flowType(EFlowType::If),
-  _conditionIndex(NONE_ID),
-  _thenBlockIndex(NONE_ID),
-  _elseBlockIndex(NONE_ID)
+  _conditionID(NONE_ID),
+  _thenBlockID(NONE_ID),
+  _elseBlockID(NONE_ID)
 {
 }
 
 CFlowSyntax::CFlowSyntax(C_FLOW_SYNTAX& that) :
   CTransactSQLSyntax(that),
   _flowType(that._flowType),
-  _conditionIndex(that._conditionIndex),
-  _thenBlockIndex(that._thenBlockIndex),
-  _elseBlockIndex(that._elseBlockIndex)
+  _conditionID(that._conditionID),
+  _thenBlockID(that._thenBlockID),
+  _elseBlockID(that._elseBlockID)
 {
 }
 
 CFlowSyntax::CFlowSyntax(C_FLOW_SYNTAX&& that) :
   CTransactSQLSyntax(that),
   _flowType(move(that._flowType)),
-  _conditionIndex(move(that._conditionIndex)),
-  _thenBlockIndex(move(that._thenBlockIndex)),
-  _elseBlockIndex(move(that._elseBlockIndex))
+  _conditionID(move(that._conditionID)),
+  _thenBlockID(move(that._thenBlockID)),
+  _elseBlockID(move(that._elseBlockID))
 {
 }
 
 CFlowSyntax::CFlowSyntax(int32_t livingLine,
                          EFlowType flowType,
-                         int32_t conditionIndex,
-                         int32_t thenIndex,
-                         int32_t elseIndex) :
+                         int32_t conditionID,
+                         int32_t thenID,
+                         int32_t elseID) :
   CTransactSQLSyntax(ESyntaxType::Flow, livingLine),
   _flowType(flowType),
-  _conditionIndex(conditionIndex),
-  _thenBlockIndex(thenIndex),
-  _elseBlockIndex(elseIndex)
+  _conditionID(conditionID),
+  _thenBlockID(thenID),
+  _elseBlockID(elseID)
 {
 }
 
@@ -57,8 +57,8 @@ C_FLOW_SYNTAX& CFlowSyntax::operator=(C_FLOW_SYNTAX& that)
 {
   CTransactSQLSyntax::operator=(that);
   _flowType = that._flowType;
-  _conditionIndex = that._conditionIndex;
-  _thenBlockIndex = that._thenBlockIndex;
-  _elseBlockIndex = that._elseBlockIndex;
+  _conditionID = that._conditionID;
+  _thenBlockID = that._thenBlockID;
+  _elseBlockID = that._elseBlockID;
   return *this;
 }

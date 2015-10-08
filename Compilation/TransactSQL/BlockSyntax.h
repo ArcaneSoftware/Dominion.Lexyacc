@@ -21,17 +21,17 @@ public:
   CBlockSyntax();
   CBlockSyntax(C_BLOCK_SYNTAX& that);
   CBlockSyntax(C_BLOCK_SYNTAX&& that);
-  CBlockSyntax(int32_t livingLine, int32_t statementIndex, int32_t blockIndex);
+  CBlockSyntax(int32_t livingLine, int32_t statementID, int32_t blockID);
   virtual ~CBlockSyntax();
 
-  CLASS_PROPERTY(int32_t, _statementIndex, StatementIndex);
-  CLASS_PROPERTY(int32_t, _blockIndex, BlockIndex);
+  CLASS_PROPERTY(int32_t, _statementID, StatementID);
+  CLASS_PROPERTY(int32_t, _blockID, BlockID);
 
   C_BLOCK_SYNTAX& operator=(C_BLOCK_SYNTAX& that);
 
 private:
-  int32_t _statementIndex;
-  int32_t _blockIndex;
+  int32_t _statementID;
+  int32_t _blockID;
 };
 
 END_DOMINION_COMPILATION_TRANSACTSQL

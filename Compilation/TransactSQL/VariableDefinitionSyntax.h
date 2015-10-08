@@ -24,7 +24,7 @@ public:
   CVariableDefinitionSyntax(int32_t livingLine,
                             WSTRING& variableName,
                             WSTRING& sqlType,
-                            int32_t valueIndex,
+                            int32_t valueID,
                             bool output);
   virtual ~CVariableDefinitionSyntax();
   //{CAbstractSyntaxTree
@@ -32,7 +32,7 @@ public:
   //}
   CLASS_PROPERTY(wstring, _variableName, VariableName);
   CLASS_PROPERTY(wstring, _sqlType, SQLType);
-  CLASS_PROPERTY(int32_t, _valueIndex, ValueIndex);
+  CLASS_PROPERTY(int32_t, _valueID, ValueID);
   CLASS_PROPERTY(bool, _output, Output);
 
   C_VARIABLE_DEFINITION_SYNTAX& operator=(C_VARIABLE_DEFINITION_SYNTAX& that);
@@ -40,7 +40,7 @@ public:
 private:
   wstring _variableName;
   wstring  _sqlType;
-  int32_t _valueIndex;
+  int32_t _valueID;
   bool _output;
 };
 

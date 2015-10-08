@@ -21,12 +21,12 @@ public:
   CVariableReference();
   CVariableReference(C_VARIABLE_REFERENCE& that);
   CVariableReference(C_VARIABLE_REFERENCE&& that);
-  CVariableReference(int32_t index);
+  CVariableReference(int32_t ID);
   virtual ~CVariableReference();
 
   wstring GetName(C_CONTEXT& context) const throw();
 
-  CLASS_PROPERTY(int32_t, _index, Index);
+  CLASS_PROPERTY(int32_t, _index, ID);
 
   C_VARIABLE_REFERENCE& operator=(C_VARIABLE_REFERENCE& that);
 

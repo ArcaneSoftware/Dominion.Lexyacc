@@ -21,17 +21,17 @@ public:
   CAssignVariableSyntax();
   CAssignVariableSyntax(C_ASSIGN_VARIABLE_SYNTAX& that);
   CAssignVariableSyntax(C_ASSIGN_VARIABLE_SYNTAX&& that);
-  CAssignVariableSyntax(int32_t livingLine, WSTRING& variableName, int32_t valueIndex);
+  CAssignVariableSyntax(int32_t livingLine, WSTRING& variableName, int32_t valueID);
   virtual ~CAssignVariableSyntax();
 
   CLASS_PROPERTY(wstring, _variableName, VariableName);
-  CLASS_PROPERTY(int32_t, _valueIndex, ValueIndex);
+  CLASS_PROPERTY(int32_t, _valueID, ValueID);
 
   C_ASSIGN_VARIABLE_SYNTAX& operator=(C_ASSIGN_VARIABLE_SYNTAX& that);
 
 private:
   wstring _variableName;
-  int32_t _valueIndex;
+  int32_t _valueID;
 };
 
 END_DOMINION_COMPILATION_TRANSACTSQL

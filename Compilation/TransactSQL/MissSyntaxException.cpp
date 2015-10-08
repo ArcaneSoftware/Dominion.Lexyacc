@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
 wstring CMissSyntaxException::MAKE_NOTE(int32_t ast)
 {
-  return CWStringTemplate(L"Miss ast index:[%x];").Format(ast);
+  return CWStringTemplate(L"Miss ast ID:[%x];").Format(ast);
 }
 
 void CMissSyntaxException::CHECK(size_t ast, C_CONTEXT& context, C_TROUBLESPOT& troublespot)

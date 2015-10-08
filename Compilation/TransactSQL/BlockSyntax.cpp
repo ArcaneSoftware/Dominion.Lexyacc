@@ -16,22 +16,22 @@ CBlockSyntax::CBlockSyntax() :
 
 CBlockSyntax::CBlockSyntax(C_BLOCK_SYNTAX& that) :
   CTransactSQLSyntax(that),
-  _statementIndex(that._statementIndex),
-  _blockIndex(that._blockIndex)
+  _statementID(that._statementID),
+  _blockID(that._blockID)
 {
 }
 
 CBlockSyntax::CBlockSyntax(C_BLOCK_SYNTAX&& that) :
   CTransactSQLSyntax(that),
-  _statementIndex(move(that._statementIndex)),
-  _blockIndex(move(that._blockIndex))
+  _statementID(move(that._statementID)),
+  _blockID(move(that._blockID))
 {
 }
 
-CBlockSyntax::CBlockSyntax(int32_t livingLine, int32_t statementIndex, int32_t blockIndex) :
+CBlockSyntax::CBlockSyntax(int32_t livingLine, int32_t statementID, int32_t blockID) :
   CTransactSQLSyntax(ESyntaxType::Block, livingLine),
-  _statementIndex(statementIndex),
-  _blockIndex(blockIndex)
+  _statementID(statementID),
+  _blockID(blockID)
 {
 }
 
@@ -42,7 +42,7 @@ CBlockSyntax::~CBlockSyntax()
 C_BLOCK_SYNTAX& CBlockSyntax::operator=(C_BLOCK_SYNTAX& that)
 {
   CTransactSQLSyntax::operator=(that);
-  _statementIndex = that._statementIndex;
-  _blockIndex = that._blockIndex;
+  _statementID = that._statementID;
+  _blockID = that._blockID;
   return *this;
 }

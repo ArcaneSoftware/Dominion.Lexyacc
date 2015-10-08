@@ -21,17 +21,17 @@ public:
   COrderedFieldSyntax();
   COrderedFieldSyntax(C_ORDERED_FIELD_SYNTAX& that);
   COrderedFieldSyntax(C_ORDERED_FIELD_SYNTAX&& that);
-  COrderedFieldSyntax(int32_t livingLine, EOrderByType orderByType, int32_t identifierIndex);
+  COrderedFieldSyntax(int32_t livingLine, EOrderByType orderByType, int32_t identifierID);
   virtual ~COrderedFieldSyntax();
 
   CLASS_PROPERTY(EOrderByType, _orderByType, OrderByType);
-  CLASS_PROPERTY(int32_t, _identifierIndex, IdentifierIndex);
+  CLASS_PROPERTY(int32_t, _identifierID, IdentifierID);
 
   C_ORDERED_FIELD_SYNTAX& operator=(C_ORDERED_FIELD_SYNTAX& that);
 
 private:
   EOrderByType _orderByType;
-  int32_t _identifierIndex;
+  int32_t _identifierID;
 };
 
 END_DOMINION_COMPILATION_TRANSACTSQL
