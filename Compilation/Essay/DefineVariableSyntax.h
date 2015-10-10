@@ -23,7 +23,7 @@ public:
   CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX&& that);
   CDefineVariableSyntax(int32_t livingLine,
                         EVariableType variableType,
-                        C_NAMESPACE& _namespace_,
+                        C_NAMESPACE& a_namespace,
                         WSTRING& name,
                         int32_t initialValueID);
   virtual ~CDefineVariableSyntax();

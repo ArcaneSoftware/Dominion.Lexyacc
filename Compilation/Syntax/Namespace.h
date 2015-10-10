@@ -35,7 +35,7 @@ public:
   //}
   bool Empty() const;
   size_t Depth() const;
-  void Add(WSTRING& space);
+  void Add(WSTRING& naming);
   CNamespace GetParent() const;
 
   C_NAMESPACE& operator=(C_NAMESPACE& that);

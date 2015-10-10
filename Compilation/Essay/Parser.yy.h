@@ -156,7 +156,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
      And = 268,
      Or = 269,
      Xor = 270,
-     Namespace = 271,
+     Naming = 271,
      If = 272,
      Else = 273,
      Var = 274,

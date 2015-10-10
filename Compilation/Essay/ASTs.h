@@ -12,4 +12,6 @@
 #include "Dominion/Compilation/Essay/ChainSyntax.h"
 #include "Dominion/Compilation/Essay/OperationSyntax.h"
 //Statement
+#include "Dominion/Compilation/Essay/BlockSyntax.h"
 #include "Dominion/Compilation/Essay/DefineVariableSyntax.h"
+#include "Dominion/Compilation/Essay/AssignVariableSyntax.h"

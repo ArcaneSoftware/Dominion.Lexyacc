@@ -18,7 +18,7 @@ CContext::CContext() :
 
 CContext::CContext(C_CONTEXT& that) :
   CObject(that),
-  _definedVariableMap(that._definedVariableMap),
+  _variableMap(that._variableMap),
   _syntaxVector(that._syntaxVector),
   _entryID(that._entryID),
   _ToVariableKey(that._ToVariableKey)
@@ -27,7 +27,7 @@ CContext::CContext(C_CONTEXT& that) :
 
 CContext::CContext(C_CONTEXT&& that) :
   CObject(that),
-  _definedVariableMap(move(that._definedVariableMap)),
+  _variableMap(move(that._variableMap)),
   _syntaxVector(move(that._syntaxVector)),
   _entryID(move(that._entryID)),
   _ToVariableKey(move(that._ToVariableKey))
@@ -42,7 +42,7 @@ CContext::CContext(FToVariableKey ToVariableKey) :
 
 CContext::~CContext()
 {
-  _definedVariableMap.clear();
+  _variableMap.clear();
   _syntaxVector.clear();
 }
 
@@ -51,9 +51,11 @@ FToVariableKey CContext::ToVariableKey()
   return _ToVariableKey;
 }
 
-void CContext::DefineVariable(WSTRING& name, int32_t initialValue)
+void CContext::DefineVariable(C_NAMESPACE& a_namespace, WSTRING& name, int32_t initialValueID)
 {
-  //_definedVariableMap[_ToVariableKey(name)] = CVariable(name, initialValue);
+  auto identifier = CIdentifier(a_namespace, name);
+
+  _variableMap[_ToVariableKey(identifier.ToString())] = CVariable(identifier, initialValueID);
 }
 
 bool CContext::ExistSyntax(int32_t index) const
@@ -61,9 +63,29 @@ bool CContext::ExistSyntax(int32_t index) const
   return index != NONE_ID && index < _syntaxVector.size();
 }
 
-bool CContext::DefinedVariable(WSTRING& name) const
+bool CContext::HasDefinedVariable(WSTRING& fullName) const
 {
-  return _definedVariableMap.find(_ToVariableKey(name)) != _definedVariableMap.end();
+  return _variableMap.find(_ToVariableKey(fullName)) != _variableMap.end();
+}
+
+bool CContext::HasDefinedVariable(C_NAMESPACE& a_namespace, WSTRING& name) const
+{
+  auto checkedNamespace = CNamespace(a_namespace);
+  bool defined = false;
+
+  while (!checkedNamespace.Empty())
+  {
+    defined = HasDefinedVariable(CIdentifier(checkedNamespace, name).ToString());
+
+    if (defined)
+    {
+      break;
+    }
+
+    checkedNamespace = checkedNamespace.GetParent();
+  }
+
+  return defined;
 }
 
 shared_ptr<CEssaySyntax> CContext::GetSyntax(int32_t syntaxID) const
@@ -89,7 +111,7 @@ C_CONTEXT& CContext::operator=(C_CONTEXT& that)
 {
   CObject::operator=(that);
 
-  _definedVariableMap = that._definedVariableMap;
+  _variableMap = that._variableMap;
   _syntaxVector = that._syntaxVector;
   _entryID = that._entryID;
   _ToVariableKey = that._ToVariableKey;

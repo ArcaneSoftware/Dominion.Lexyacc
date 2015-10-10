@@ -35,13 +35,12 @@ void F2()
 
 void F3()
 {
-  CNamespace ns(L"Dominion");
+  CIdentifier i(L"bu");
 
-  auto pns = ns.GetParent();
-  auto s = pns.ToString();
+  auto s = i.GetName();
 }
 
 void main()
 {
-  F3();
+  F2();
 }

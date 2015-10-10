@@ -21,11 +21,20 @@ public:
   CIdentifier();
   CIdentifier(C_IDENTIFIER& that);
   CIdentifier(C_IDENTIFIER&& that);
-  explicit CIdentifier(C_NAMESPACE& _namespace_, WSTRING& name);
+  explicit CIdentifier(WSTRING& fullName);
+  explicit CIdentifier(C_NAMESPACE& a_namespace, WSTRING& name);
   virtual ~CIdentifier();
+
+protected:
+  void Construct(WSTRING& fullName);
+
+public:
   //{CObject
   virtual wstring ToString() const override;
   //}
+
+  bool HasNamespace() const;
+
   CLASS_PROPERTY(CNamespace, _namespace, Namespace);
   CLASS_PROPERTY(wstring, _name, Name);
 

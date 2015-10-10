@@ -84,9 +84,9 @@ size_t CNamespace::Depth() const
   return _structure.size();
 }
 
-void CNamespace::Add(WSTRING& space)
+void CNamespace::Add(WSTRING& naming)
 {
-  _structure.push_back(space);
+  _structure.push_back(naming);
 }
 
 CNamespace CNamespace::GetParent() const
@@ -95,13 +95,13 @@ CNamespace CNamespace::GetParent() const
   {
     vector<wstring> structure;
 
-    structure.insert(structure.begin(), _structure.begin(), _structure.end()-1);
+    structure.insert(structure.begin(), _structure.begin(), _structure.end() - 1);
 
-    return CNamespace(structure);
+    return move(CNamespace(structure));
   }
   else
   {
-    return CNamespace();
+    return move(CNamespace());
   }
 }
 

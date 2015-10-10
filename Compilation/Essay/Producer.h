@@ -6,7 +6,7 @@
 #pragma once
 
 #include "Dominion/Compilation/Essay/ASTs.h"
-#include "Dominion/Compilation/Essay/SpaceStack.h"
+#include "Dominion/Compilation/Essay/NamingStack.h"
 
 BEGIN_DOMINION_COMPILATION_ESSAY
 //*****************************************************************************************************************//
@@ -67,13 +67,17 @@ public:
   CProductor UnaryOperation(C_OPERATION_SYNTAX& syntax);
   CProductor BinaryOperation(C_OPERATION_SYNTAX& syntax);
   //Statement
+  CProductor Block(C_BLOCK_SYNTAX& syntax);
   CProductor DefineVariable(C_DEFINE_VARIABLE_SYNTAX& syntax);
+  CProductor AssignVariable(C_ASSIGN_VARIABLE_SYNTAX& syntax);
 
   shared_ptr<CEssaySyntax> GetSyntax(int32_t syntaxID) const;
   WSTRING& GetFile() const;
   void SetEntry(int32_t entryID);
 
-  void PushSpace(WSTRING& space);
+  void PushNaming(WSTRING& naming);
+  void PopNaming();
+  CNamespace GetCurrentNamespace() const;
 
   C_PRODUCER& operator=(C_PRODUCER& that);
 
@@ -81,7 +85,7 @@ private:
   wstring _file;
   CContext _context;
   vector<CError> _errorVector;
-  CSpaceStack _spaceStack;
+  CNamingStack _namingStack;
 };
 
 END_DOMINION_COMPILATION_ESSAY

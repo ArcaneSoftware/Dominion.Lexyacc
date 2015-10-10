@@ -9,23 +9,29 @@
 
 BEGIN_DOMINION_COMPILATION_ESSAY
 //*****************************************************************************************************************//
-//CSpaceStack
+//CBlockSyntax
 //
 //*****************************************************************************************************************//
-CLASS_DECLARATION(CSpaceStack, C_SPACE_STACK);
-class LIBRARY_EXPORT CSpaceStack : public CStack<wstring>
+CLASS_DECLARATION(CBlockSyntax, C_BLOCK_SYNTAX);
+class LIBRARY_EXPORT CBlockSyntax : public CEssaySyntax
 {
 public:
-  CLASS_INHERITOR(CStack<wstring>, CSpaceStack);
+  CLASS_INHERITOR(CEssaySyntax, CBlockSyntax);
 
-  CSpaceStack();
-  CSpaceStack(C_SPACE_STACK& that);
-  CSpaceStack(C_SPACE_STACK&& that);
-  virtual ~CSpaceStack();
+  CBlockSyntax();
+  CBlockSyntax(C_BLOCK_SYNTAX& that);
+  CBlockSyntax(C_BLOCK_SYNTAX&& that);
+  CBlockSyntax(int32_t livingLine, int32_t statementID, int32_t blockID);
+  virtual ~CBlockSyntax();
 
-  CNamespace GetNamespace() const;
+  CLASS_PROPERTY(int32_t, _statementID, StatementID);
+  CLASS_PROPERTY(int32_t, _blockID, BlockID);
 
-  C_SPACE_STACK& operator=(C_SPACE_STACK& that);
+  C_BLOCK_SYNTAX& operator=(C_BLOCK_SYNTAX& that);
+
+private:
+  int32_t _statementID;
+  int32_t _blockID;
 };
 
 END_DOMINION_COMPILATION_ESSAY

@@ -3,44 +3,48 @@
 //AUTHOR:
 //SUMMARY:
 //*******************************************************************************************************************//
-#include "VariableSyntax.h"
+#include "BlockSyntax.h"
 
 using namespace Dominion::Compilation::Essay;
 //*******************************************************************************************************************//
-//CVariableSyntax
+//CBlockSyntax
 //*******************************************************************************************************************//
-CVariableSyntax::CVariableSyntax() :
-  CEssaySyntax(ESyntaxType::Variable)
+CBlockSyntax::CBlockSyntax() :
+  CEssaySyntax(ESyntaxType::Block)
 {
 }
 
-CVariableSyntax::CVariableSyntax(C_VARIABLE_SYNTAX& that) :
+CBlockSyntax::CBlockSyntax(C_BLOCK_SYNTAX& that) :
   CEssaySyntax(that),
-  _name(that._name)
+  _statementID(that._statementID),
+  _blockID(that._blockID)
 {
 }
 
-CVariableSyntax::CVariableSyntax(C_VARIABLE_SYNTAX&& that) :
+CBlockSyntax::CBlockSyntax(C_BLOCK_SYNTAX&& that) :
   CEssaySyntax(that),
-  _name(move(that._name))
+  _statementID(move(that._statementID)),
+  _blockID(move(that._blockID))
 {
 }
 
-CVariableSyntax::CVariableSyntax(int32_t livingLine, WSTRING& name) :
-  CEssaySyntax(ESyntaxType::Variable, livingLine),
-  _name(name)
+CBlockSyntax::CBlockSyntax(int32_t livingLine, int32_t statementID, int32_t blockID) :
+  CEssaySyntax(ESyntaxType::Block, livingLine),
+  _statementID(statementID),
+  _blockID(blockID)
 {
 }
 
-CVariableSyntax::~CVariableSyntax()
+CBlockSyntax::~CBlockSyntax()
 {
 }
 
-C_VARIABLE_SYNTAX& CVariableSyntax::operator=(C_VARIABLE_SYNTAX& that)
+C_BLOCK_SYNTAX& CBlockSyntax::operator=(C_BLOCK_SYNTAX& that)
 {
   CEssaySyntax::operator=(that);
 
-  _name = that._name;
+  _statementID = that._statementID;
+  _blockID = that._blockID;
 
   return *this;
 }

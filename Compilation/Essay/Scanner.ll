@@ -78,8 +78,8 @@ using namespace Dominion::Compilation::Essay;
   return YToken::Var;
 }
 
-"namespace" {
-	return YToken::Namespace;
+"naming" {
+	return YToken::Naming;
 }
 "if" {
   return YToken::If;
@@ -115,7 +115,7 @@ using namespace Dominion::Compilation::Essay;
 }
 
 
-[a-zA-Z_][a-zA-Z0-9_]* {
+[a-zA-Z_][a-zA-Z0-9_\.]* {
   yylval->litera = new wstring(WSTR(yytext));
 
   return YToken::Identifier;

@@ -498,8 +498,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 93 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Add, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Add, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -510,8 +510,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 100 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Subtract, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Subtract, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
     
@@ -523,8 +523,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 108 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Multiply, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Multiply, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
     
@@ -536,8 +536,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 116 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Divide, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Divide, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -548,8 +548,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 123 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Modulo, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Modulo, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -560,8 +560,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 130 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Equal, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Equal, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -572,8 +572,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 137 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::NotEqual, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::NotEqual, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -584,8 +584,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 144 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Match, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Match, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -596,8 +596,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 151 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::NotMatch, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::NotMatch, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -608,8 +608,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 158 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Greater, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Greater, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -620,8 +620,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 165 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::GreaterEqual, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::GreaterEqual, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -632,8 +632,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 172 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Less, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Less, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -644,8 +644,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 179 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::LessEqual, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::LessEqual, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -656,8 +656,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 186 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::And, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::And, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -668,8 +668,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 193 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Or, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Or, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -680,8 +680,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 200 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Xor, (yysemantic_stack_[(3) - (3)].node));
-		auto result = _producer.BinaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Xor, (yysemantic_stack_[(3) - (3)].node));
+		auto result = _producer.BinaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -692,8 +692,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 207 "./Parser.yy"
     {
-    auto ast = COperationSyntax(YY_LIVING_LINE, NONE_ID, EOperationType::Not, (yysemantic_stack_[(2) - (2)].node));
-		auto result = _producer.UnaryOperation(ast);
+    auto syntax = COperationSyntax(YY_LIVING_LINE, NONE_ID, EOperationType::Not, (yysemantic_stack_[(2) - (2)].node));
+		auto result = _producer.UnaryOperation(syntax);
 
 		YY_REDUCE(result);
   }
@@ -794,8 +794,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 271 "./Parser.yy"
     {
-    auto ast = CDefineVariableSyntax(YY_LIVING_LINE, EVariableType::Atom, _producer.GetParsingSpace(), *(yysemantic_stack_[(3) - (2)].litera), NONE_ID);
-		auto result = _producer.DefineVariable(ast);
+    auto syntax = CDefineVariableSyntax(YY_LIVING_LINE, EVariableType::Atom, _producer.GetCurrentNamespace(), *(yysemantic_stack_[(3) - (2)].litera), NONE_ID);
+		auto result = _producer.DefineVariable(syntax);
 
 		YY_REDUCE(result);
   }
@@ -806,8 +806,8 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 278 "./Parser.yy"
     {
-    auto ast = CDefineVariableSyntax(YY_LIVING_LINE, EVariableType::Atom, _producer.GetParsingSpace(), *(yysemantic_stack_[(5) - (2)].litera), (yysemantic_stack_[(5) - (4)].node));
-		auto result = _producer.DefineVariable(ast);
+    auto syntax = CDefineVariableSyntax(YY_LIVING_LINE, EVariableType::Atom, _producer.GetCurrentNamespace(), *(yysemantic_stack_[(5) - (2)].litera), (yysemantic_stack_[(5) - (4)].node));
+		auto result = _producer.DefineVariable(syntax);
 
 		YY_REDUCE(result);
   }
@@ -833,16 +833,19 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 39:
 
 /* Line 678 of lalr1.cc  */
-#line 295 "./Parser.yy"
+#line 296 "./Parser.yy"
     {
-    
+    auto syntax = CAssignVariableSyntax(YY_LIVING_LINE, _producer.GetCurrentNamespace(), *(yysemantic_stack_[(4) - (1)].litera), (yysemantic_stack_[(4) - (3)].node));
+		auto result = _producer.AssignVariable(syntax);
+
+		YY_REDUCE(result);
   }
     break;
 
   case 40:
 
 /* Line 678 of lalr1.cc  */
-#line 321 "./Parser.yy"
+#line 325 "./Parser.yy"
     {
     
   }
@@ -851,7 +854,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 41:
 
 /* Line 678 of lalr1.cc  */
-#line 324 "./Parser.yy"
+#line 328 "./Parser.yy"
     {
     
   }
@@ -860,7 +863,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 42:
 
 /* Line 678 of lalr1.cc  */
-#line 327 "./Parser.yy"
+#line 331 "./Parser.yy"
     {
     
   }
@@ -869,7 +872,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 43:
 
 /* Line 678 of lalr1.cc  */
-#line 332 "./Parser.yy"
+#line 336 "./Parser.yy"
     {
     (yyval.node) = NONE_ID;
   }
@@ -878,7 +881,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 44:
 
 /* Line 678 of lalr1.cc  */
-#line 334 "./Parser.yy"
+#line 338 "./Parser.yy"
     {
 	}
     break;
@@ -886,16 +889,16 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 45:
 
 /* Line 678 of lalr1.cc  */
-#line 339 "./Parser.yy"
+#line 343 "./Parser.yy"
     {
-		_producer.SetParsingSpace(*(yysemantic_stack_[(2) - (2)].litera));
+		_producer.PushNaming(*(yysemantic_stack_[(2) - (2)].litera));
 	}
     break;
 
   case 46:
 
 /* Line 678 of lalr1.cc  */
-#line 343 "./Parser.yy"
+#line 347 "./Parser.yy"
     {
 		(yyval.node) = -1;
 	}
@@ -904,7 +907,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
 
 
 /* Line 678 of lalr1.cc  */
-#line 908 "Parser.yy.cpp"
+#line 911 "Parser.yy.cpp"
 	default:
           break;
       }
@@ -1280,11 +1283,11 @@ namespace Dominion { namespace Compilation { namespace Essay {
   {
     "_EOF_", "error", "$undefined", "EOL", "Nil", "Equal", "NotEqual",
   "Greater", "GreaterEqual", "Less", "LessEqual", "Match", "NotMatch",
-  "And", "Or", "Xor", "Namespace", "If", "Else", "Var", "Return",
-  "Function", "Object", "Numeric", "Identifier", "String", "Boolean",
-  "'+'", "'-'", "'*'", "'/'", "'%'", "'!'", "UMINUS", "'('", "')'", "','",
-  "';'", "'='", "'.'", "'{'", "'}'", "$accept", "SCALAR", "EXPRESSION",
-  "ARGUMENT", "ARGUMENT_CHAIN", "VARIABLE", "FUNCTION", "DEFINE_VARIABLE",
+  "And", "Or", "Xor", "Naming", "If", "Else", "Var", "Return", "Function",
+  "Object", "Numeric", "Identifier", "String", "Boolean", "'+'", "'-'",
+  "'*'", "'/'", "'%'", "'!'", "UMINUS", "'('", "')'", "','", "';'", "'='",
+  "'.'", "'{'", "'}'", "$accept", "SCALAR", "EXPRESSION", "ARGUMENT",
+  "ARGUMENT_CHAIN", "VARIABLE", "FUNCTION", "DEFINE_VARIABLE",
   "VARIABLE_PROPERTY", "VARIABLE_METHED", "ASSIGN_VARIABLE", "STATEMENT",
   "BLOCK", "ESSAY", "$@2", 0
   };
@@ -1333,7 +1336,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
      107,   115,   122,   129,   136,   143,   150,   157,   164,   171,
      178,   185,   192,   199,   206,   213,   217,   221,   225,   228,
      233,   238,   241,   260,   265,   270,   277,   286,   290,   295,
-     321,   324,   327,   332,   334,   339,   338
+     325,   328,   331,   336,   338,   343,   342
   };
 
   // Print the state stack on the debug stream.
@@ -1428,11 +1431,11 @@ namespace Dominion { namespace Compilation { namespace Essay {
 } } } // Dominion::Compilation::Essay
 
 /* Line 1054 of lalr1.cc  */
-#line 1432 "Parser.yy.cpp"
+#line 1435 "Parser.yy.cpp"
 
 
 /* Line 1056 of lalr1.cc  */
-#line 347 "./Parser.yy"
+#line 351 "./Parser.yy"
 
 void CParser::error(const CParser::location_type& location, const std::string& message)
 {

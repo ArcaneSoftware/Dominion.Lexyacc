@@ -90,9 +90,36 @@ CProductor CProducer::BinaryOperation(C_OPERATION_SYNTAX& syntax)
   return Produce<COperationSyntax>(syntax, errors);
 }
 
+CProductor CProducer::Block(C_BLOCK_SYNTAX& syntax)
+{
+  return Produce<CBlockSyntax>(syntax);
+}
+
 CProductor CProducer::DefineVariable(C_DEFINE_VARIABLE_SYNTAX& syntax)
 {
-  return Produce<CDefineVariableSyntax>(syntax);
+  auto errors = vector<CError>
+  {
+    CDuplicationValidator().Validate(syntax, _context)
+  };
+
+  auto result = Produce<CDefineVariableSyntax>(syntax, errors);
+
+  if (result.GetSuccessed())
+  {
+    _context.DefineVariable(syntax.GetNamespace(), syntax.GetName(), syntax.GetInitialValueID());
+  }
+
+  return move(result);
+}
+
+CProductor CProducer::AssignVariable(C_ASSIGN_VARIABLE_SYNTAX& syntax)
+{
+  auto errors = vector<CError>
+  {
+    CUndefinedReferenceValidator().Validate(syntax, _context)
+  };
+
+  return Produce<CAssignVariableSyntax>(syntax, errors);
 }
 
 shared_ptr<CEssaySyntax> CProducer::GetSyntax(int32_t syntaxID) const
@@ -110,9 +137,19 @@ void CProducer::SetEntry(int32_t entryID)
   _context.SetEntryID(entryID);
 }
 
-void CProducer::PushSpace(WSTRING& space)
+void CProducer::PushNaming(WSTRING& naming)
 {
-  _spaceStack.Push(space);
+  _namingStack.Push(naming);
+}
+
+void CProducer::PopNaming()
+{
+  _namingStack.Pop();
+}
+
+CNamespace CProducer::GetCurrentNamespace() const
+{
+  return move(_namingStack.GetNamespace());
 }
 
 C_PRODUCER& CProducer::operator=(C_PRODUCER& that)

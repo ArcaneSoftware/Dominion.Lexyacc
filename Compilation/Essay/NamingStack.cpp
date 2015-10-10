@@ -3,36 +3,36 @@
 //AUTHOR:
 //SUMMARY:
 //*******************************************************************************************************************//
-#include "SpaceStack.h"
+#include "NamingStack.h"
 
 using namespace Dominion::Compilation::Essay;
 //*******************************************************************************************************************//
-//CSpaceStack
+//CNamingStack
 //*******************************************************************************************************************//
-CSpaceStack::CSpaceStack()
+CNamingStack::CNamingStack()
 {
 }
 
-CSpaceStack::CSpaceStack(C_SPACE_STACK& that) :
+CNamingStack::CNamingStack(C_NAMING_STACK& that) :
   CStack<wstring>(that)
 {
 }
 
-CSpaceStack::CSpaceStack(C_SPACE_STACK&& that) :
+CNamingStack::CNamingStack(C_NAMING_STACK&& that) :
   CStack<wstring>(that)
 {
 }
 
-CSpaceStack::~CSpaceStack()
+CNamingStack::~CNamingStack()
 {
 }
 
-CNamespace CSpaceStack::GetNamespace() const
+CNamespace CNamingStack::GetNamespace() const
 {
-  return CNamespace(_core);
+  return move(CNamespace(_core));
 }
 
-C_SPACE_STACK& CSpaceStack::operator=(C_SPACE_STACK& that)
+C_NAMING_STACK& CNamingStack::operator=(C_NAMING_STACK& that)
 {
   CStack<wstring>::operator=(that);
 

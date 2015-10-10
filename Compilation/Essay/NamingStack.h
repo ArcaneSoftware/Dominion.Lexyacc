@@ -9,27 +9,23 @@
 
 BEGIN_DOMINION_COMPILATION_ESSAY
 //*****************************************************************************************************************//
-//CVariableSyntax
+//CNamingStack
 //
 //*****************************************************************************************************************//
-CLASS_DECLARATION(CVariableSyntax, C_VARIABLE_SYNTAX);
-class LIBRARY_EXPORT CVariableSyntax : public CEssaySyntax
+CLASS_DECLARATION(CNamingStack, C_NAMING_STACK);
+class LIBRARY_EXPORT CNamingStack : public CStack<wstring>
 {
 public:
-  CLASS_INHERITOR(CEssaySyntax, CVariableSyntax);
+  CLASS_INHERITOR(CStack<wstring>, CNamingStack);
 
-  CVariableSyntax();
-  CVariableSyntax(C_VARIABLE_SYNTAX& that);
-  CVariableSyntax(C_VARIABLE_SYNTAX&& that);
-  CVariableSyntax(int32_t livingLine, WSTRING& name);
-  virtual ~CVariableSyntax();
+  CNamingStack();
+  CNamingStack(C_NAMING_STACK& that);
+  CNamingStack(C_NAMING_STACK&& that);
+  virtual ~CNamingStack();
 
-  CLASS_PROPERTY(wstring, _name, Name);
+  CNamespace GetNamespace() const;
 
-  C_VARIABLE_SYNTAX& operator=(C_VARIABLE_SYNTAX& that);
-
-private:
-  wstring _name;
+  C_NAMING_STACK& operator=(C_NAMING_STACK& that);
 };
 
 END_DOMINION_COMPILATION_ESSAY

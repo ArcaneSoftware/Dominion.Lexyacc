@@ -94,7 +94,19 @@
     <ClInclude Include="NoneSyntaxValidator.h">
       <Filter>Engine\Producing</Filter>
     </ClInclude>
-    <ClInclude Include="SpaceStack.h">
+    <ClInclude Include="NamingStack.h">
+      <Filter>Engine\Producing</Filter>
+    </ClInclude>
+    <ClInclude Include="DuplicationValidator.h">
+      <Filter>Engine\Producing</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="AssignVariableSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="UndefinedReferenceValidator.h">
       <Filter>Engine\Producing</Filter>
     </ClInclude>
   </ItemGroup>
@@ -150,7 +162,19 @@
     <ClCompile Include="NoneSyntaxValidator.cpp">
       <Filter>Engine\Producing</Filter>
     </ClCompile>
-    <ClCompile Include="SpaceStack.cpp">
+    <ClCompile Include="NamingStack.cpp">
+      <Filter>Engine\Producing</Filter>
+    </ClCompile>
+    <ClCompile Include="DuplicationValidator.cpp">
+      <Filter>Engine\Producing</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="AssignVariableSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="UndefinedReferenceValidator.cpp">
       <Filter>Engine\Producing</Filter>
     </ClCompile>
   </ItemGroup>
