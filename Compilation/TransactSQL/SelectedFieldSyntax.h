@@ -21,7 +21,7 @@ public:
   CSelectedFieldSyntax();
   CSelectedFieldSyntax(C_SELECTED_FIELD_SYNTAX& that);
   CSelectedFieldSyntax(C_SELECTED_FIELD_SYNTAX&& that);
-  CSelectedFieldSyntax(int32_t livingLine, int32_t AliasID, bool all);
+  CSelectedFieldSyntax(int32_t liveLine, int32_t AliasID, bool all);
   virtual ~CSelectedFieldSyntax();
 
   CLASS_PROPERTY(int32_t, _aliasID, AliasID);

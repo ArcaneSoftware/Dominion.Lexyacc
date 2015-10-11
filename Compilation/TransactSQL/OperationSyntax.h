@@ -21,7 +21,7 @@ public:
   COperationAST();
   COperationAST(C_OPERATION_AST& that);
   COperationAST(C_OPERATION_AST&& that);
-  COperationAST(int32_t livingLine,
+  COperationAST(int32_t liveLine,
                    EOperationType operationType,
                    int32_t leftOperandID,
                    int32_t centerOperandID,

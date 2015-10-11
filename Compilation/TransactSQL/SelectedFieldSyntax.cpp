@@ -30,8 +30,8 @@ CSelectedFieldSyntax::CSelectedFieldSyntax(C_SELECTED_FIELD_SYNTAX&& that) :
 {
 }
 
-CSelectedFieldSyntax::CSelectedFieldSyntax(int32_t livingLine, int32_t aliasID, bool all) :
-  CTransactSQLSyntax(ESyntaxType::SelectedField, livingLine),
+CSelectedFieldSyntax::CSelectedFieldSyntax(int32_t liveLine, int32_t aliasID, bool all) :
+  CTransactSQLSyntax(ESyntaxType::SelectedField, liveLine),
   _aliasID(aliasID),
   _all(all)
 {

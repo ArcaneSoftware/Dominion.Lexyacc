@@ -23,7 +23,7 @@ public:
   CTransactSQLSyntax();
   CTransactSQLSyntax(C_CONCRETE_SYNTAX& that);
   CTransactSQLSyntax(C_CONCRETE_SYNTAX&& that);
-  explicit CTransactSQLSyntax(ESyntaxType syntaxType, int32_t livingLine = NIL_LINE);
+  explicit CTransactSQLSyntax(ESyntaxType syntaxType, int32_t liveLine = NONE_LINE);
   virtual ~CTransactSQLSyntax();
 
   CLASS_PROPERTY(bool, _inParenthesis, InParenthesis);

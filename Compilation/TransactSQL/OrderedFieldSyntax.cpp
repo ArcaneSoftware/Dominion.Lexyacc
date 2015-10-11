@@ -30,8 +30,8 @@ COrderedFieldSyntax::COrderedFieldSyntax(C_ORDERED_FIELD_SYNTAX&& that) :
 {
 }
 
-COrderedFieldSyntax::COrderedFieldSyntax(int32_t livingLine, EOrderByType orderByType, int32_t identifierID) :
-  CTransactSQLSyntax(ESyntaxType::OrderedField, livingLine),
+COrderedFieldSyntax::COrderedFieldSyntax(int32_t liveLine, EOrderByType orderByType, int32_t identifierID) :
+  CTransactSQLSyntax(ESyntaxType::OrderedField, liveLine),
   _orderByType(orderByType),
   _identifierID(identifierID)
 {

@@ -21,18 +21,16 @@ public:
   CAssignVariableSyntax();
   CAssignVariableSyntax(C_ASSIGN_VARIABLE_SYNTAX& that);
   CAssignVariableSyntax(C_ASSIGN_VARIABLE_SYNTAX&& that);
-  CAssignVariableSyntax(int32_t livingLine, C_NAMESPACE& currentNamespace, WSTRING& variableName, int32_t valueID);
+  CAssignVariableSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, int32_t variableID, int32_t valueID);
   virtual ~CAssignVariableSyntax();
 
-  CLASS_PROPERTY(CNamespace, _currentNamespace, CurrentNamespace);
-  CLASS_PROPERTY(wstring, _variableName, VariableName);
+  CLASS_PROPERTY(int32_t, _variableID, VariableID);
   CLASS_PROPERTY(int32_t, _valueID, ValueID);
 
   C_ASSIGN_VARIABLE_SYNTAX& operator=(C_ASSIGN_VARIABLE_SYNTAX& that);
 
 private:
-  CNamespace _currentNamespace;
-  wstring _variableName;
+  int32_t _variableID;
   int32_t _valueID;
 };
 

@@ -34,12 +34,12 @@ CVariableDefinitionSyntax::CVariableDefinitionSyntax(C_VARIABLE_DEFINITION_SYNTA
 {
 }
 
-CVariableDefinitionSyntax::CVariableDefinitionSyntax(int32_t livingLine,
+CVariableDefinitionSyntax::CVariableDefinitionSyntax(int32_t liveLine,
                                                      WSTRING& variableName,
                                                      WSTRING& sqlType,
                                                      int32_t valueID,
                                                      bool output) :
-  CTransactSQLSyntax(ESyntaxType::VariableDefinition, livingLine),
+  CTransactSQLSyntax(ESyntaxType::VariableDefinition, liveLine),
   _variableName(variableName),
   _sqlType(sqlType),
   _valueID(valueID),

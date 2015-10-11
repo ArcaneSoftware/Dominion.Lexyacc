@@ -21,27 +21,27 @@ public:
   typedef const TESyntax T_SYNTAX_TYPE;
 
   CAbstractSyntaxTree() :
-    _livingLine(NIL_LINE)
+    _liveLine(NONE_LINE)
   {
   }
 
   CAbstractSyntaxTree(CLASS& that) :
     CObject(that),
     _syntaxType(that._syntaxType),
-    _livingLine(that._livingLine)
+    _liveLine(that._liveLine)
   {
   }
 
   CAbstractSyntaxTree(CLASS&& that) :
     CObject(that),
     _syntaxType(move(that._syntaxType)),
-    _livingLine(move(that._livingLine))
+    _liveLine(move(that._liveLine))
   {
   }
 
-  explicit CAbstractSyntaxTree(TESyntax syntaxType, int32_t livingLine = NIL_LINE) :
+  explicit CAbstractSyntaxTree(TESyntax syntaxType, int32_t liveLine = NONE_LINE) :
     _syntaxType(syntaxType),
-    _livingLine(livingLine)
+    _liveLine(liveLine)
   {
   }
 
@@ -55,21 +55,21 @@ public:
   }
   //}
   CLASS_PROPERTY(TESyntax, _syntaxType, SyntaxType);
-  CLASS_PROPERTY(int32_t, _livingLine, LivingLine);
+  CLASS_PROPERTY(int32_t, _liveLine, LiveLine);
 
   CLASS& operator=(CLASS& that)
   {
     CObject::operator=(that);
 
     _syntaxType = that._syntaxType;
-    _livingLine = that._livingLine;
+    _liveLine = that._liveLine;
 
     return *this;
   }
 
 private:
   TESyntax _syntaxType;
-  int32_t _livingLine;
+  int32_t _liveLine;
 };
 
 END_DOMINION_COMPILATION_SYNTAX

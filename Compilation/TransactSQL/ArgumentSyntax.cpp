@@ -32,8 +32,8 @@ CArgumentSyntax::CArgumentSyntax(C_ARGUMENT_SYNTAX&& that) :
 {
 }
 
-CArgumentSyntax::CArgumentSyntax(int32_t livingLine, WSTRING& parameterName, int32_t valueID, bool output) :
-  CTransactSQLSyntax(ESyntaxType::Argument, livingLine),
+CArgumentSyntax::CArgumentSyntax(int32_t liveLine, WSTRING& parameterName, int32_t valueID, bool output) :
+  CTransactSQLSyntax(ESyntaxType::Argument, liveLine),
   _parameterName(parameterName),
   _valueID(valueID),
   _output(output)

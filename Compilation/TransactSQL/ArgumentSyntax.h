@@ -21,7 +21,7 @@ public:
   CArgumentSyntax();
   CArgumentSyntax(C_ARGUMENT_SYNTAX& that);
   CArgumentSyntax(C_ARGUMENT_SYNTAX&& that);
-  CArgumentSyntax(int32_t livingLine, WSTRING& parameterName, int32_t valueID, bool output);
+  CArgumentSyntax(int32_t liveLine, WSTRING& parameterName, int32_t valueID, bool output);
   virtual ~CArgumentSyntax();
 
   CLASS_PROPERTY(wstring, _parameterName, ParameterName);

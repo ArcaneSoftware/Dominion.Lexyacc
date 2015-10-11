@@ -21,7 +21,7 @@ public:
   CConstantSyntax();
   CConstantSyntax(C_CONSTANT_SYNTAX& that);
   CConstantSyntax(C_CONSTANT_SYNTAX&& that);
-  CConstantSyntax(int32_t livingLine, C_SCALAR value);
+  CConstantSyntax(int32_t liveLine, C_SCALAR value);
   virtual ~CConstantSyntax();
 
   bool IsNil() const;

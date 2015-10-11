@@ -21,7 +21,7 @@ public:
   CScalarSyntax();
   CScalarSyntax(C_SCALAR_SYNTAX& that);
   CScalarSyntax(C_SCALAR_SYNTAX&& that);
-  CScalarSyntax(int32_t livingLine, C_SCALAR& value);
+  CScalarSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, C_SCALAR& value);
   virtual ~CScalarSyntax();
 
   bool IsNil() const;

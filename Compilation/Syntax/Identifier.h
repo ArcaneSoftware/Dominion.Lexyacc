@@ -22,7 +22,7 @@ public:
   CIdentifier(C_IDENTIFIER& that);
   CIdentifier(C_IDENTIFIER&& that);
   explicit CIdentifier(WSTRING& fullName);
-  explicit CIdentifier(C_NAMESPACE& a_namespace, WSTRING& name);
+  explicit CIdentifier(C_NAMESPACE& liveNamespace, WSTRING& name);
   virtual ~CIdentifier();
 
 protected:
@@ -35,13 +35,13 @@ public:
 
   bool HasNamespace() const;
 
-  CLASS_PROPERTY(CNamespace, _namespace, Namespace);
+  CLASS_PROPERTY(CNamespace, _liveNamespace, LiveNamespace);
   CLASS_PROPERTY(wstring, _name, Name);
 
   C_IDENTIFIER& operator=(C_IDENTIFIER& that);
 
 private:
-  CNamespace _namespace;
+  CNamespace _liveNamespace;
   wstring _name;
 };
 

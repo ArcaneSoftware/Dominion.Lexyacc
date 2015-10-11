@@ -36,12 +36,12 @@ CFlowSyntax::CFlowSyntax(C_FLOW_SYNTAX&& that) :
 {
 }
 
-CFlowSyntax::CFlowSyntax(int32_t livingLine,
+CFlowSyntax::CFlowSyntax(int32_t liveLine,
                          EFlowType flowType,
                          int32_t conditionID,
                          int32_t thenID,
                          int32_t elseID) :
-  CTransactSQLSyntax(ESyntaxType::Flow, livingLine),
+  CTransactSQLSyntax(ESyntaxType::Flow, liveLine),
   _flowType(flowType),
   _conditionID(conditionID),
   _thenBlockID(thenID),

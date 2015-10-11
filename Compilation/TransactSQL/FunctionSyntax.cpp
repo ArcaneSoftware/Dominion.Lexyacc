@@ -29,8 +29,8 @@ CFunctionSyntax::CFunctionSyntax(C_FUNCTION_SYNTAX&& that) :
 {
 }
 
-CFunctionSyntax::CFunctionSyntax(int32_t livingLine, WSTRING& functionName, int32_t argumentChainID) :
-  CTransactSQLSyntax(ESyntaxType::Function, livingLine),
+CFunctionSyntax::CFunctionSyntax(int32_t liveLine, WSTRING& functionName, int32_t argumentChainID) :
+  CTransactSQLSyntax(ESyntaxType::Function, liveLine),
   _functionName(functionName),
   _argumentChainID(argumentChainID)
 {

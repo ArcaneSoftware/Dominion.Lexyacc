@@ -27,29 +27,29 @@ CUndefinedReferenceValidator::~CUndefinedReferenceValidator()
 {
 }
 
-CError CUndefinedReferenceValidator::Validate(C_ASSIGN_VARIABLE_SYNTAX& syntax, C_CONTEXT& context) const
+CError CUndefinedReferenceValidator::Validate(C_VARIABLE_SYNTAX& syntax, C_CONTEXT& context) const
 {
   CError result;
-  auto variableIdentifier = CIdentifier(syntax.GetVariableName());
-  CNamespace variableNamespace;
+  auto variableIdentifier = CIdentifier(syntax.GetName());
+  CNamespace variableLiveNamespace;
   wstring variableName;
 
   if (variableIdentifier.HasNamespace())
   {
-    variableNamespace = variableIdentifier.GetNamespace();
+    variableLiveNamespace = variableIdentifier.GetLiveNamespace();
     variableName = variableIdentifier.GetName();
   }
   else
   {
-    variableNamespace = syntax.GetCurrentNamespace();
-    variableName = syntax.GetVariableName();
+    variableLiveNamespace = syntax.GetLiveNamespace();
+    variableName = syntax.GetName();
   }
 
-  if (!context.HasDefinedVariable(variableNamespace, variableName))
+  if (!context.HasDefinedIdentifier(variableLiveNamespace, variableName, EIdentifierType::Variable))
   {
     result.SetSource(EErrorSource::Producing);
-    result.SetLivingLine(syntax.GetLivingLine());
-    result.SetDescription(CWStringTemplate(L"Variable:[%x] has not been defined").Format(syntax.GetVariableName()));
+    result.SetLiveLine(syntax.GetLiveLine());
+    result.SetDescription(CWStringTemplate(L"Variable:'%x' has not been defined").Format(syntax.GetName()));
   }
 
   return move(result);

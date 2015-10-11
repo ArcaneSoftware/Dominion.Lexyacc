@@ -21,7 +21,7 @@ public:
   CAssignVariableSyntax();
   CAssignVariableSyntax(C_ASSIGN_VARIABLE_SYNTAX& that);
   CAssignVariableSyntax(C_ASSIGN_VARIABLE_SYNTAX&& that);
-  CAssignVariableSyntax(int32_t livingLine, WSTRING& variableName, int32_t valueID);
+  CAssignVariableSyntax(int32_t liveLine, WSTRING& variableName, int32_t valueID);
   virtual ~CAssignVariableSyntax();
 
   CLASS_PROPERTY(wstring, _variableName, VariableName);

@@ -60,6 +60,16 @@ CProductor CProducer::Scalar(C_SCALAR_SYNTAX& syntax)
   return Produce<CEssaySyntax>(syntax);
 }
 
+CProductor CProducer::Variable(C_VARIABLE_SYNTAX& syntax)
+{
+  auto errors = vector<CError>
+  {
+    CUndefinedReferenceValidator().Validate(syntax, _context)
+  };
+
+  return Produce<CVariableSyntax>(syntax, errors);
+}
+
 CProductor CProducer::Chain(C_CHAIN_SYNTAX& syntax)
 {
   auto errors = vector<CError>
@@ -106,7 +116,7 @@ CProductor CProducer::DefineVariable(C_DEFINE_VARIABLE_SYNTAX& syntax)
 
   if (result.GetSuccessed())
   {
-    _context.DefineVariable(syntax.GetNamespace(), syntax.GetName(), syntax.GetInitialValueID());
+    _context.DefineVariable(syntax.GetLiveNamespace(), syntax.GetName(), syntax.GetInitialValueID());
   }
 
   return move(result);
@@ -116,7 +126,7 @@ CProductor CProducer::AssignVariable(C_ASSIGN_VARIABLE_SYNTAX& syntax)
 {
   auto errors = vector<CError>
   {
-    CUndefinedReferenceValidator().Validate(syntax, _context)
+    CNoneSyntaxValidator().Validate(syntax, _context)
   };
 
   return Produce<CAssignVariableSyntax>(syntax, errors);
@@ -147,7 +157,7 @@ void CProducer::PopNaming()
   _namingStack.Pop();
 }
 
-CNamespace CProducer::GetCurrentNamespace() const
+CNamespace CProducer::GetLiveNamespace() const
 {
   return move(_namingStack.GetNamespace());
 }

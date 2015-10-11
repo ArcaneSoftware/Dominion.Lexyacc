@@ -21,7 +21,7 @@ public:
   CWhenSyntax();
   CWhenSyntax(C_WHEN_SYNTAX& that);
   CWhenSyntax(C_WHEN_SYNTAX&& that);
-  CWhenSyntax(int32_t livingLine, int32_t conditionID, int32_t thenID);
+  CWhenSyntax(int32_t liveLine, int32_t conditionID, int32_t thenID);
   virtual ~CWhenSyntax();
 
   CLASS_PROPERTY(int32_t, _conditionID, ConditionID);

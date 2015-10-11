@@ -11,33 +11,31 @@ using namespace Dominion::Compilation::Essay;
 //*******************************************************************************************************************//
 CAssignVariableSyntax::CAssignVariableSyntax() :
   CEssaySyntax(ESyntaxType::AssignVariable),
+  _variableID(NONE_ID),
   _valueID(NONE_ID)
 {
 }
 
 CAssignVariableSyntax::CAssignVariableSyntax(C_ASSIGN_VARIABLE_SYNTAX& that) :
   CEssaySyntax(that),
-  _currentNamespace(that._currentNamespace),
-  _variableName(that._variableName),
+  _variableID(that._variableID),
   _valueID(that._valueID)
 {
 }
 
 CAssignVariableSyntax::CAssignVariableSyntax(C_ASSIGN_VARIABLE_SYNTAX&& that) :
   CEssaySyntax(that),
-  _currentNamespace(move(that._currentNamespace)),
-  _variableName(move(that._variableName)),
+  _variableID(move(that._variableID)),
   _valueID(move(that._valueID))
 {
 }
 
-CAssignVariableSyntax::CAssignVariableSyntax(int32_t livingLine,
-                                             C_NAMESPACE& currentNamespace,
-                                             WSTRING& variableName,
+CAssignVariableSyntax::CAssignVariableSyntax(int32_t liveLine,
+                                             C_NAMESPACE& liveNamespace,
+                                             int32_t variableID,
                                              int32_t valueID) :
-  CEssaySyntax(ESyntaxType::AssignVariable, livingLine),
-  _currentNamespace(currentNamespace),
-  _variableName(variableName),
+  CEssaySyntax(ESyntaxType::AssignVariable, liveLine, liveNamespace),
+  _variableID(variableID),
   _valueID(valueID)
 {
 }
@@ -50,8 +48,7 @@ C_ASSIGN_VARIABLE_SYNTAX& CAssignVariableSyntax::operator=(C_ASSIGN_VARIABLE_SYN
 {
   CEssaySyntax::operator=(that);
 
-  _currentNamespace = that._currentNamespace;
-  _variableName = that._variableName;
+  _variableID = that._variableID;
   _valueID = that._valueID;
 
   return *this;

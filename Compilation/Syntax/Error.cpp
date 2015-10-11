@@ -64,7 +64,7 @@ CEErrorSource::~CEErrorSource()
 //*******************************************************************************************************************//
 CError::CError() :
   _source(EErrorSource::Null),
-  _livingLine(0)
+  _liveLine(0)
 {
 }
 
@@ -72,7 +72,7 @@ CError::CError(C_ERROR& that) :
   CObject(that),
   _source(that._source),
   _file(that._file),
-  _livingLine(that._livingLine),
+  _liveLine(that._liveLine),
   _description(that._description)
 {
 }
@@ -81,15 +81,15 @@ CError::CError(C_ERROR&& that) :
   CObject(that),
   _source(move(that._source)),
   _file(move(that._file)),
-  _livingLine(move(that._livingLine)),
+  _liveLine(move(that._liveLine)),
   _description(move(that._description))
 {
 }
 
-CError::CError(EErrorSource source, WSTRING& file, int32_t livingLine, WSTRING& description) :
+CError::CError(EErrorSource source, WSTRING& file, int32_t liveLine, WSTRING& description) :
   _source(source),
   _file(file),
-  _livingLine(livingLine),
+  _liveLine(liveLine),
   _description(description)
 {
 }
@@ -103,7 +103,7 @@ wstring CError::ToString() const
   auto string = CWStringTemplate(L"Encounter [%x] error:[%x] at line[%x] of file:[%x]").
                 Format(CEErrorSource(_source).ToString(),
                        _description,
-                       _livingLine, _file);
+                       _liveLine, _file);
 
   return move(string);
 }
@@ -119,7 +119,7 @@ C_ERROR& CError::operator=(C_ERROR& that)
 
   _source = that._source;
   _file = that._file;
-  _livingLine = that._livingLine;
+  _liveLine = that._liveLine;
   _description = that._description;
 
   return *this;

@@ -42,14 +42,14 @@ CSelectEntitySyntax::CSelectEntitySyntax(C_SELECT_ENTITY_SYNTAX&& that) :
 {
 }
 
-CSelectEntitySyntax::CSelectEntitySyntax(int32_t livingLine,
+CSelectEntitySyntax::CSelectEntitySyntax(int32_t liveLine,
                                          int32_t topID,
                                          int32_t selectedFieldChainID,
                                          int32_t fromAliasChainID,
                                          int32_t joinChainID,
                                          int32_t whereID,
                                          int32_t orderedFieldChainID) :
-  CTransactSQLSyntax(ESyntaxType::SelectEntity, livingLine),
+  CTransactSQLSyntax(ESyntaxType::SelectEntity, liveLine),
   _topID(topID),
   _selectedFieldChainID(selectedFieldChainID),
   _fromAliasChainID(fromAliasChainID),

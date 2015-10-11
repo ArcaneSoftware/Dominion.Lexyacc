@@ -21,7 +21,7 @@ public:
   CVariableSyntax();
   CVariableSyntax(C_VARIABLE_SYNTAX& that);
   CVariableSyntax(C_VARIABLE_SYNTAX&& that);
-  CVariableSyntax(int32_t livingLine, WSTRING& name);
+  CVariableSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, WSTRING& name);
   virtual ~CVariableSyntax();
 
   CLASS_PROPERTY(wstring, _name, Name);

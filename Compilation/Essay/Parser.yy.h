@@ -120,7 +120,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
     {
 
 /* Line 35 of lalr1.cc  */
-#line 23 "./Parser.yy"
+#line 24 "./Parser.yy"
 
   double numeric;
   wstring* litera;

@@ -26,8 +26,8 @@ CVariableSyntax::CVariableSyntax(C_VARIABLE_SYNTAX&& that) :
 {
 }
 
-CVariableSyntax::CVariableSyntax(int32_t livingLine, WSTRING& name) :
-  CEssaySyntax(ESyntaxType::Variable, livingLine),
+CVariableSyntax::CVariableSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, WSTRING& name) :
+  CEssaySyntax(ESyntaxType::Variable, liveLine, liveNamespace),
   _name(name)
 {
 }

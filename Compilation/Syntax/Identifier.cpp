@@ -15,14 +15,14 @@ CIdentifier::CIdentifier()
 
 CIdentifier::CIdentifier(C_IDENTIFIER& that) :
   CObject(that),
-  _namespace(that._namespace),
+  _liveNamespace(that._liveNamespace),
   _name(that._name)
 {
 }
 
 CIdentifier::CIdentifier(C_IDENTIFIER&& that) :
   CObject(that),
-  _namespace(move(that._namespace)),
+  _liveNamespace(move(that._liveNamespace)),
   _name(move(that._name))
 {
 }
@@ -32,8 +32,8 @@ CIdentifier::CIdentifier(WSTRING& fullName)
   Construct(fullName);
 }
 
-CIdentifier::CIdentifier(C_NAMESPACE& a_namespace, WSTRING& name) :
-  _namespace(a_namespace),
+CIdentifier::CIdentifier(C_NAMESPACE& liveNamespace, WSTRING& name) :
+  _liveNamespace(liveNamespace),
   _name(name)
 {
 }
@@ -54,7 +54,7 @@ void CIdentifier::Construct(WSTRING& fullName)
 
     for (auto a = namingVector.begin(); a != namingVector.end() - 1; a++)
     {
-      _namespace.Add(*a);
+      _liveNamespace.Add(*a);
     }
 
     _name = namingVector.back();
@@ -63,21 +63,21 @@ void CIdentifier::Construct(WSTRING& fullName)
 
 wstring CIdentifier::ToString() const
 {
-  return _namespace.Empty() ?
+  return _liveNamespace.Empty() ?
          _name :
-         _namespace.ToString() + L"." + _name;
+         _liveNamespace.ToString() + L"." + _name;
 }
 
 bool CIdentifier::HasNamespace() const
 {
-  return !_namespace.Empty();
+  return !_liveNamespace.Empty();
 }
 
 C_IDENTIFIER& CIdentifier::operator=(C_IDENTIFIER& that)
 {
   CObject::operator=(that);
 
-  _namespace = that._namespace;
+  _liveNamespace = that._liveNamespace;
   _name = that._name;
 
   return *this;

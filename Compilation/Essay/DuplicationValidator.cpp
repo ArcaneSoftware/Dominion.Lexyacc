@@ -31,13 +31,14 @@ CError CDuplicationValidator::Validate(C_DEFINE_VARIABLE_SYNTAX& syntax, C_CONTE
 {
   CError result;
 
-  if (context.HasDefinedVariable(syntax.GetNamespace(), syntax.GetName()))
+  if (context.HasDefinedIdentifier(syntax.GetLiveNamespace(), syntax.GetName(), EIdentifierType::Variable))
   {
-    auto description = CWStringTemplate(
-                         L"Duplicated definition of local variable:[%x.%x]").Format(syntax.GetNamespace().ToString(), syntax.GetName());
+    auto description = CWStringTemplate(L"Duplicated definition of variable:'%x.%x'").Format(
+                         syntax.GetLiveNamespace().ToString(),
+                         syntax.GetName());
 
     result.SetSource(EErrorSource::Producing);
-    result.SetLivingLine(syntax.GetLivingLine());
+    result.SetLiveLine(syntax.GetLiveLine());
     result.SetDescription(description);
   }
 

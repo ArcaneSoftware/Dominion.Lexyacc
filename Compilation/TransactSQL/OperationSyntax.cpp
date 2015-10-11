@@ -31,12 +31,12 @@ COperationAST::COperationAST(C_OPERATION_AST&& that) :
 {
 }
 
-COperationAST::COperationAST(int32_t livingLine,
+COperationAST::COperationAST(int32_t liveLine,
                                    EOperationType operationType,
                                    int32_t leftOperandID,
                                    int32_t centerOperandID,
                                    int32_t rightOperandID) :
-  CTransactSQLSyntax(ESyntaxType::Operation, livingLine),
+  CTransactSQLSyntax(ESyntaxType::Operation, liveLine),
   _operationType(operationType),
   _leftOperandID(leftOperandID),
   _centerOperandID(centerOperandID),

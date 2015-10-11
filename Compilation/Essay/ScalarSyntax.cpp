@@ -26,8 +26,8 @@ CScalarSyntax::CScalarSyntax(C_SCALAR_SYNTAX&& that) :
 {
 }
 
-CScalarSyntax::CScalarSyntax(int32_t livingLine, C_SCALAR& value) :
-  CEssaySyntax(ESyntaxType::Scalar, livingLine),
+CScalarSyntax::CScalarSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, C_SCALAR& value) :
+  CEssaySyntax(ESyntaxType::Scalar, liveLine, liveNamespace),
   _value(value)
 {
 }

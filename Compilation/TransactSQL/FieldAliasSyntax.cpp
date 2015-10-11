@@ -31,11 +31,11 @@ CFieldAliasSyntax::CFieldAliasSyntax(C_FIELD_ALIAS_SYNTAX&& that) :
 {
 }
 
-CFieldAliasSyntax::CFieldAliasSyntax(int32_t livingLine,
+CFieldAliasSyntax::CFieldAliasSyntax(int32_t liveLine,
                                      WSTRING& identifier,
                                      int32_t expressionID,
                                      WSTRING& alias) :
-  CTransactSQLSyntax(ESyntaxType::FieldAlias, livingLine),
+  CTransactSQLSyntax(ESyntaxType::FieldAlias, liveLine),
   _identifier(identifier),
   _expressionID(expressionID),
   _nickname(alias)

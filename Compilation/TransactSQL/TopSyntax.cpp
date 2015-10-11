@@ -30,8 +30,8 @@ CTopSyntax::CTopSyntax(C_TOP_SYNTAX&& that) :
 {
 }
 
-CTopSyntax::CTopSyntax(int32_t livingLine, int32_t quantity, bool percent) :
-  CTransactSQLSyntax(ESyntaxType::Top, livingLine),
+CTopSyntax::CTopSyntax(int32_t liveLine, int32_t quantity, bool percent) :
+  CTransactSQLSyntax(ESyntaxType::Top, liveLine),
   _quantity(quantity),
   _percent(percent)
 {

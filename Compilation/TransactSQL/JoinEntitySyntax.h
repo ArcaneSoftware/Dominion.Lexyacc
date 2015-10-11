@@ -21,7 +21,7 @@ public:
   CJoinEntitySyntax();
   CJoinEntitySyntax(C_JOIN_ENTITY_SYNTAX& that);
   CJoinEntitySyntax(C_JOIN_ENTITY_SYNTAX&& that);
-  CJoinEntitySyntax(int32_t livingLine, EJoinType joinType, int32_t aliasID, int32_t conditionID);
+  CJoinEntitySyntax(int32_t liveLine, EJoinType joinType, int32_t aliasID, int32_t conditionID);
   virtual ~CJoinEntitySyntax();
 
   CLASS_PROPERTY(EJoinType, _joinType, JoinType);

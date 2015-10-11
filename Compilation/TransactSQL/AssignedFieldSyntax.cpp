@@ -28,8 +28,8 @@ CAssignedFieldSyntax::CAssignedFieldSyntax(C_ASSIGNED_FIELD_SYNTAX&& that) :
 {
 }
 
-CAssignedFieldSyntax::CAssignedFieldSyntax(int32_t livingLine, WSTRING& variableName, WSTRING& fieldName) :
-  CTransactSQLSyntax(ESyntaxType::AssignedField, livingLine),
+CAssignedFieldSyntax::CAssignedFieldSyntax(int32_t liveLine, WSTRING& variableName, WSTRING& fieldName) :
+  CTransactSQLSyntax(ESyntaxType::AssignedField, liveLine),
   _variableName(variableName),
   _fieldName(fieldName)
 {

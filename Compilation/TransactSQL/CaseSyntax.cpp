@@ -33,8 +33,8 @@ CCaseSyntax::CCaseSyntax(C_CASE_SYNTAX&& that) :
 {
 }
 
-CCaseSyntax::CCaseSyntax(int32_t livingLine, int32_t conditionID, int32_t whenChainID, int32_t elseID) :
-  CTransactSQLSyntax(ESyntaxType::Case, livingLine),
+CCaseSyntax::CCaseSyntax(int32_t liveLine, int32_t conditionID, int32_t whenChainID, int32_t elseID) :
+  CTransactSQLSyntax(ESyntaxType::Case, liveLine),
   _conditionID(conditionID),
   _whenChainID(whenChainID),
   _elseID(elseID)

@@ -26,8 +26,8 @@ CConstantSyntax::CConstantSyntax(C_CONSTANT_SYNTAX&& that) :
 {
 }
 
-CConstantSyntax::CConstantSyntax(int32_t livingLine, C_SCALAR value) :
-  CTransactSQLSyntax(ESyntaxType::Constant, livingLine),
+CConstantSyntax::CConstantSyntax(int32_t liveLine, C_SCALAR value) :
+  CTransactSQLSyntax(ESyntaxType::Constant, liveLine),
   _value(value)
 {
 }

@@ -55,4 +55,11 @@ public:
   CE_SYNTAX_TYPE& operator=(CE_SYNTAX_TYPE& that);
 };
 
+
+enum class LIBRARY_EXPORT EIdentifierType
+{
+  Variable,
+  Function,
+};
+
 END_DOMINION_COMPILATION_ESSAY

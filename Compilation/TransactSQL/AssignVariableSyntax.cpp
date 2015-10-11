@@ -29,8 +29,8 @@ CAssignVariableSyntax::CAssignVariableSyntax(C_ASSIGN_VARIABLE_SYNTAX&& that) :
 {
 }
 
-CAssignVariableSyntax::CAssignVariableSyntax(int32_t livingLine, WSTRING& variableName, int32_t valueID) :
-  CTransactSQLSyntax(ESyntaxType::AssignVariable, livingLine),
+CAssignVariableSyntax::CAssignVariableSyntax(int32_t liveLine, WSTRING& variableName, int32_t valueID) :
+  CTransactSQLSyntax(ESyntaxType::AssignVariable, liveLine),
   _variableName(variableName),
   _valueID(valueID)
 {

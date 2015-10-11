@@ -31,11 +31,11 @@ CExecProcedureSyntax::CExecProcedureSyntax(C_EXEC_PROCEDURE_SYNTAX&& that) :
 {
 }
 
-CExecProcedureSyntax::CExecProcedureSyntax(int32_t livingLine,
+CExecProcedureSyntax::CExecProcedureSyntax(int32_t liveLine,
                                            WSTRING& returnVariableName,
                                            WSTRING& procedureName,
                                            int32_t argumentChainID) :
-  CTransactSQLSyntax(ESyntaxType::ExecProcedure, livingLine),
+  CTransactSQLSyntax(ESyntaxType::ExecProcedure, liveLine),
   _returnVariableName(returnVariableName),
   _procedureName(procedureName),
   _argumentChainID(argumentChainID)

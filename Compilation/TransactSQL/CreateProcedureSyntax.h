@@ -21,7 +21,7 @@ public:
   CCreateProcedureSyntax();
   CCreateProcedureSyntax(C_CREATE_PROCEDURE_SYNTAX& that);
   CCreateProcedureSyntax(C_CREATE_PROCEDURE_SYNTAX&& that);
-  CCreateProcedureSyntax(int32_t livingLine,
+  CCreateProcedureSyntax(int32_t liveLine,
                          WSTRING& procedureName,
                          int32_t variableDefinitionChainID,
                          int32_t blockID);

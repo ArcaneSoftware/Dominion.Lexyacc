@@ -28,8 +28,8 @@ CBlockSyntax::CBlockSyntax(C_BLOCK_SYNTAX&& that) :
 {
 }
 
-CBlockSyntax::CBlockSyntax(int32_t livingLine, int32_t statementID, int32_t blockID) :
-  CTransactSQLSyntax(ESyntaxType::Block, livingLine),
+CBlockSyntax::CBlockSyntax(int32_t liveLine, int32_t statementID, int32_t blockID) :
+  CTransactSQLSyntax(ESyntaxType::Block, liveLine),
   _statementID(statementID),
   _blockID(blockID)
 {

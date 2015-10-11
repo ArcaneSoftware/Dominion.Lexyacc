@@ -34,8 +34,29 @@ CError CNoneSyntaxValidator::Validate(C_CHAIN_SYNTAX& syntax, C_CONTEXT& context
   if (syntax.GetCurrentID() == NONE_ID)
   {
     result.SetSource(EErrorSource::Producing);
-    result.SetLivingLine(syntax.GetLivingLine());
-    result.SetDescription(L"Indexless ast of chain`s current.");
+    result.SetLiveLine(syntax.GetLiveLine());
+    result.SetDescription(L"Indexless chain`s current syntax tree.");
+  }
+
+  return move(result);
+}
+
+CError CNoneSyntaxValidator::Validate(C_ASSIGN_VARIABLE_SYNTAX& syntax, C_CONTEXT& context) const
+{
+  CError result;
+
+  if (syntax.GetVariableID() == NONE_ID)
+  {
+    result.SetSource(EErrorSource::Producing);
+    result.SetLiveLine(syntax.GetLiveLine());
+    result.SetDescription(L"Indexless variable reference syntax tree when assiging varible.");
+  }
+
+  if (syntax.GetValueID() == NONE_ID)
+  {
+    result.SetSource(EErrorSource::Producing);
+    result.SetLiveLine(syntax.GetLiveLine());
+    result.SetDescription(L"Indexless variable value syntax tree when assiging varible.");
   }
 
   return move(result);

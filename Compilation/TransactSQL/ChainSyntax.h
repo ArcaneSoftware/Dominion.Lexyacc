@@ -21,7 +21,7 @@ public:
   CChainAST();
   CChainAST(C_CHAIN_AST& that);
   CChainAST(C_CHAIN_AST&& that);
-  CChainAST(int32_t livingLine, int32_t currentID, int32_t nextID);
+  CChainAST(int32_t liveLine, int32_t currentID, int32_t nextID);
   virtual ~CChainAST();
 
   CLASS_PROPERTY(int32_t, _currentID, CurrentID);

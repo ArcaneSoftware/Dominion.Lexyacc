@@ -21,7 +21,7 @@ public:
   CExecProcedureSyntax();
   CExecProcedureSyntax(C_EXEC_PROCEDURE_SYNTAX& that);
   CExecProcedureSyntax(C_EXEC_PROCEDURE_SYNTAX&& that);
-  CExecProcedureSyntax(int32_t livingLine,
+  CExecProcedureSyntax(int32_t liveLine,
                        WSTRING& returnVariableName,
                        WSTRING& procedureName,
                        int32_t argumentChainID);

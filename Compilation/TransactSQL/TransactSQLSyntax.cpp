@@ -26,8 +26,8 @@ CTransactSQLSyntax::CTransactSQLSyntax(C_CONCRETE_SYNTAX&& that) :
 {
 }
 
-CTransactSQLSyntax::CTransactSQLSyntax(ESyntaxType syntaxType, int32_t livingLine) :
-  CAbstractSyntaxTree(syntaxType, livingLine)
+CTransactSQLSyntax::CTransactSQLSyntax(ESyntaxType syntaxType, int32_t liveLine) :
+  CAbstractSyntaxTree(syntaxType, liveLine)
 {
 }
 

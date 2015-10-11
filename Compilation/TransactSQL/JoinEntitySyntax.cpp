@@ -33,11 +33,11 @@ CJoinEntitySyntax::CJoinEntitySyntax(C_JOIN_ENTITY_SYNTAX&& that) :
 {
 }
 
-CJoinEntitySyntax::CJoinEntitySyntax(int32_t livingLine,
+CJoinEntitySyntax::CJoinEntitySyntax(int32_t liveLine,
                                      EJoinType joinType,
                                      int32_t aliasID,
                                      int32_t conditionID) :
-  CTransactSQLSyntax(ESyntaxType::JoinEntity, livingLine),
+  CTransactSQLSyntax(ESyntaxType::JoinEntity, liveLine),
   _joinType(joinType),
   _aliasID(aliasID),
   _conditionID(conditionID)

@@ -21,7 +21,7 @@ public:
   CVariableAST();
   CVariableAST(C_VARIABLE_AST& that);
   CVariableAST(C_VARIABLE_AST&& that);
-  CVariableAST(int32_t livingLine, WSTRING& name);
+  CVariableAST(int32_t liveLine, WSTRING& name);
   virtual ~CVariableAST();
 
   CLASS_PROPERTY(wstring, _name, Name);

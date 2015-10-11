@@ -34,8 +34,8 @@ CError CNullUnaryOperationValidator::Validate(C_OPERATION_SYNTAX& syntax, C_CONT
   if (syntax.GetRightOperandID() == NONE_ID)
   {
     result.SetSource(EErrorSource::Producing);
-    result.SetLivingLine(syntax.GetLivingLine());
-    result.SetDescription(CWStringTemplate(L"operand of operation:[%x] is invalid").
+    result.SetLiveLine(syntax.GetLiveLine());
+    result.SetDescription(CWStringTemplate(L"operand of operation:'%x' is invalid").
                           Format(CEOperationType(syntax.GetOperationType()).ToString()));
   }
 
@@ -77,14 +77,14 @@ CError CNullBinaryOperationValidator::Validate(C_OPERATION_SYNTAX& syntax, C_CON
   if (syntax.GetLeftOperandID() == NONE_ID)
   {
     result.SetSource(EErrorSource::Producing);
-    result.SetLivingLine(syntax.GetLivingLine());
+    result.SetLiveLine(syntax.GetLiveLine());
     result.SetDescription(CWStringTemplate(L"Left operand of operation:[%x] is invalid").Format(operationType));
   }
 
   if (syntax.GetRightOperandID() == NONE_ID)
   {
     result.SetSource(EErrorSource::Producing);
-    result.SetLivingLine(syntax.GetLivingLine());
+    result.SetLiveLine(syntax.GetLiveLine());
     result.SetDescription(CWStringTemplate(L"Right operand of operation:[%x] is invalid").Format(operationType));
   }
 

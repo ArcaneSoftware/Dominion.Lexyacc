@@ -52,7 +52,7 @@ public:
   CError();
   CError(C_ERROR& that);
   CError(C_ERROR&& that);
-  explicit CError(EErrorSource source, WSTRING& file, int32_t livingLine, WSTRING& description);
+  explicit CError(EErrorSource source, WSTRING& file, int32_t liveLine, WSTRING& description);
   virtual ~CError();
   //{CObject
   virtual wstring ToString() const override;
@@ -61,7 +61,7 @@ public:
 
   CLASS_PROPERTY(EErrorSource, _source, Source);
   CLASS_PROPERTY(wstring, _file, File);
-  CLASS_PROPERTY(int32_t, _livingLine, LivingLine);
+  CLASS_PROPERTY(int32_t, _liveLine, LiveLine);
   CLASS_PROPERTY(wstring, _description, Description);
 
   C_ERROR& operator=(C_ERROR& that);
@@ -69,7 +69,7 @@ public:
 private:
   EErrorSource _source;
   wstring _file;
-  int32_t _livingLine;
+  int32_t _liveLine;
   wstring _description;
 };
 

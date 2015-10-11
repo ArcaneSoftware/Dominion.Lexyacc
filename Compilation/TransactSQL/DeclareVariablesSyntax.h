@@ -21,7 +21,7 @@ public:
   CDeclareVariablesSyntax();
   CDeclareVariablesSyntax(C_DECLARE_VARIABLES_SYNTAX& that);
   CDeclareVariablesSyntax(C_DECLARE_VARIABLES_SYNTAX&& that);
-  CDeclareVariablesSyntax(int32_t livingLine, int32_t variableDefinitionChainID);
+  CDeclareVariablesSyntax(int32_t liveLine, int32_t variableDefinitionChainID);
   virtual ~CDeclareVariablesSyntax();
 
   CLASS_PROPERTY(int32_t, _variableDefinitionChainID, VariableDefinitionChainID);

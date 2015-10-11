@@ -21,7 +21,7 @@ public:
   CChainSyntax();
   CChainSyntax(C_CHAIN_SYNTAX& that);
   CChainSyntax(C_CHAIN_SYNTAX&& that);
-  CChainSyntax(int32_t livingLine, int32_t currentID, int32_t nextID);
+  CChainSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, int32_t currentID, int32_t nextID);
   virtual ~CChainSyntax();
 
   CLASS_PROPERTY(int32_t, _currentID, CurrentID);

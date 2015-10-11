@@ -21,7 +21,7 @@ public:
   CAssignedFieldSyntax();
   CAssignedFieldSyntax(C_ASSIGNED_FIELD_SYNTAX& that);
   CAssignedFieldSyntax(C_ASSIGNED_FIELD_SYNTAX&& that);
-  CAssignedFieldSyntax(int32_t livingLine, WSTRING& variableID, WSTRING& fieldName);
+  CAssignedFieldSyntax(int32_t liveLine, WSTRING& variableID, WSTRING& fieldName);
   virtual ~CAssignedFieldSyntax();
 
   CLASS_PROPERTY(wstring, _variableName, VariableName);

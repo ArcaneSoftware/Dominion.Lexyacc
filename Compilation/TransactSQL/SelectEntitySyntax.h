@@ -21,7 +21,7 @@ public:
   CSelectEntitySyntax();
   CSelectEntitySyntax(C_SELECT_ENTITY_SYNTAX& that);
   CSelectEntitySyntax(C_SELECT_ENTITY_SYNTAX&& that);
-  CSelectEntitySyntax(int32_t livingLine,
+  CSelectEntitySyntax(int32_t liveLine,
                       int32_t topID,
                       int32_t selectedFieldChainID,
                       int32_t fromAliasChainID,

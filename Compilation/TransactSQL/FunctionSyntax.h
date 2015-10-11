@@ -21,7 +21,7 @@ public:
   CFunctionSyntax();
   CFunctionSyntax(C_FUNCTION_SYNTAX& that);
   CFunctionSyntax(C_FUNCTION_SYNTAX&& that);
-  CFunctionSyntax(int32_t livingLine, WSTRING& functionName, int32_t argumentChainID);
+  CFunctionSyntax(int32_t liveLine, WSTRING& functionName, int32_t argumentChainID);
   virtual ~CFunctionSyntax();
 
   CLASS_PROPERTY(wstring, _functionName, FunctionName);

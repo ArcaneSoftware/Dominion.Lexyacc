@@ -21,7 +21,7 @@ public:
   CBlockSyntax();
   CBlockSyntax(C_BLOCK_SYNTAX& that);
   CBlockSyntax(C_BLOCK_SYNTAX&& that);
-  CBlockSyntax(int32_t livingLine, int32_t statementID, int32_t blockID);
+  CBlockSyntax(int32_t liveLine, int32_t statementID, int32_t blockID);
   virtual ~CBlockSyntax();
 
   CLASS_PROPERTY(int32_t, _statementID, StatementID);

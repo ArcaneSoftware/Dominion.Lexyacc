@@ -27,8 +27,8 @@ CDeclareVariablesSyntax::CDeclareVariablesSyntax(C_DECLARE_VARIABLES_SYNTAX&& th
 {
 }
 
-CDeclareVariablesSyntax::CDeclareVariablesSyntax(int32_t livingLine, int32_t variableDefinitionChainID) :
-  CTransactSQLSyntax(ESyntaxType::DeclareVariables, livingLine),
+CDeclareVariablesSyntax::CDeclareVariablesSyntax(int32_t liveLine, int32_t variableDefinitionChainID) :
+  CTransactSQLSyntax(ESyntaxType::DeclareVariables, liveLine),
   _variableDefinitionChainID(variableDefinitionChainID)
 {
 }

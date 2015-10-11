@@ -21,7 +21,7 @@ public:
   CCaseSyntax();
   CCaseSyntax(C_CASE_SYNTAX& that);
   CCaseSyntax(C_CASE_SYNTAX&& that);
-  CCaseSyntax(int32_t livingLine, int32_t conditionID, int32_t whenChainID, int32_t elseID);
+  CCaseSyntax(int32_t liveLine, int32_t conditionID, int32_t whenChainID, int32_t elseID);
   virtual ~CCaseSyntax();
 
   CLASS_PROPERTY(int32_t, _conditionID, ConditionID);

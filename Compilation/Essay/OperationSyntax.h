@@ -21,7 +21,8 @@ public:
   COperationSyntax();
   COperationSyntax(C_OPERATION_SYNTAX& that);
   COperationSyntax(C_OPERATION_SYNTAX&& that);
-  COperationSyntax(int32_t livingLine,
+  COperationSyntax(int32_t liveLine,
+                   C_NAMESPACE& liveNamespace,
                    int32_t leftOperandID,
                    EOperationType operationType,
                    int32_t rightOperandID);

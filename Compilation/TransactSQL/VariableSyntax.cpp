@@ -26,8 +26,8 @@ CVariableAST::CVariableAST(C_VARIABLE_AST&& that) :
 {
 }
 
-CVariableAST::CVariableAST(int32_t livingLine, WSTRING& name) :
-  CTransactSQLSyntax(ESyntaxType::Variable, livingLine),
+CVariableAST::CVariableAST(int32_t liveLine, WSTRING& name) :
+  CTransactSQLSyntax(ESyntaxType::Variable, liveLine),
   _name(name)
 {
 }

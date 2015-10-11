@@ -15,3 +15,4 @@
 #include "Dominion/Compilation/Essay/BlockSyntax.h"
 #include "Dominion/Compilation/Essay/DefineVariableSyntax.h"
 #include "Dominion/Compilation/Essay/AssignVariableSyntax.h"
+#include "Dominion/Compilation/Essay/DefineFunctionSyntax.h"

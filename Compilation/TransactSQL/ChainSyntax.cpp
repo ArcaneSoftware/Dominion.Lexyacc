@@ -30,8 +30,8 @@ CChainAST::CChainAST(C_CHAIN_AST&& that) :
 {
 }
 
-CChainAST::CChainAST(int32_t livingLine, int32_t currentID, int32_t nextID) :
-  CTransactSQLSyntax(ESyntaxType::Chain, livingLine),
+CChainAST::CChainAST(int32_t liveLine, int32_t currentID, int32_t nextID) :
+  CTransactSQLSyntax(ESyntaxType::Chain, liveLine),
   _currentID(currentID),
   _nextID(nextID)
 {

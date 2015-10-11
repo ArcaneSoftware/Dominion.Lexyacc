@@ -30,8 +30,8 @@ CWhenSyntax::CWhenSyntax(C_WHEN_SYNTAX&& that) :
 {
 }
 
-CWhenSyntax::CWhenSyntax(int32_t livingLine, int32_t conditionID, int32_t whenID) :
-  CTransactSQLSyntax(ESyntaxType::When, livingLine),
+CWhenSyntax::CWhenSyntax(int32_t liveLine, int32_t conditionID, int32_t whenID) :
+  CTransactSQLSyntax(ESyntaxType::When, liveLine),
   _conditionID(conditionID),
   _thenID(whenID)
 {

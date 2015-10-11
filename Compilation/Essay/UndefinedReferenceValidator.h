@@ -15,7 +15,7 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 CLASS_DECLARATION(CUndefinedReferenceValidator, C_UNDEFINED_REFERENCE_VALIDATOR);
 class LIBRARY_EXPORT CUndefinedReferenceValidator :
   public CObject,
-  public IValidateProduction<CAssignVariableSyntax, CContext>
+  public IValidateProduction<CVariableSyntax, CContext>
 {
 public:
   CLASS_INHERITOR(CObject, CUndefinedReferenceValidator);
@@ -27,7 +27,7 @@ public:
 
 public:
   //{
-  virtual CError Validate(C_ASSIGN_VARIABLE_SYNTAX& syntax, C_CONTEXT& context) const override;
+  virtual CError Validate(C_VARIABLE_SYNTAX& syntax, C_CONTEXT& context) const override;
   //}
   C_UNDEFINED_REFERENCE_VALIDATOR& operator=(C_UNDEFINED_REFERENCE_VALIDATOR& that);
 };

@@ -21,7 +21,7 @@ public:
   CTopSyntax();
   CTopSyntax(C_TOP_SYNTAX& that);
   CTopSyntax(C_TOP_SYNTAX&& that);
-  CTopSyntax(int32_t livingLine, int32_t quantity, bool percent);
+  CTopSyntax(int32_t liveLine, int32_t quantity, bool percent);
   virtual ~CTopSyntax();
   CLASS_PROPERTY(int32_t, _quantity, Quantity);
   CLASS_PROPERTY(bool, _percent, Percent);

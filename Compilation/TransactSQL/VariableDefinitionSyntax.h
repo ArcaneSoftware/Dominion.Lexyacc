@@ -21,7 +21,7 @@ public:
   CVariableDefinitionSyntax();
   CVariableDefinitionSyntax(C_VARIABLE_DEFINITION_SYNTAX& that);
   CVariableDefinitionSyntax(C_VARIABLE_DEFINITION_SYNTAX&& that);
-  CVariableDefinitionSyntax(int32_t livingLine,
+  CVariableDefinitionSyntax(int32_t liveLine,
                             WSTRING& variableName,
                             WSTRING& sqlType,
                             int32_t valueID,

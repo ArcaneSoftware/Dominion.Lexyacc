@@ -21,7 +21,7 @@ public:
   COrderedFieldSyntax();
   COrderedFieldSyntax(C_ORDERED_FIELD_SYNTAX& that);
   COrderedFieldSyntax(C_ORDERED_FIELD_SYNTAX&& that);
-  COrderedFieldSyntax(int32_t livingLine, EOrderByType orderByType, int32_t identifierID);
+  COrderedFieldSyntax(int32_t liveLine, EOrderByType orderByType, int32_t identifierID);
   virtual ~COrderedFieldSyntax();
 
   CLASS_PROPERTY(EOrderByType, _orderByType, OrderByType);

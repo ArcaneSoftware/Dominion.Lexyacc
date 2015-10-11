@@ -12,70 +12,87 @@ using namespace Dominion::Compilation::Essay;
 //*******************************************************************************************************************//
 CContext::CContext() :
   _entryID(NONE_ID),
-  _ToVariableKey(nullptr)
+  _ToKey(nullptr)
 {
 }
 
 CContext::CContext(C_CONTEXT& that) :
   CObject(that),
   _variableMap(that._variableMap),
+  _functionMap(that._functionMap),
   _syntaxVector(that._syntaxVector),
   _entryID(that._entryID),
-  _ToVariableKey(that._ToVariableKey)
+  _ToKey(that._ToKey)
 {
 }
 
 CContext::CContext(C_CONTEXT&& that) :
   CObject(that),
   _variableMap(move(that._variableMap)),
+  _functionMap(move(that._functionMap)),
   _syntaxVector(move(that._syntaxVector)),
   _entryID(move(that._entryID)),
-  _ToVariableKey(move(that._ToVariableKey))
+  _ToKey(move(that._ToKey))
 {
 }
 
-CContext::CContext(FToVariableKey ToVariableKey) :
+CContext::CContext(FToEssayKey ToEssayKey) :
   _entryID(NONE_ID),
-  _ToVariableKey(ToVariableKey)
+  _ToKey(ToEssayKey)
 {
 }
 
 CContext::~CContext()
 {
   _variableMap.clear();
+  _functionMap.clear();
   _syntaxVector.clear();
 }
 
-FToVariableKey CContext::ToVariableKey()
+FToEssayKey CContext::ToKey()
 {
-  return _ToVariableKey;
+  return _ToKey;
 }
 
-void CContext::DefineVariable(C_NAMESPACE& a_namespace, WSTRING& name, int32_t initialValueID)
+void CContext::DefineVariable(C_NAMESPACE& liveNamespace, WSTRING& name, int32_t initialValueID)
 {
-  auto identifier = CIdentifier(a_namespace, name);
+  auto identifier = CIdentifier(liveNamespace, name);
 
-  _variableMap[_ToVariableKey(identifier.ToString())] = CVariable(identifier, initialValueID);
+  _variableMap[_ToKey(identifier.ToString())] = CVariable(identifier, initialValueID);
 }
 
-bool CContext::ExistSyntax(int32_t index) const
+void CContext::DefineFunction(C_NAMESPACE& liveNamespace, WSTRING& name, int32_t parameterChainID, int32_t blockID)
 {
-  return index != NONE_ID && index < _syntaxVector.size();
+  auto identifier = CIdentifier(liveNamespace, name);
+
+  _functionMap[_ToKey(identifier.ToString())] = CFunction(identifier, parameterChainID, blockID);
 }
 
-bool CContext::HasDefinedVariable(WSTRING& fullName) const
+bool CContext::HasDefinedIdentifier(WSTRING& fullName, EIdentifierType identifierType) const
 {
-  return _variableMap.find(_ToVariableKey(fullName)) != _variableMap.end();
-}
+  bool defined = false;
+  switch (identifierType)
+  {
+    case EIdentifierType::Variable:
+      defined = _variableMap.find(_ToKey(fullName)) != _variableMap.end();
+      break;
+    case EIdentifierType::Function:
+      defined = _functionMap.find(_ToKey(fullName)) != _functionMap.end();
+      break;
+    default:
+      break;
+  }
 
-bool CContext::HasDefinedVariable(C_NAMESPACE& a_namespace, WSTRING& name) const
+  return defined;
+}
+bool CContext::HasDefinedIdentifier(C_NAMESPACE& liveNamespace, WSTRING& name, EIdentifierType identifierType) const
 {
-  auto checkedNamespace = CNamespace(a_namespace);
+  auto checkedNamespace = CNamespace(liveNamespace);
   bool defined = false;
 
   while (!checkedNamespace.Empty())
   {
-    defined = HasDefinedVariable(CIdentifier(checkedNamespace, name).ToString());
+    defined = HasDefinedIdentifier(CIdentifier(checkedNamespace, name).ToString(), identifierType);
 
     if (defined)
     {
@@ -86,6 +103,11 @@ bool CContext::HasDefinedVariable(C_NAMESPACE& a_namespace, WSTRING& name) const
   }
 
   return defined;
+}
+
+bool CContext::ExistSyntax(int32_t syntaxID) const
+{
+  return syntaxID != NONE_ID && syntaxID < _syntaxVector.size();
 }
 
 shared_ptr<CEssaySyntax> CContext::GetSyntax(int32_t syntaxID) const
@@ -112,9 +134,10 @@ C_CONTEXT& CContext::operator=(C_CONTEXT& that)
   CObject::operator=(that);
 
   _variableMap = that._variableMap;
+  _functionMap = that._functionMap;
   _syntaxVector = that._syntaxVector;
   _entryID = that._entryID;
-  _ToVariableKey = that._ToVariableKey;
+  _ToKey = that._ToKey;
 
   return *this;
 }

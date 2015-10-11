@@ -33,11 +33,11 @@ CCreateProcedureSyntax::CCreateProcedureSyntax(C_CREATE_PROCEDURE_SYNTAX&& that)
 {
 }
 
-CCreateProcedureSyntax::CCreateProcedureSyntax(int32_t livingLine,
+CCreateProcedureSyntax::CCreateProcedureSyntax(int32_t liveLine,
                                                WSTRING& procedureName,
                                                int32_t variableDefinitionChainID,
                                                int32_t blockID) :
-  CTransactSQLSyntax(ESyntaxType::CreateProcedure, livingLine),
+  CTransactSQLSyntax(ESyntaxType::CreateProcedure, liveLine),
   _procedureName(procedureName),
   _variableDefinitionChainID(variableDefinitionChainID),
   _blockID(blockID)

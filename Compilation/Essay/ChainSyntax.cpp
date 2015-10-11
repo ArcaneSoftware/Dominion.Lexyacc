@@ -30,8 +30,8 @@ CChainSyntax::CChainSyntax(C_CHAIN_SYNTAX&& that) :
 {
 }
 
-CChainSyntax::CChainSyntax(int32_t livingLine, int32_t currentID, int32_t nextID) :
-  CEssaySyntax(ESyntaxType::Chain, livingLine),
+CChainSyntax::CChainSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, int32_t currentID, int32_t nextID) :
+  CEssaySyntax(ESyntaxType::Chain, liveLine, liveNamespace),
   _currentID(currentID),
   _nextID(nextID)
 {

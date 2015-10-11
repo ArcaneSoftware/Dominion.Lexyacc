@@ -12,32 +12,32 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //CDefineVariableSyntax
 //
 //*****************************************************************************************************************//
-CLASS_DECLARATION(CDefineVariableSyntax, C_DEFINE_VARIABLE_SYNTAX);
-class LIBRARY_EXPORT CDefineVariableSyntax : public CEssaySyntax
+CLASS_DECLARATION(CDefineFunctionSyntax, C_DEFINE_FUNCTION_SYNTAX);
+class LIBRARY_EXPORT CDefineFunctionSyntax : public CEssaySyntax
 {
 public:
-  CLASS_INHERITOR(CEssaySyntax, CDefineVariableSyntax);
+  CLASS_INHERITOR(CEssaySyntax, CDefineFunctionSyntax);
 
-  CDefineVariableSyntax();
-  CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX& that);
-  CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX&& that);
-  CDefineVariableSyntax(int32_t liveLine,
+  CDefineFunctionSyntax();
+  CDefineFunctionSyntax(C_DEFINE_FUNCTION_SYNTAX& that);
+  CDefineFunctionSyntax(C_DEFINE_FUNCTION_SYNTAX&& that);
+  CDefineFunctionSyntax(int32_t liveLine,
                         C_NAMESPACE& liveNamespace,
-                        EVariableType variableType,
                         WSTRING& name,
-                        int32_t initialValueID);
-  virtual ~CDefineVariableSyntax();
+                        int32_t parameterChainID,
+                        int32_t blockID);
+  virtual ~CDefineFunctionSyntax();
 
-  CLASS_PROPERTY(EVariableType, _variableType, VariableType);
   CLASS_PROPERTY(wstring, _name, Name);
-  CLASS_PROPERTY(int32_t, _initialValueID, InitialValueID);
+  CLASS_PROPERTY(int32_t, _parameterChainID, ParameterChainID);
+  CLASS_PROPERTY(int32_t, _blockID, BlockID);
 
-  C_DEFINE_VARIABLE_SYNTAX& operator=(C_DEFINE_VARIABLE_SYNTAX& that);
+  C_DEFINE_FUNCTION_SYNTAX& operator=(C_DEFINE_FUNCTION_SYNTAX& that);
 
 private:
-  EVariableType _variableType;
   wstring _name;
-  int32_t _initialValueID;
+  int32_t _parameterChainID;
+  int32_t _blockID;
 };
 
 END_DOMINION_COMPILATION_ESSAY

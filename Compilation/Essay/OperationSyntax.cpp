@@ -29,11 +29,12 @@ COperationSyntax::COperationSyntax(C_OPERATION_SYNTAX&& that) :
 {
 }
 
-COperationSyntax::COperationSyntax(int32_t livingLine,
+COperationSyntax::COperationSyntax(int32_t liveLine,
+                                   C_NAMESPACE& liveNamespace,
                                    int32_t leftOperandID,
                                    EOperationType operationType,
                                    int32_t rightOperandID) :
-  CEssaySyntax(ESyntaxType::Operation, livingLine),
+  CEssaySyntax(ESyntaxType::Operation, liveLine, liveNamespace),
   _operationType(operationType),
   _leftOperandID(leftOperandID),
   _rightOperandID(rightOperandID)
