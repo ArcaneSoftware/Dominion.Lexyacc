@@ -16,21 +16,21 @@ CFunction::CFunction() :
 }
 
 CFunction::CFunction(C_FUNCTION& that) :
-  CObject(that),
+  CNamedReference(that),
   _parameterChainID(that._parameterChainID),
   _blockID(that._blockID)
 {
 }
 
 CFunction::CFunction(C_FUNCTION&& that) :
-  CObject(that),
+  CNamedReference(that),
   _parameterChainID(move(that._parameterChainID)),
   _blockID(move(that._blockID))
 {
 }
 
-CFunction::CFunction(C_IDENTIFIER& identifier, int32_t parameterChainID, int32_t blockID) :
-  _identifier(identifier),
+CFunction::CFunction(EAccessType access, C_IDENTIFIER& identifier, int32_t parameterChainID, int32_t blockID) :
+  CNamedReference(access, identifier),
   _parameterChainID(parameterChainID),
   _blockID(blockID)
 {
@@ -44,7 +44,6 @@ C_FUNCTION& CFunction::operator=(C_FUNCTION& that)
 {
   CObject::operator=(that);
 
-  _identifier = that._identifier;
   _parameterChainID = that._parameterChainID;
   _blockID = that._blockID;
 

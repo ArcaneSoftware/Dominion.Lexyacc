@@ -54,18 +54,22 @@ FToEssayKey CContext::ToKey()
   return _ToKey;
 }
 
-void CContext::DefineVariable(C_NAMESPACE& liveNamespace, WSTRING& name, int32_t initialValueID)
+void CContext::DefineVariable(EAccessType access, C_NAMESPACE& liveNamespace, WSTRING& name, int32_t initialValueID)
 {
   auto identifier = CIdentifier(liveNamespace, name);
 
-  _variableMap[_ToKey(identifier.ToString())] = CVariable(identifier, initialValueID);
+  _variableMap[_ToKey(identifier.ToString())] = CVariable(access, identifier, initialValueID);
 }
 
-void CContext::DefineFunction(C_NAMESPACE& liveNamespace, WSTRING& name, int32_t parameterChainID, int32_t blockID)
+void CContext::DefineFunction(EAccessType access,
+                              C_NAMESPACE& liveNamespace,
+                              WSTRING& name,
+                              int32_t parameterChainID,
+                              int32_t blockID)
 {
   auto identifier = CIdentifier(liveNamespace, name);
 
-  _functionMap[_ToKey(identifier.ToString())] = CFunction(identifier, parameterChainID, blockID);
+  _functionMap[_ToKey(identifier.ToString())] = CFunction(access, identifier, parameterChainID, blockID);
 }
 
 bool CContext::HasDefinedIdentifier(WSTRING& fullName, EIdentifierType identifierType) const

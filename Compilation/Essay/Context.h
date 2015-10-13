@@ -30,8 +30,12 @@ public:
 
   FToEssayKey ToKey();
 
-  void DefineVariable(C_NAMESPACE& liveNamespace, WSTRING& name, int32_t initialValueID);
-  void DefineFunction(C_NAMESPACE& liveNamespace, WSTRING& name, int32_t parameterChainID, int32_t blockID);
+  void DefineVariable(EAccessType access, C_NAMESPACE& liveNamespace, WSTRING& name, int32_t initialValueID);
+  void DefineFunction(EAccessType access,
+                      C_NAMESPACE& liveNamespace,
+                      WSTRING& name,
+                      int32_t parameterChainID,
+                      int32_t blockID);
 
   bool HasDefinedIdentifier(WSTRING& fullName, EIdentifierType identifierType) const;
   bool HasDefinedIdentifier(C_NAMESPACE& liveNamespace, WSTRING& name, EIdentifierType identifierType) const;

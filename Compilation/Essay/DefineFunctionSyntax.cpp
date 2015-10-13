@@ -18,6 +18,7 @@ CDefineFunctionSyntax::CDefineFunctionSyntax() :
 
 CDefineFunctionSyntax::CDefineFunctionSyntax(C_DEFINE_FUNCTION_SYNTAX& that) :
   CEssaySyntax(that),
+  _access(that._access),
   _name(that._name),
   _parameterChainID(that._parameterChainID),
   _blockID(that._blockID)
@@ -26,6 +27,7 @@ CDefineFunctionSyntax::CDefineFunctionSyntax(C_DEFINE_FUNCTION_SYNTAX& that) :
 
 CDefineFunctionSyntax::CDefineFunctionSyntax(C_DEFINE_FUNCTION_SYNTAX&& that) :
   CEssaySyntax(that),
+  _access(move(that._access)),
   _name(move(that._name)),
   _parameterChainID(move(that._parameterChainID)),
   _blockID(move(that._blockID))
@@ -34,10 +36,12 @@ CDefineFunctionSyntax::CDefineFunctionSyntax(C_DEFINE_FUNCTION_SYNTAX&& that) :
 
 CDefineFunctionSyntax::CDefineFunctionSyntax(int32_t liveLine,
                                              C_NAMESPACE& liveNamespace,
+                                             EAccessType access,
                                              WSTRING& name,
                                              int32_t parameterChainID,
                                              int32_t blockID) :
   CEssaySyntax(ESyntaxType::DefineVariable, liveLine, liveNamespace),
+  _access(access),
   _name(name),
   _parameterChainID(parameterChainID),
   _blockID(blockID)
@@ -52,6 +56,7 @@ C_DEFINE_FUNCTION_SYNTAX& CDefineFunctionSyntax::operator=(C_DEFINE_FUNCTION_SYN
 {
   CEssaySyntax::operator=(that);
 
+  _access = that._access;
   _name = that._name;
   _parameterChainID = that._parameterChainID;
   _blockID = that._blockID;

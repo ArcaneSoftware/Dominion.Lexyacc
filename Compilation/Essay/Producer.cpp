@@ -116,7 +116,7 @@ CProductor CProducer::DefineVariable(C_DEFINE_VARIABLE_SYNTAX& syntax)
 
   if (result.GetSuccessed())
   {
-    _context.DefineVariable(syntax.GetLiveNamespace(), syntax.GetName(), syntax.GetInitialValueID());
+    _context.DefineVariable(syntax.GetAccess(), syntax.GetLiveNamespace(), syntax.GetName(), syntax.GetInitialValueID());
   }
 
   return move(result);
@@ -130,6 +130,27 @@ CProductor CProducer::AssignVariable(C_ASSIGN_VARIABLE_SYNTAX& syntax)
   };
 
   return Produce<CAssignVariableSyntax>(syntax, errors);
+}
+
+CProductor CProducer::DefineFunction(C_DEFINE_FUNCTION_SYNTAX& syntax)
+{
+  auto errors = vector<CError>
+  {
+    CDuplicationValidator().Validate(syntax, _context)
+  };
+
+  auto result = Produce<CDefineFunctionSyntax>(syntax);
+
+  if (result.GetSuccessed())
+  {
+    _context.DefineFunction(syntax.GetAccess(),
+                            syntax.GetLiveNamespace(),
+                            syntax.GetName(),
+                            syntax.GetParameterChainID(),
+                            syntax.GetBlockID());
+  }
+
+  return move(result);
 }
 
 shared_ptr<CEssaySyntax> CProducer::GetSyntax(int32_t syntaxID) const

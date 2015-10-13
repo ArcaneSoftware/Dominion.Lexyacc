@@ -71,6 +71,7 @@ public:
   CProductor Block(C_BLOCK_SYNTAX& syntax);
   CProductor DefineVariable(C_DEFINE_VARIABLE_SYNTAX& syntax);
   CProductor AssignVariable(C_ASSIGN_VARIABLE_SYNTAX& syntax);
+  CProductor DefineFunction(C_DEFINE_FUNCTION_SYNTAX& syntax);
 
   shared_ptr<CEssaySyntax> GetSyntax(int32_t syntaxID) const;
   WSTRING& GetFile() const;

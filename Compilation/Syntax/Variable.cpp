@@ -17,8 +17,7 @@ CVariable::CVariable() :
 }
 
 CVariable::CVariable(C_VARIABLE& that) :
-  CObject(that),
-  _identifier(that._identifier),
+  CNamedReference(that),
   _initialValueID(that._initialValueID),
   _realValueID(that._realValueID),
   _isArgument(that._isArgument)
@@ -26,16 +25,19 @@ CVariable::CVariable(C_VARIABLE& that) :
 }
 
 CVariable::CVariable(C_VARIABLE&& that) :
-  CObject(that),
-  _identifier(move(that._identifier)),
+  CNamedReference(that),
   _initialValueID(move(that._initialValueID)),
   _realValueID(move(that._realValueID)),
   _isArgument(move(that._isArgument))
 {
 }
 
-CVariable::CVariable(C_IDENTIFIER& identifier, int32_t initialValueID, int32_t realValueID, bool isArgument) :
-  _identifier(identifier),
+CVariable::CVariable(EAccessType access,
+                     C_IDENTIFIER& identifier,
+                     int32_t initialValueID,
+                     int32_t realValueID,
+                     bool isArgument) :
+  CNamedReference(access, identifier),
   _initialValueID(initialValueID),
   _realValueID(realValueID),
   _isArgument(isArgument)
@@ -58,9 +60,8 @@ int32_t CVariable::GetSuitedValueIndex() const
 
 C_VARIABLE& CVariable::operator=(C_VARIABLE& that)
 {
-  CObject::operator=(that);
+  CNamedReference::operator=(that);
 
-  _identifier = that._identifier;
   _initialValueID = that._initialValueID;
   _realValueID = that._realValueID;
   _isArgument = that._isArgument;

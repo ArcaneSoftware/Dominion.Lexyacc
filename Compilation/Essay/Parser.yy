@@ -26,6 +26,7 @@ using namespace Dominion::Compilation::Essay;
   wstring* litera;
   bool boolean;
   int32_t node;
+	EAccessType access;
 }
 
 %token _EOF_ 0
@@ -38,10 +39,11 @@ using namespace Dominion::Compilation::Essay;
 %token <litera> Identifier
 %token <litera> String
 %token <boolean> Boolean
+%token <access> Seal
 
-%type <node> PARAMETER PARAMETER_CHAIN ARGUMENT ARGUMENT_CHAIN DEFINE_FUNCTION DEFINE_FUNCTION_CHAIN
-%type <node> ESSAY EXPRESSION SCALAR VARIABLE FUNCTION VARIABLE_PROPERTY VARIABLE_METHED
-%type <node> BLOCK STATEMENT FLOW DEFINE_VARIABLE
+%type <node> ESSAY
+%type <node> ACCESS EXPRESSION SCALAR VARIABLE FUNCTION PARAMETER PARAMETER_CHAIN ARGUMENT ARGUMENT_CHAIN
+%type <node> STATEMENT BLOCK FLOW DEFINE_VARIABLE DEFINE_FUNCTION ASSIGN_VARIABLE
 
 %left And Or
 %left Equal NotEqual Match NotMatch
@@ -84,9 +86,6 @@ SCALAR:
   };
 
 EXPRESSION:
-	{
-		$$ = -1;
-  }|
   SCALAR
 	{
     $$ = $1;
@@ -223,43 +222,64 @@ EXPRESSION:
   FUNCTION
 	{
     $$ = $1;
-  }|
-  VARIABLE_PROPERTY {
-    
-  }|
-  VARIABLE_METHED {
-    
   };
+
+ACCESS:
+	{
+		$$ = (int32_t)EAccessType::Private;
+	}|
+	Seal
+	{
+		$$ = $1;
+	};
+
+PARAMETER:
+	DEFINE_VARIABLE
+	{
+		$$ = $1;
+	};
   
 ARGUMENT:
-  EXPRESSION {
-    
+  EXPRESSION
+	{
+    $$ = $1;
   };
   
 ARGUMENT_CHAIN:
-  ARGUMENT {
-    
+  ARGUMENT
+	{
+		auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, NONE_ID);
+		auto result = _producer.Chain(syntax);
+
+		YY_REDUCE(result); 
   }|
-  ARGUMENT ARGUMENT_CHAIN {
-    
+  ARGUMENT ',' ARGUMENT_CHAIN
+	{
+    auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, $3);
+		auto result = _producer.Chain(syntax);
+
+		YY_REDUCE(result);
   };
-  
-PARAMETER: {
-  
-  }|
-  Var Identifier {
-  };
-  
+
 PARAMETER_CHAIN:
-  PARAMETER {
-  
+  PARAMETER
+	{
+		auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, NONE_ID);
+		auto result = _producer.Chain(syntax);
+
+		YY_REDUCE(result);
   }|
-  PARAMETER ',' PARAMETER_CHAIN {
-    
+  PARAMETER ',' PARAMETER_CHAIN
+	{
+    auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, $3);
+		auto result = _producer.Chain(syntax);
+
+		YY_REDUCE(result);
   };
   
 VARIABLE:
-  Identifier {
+  Identifier
+	{
 		auto syntax = CVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, *$1);
 		auto result = _producer.Variable(syntax);
     
@@ -272,30 +292,21 @@ FUNCTION:
   };
 
 DEFINE_VARIABLE:
-  Var Identifier
+  Seal Var Identifier
 	{
-    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, EVariableType::Atom, *$2, NONE_ID);
+    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, EVariableType::Atom, *$3, NONE_ID);
 		auto result = _producer.DefineVariable(syntax);
 
 		YY_REDUCE(result);
   }|
-  Var Identifier '=' EXPRESSION
+  Seal Var Identifier '=' EXPRESSION
 	{
-    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, EVariableType::Atom, *$2, $4);
+    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, EVariableType::Atom, *$3, $5);
 		auto result = _producer.DefineVariable(syntax);
 
 		YY_REDUCE(result);
   };
-  
-VARIABLE_PROPERTY:
-  VARIABLE '.' Identifier {
-  }
-  
-VARIABLE_METHED:
-  VARIABLE '.' Identifier '(' ARGUMENT_CHAIN ')' {
     
-  }
-  
 ASSIGN_VARIABLE:
   VARIABLE '=' EXPRESSION
 	{
@@ -306,34 +317,37 @@ ASSIGN_VARIABLE:
   };
   
 DEFINE_FUNCTION:
-  Function Identifier
+  Seal Function Identifier
   {
-    _producer.PushNaming(*$2);
+    _producer.PushNaming(*$3);
   }
-  '(' PARAMETER_CHAIN ')' '{' BLOCK '}' ';' {
-    
+  '(' PARAMETER_CHAIN ')' '{' BLOCK '}'
+	{
+    auto syntax = CDefineFunctionSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, *$3, $6, $9);
+		auto result = _producer.DefineFunction(syntax);
+
+		YY_REDUCE(result);
   };
   
 FLOW:
   If '(' EXPRESSION ')' {
   };
   
-DEFINE_FUNCTION_CHAIN:
-  DEFINE_FUNCTION {
-  
-  }|
-  DEFINE_FUNCTION DEFINE_FUNCTION_CHAIN {
-    
-  };
-  
 STATEMENT:
-  DEFINE_VARIABLE ';' {
+  DEFINE_VARIABLE ';'
+	{
     $$ = $1;
   }|
-  ASSIGN_VARIABLE ';' {
+  ASSIGN_VARIABLE ';'
+	{
     $$ = $1;
   }|
-  EXPRESSION ';'{
+	DEFINE_FUNCTION
+	{
+		$$ = $1;
+	}|
+  EXPRESSION ';'
+	{
     $$ = $1;
   };
   
@@ -342,7 +356,7 @@ BLOCK:
     $$ = NONE_ID;
   }| STATEMENT BLOCK
 	{
-		auto syntax = CBlockSyntax(YY_LIVING_LINE, $1, $2);
+		auto syntax = CBlockSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, $2);
 		auto result = _producer.Block(syntax);
 
 		YY_REDUCE(result);
@@ -355,7 +369,7 @@ ESSAY:
 	}
 	'{' BLOCK '}'
 	{
-		_producer.SetEntry($1);
+		_producer.SetEntry($5);
 	};
 
 %%

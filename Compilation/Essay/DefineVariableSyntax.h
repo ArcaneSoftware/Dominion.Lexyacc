@@ -23,11 +23,13 @@ public:
   CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX&& that);
   CDefineVariableSyntax(int32_t liveLine,
                         C_NAMESPACE& liveNamespace,
+                        EAccessType access,
                         EVariableType variableType,
                         WSTRING& name,
                         int32_t initialValueID);
   virtual ~CDefineVariableSyntax();
 
+  CLASS_PROPERTY(EAccessType, _access, Access);
   CLASS_PROPERTY(EVariableType, _variableType, VariableType);
   CLASS_PROPERTY(wstring, _name, Name);
   CLASS_PROPERTY(int32_t, _initialValueID, InitialValueID);
@@ -35,6 +37,7 @@ public:
   C_DEFINE_VARIABLE_SYNTAX& operator=(C_DEFINE_VARIABLE_SYNTAX& that);
 
 private:
+  EAccessType _access;
   EVariableType _variableType;
   wstring _name;
   int32_t _initialValueID;

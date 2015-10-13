@@ -74,10 +74,19 @@ using namespace Dominion::Compilation::Essay;
   return YToken::Nil;
 }
 
+"public" {
+	yylval->access = EAccessType::Public;
+
+  return YToken::Seal;
+}
+"private" {
+	yylval->access = EAccessType::Private;
+
+  return YToken::Seal;
+}
 "var" {
   return YToken::Var;
 }
-
 "naming" {
 	return YToken::Naming;
 }

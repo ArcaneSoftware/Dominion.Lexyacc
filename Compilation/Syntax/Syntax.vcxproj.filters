@@ -19,6 +19,7 @@
     </ClInclude>
     <ClInclude Include="Namespace.h" />
     <ClInclude Include="Identifier.h" />
+    <ClInclude Include="NamedReference.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Error.cpp" />
@@ -30,5 +31,6 @@
     </ClCompile>
     <ClCompile Include="Namespace.cpp" />
     <ClCompile Include="Identifier.cpp" />
+    <ClCompile Include="NamedReference.cpp" />
   </ItemGroup>
 </Project>
