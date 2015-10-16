@@ -126,12 +126,11 @@ namespace Dominion { namespace Compilation { namespace Essay {
   wstring* litera;
   bool boolean;
   int32_t node;
-	EAccessType access;
 
 
 
 /* Line 35 of lalr1.cc  */
-#line 135 "Parser.yy.h"
+#line 134 "Parser.yy.h"
     };
 #else
     typedef YYSTYPE semantic_type;
@@ -164,12 +163,13 @@ namespace Dominion { namespace Compilation { namespace Essay {
      Return = 275,
      Function = 276,
      Object = 277,
-     Numeric = 278,
-     Identifier = 279,
-     String = 280,
-     Boolean = 281,
-     Seal = 282,
-     UMINUS = 283
+     Public = 278,
+     Private = 279,
+     Numeric = 280,
+     Identifier = 281,
+     String = 282,
+     Boolean = 283,
+     UMINUS = 284
    };
 
     };
@@ -263,7 +263,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
     /// - if positive, shift that token.
     /// - if negative, reduce the rule which number is the opposite.
     /// - if zero, do what YYDEFACT says.
-    static const unsigned char yytable_[];
+    static const signed char yytable_[];
     static const signed char yytable_ninf_;
 
     static const signed char yycheck_[];

@@ -20,6 +20,9 @@ CLASS_DECLARATION(CContext, C_CONTEXT);
 class LIBRARY_EXPORT CContext : public CObject
 {
 public:
+  static wstring DEFAULT_TO_KEY(WSTRING& input);
+
+public:
   CLASS_INHERITOR(CObject, CContext);
 
   CContext();

@@ -26,20 +26,18 @@ using namespace Dominion::Compilation::Essay;
   wstring* litera;
   bool boolean;
   int32_t node;
-	EAccessType access;
 }
 
 %token _EOF_ 0
 %token EOL
 %token Nil
 %token Equal NotEqual Greater GreaterEqual Less LessEqual Match NotMatch And Or Xor
-%token Naming If Else Var Return Function Object
+%token Naming If Else Var Return Function Object Public Private
 
 %token <numeric> Numeric
 %token <litera> Identifier
 %token <litera> String
 %token <boolean> Boolean
-%token <access> Seal
 
 %type <node> ESSAY
 %type <node> ACCESS EXPRESSION SCALAR VARIABLE FUNCTION PARAMETER PARAMETER_CHAIN ARGUMENT ARGUMENT_CHAIN
@@ -226,21 +224,29 @@ EXPRESSION:
 
 ACCESS:
 	{
-		$$ = (int32_t)EAccessType::Private;
+		$$ = 0;
 	}|
-	Seal
+	Public
 	{
-		$$ = $1;
+		$$ = 1;
+	}|
+	Private
+	{
+		$$ = 0;
 	};
 
 PARAMETER:
-	DEFINE_VARIABLE
+	{
+		$$ = -1;
+	}|DEFINE_VARIABLE
 	{
 		$$ = $1;
 	};
   
 ARGUMENT:
-  EXPRESSION
+	{
+		$$ = -1;
+	}|EXPRESSION
 	{
     $$ = $1;
   };
@@ -287,21 +293,25 @@ VARIABLE:
   };
   
 FUNCTION:
-  Identifier '(' ARGUMENT_CHAIN ')' {
-    
+  Identifier '(' ARGUMENT_CHAIN ')'
+	{
+    auto syntax = CFunctionSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, *$1, $3);
+		auto result = _producer.Function(syntax);
+
+		YY_REDUCE(result);
   };
 
 DEFINE_VARIABLE:
-  Seal Var Identifier
+  ACCESS Var Identifier
 	{
-    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, EVariableType::Atom, *$3, NONE_ID);
+    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (EAccessType)$1, EVariableType::Atom, *$3, NONE_ID);
 		auto result = _producer.DefineVariable(syntax);
 
 		YY_REDUCE(result);
   }|
-  Seal Var Identifier '=' EXPRESSION
+  ACCESS Var Identifier '=' EXPRESSION
 	{
-    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, EVariableType::Atom, *$3, $5);
+    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (EAccessType)$1, EVariableType::Atom, *$3, $5);
 		auto result = _producer.DefineVariable(syntax);
 
 		YY_REDUCE(result);
@@ -317,16 +327,18 @@ ASSIGN_VARIABLE:
   };
   
 DEFINE_FUNCTION:
-  Seal Function Identifier
+  ACCESS Function Identifier
   {
     _producer.PushNaming(*$3);
   }
   '(' PARAMETER_CHAIN ')' '{' BLOCK '}'
 	{
-    auto syntax = CDefineFunctionSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, *$3, $6, $9);
+    auto syntax = CDefineFunctionSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE.GetParent(), (EAccessType)$1, *$3, $6, $9);
 		auto result = _producer.DefineFunction(syntax);
 
 		YY_REDUCE(result);
+
+		_producer.PopNaming();
   };
   
 FLOW:

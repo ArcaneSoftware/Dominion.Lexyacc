@@ -1,8 +1,11 @@
 naming Customer
 {
-	var a = 9;
+	public var a = 9;
 
 	function Do(var x)
 	{
+		var dc = 0;
 	}
+
+	var x = Do(a+9);
 }

@@ -10,8 +10,7 @@ using namespace Dominion::Compilation::Essay;
 //*******************************************************************************************************************//
 //CProducer
 //*******************************************************************************************************************//
-CProducer::CProducer() :
-  _context(SString::TO_LOWER<wstring>)
+CProducer::CProducer()
 {
 }
 
@@ -68,6 +67,16 @@ CProductor CProducer::Variable(C_VARIABLE_SYNTAX& syntax)
   };
 
   return Produce<CVariableSyntax>(syntax, errors);
+}
+
+CProductor CProducer::Function(C_FUNCTION_SYNTAX& syntax)
+{
+  auto errors = vector<CError>
+  {
+    CUndefinedReferenceValidator().Validate(syntax, _context)
+  };
+
+  return Produce<CFunctionSyntax>(syntax, errors);
 }
 
 CProductor CProducer::Chain(C_CHAIN_SYNTAX& syntax)

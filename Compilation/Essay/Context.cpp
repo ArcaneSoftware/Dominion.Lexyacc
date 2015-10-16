@@ -10,9 +10,14 @@ using namespace Dominion::Compilation::Essay;
 //*******************************************************************************************************************//
 //CContext
 //*******************************************************************************************************************//
+wstring CContext::DEFAULT_TO_KEY(WSTRING& input)
+{
+  return input;
+}
+
 CContext::CContext() :
   _entryID(NONE_ID),
-  _ToKey(nullptr)
+  _ToKey(DEFAULT_TO_KEY)
 {
 }
 

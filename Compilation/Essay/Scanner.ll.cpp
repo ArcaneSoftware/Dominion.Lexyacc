@@ -410,9 +410,9 @@ static yyconst short int yy_chk[168] =
 static yyconst short int yy_rule_linenum[33] =
     {   0,
        28,   32,   35,   38,   41,   44,   47,   50,   53,   56,
-       59,   63,   68,   73,   77,   82,   87,   90,   93,   96,
-      100,  103,  107,  110,  113,  121,  127,  133,  139,  145,
-      149,  154
+       59,   63,   68,   73,   77,   80,   83,   86,   89,   92,
+       96,   99,  103,  106,  109,  117,  123,  129,  135,  141,
+      145,  150
     } ;
 
 #define REJECT \
@@ -784,79 +784,75 @@ case 15:
 YY_RULE_SETUP
 #line 77 "./Scanner.ll"
 {
-	yylval->access = EAccessType::Public;
-
-  return YToken::Seal;
+  return YToken::Public;
 }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 82 "./Scanner.ll"
+#line 80 "./Scanner.ll"
 {
-	yylval->access = EAccessType::Private;
-
-  return YToken::Seal;
+  return YToken::Private;
 }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 87 "./Scanner.ll"
+#line 83 "./Scanner.ll"
 {
   return YToken::Var;
 }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 90 "./Scanner.ll"
+#line 86 "./Scanner.ll"
 {
 	return YToken::Naming;
 }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 93 "./Scanner.ll"
+#line 89 "./Scanner.ll"
 {
   return YToken::If;
 }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 96 "./Scanner.ll"
+#line 92 "./Scanner.ll"
 {
   return YToken::Else;
 }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 100 "./Scanner.ll"
+#line 96 "./Scanner.ll"
 {
   return YToken::Function;
 }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 103 "./Scanner.ll"
+#line 99 "./Scanner.ll"
 {
 	return YToken::Object;
 }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 107 "./Scanner.ll"
+#line 103 "./Scanner.ll"
 {
   BEGIN C_STRING;
 }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 110 "./Scanner.ll"
+#line 106 "./Scanner.ll"
 {
   _text = WSTR(yytext);
 }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 113 "./Scanner.ll"
+#line 109 "./Scanner.ll"
 {
   yylval->litera = new wstring(_text);
   _text = NSTR;
@@ -868,7 +864,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 121 "./Scanner.ll"
+#line 117 "./Scanner.ll"
 {
   //todo throw;
   //throw CUnacceptableStringException(THIS_SCENE(L"Run"), yylineno, _string, WSTR(yytext));
@@ -876,7 +872,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 127 "./Scanner.ll"
+#line 123 "./Scanner.ll"
 {
   yylval->litera = new wstring(WSTR(yytext));
 
@@ -885,7 +881,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 133 "./Scanner.ll"
+#line 129 "./Scanner.ll"
 {
   yylval->numeric = atoi(yytext);
 
@@ -894,7 +890,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 139 "./Scanner.ll"
+#line 135 "./Scanner.ll"
 {
   yylval->numeric = atof(yytext);
 
@@ -903,14 +899,14 @@ YY_RULE_SETUP
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 145 "./Scanner.ll"
+#line 141 "./Scanner.ll"
 {
   yylloc->step();
 }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 149 "./Scanner.ll"
+#line 145 "./Scanner.ll"
 {
   yylloc->lines(yyleng);
   yylloc->step();
@@ -918,23 +914,23 @@ YY_RULE_SETUP
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 154 "./Scanner.ll"
+#line 150 "./Scanner.ll"
 {
 }
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(C_STRING):
-#line 157 "./Scanner.ll"
+#line 153 "./Scanner.ll"
 {
   return YToken::_EOF_;
 }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 161 "./Scanner.ll"
+#line 157 "./Scanner.ll"
 ECHO;
 	YY_BREAK
-#line 937 "Scanner.ll.out"
+#line 933 "Scanner.ll.out"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1737,7 +1733,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 161 "./Scanner.ll"
+#line 157 "./Scanner.ll"
 
 
 #ifdef yylex

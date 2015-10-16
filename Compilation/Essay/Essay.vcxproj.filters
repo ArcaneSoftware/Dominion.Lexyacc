@@ -112,6 +112,9 @@
     <ClInclude Include="DefineFunctionSyntax.h">
       <Filter>Syntax\ASTs\Statement</Filter>
     </ClInclude>
+    <ClInclude Include="FunctionSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GrammarEnum.cpp">
@@ -182,6 +185,9 @@
     </ClCompile>
     <ClCompile Include="DefineFunctionSyntax.cpp">
       <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

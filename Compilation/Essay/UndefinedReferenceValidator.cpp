@@ -27,29 +27,53 @@ CUndefinedReferenceValidator::~CUndefinedReferenceValidator()
 {
 }
 
-CError CUndefinedReferenceValidator::Validate(C_VARIABLE_SYNTAX& syntax, C_CONTEXT& context) const
+bool CUndefinedReferenceValidator::ValidateReference(C_NAMESPACE& referenceLiveNamespace,
+                                                     WSTRING& referenceName,
+                                                     EIdentifierType referenceIdentifierType,
+                                                     C_CONTEXT& context) const
 {
-  CError result;
-  auto variableIdentifier = CIdentifier(syntax.GetName());
-  CNamespace variableLiveNamespace;
-  wstring variableName;
+  auto referenceIdentifier = CIdentifier(referenceName);
+  CNamespace syntaxLiveNamespace;
+  wstring syntaxName;
 
-  if (variableIdentifier.HasNamespace())
+  if (referenceIdentifier.HasNamespace())
   {
-    variableLiveNamespace = variableIdentifier.GetLiveNamespace();
-    variableName = variableIdentifier.GetName();
+    syntaxLiveNamespace = referenceIdentifier.GetLiveNamespace();
+    syntaxName = referenceIdentifier.GetName();
   }
   else
   {
-    variableLiveNamespace = syntax.GetLiveNamespace();
-    variableName = syntax.GetName();
+    syntaxLiveNamespace = referenceLiveNamespace;
+    syntaxName = referenceName;
   }
 
-  if (!context.HasDefinedIdentifier(variableLiveNamespace, variableName, EIdentifierType::Variable))
+  return context.HasDefinedIdentifier(syntaxLiveNamespace, syntaxName, referenceIdentifierType);
+
+}
+
+CError CUndefinedReferenceValidator::Validate(C_VARIABLE_SYNTAX& syntax, C_CONTEXT& context) const
+{
+  CError result;
+
+  if (!ValidateReference(syntax.GetLiveNamespace(), syntax.GetName(), EIdentifierType::Variable, context))
   {
     result.SetSource(EErrorSource::Producing);
     result.SetLiveLine(syntax.GetLiveLine());
-    result.SetDescription(CWStringTemplate(L"Variable:'%x' has not been defined").Format(syntax.GetName()));
+    result.SetDescription(CWStringTemplate(L"Varibel:'%x' has not been defined").Format(syntax.GetName()));
+  }
+
+  return move(result);
+}
+
+CError CUndefinedReferenceValidator::Validate(C_FUNCTION_SYNTAX& syntax, C_CONTEXT& context) const
+{
+  CError result;
+
+  if (!ValidateReference(syntax.GetLiveNamespace(), syntax.GetName(), EIdentifierType::Function, context))
+  {
+    result.SetSource(EErrorSource::Producing);
+    result.SetLiveLine(syntax.GetLiveLine());
+    result.SetDescription(CWStringTemplate(L"Funtion:'%x' has not been defined").Format(syntax.GetName()));
   }
 
   return move(result);

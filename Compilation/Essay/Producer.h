@@ -63,6 +63,7 @@ public:
   //Reference
   CProductor Scalar(C_SCALAR_SYNTAX& syntax);
   CProductor Variable(C_VARIABLE_SYNTAX& syntax);
+  CProductor Function(C_FUNCTION_SYNTAX& syntax);
   //Composition
   CProductor Chain(C_CHAIN_SYNTAX& syntax);
   CProductor UnaryOperation(C_OPERATION_SYNTAX& syntax);

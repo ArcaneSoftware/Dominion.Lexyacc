@@ -177,6 +177,7 @@
     <ClInclude Include="DuplicationValidator.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Function.h" />
+    <ClInclude Include="FunctionSyntax.h" />
     <ClInclude Include="NamingStack.h" />
     <ClInclude Include="NoneSyntaxValidator.h" />
     <ClInclude Include="NullOperationValidator.h" />
@@ -206,6 +207,7 @@
     <ClCompile Include="DuplicationValidator.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Function.cpp" />
+    <ClCompile Include="FunctionSyntax.cpp" />
     <ClCompile Include="NamingStack.cpp" />
     <ClCompile Include="NoneSyntaxValidator.cpp" />
     <ClCompile Include="NullOperationValidator.cpp" />
