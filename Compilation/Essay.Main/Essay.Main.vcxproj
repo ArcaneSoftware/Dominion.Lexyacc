@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\1.essay" />
+    <None Include="Scripts\2.essay" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

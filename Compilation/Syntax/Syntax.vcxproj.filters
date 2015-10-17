@@ -20,6 +20,7 @@
     <ClInclude Include="Namespace.h" />
     <ClInclude Include="Identifier.h" />
     <ClInclude Include="NamedReference.h" />
+    <ClInclude Include="Reducible.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Error.cpp" />

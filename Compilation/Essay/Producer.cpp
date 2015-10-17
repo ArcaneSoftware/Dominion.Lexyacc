@@ -157,6 +157,11 @@ CProductor CProducer::DefineFunction(C_DEFINE_FUNCTION_SYNTAX& syntax)
                             syntax.GetName(),
                             syntax.GetParameterChainID(),
                             syntax.GetBlockID());
+
+    if (syntax.GetName() == L"Main")
+    {
+      _context.SetEntryID(result.GetID());
+    }
   }
 
   return move(result);

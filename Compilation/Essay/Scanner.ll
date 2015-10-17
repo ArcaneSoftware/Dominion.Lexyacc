@@ -99,6 +99,12 @@ using namespace Dominion::Compilation::Essay;
 "object" {
 	return YToken::Object;
 }
+"new" {
+	return YToken::New;
+}
+"delete" {
+	return YToken::Delete;
+}
 
 "\"" {
   BEGIN C_STRING;

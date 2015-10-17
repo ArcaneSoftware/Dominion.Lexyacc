@@ -17,7 +17,8 @@ enum class LIBRARY_EXPORT EScalarType
   Nil = 0,
   Numeric,
   String,
-  Boolean
+  Boolean,
+  Object
 };
 //*****************************************************************************************************************//
 //CScalar

@@ -32,7 +32,7 @@ using namespace Dominion::Compilation::Essay;
 %token EOL
 %token Nil
 %token Equal NotEqual Greater GreaterEqual Less LessEqual Match NotMatch And Or Xor
-%token Naming If Else Var Return Function Object Public Private
+%token Naming If Else Var Return Function Object Public Private New Delete
 
 %token <numeric> Numeric
 %token <litera> Identifier
@@ -40,8 +40,8 @@ using namespace Dominion::Compilation::Essay;
 %token <boolean> Boolean
 
 %type <node> ESSAY
-%type <node> ACCESS EXPRESSION SCALAR VARIABLE FUNCTION PARAMETER PARAMETER_CHAIN ARGUMENT ARGUMENT_CHAIN
-%type <node> STATEMENT BLOCK FLOW DEFINE_VARIABLE DEFINE_FUNCTION ASSIGN_VARIABLE
+%type <node> ACCESS EXPRESSION SCALAR VARIABLE FUNCTION PARAMETER PARAMETER_CHAIN ARGUMENT ARGUMENT_CHAIN DEFINE_REFERENCE DEFINE_REFERENCE_CHAN
+%type <node> STATEMENT BLOCK FLOW DEFINE_VARIABLE DEFINE_FUNCTION ASSIGN_VARIABLE DEFINE_OBJECT
 
 %left And Or
 %left Equal NotEqual Match NotMatch
@@ -266,6 +266,31 @@ ARGUMENT_CHAIN:
 
 		YY_REDUCE(result);
   };
+DEFINE_REFERENCE:
+	DEFINE_VARIABLE
+	{
+		$$ = $1;
+	}|
+	DEFINE_FUNCTION
+	{
+		$$ = $1;
+	};
+
+DEFINE_REFERENCE_CHAN:
+	DEFINE_REFERENCE
+	{
+		auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, NONE_ID);
+		auto result = _producer.Chain(syntax);
+
+		YY_REDUCE(result); 
+	}|
+	DEFINE_REFERENCE ',' DEFINE_REFERENCE_CHAN
+	{
+		auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, $1, $3);
+		auto result = _producer.Chain(syntax);
+
+		YY_REDUCE(result);
+	};
 
 PARAMETER_CHAIN:
   PARAMETER
@@ -340,6 +365,14 @@ DEFINE_FUNCTION:
 
 		_producer.PopNaming();
   };
+
+DEFINE_OBJECT:
+	ACCESS Object Identifier
+	{
+		_producer.PushNaming(*$3);
+	}
+	'{' DEFINE_REFERENCE_CHAN '}'
+	
   
 FLOW:
   If '(' EXPRESSION ')' {
@@ -381,7 +414,6 @@ ESSAY:
 	}
 	'{' BLOCK '}'
 	{
-		_producer.SetEntry($5);
 	};
 
 %%

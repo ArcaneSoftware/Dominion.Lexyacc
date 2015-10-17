@@ -165,11 +165,13 @@ namespace Dominion { namespace Compilation { namespace Essay {
      Object = 277,
      Public = 278,
      Private = 279,
-     Numeric = 280,
-     Identifier = 281,
-     String = 282,
-     Boolean = 283,
-     UMINUS = 284
+     New = 280,
+     Delete = 281,
+     Numeric = 282,
+     Identifier = 283,
+     String = 284,
+     Boolean = 285,
+     UMINUS = 286
    };
 
     };
@@ -347,7 +349,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
 } } } // Dominion::Compilation::Essay
 
 /* Line 35 of lalr1.cc  */
-#line 351 "Parser.yy.h"
+#line 353 "Parser.yy.h"
 
 
 

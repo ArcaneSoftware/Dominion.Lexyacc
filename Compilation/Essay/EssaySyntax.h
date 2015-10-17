@@ -6,6 +6,7 @@
 #pragma once
 
 #include "Dominion/Compilation/Essay/SyntaxEnum.h"
+#include "Dominion/Compilation/Essay/Context.h"
 
 BEGIN_DOMINION_COMPILATION_ESSAY
 //*****************************************************************************************************************//
@@ -32,6 +33,7 @@ public:
 
 private:
   CNamespace _liveNamespace;
+  IReducible<CEssaySyntax, CContext, CScalar>* _reducible;
 };
 
 END_DOMINION_COMPILATION_ESSAY

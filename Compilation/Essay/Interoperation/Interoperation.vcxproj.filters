@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CLR">
+      <UniqueIdentifier>{5ce77eb2-de9e-4206-ad7d-7c9384368d37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax">
+      <UniqueIdentifier>{9e6f6cda-a205-41fb-ac2f-8bb17c4d1b96}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Interoperation.h">
+      <Filter>CLR</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>CLR</Filter>
+    </ClInclude>
+    <ClInclude Include="Stdafx.h">
+      <Filter>CLR</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependence.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AssemblyInfo.cpp">
+      <Filter>CLR</Filter>
+    </ClCompile>
+    <ClCompile Include="Interoperation.cpp">
+      <Filter>CLR</Filter>
+    </ClCompile>
+    <ClCompile Include="Stdafx.cpp">
+      <Filter>CLR</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>
