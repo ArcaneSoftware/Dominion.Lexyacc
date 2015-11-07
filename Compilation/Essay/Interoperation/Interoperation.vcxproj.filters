@@ -7,6 +7,18 @@
     <Filter Include="Syntax">
       <UniqueIdentifier>{9e6f6cda-a205-41fb-ac2f-8bb17c4d1b96}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Syntax\ASTs">
+      <UniqueIdentifier>{b79bba75-5d0e-405d-aeeb-df8db1079eca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax\ASTs\Composition">
+      <UniqueIdentifier>{a9d2b95f-549d-481e-bf8d-d4f8179593e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax\ASTs\Reference">
+      <UniqueIdentifier>{c5b2c7a9-d4ed-48b8-99be-abfcde364c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax\ASTs\Statement">
+      <UniqueIdentifier>{7710bf9b-4511-49ef-9e62-9e49c1f478e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interoperation.h">
@@ -19,6 +31,31 @@
       <Filter>CLR</Filter>
     </ClInclude>
     <ClInclude Include="Dependence.h" />
+    <ClInclude Include="ChainSyntax.h">
+      <Filter>Syntax\ASTs\Composition</Filter>
+    </ClInclude>
+    <ClInclude Include="ASTs.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="GrammarEnum.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
+    <ClInclude Include="Namespace.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
+    <ClInclude Include="RawSyntax.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
+    <ClInclude Include="SyntaxConvertor.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
+    <ClInclude Include="SyntaxTypeEnum.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="Context.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -30,8 +67,26 @@
     <ClCompile Include="Stdafx.cpp">
       <Filter>CLR</Filter>
     </ClCompile>
+    <ClCompile Include="ChainSyntax.cpp">
+      <Filter>Syntax\ASTs\Composition</Filter>
+    </ClCompile>
+    <ClCompile Include="Namespace.cpp">
+      <Filter>Syntax</Filter>
+    </ClCompile>
+    <ClCompile Include="RawSyntax.cpp">
+      <Filter>Syntax</Filter>
+    </ClCompile>
+    <ClCompile Include="SyntaxConvertor.cpp">
+      <Filter>Syntax</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Context.cpp">
+      <Filter>Syntax</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
+    <Text Include="ReadMe.txt">
+      <Filter>CLR</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@
 //*******************************************************************************************************************//
 #pragma once
 
-#include "Dominion/Native/System/Base.h"
+#include "Dominion/Native/System/Precompiled.h"
 
 #ifdef COMPILER_MSC_CLR
 

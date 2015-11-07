@@ -10,7 +10,6 @@
 #include "Dominion/Native/System/Types.h"
 
 #undef  BEGIN_DOMINION_COMPILATION_SYNTAX
-
 #define BEGIN_DOMINION_COMPILATION_SYNTAX namespace Dominion{namespace Compilation{namespace Syntax{
 #define END_DOMINION_COMPILATION_SYNTAX }}}
 

@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6D310859-AB12-4D36-8806-D576453FF34D}</ProjectGuid>
-	<TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Syntax</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
@@ -181,6 +181,14 @@
     <ClCompile Include="Scalar.cpp" />
     <ClCompile Include="UnacceptableWordException.cpp" />
     <ClCompile Include="Variable.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dotnet\System\Dominion.Dotnet.System.csproj">
+      <Project>{9b8a5ac3-78c1-47c5-bb05-67179fb492e7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Native\System\System.vcxproj">
+      <Project>{025a8198-aae4-419d-bf36-cc9a41b909bc}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

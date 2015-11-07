@@ -142,13 +142,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ASTs.h" />
+    <ClInclude Include="ChainSyntax.h" />
+    <ClInclude Include="Context.h" />
     <ClInclude Include="Dependence.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="GrammarEnum.h" />
+    <ClInclude Include="Namespace.h" />
+    <ClInclude Include="RawSyntax.h" />
     <ClInclude Include="Interoperation.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
+    <ClInclude Include="SyntaxConvertor.h" />
+    <ClInclude Include="SyntaxTypeEnum.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="ChainSyntax.cpp" />
+    <ClCompile Include="Context.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Namespace.cpp" />
+    <ClCompile Include="RawSyntax.cpp" />
     <ClCompile Include="Interoperation.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -156,6 +170,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SyntaxConvertor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -169,9 +184,6 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Syntax\Syntax.vcxproj">
       <Project>{6d310859-ab12-4d36-8806-d576453ff34d}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Essay.vcxproj">
-      <Project>{6c301935-ab8f-43c1-a8b1-a28355ac6b0b}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

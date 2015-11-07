@@ -5,9 +5,7 @@
 //*******************************************************************************************************************//
 #pragma once
 
-#ifndef DOMINION_NATIVE_SYSTEM_STANDARD_H
-  #include "Dominion/Native/System/Standard.h"
-#endif
+#include "Dominion/Native/System/Standard.h"
 
 BEGIN_DOMINION
 static const wchar_t* NSTR = L"";

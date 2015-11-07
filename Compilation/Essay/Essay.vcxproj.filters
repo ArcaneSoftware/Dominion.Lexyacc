@@ -28,9 +28,6 @@
     <Filter Include="Syntax\ASTs\Statement">
       <UniqueIdentifier>{a7cf5a2b-442f-41a0-a217-5389142510b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Evaluation">
-      <UniqueIdentifier>{8f868480-3a8e-41a7-a22e-484b599918df}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependence.h" />

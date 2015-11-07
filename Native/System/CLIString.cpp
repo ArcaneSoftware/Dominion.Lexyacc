@@ -3,8 +3,8 @@
 //AUTHOR:
 //SUMMARY:
 //*******************************************************************************************************************//
-#ifdef COMPILER_MSC_CLR
 #include "CLIString.h"
+#ifdef COMPILER_MSC_CLR
 
 using namespace System::Runtime::InteropServices;
 using namespace Dominion;
