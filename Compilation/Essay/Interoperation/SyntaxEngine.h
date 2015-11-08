@@ -23,13 +23,13 @@ public enum class EngineStateEnum
 //SyntaxEngine
 //
 //****************************************************************************************************//
-public ref class Engine
+public ref class SyntaxEngine
 {
 public:
-  Engine();
-  ~Engine();
+  SyntaxEngine();
+  ~SyntaxEngine();
 protected:
-  !Engine();
+  !SyntaxEngine();
 
 public:
   Context^ Start(String^ source, bool output);
@@ -56,10 +56,9 @@ public:
 
 protected:
   EngineStateEnum _state;
-  CCompiler* _compiler;
+  CEngine* _engine;
   CContext* _context;
   String^ _source;
-  IBaseReducerFactory<RawSyntax^>^ _reducerFactory;
 };
 
-END_DOMINION_COMPILING_SQLSERVER
+END_DOMINION_COMPILATION_ESSAY

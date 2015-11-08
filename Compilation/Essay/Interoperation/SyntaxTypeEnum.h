@@ -27,7 +27,7 @@ public enum class LIBRARY_EXPORT SyntaxTypeEnum
 
 public enum class LIBRARY_EXPORT IdentifierTypeEnum
 {
-  Variable,
+  Variable = 0,
   Function,
 };
 

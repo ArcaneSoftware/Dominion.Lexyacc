@@ -29,9 +29,11 @@ protected:
   RawSyntax^ Build(CEssaySyntax* syntax);
 
 public:
-  bool ExistSyntax(int32_t index) override;
-  bool DefinedVariable(String^ name) override;
-  RawSyntax^ GetSyntax(int32_t index) override;
+  bool ExistSyntax(int32_t index);
+  bool HasDefinedIdentifier(String^ fullName, IdentifierTypeEnum identifierType);
+  bool HasDefinedIdentifier(Namespace^ liveNamespace, String^ name, IdentifierTypeEnum identifierType);
+  RawSyntax^ GetSyntax(int32_t index);
+
   property int32_t EntryIndex
   {
     int32_t get() override;

@@ -5,21 +5,20 @@
 //SUMMARY:
 //********************************************************************************************************************//
 #include "Context.h"
-#include "SyntaxBuilder.h"
+#include "SyntaxConvertor.h"
 
 using namespace Dominion;
 using namespace Dominion::Failure;
-using namespace Dominion::Compiling::SQLServer;
+using namespace Dominion::Compilation::Essay;
 
 Context::Context()
 {
   _context = nullptr;
 }
 
-Context::Context(CContext* context, IBaseReducerFactory<RawSyntax^>^ reducerFactory)
+Context::Context(CContext* context)
 {
   _context = context;
-  _reducerFactory = reducerFactory;
 }
 
 Context::~Context()
@@ -30,59 +29,17 @@ Context::!Context()
 {
 }
 
-RawSyntax^ Context::Build(CConcreteSyntax* syntax)
+RawSyntax^ Context::Build(CEssaySyntax* syntax)
 {
-
-  auto builder = gcnew SyntaxBuilder(_reducerFactory);
-
+  auto convertor = gcnew SyntaxConvertor();
   auto type = syntax->GetSyntaxType();
 
   switch (syntax->GetSyntaxType())
   {
-    case ESyntaxType::Constant:
-      return builder->Constant(syntax);
-    case ESyntaxType::Variable:
-      return builder->Variable(syntax);
-    case ESyntaxType::Function:
-      return builder->Function(syntax);
     case ESyntaxType::Chain:
-      return builder->Chain(syntax);
+      return convertor->MakeChain(syntax);
     case ESyntaxType::Operation:
-      return builder->Operation(syntax);
-    case ESyntaxType::Case:
-      return builder->Case(syntax);
-    case ESyntaxType::When:
-      return builder->When(syntax);
-    case ESyntaxType::VariableDefinition:
-      return builder->VariableDefinition(syntax);
-    case ESyntaxType::Argument:
-      return builder->Argument(syntax);
-    case ESyntaxType::FieldAlias:
-      return builder->FieldAlias(syntax);
-    case ESyntaxType::AssignedField:
-      return builder->AssignedField(syntax);
-    case ESyntaxType::SelectedField:
-      return builder->SelectedField(syntax);
-    case ESyntaxType::OrderedField:
-      return builder->OrderedField(syntax);
-    case ESyntaxType::JoinEntity:
-      return builder->JoinEntity(syntax);
-    case ESyntaxType::Top:
-      return builder->Top(syntax);
-    case ESyntaxType::Flow:
-      return builder->Flow(syntax);
-    case ESyntaxType::AssignVariable:
-      return builder->AssignVariable(syntax);
-    case ESyntaxType::DeclareVariables:
-      return builder->DeclareVariables(syntax);
-    case ESyntaxType::CreateProcedure:
-      return builder->CreateProcedure(syntax);
-    case ESyntaxType::ExecProcedure:
-      return builder->ExecProcedure(syntax);
-    case ESyntaxType::SelectEntity:
-      return builder->SelectEntity(syntax);
-    case ESyntaxType::Block:
-      return builder->Block(syntax);;
+      return convertor->MakeOperation(syntax);
     default:
       break;
   }
@@ -95,11 +52,18 @@ bool Context::ExistSyntax(int32_t index)
   return _context->ExistSyntax(index);
 }
 
-bool Context::DefinedLocalVariable(String^ name)
+bool Context::HasDefinedIdentifier(String^ fullName, IdentifierTypeEnum identifierType)
 {
-  pin_ptr<const wchar_t> chars = PtrToStringChars(name);
+  pin_ptr<const wchar_t> wcsFullName = PtrToStringChars(fullName);
 
-  return _context->DefinedLocalVariable(wstring(chars));
+  return _context->HasDefinedIdentifier(wcsFullName, (EIdentifierType)(int)identifierType);
+}
+
+bool Context::HasDefinedIdentifier(Namespace^ liveNamespace, String^ name, IdentifierTypeEnum identifierType)
+{
+  pin_ptr<const wchar_t> wcsName = PtrToStringChars(name);
+
+  return _context->HasDefinedIdentifier(*liveNamespace->GetNative(), wcsName, (EIdentifierType)(int)identifierType);
 }
 
 RawSyntax^ Context::GetSyntax(int32_t index)
@@ -109,5 +73,5 @@ RawSyntax^ Context::GetSyntax(int32_t index)
 
 int32_t Context::EntryIndex::get()
 {
-  return _context->GetEntryIndex();
+  return _context->GetEntryID();
 }

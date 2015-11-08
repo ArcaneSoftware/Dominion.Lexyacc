@@ -36,7 +36,8 @@ protected:
 public:
   //Reference
   //Component
-  ChainSyntax^ Chain(CEssaySyntax* source);
+  ChainSyntax^ MakeChain(CEssaySyntax* source);
+  OperationSyntax^ MakeOperation(CEssaySyntax* source);
   //Statement
 };
 

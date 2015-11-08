@@ -52,9 +52,12 @@
     <ClInclude Include="SyntaxTypeEnum.h">
       <Filter>Syntax</Filter>
     </ClInclude>
-    <ClInclude Include="Engine.h" />
     <ClInclude Include="Context.h">
       <Filter>Syntax</Filter>
+    </ClInclude>
+    <ClInclude Include="SyntaxEngine.h" />
+    <ClInclude Include="OperationSyntax.h">
+      <Filter>Syntax\ASTs\Composition</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -79,9 +82,12 @@
     <ClCompile Include="SyntaxConvertor.cpp">
       <Filter>Syntax</Filter>
     </ClCompile>
-    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Context.cpp">
       <Filter>Syntax</Filter>
+    </ClCompile>
+    <ClCompile Include="SyntaxEngine.cpp" />
+    <ClCompile Include="OperationSyntax.cpp">
+      <Filter>Syntax\ASTs\Composition</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
