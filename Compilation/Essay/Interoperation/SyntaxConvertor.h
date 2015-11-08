@@ -35,6 +35,9 @@ protected:
 
 public:
   //Reference
+  ScalarSyntax^ MakeScalar(CEssaySyntax* source);
+  VariableSyntax^ MakeVariable(CEssaySyntax* source);
+  FunctionSyntax^ MakeFunction(CEssaySyntax* source);
   //Component
   ChainSyntax^ MakeChain(CEssaySyntax* source);
   OperationSyntax^ MakeOperation(CEssaySyntax* source);

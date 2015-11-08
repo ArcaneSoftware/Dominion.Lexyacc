@@ -146,7 +146,10 @@
     <ClInclude Include="ChainSyntax.h" />
     <ClInclude Include="Context.h" />
     <ClInclude Include="Dependence.h" />
+    <ClInclude Include="FunctionSyntax.h" />
     <ClInclude Include="OperationSyntax.h" />
+    <ClInclude Include="Scalar.h" />
+    <ClInclude Include="ScalarSyntax.h" />
     <ClInclude Include="SyntaxEngine.h" />
     <ClInclude Include="GrammarEnum.h" />
     <ClInclude Include="Namespace.h" />
@@ -156,12 +159,16 @@
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="SyntaxConvertor.h" />
     <ClInclude Include="SyntaxTypeEnum.h" />
+    <ClInclude Include="VariableSyntax.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="ChainSyntax.cpp" />
     <ClCompile Include="Context.cpp" />
+    <ClCompile Include="FunctionSyntax.cpp" />
     <ClCompile Include="OperationSyntax.cpp" />
+    <ClCompile Include="Scalar.cpp" />
+    <ClCompile Include="ScalarSyntax.cpp" />
     <ClCompile Include="SyntaxEngine.cpp" />
     <ClCompile Include="Namespace.cpp" />
     <ClCompile Include="RawSyntax.cpp" />
@@ -173,6 +180,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SyntaxConvertor.cpp" />
+    <ClCompile Include="VariableSyntax.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

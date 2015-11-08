@@ -22,6 +22,62 @@ SyntaxConvertor::!SyntaxConvertor()
 {
 }
 
+ScalarSyntax^ SyntaxConvertor::MakeScalar(CEssaySyntax* source)
+{
+  auto syntax = Cast<CScalarSyntax>(source);
+  auto result = gcnew ScalarSyntax();
+
+  result->LiveLine = syntax->GetLiveLine();
+  result->LiveNamespace = gcnew Namespace(new CNamespace(syntax->GetLiveNamespace()));
+
+  switch (syntax->GetScalarType())
+  {
+    case EScalarType::Numeric:
+    {
+      result->Value->NumericValue = syntax->GetValue().GetNumericValue();
+    }
+    break;
+    case EScalarType::String:
+    {
+      result->Value->StringValue = CLIString::NativeToCLI(syntax->GetValue().GetStringValue().c_str());
+    }
+    break;
+    case EScalarType::Boolean:
+    {
+      result->Value->BooleanValue = syntax->GetValue().GetBooleanValue();
+    }
+    break;
+  }
+
+  return result;
+}
+
+VariableSyntax^ SyntaxConvertor::MakeVariable(CEssaySyntax* source)
+{
+  auto syntax = Cast<CVariableSyntax>(source);
+  auto result = gcnew VariableSyntax();
+
+  result->LiveLine = syntax->GetLiveLine();
+  result->LiveNamespace = gcnew Namespace(new CNamespace(syntax->GetLiveNamespace()));
+  result->Name = CLIString::NativeToCLI(syntax->GetName().c_str());
+
+  return result;
+}
+
+FunctionSyntax^ SyntaxConvertor::MakeFunction(CEssaySyntax* source)
+{
+  auto syntax = Cast<CFunctionSyntax>(source);
+  auto result = gcnew FunctionSyntax();
+
+  result->LiveLine = syntax->GetLiveLine();
+  result->LiveNamespace = gcnew Namespace(new CNamespace(syntax->GetLiveNamespace()));
+
+  result->Name = CLIString::NativeToCLI(syntax->GetName().c_str());
+  result->ArgumentChainID = syntax->GetArgumentChainID();
+
+  return result;
+}
+
 ChainSyntax^ SyntaxConvertor::MakeChain(CEssaySyntax* source)
 {
   auto syntax = Cast<CChainSyntax>(source);

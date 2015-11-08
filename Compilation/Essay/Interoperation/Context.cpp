@@ -36,6 +36,12 @@ RawSyntax^ Context::Build(CEssaySyntax* syntax)
 
   switch (syntax->GetSyntaxType())
   {
+    case ESyntaxType::Scalar:
+      return convertor->MakeScalar(syntax);
+    case ESyntaxType::Variable:
+      return convertor->MakeVariable(syntax);
+    case ESyntaxType::Function:
+      return convertor->MakeFunction(syntax);
     case ESyntaxType::Chain:
       return convertor->MakeChain(syntax);
     case ESyntaxType::Operation:

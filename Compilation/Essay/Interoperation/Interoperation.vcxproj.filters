@@ -59,6 +59,18 @@
     <ClInclude Include="OperationSyntax.h">
       <Filter>Syntax\ASTs\Composition</Filter>
     </ClInclude>
+    <ClInclude Include="FunctionSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="ScalarSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="Scalar.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -88,6 +100,18 @@
     <ClCompile Include="SyntaxEngine.cpp" />
     <ClCompile Include="OperationSyntax.cpp">
       <Filter>Syntax\ASTs\Composition</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="ScalarSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="VariableSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="Scalar.cpp">
+      <Filter>Syntax</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
