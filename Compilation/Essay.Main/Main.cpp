@@ -35,9 +35,10 @@ void F2()
 
 void F3()
 {
-  CIdentifier i(L"bu");
+  CIdentifier i(L"Business.Customer.a");
 
   auto s = i.GetName();
+  auto ss = i.GetLiveNamespace().ToString();
 }
 
 void main()

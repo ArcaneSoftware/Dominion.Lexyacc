@@ -18,26 +18,26 @@ enum class LIBRARY_EXPORT EFlowType
   While
 };
 //*****************************************************************************************************************//
-//CEFlowType
+//CFlowTypeEnum
 //
 //*****************************************************************************************************************//
-CLASS_DECLARATION(CEFlowType, C_FLOW_ENUM);
-class LIBRARY_EXPORT CEFlowType : public CEnum<EFlowType>
+CLASS_DECLARATION(CFlowTypeEnum, C_FLOW_TYPE_ENUM);
+class LIBRARY_EXPORT CFlowTypeEnum : public CEnum<EFlowType>
 {
 public:
-  CLASS_INHERITOR(CEnum<EFlowType>, CEFlowType);
+  CLASS_INHERITOR(CEnum<EFlowType>, CFlowTypeEnum);
 
   static map<wstring, EFlowType> STRING_TO_VALUE();
   static map<EFlowType, wstring> VALUE_TO_STRING();
 
-  CEFlowType();
-  CEFlowType(C_FLOW_ENUM& that);
-  CEFlowType(C_FLOW_ENUM&& that);
-  explicit CEFlowType(EFlowType value);
-  explicit CEFlowType(WSTRING& valueString);
-  virtual ~CEFlowType();
+  CFlowTypeEnum();
+  CFlowTypeEnum(C_FLOW_TYPE_ENUM& that);
+  CFlowTypeEnum(C_FLOW_TYPE_ENUM&& that);
+  explicit CFlowTypeEnum(EFlowType value);
+  explicit CFlowTypeEnum(WSTRING& valueString);
+  virtual ~CFlowTypeEnum();
 
-  C_FLOW_ENUM& operator=(C_FLOW_ENUM& that);
+  C_FLOW_TYPE_ENUM& operator=(C_FLOW_TYPE_ENUM& that);
 };
 //*****************************************************************************************************************//
 //EOperationType
@@ -75,7 +75,7 @@ enum class LIBRARY_EXPORT EOperationType
 //COperationTypeEnum
 //
 //*****************************************************************************************************************//
-CLASS_DECLARATION(COperationTypeEnum, CE_OPERATION_TYPE);
+CLASS_DECLARATION(COperationTypeEnum, C_OPERATION_TYPE_ENUM);
 class LIBRARY_EXPORT COperationTypeEnum : public CEnum<EOperationType>
 {
 public:
@@ -85,13 +85,13 @@ public:
   static map<EOperationType, wstring> VALUE_TO_STRING();
 
   COperationTypeEnum();
-  COperationTypeEnum(CE_OPERATION_TYPE& that);
-  COperationTypeEnum(CE_OPERATION_TYPE&& that);
+  COperationTypeEnum(C_OPERATION_TYPE_ENUM& that);
+  COperationTypeEnum(C_OPERATION_TYPE_ENUM&& that);
   explicit COperationTypeEnum(EOperationType value);
   explicit COperationTypeEnum(WSTRING& valueString);
   virtual ~COperationTypeEnum();
 
-  CE_OPERATION_TYPE& operator=(CE_OPERATION_TYPE& that);
+  C_OPERATION_TYPE_ENUM& operator=(C_OPERATION_TYPE_ENUM& that);
 };
 //*****************************************************************************************************************//
 //EJoinType

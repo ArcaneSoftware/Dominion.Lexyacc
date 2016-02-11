@@ -42,6 +42,8 @@ public:
   ChainSyntax^ MakeChain(CEssaySyntax* source);
   OperationSyntax^ MakeOperation(CEssaySyntax* source);
   //Statement
+  AssignVariableSyntax^ MakeAssignVariable(CEssaySyntax* source);
+  DefineFunctionSyntax^ MakeDefineFunction(CEssaySyntax* source);
 };
 
 END_DOMINION_COMPILATION_ESSAY

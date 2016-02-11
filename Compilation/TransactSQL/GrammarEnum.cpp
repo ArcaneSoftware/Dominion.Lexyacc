@@ -7,9 +7,9 @@
 
 using namespace Dominion::Compilation::TransactSQL;
 //*******************************************************************************************************************//
-//CEFlowType
+//CFlowTypeEnum
 //*******************************************************************************************************************//
-map<wstring, EFlowType> CEFlowType::STRING_TO_VALUE()
+map<wstring, EFlowType> CFlowTypeEnum::STRING_TO_VALUE()
 {
   map<wstring, EFlowType> map;
 
@@ -19,7 +19,7 @@ map<wstring, EFlowType> CEFlowType::STRING_TO_VALUE()
   return move(map);
 }
 
-map<EFlowType, wstring> CEFlowType::VALUE_TO_STRING()
+map<EFlowType, wstring> CFlowTypeEnum::VALUE_TO_STRING()
 {
   map<EFlowType, wstring> map;
 
@@ -29,35 +29,35 @@ map<EFlowType, wstring> CEFlowType::VALUE_TO_STRING()
   return move(map);
 }
 
-CEFlowType::CEFlowType()
+CFlowTypeEnum::CFlowTypeEnum()
 {
 }
 
-CEFlowType::CEFlowType(C_FLOW_ENUM& that) :
+CFlowTypeEnum::CFlowTypeEnum(C_FLOW_TYPE_ENUM& that) :
   CEnum(that)
 {
 }
 
-CEFlowType::CEFlowType(C_FLOW_ENUM&& that) :
+CFlowTypeEnum::CFlowTypeEnum(C_FLOW_TYPE_ENUM&& that) :
   CEnum(that)
 {
 }
 
-CEFlowType::CEFlowType(EFlowType value) :
+CFlowTypeEnum::CFlowTypeEnum(EFlowType value) :
   CEnum(value, STRING_TO_VALUE, VALUE_TO_STRING)
 {
 }
 
-CEFlowType::CEFlowType(WSTRING& valueString) :
+CFlowTypeEnum::CFlowTypeEnum(WSTRING& valueString) :
   CEnum(valueString, STRING_TO_VALUE, VALUE_TO_STRING)
 {
 }
 
-CEFlowType::~CEFlowType()
+CFlowTypeEnum::~CFlowTypeEnum()
 {
 }
 
-C_FLOW_ENUM& CEFlowType::operator=(C_FLOW_ENUM& that)
+C_FLOW_TYPE_ENUM& CFlowTypeEnum::operator=(C_FLOW_TYPE_ENUM& that)
 {
   CEnum<EFlowType>::operator=(that);
 
@@ -136,12 +136,12 @@ COperationTypeEnum::COperationTypeEnum()
 {
 }
 
-COperationTypeEnum::COperationTypeEnum(CE_OPERATION_TYPE& that) :
+COperationTypeEnum::COperationTypeEnum(C_OPERATION_TYPE_ENUM& that) :
   CEnum(that)
 {
 }
 
-COperationTypeEnum::COperationTypeEnum(CE_OPERATION_TYPE&& that) :
+COperationTypeEnum::COperationTypeEnum(C_OPERATION_TYPE_ENUM&& that) :
   CEnum(that)
 {
 }
@@ -160,7 +160,7 @@ COperationTypeEnum::~COperationTypeEnum()
 {
 }
 
-CE_OPERATION_TYPE& COperationTypeEnum::operator=(CE_OPERATION_TYPE& that)
+C_OPERATION_TYPE_ENUM& COperationTypeEnum::operator=(C_OPERATION_TYPE_ENUM& that)
 {
   CEnum<EOperationType>::operator=(that);
 

@@ -95,13 +95,42 @@ OperationSyntax^ SyntaxConvertor::MakeOperation(CEssaySyntax* source)
 {
   auto syntax = Cast<COperationSyntax>(source);
   auto result = gcnew OperationSyntax();
-  auto typeString = CLIString::NativeToCLI(CEOperationType(syntax->GetOperationType()).ToString().c_str());
+  auto typeString = CLIString::NativeToCLI(COperationTypeEnum(syntax->GetOperationType()).ToString().c_str());
 
   result->LiveLine = syntax->GetLiveLine();
   result->LiveNamespace = gcnew Namespace(new CNamespace(syntax->GetLiveNamespace()));
   result->OperationType = EnumHelper<OperationTypeEnum>::PARSE(typeString);
   result->LeftOperandID = syntax->GetLeftOperandID();
   result->RightOperandID = syntax->GetRightOperandID();
+
+  return result;
+}
+
+AssignVariableSyntax^ SyntaxConvertor::MakeAssignVariable(CEssaySyntax* source)
+{
+  auto syntax = Cast<CAssignVariableSyntax>(source);
+  auto result = gcnew AssignVariableSyntax();
+
+  result->LiveLine = syntax->GetLiveLine();
+  result->LiveNamespace = gcnew Namespace(new CNamespace(syntax->GetLiveNamespace()));
+  result->VariableID = syntax->GetVariableID();
+  result->ValueID = syntax->GetValueID();
+
+  return result;
+}
+
+DefineFunctionSyntax^ SyntaxConvertor::MakeDefineFunction(CEssaySyntax* source)
+{
+  auto syntax = Cast<CDefineFunctionSyntax>(source);
+  auto result = gcnew DefineFunctionSyntax();
+  auto typeString = CLIString::NativeToCLI(CAccessTypeEnum(syntax->GetAccessType()).ToString().c_str());
+
+  result->LiveLine = syntax->GetLiveLine();
+  result->LiveNamespace = gcnew Namespace(new CNamespace(syntax->GetLiveNamespace()));
+  result->Name = CLIString::NativeToCLI(syntax->GetName().c_str());
+  result->AccessType = EnumHelper<AccessTypeEnum>::PARSE(typeString);
+  result->ParameterChainID = syntax->GetParameterChainID();
+  result->BlockID = syntax->GetBlockID();
 
   return result;
 }

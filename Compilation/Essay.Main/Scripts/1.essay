@@ -1,10 +1,11 @@
 naming Business
 {
 	var a = 9;
-
 	
 	function Main(var x)
 	{
-		var cust = a + 32;
+    Business.a = 0;
+
+		var cust = Business.a + 32;
 	}
 }

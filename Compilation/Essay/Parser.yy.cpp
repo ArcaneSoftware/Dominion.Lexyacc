@@ -846,9 +846,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
 #line 320 "./Parser.yy"
     {
     auto syntax = CFunctionSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, *(yysemantic_stack_[(4) - (1)].litera), (yysemantic_stack_[(4) - (3)].node));
-		auto result = _producer.Function(syntax);
+    auto result = _producer.Function(syntax);
 
-		YY_REDUCE(result);
+    YY_REDUCE(result);
   }
     break;
 
@@ -935,7 +935,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
 #line 390 "./Parser.yy"
     {
     (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
-	}
+  }
     break;
 
   case 48:
@@ -974,7 +974,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
 #line 411 "./Parser.yy"
     {
     _producer.PushNaming(*(yysemantic_stack_[(2) - (2)].litera));
-	}
+  }
     break;
 
   case 52:
@@ -982,7 +982,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 415 "./Parser.yy"
     {
-	}
+  }
     break;
 
 

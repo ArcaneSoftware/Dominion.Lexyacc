@@ -7,13 +7,17 @@ naming Business
 		var _id;
 		var _name;
 
-		new:
-			_id = 0;
+		new
+    {
+      _id = 0;
 			_name = "sa";
+    }
 
-		delete:
+		delete
+    {
 			_id = -1;
 			_name = "";
+    }
 		
 
 		functin Create(var id, var name)

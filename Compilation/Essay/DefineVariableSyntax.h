@@ -29,7 +29,7 @@ public:
                         int32_t initialValueID);
   virtual ~CDefineVariableSyntax();
 
-  CLASS_PROPERTY(EAccessType, _access, Access);
+  CLASS_PROPERTY(EAccessType, _accessType, AccessType);
   CLASS_PROPERTY(EVariableType, _variableType, VariableType);
   CLASS_PROPERTY(wstring, _name, Name);
   CLASS_PROPERTY(int32_t, _initialValueID, InitialValueID);
@@ -37,7 +37,7 @@ public:
   C_DEFINE_VARIABLE_SYNTAX& operator=(C_DEFINE_VARIABLE_SYNTAX& that);
 
 private:
-  EAccessType _access;
+  EAccessType _accessType;
   EVariableType _variableType;
   wstring _name;
   int32_t _initialValueID;

@@ -6,17 +6,9 @@
 #pragma once
 
 #include "Dominion/Compilation/Syntax/Identifier.h"
+#include "Dominion/Compilation/Syntax/AccessType.h"
 
 BEGIN_DOMINION_COMPILATION_SYNTAX
-//*****************************************************************************************************************//
-//EAccessType
-//
-//*****************************************************************************************************************//
-enum class LIBRARY_EXPORT EAccessType
-{
-  Private = 0,
-  Public = 1,
-};
 //****************************************************************************************************************//
 //CNamedReference
 //

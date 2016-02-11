@@ -67,19 +67,19 @@ using namespace Dominion::Compilation::Essay;
 %%
 SCALAR:
   Nil
-	{
+  {
     $$ = _producer.Scalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar())).GetID();
   }|
   Numeric
-	{
+  {
     $$ = _producer.Scalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar($1))).GetID();
   }|
   String
-	{
+  {
     $$ = _producer.Scalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar(*$1))).GetID();
   }|
   Boolean
-	{
+  {
     $$ = _producer.Scalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar($1))).GetID();
   };
 
@@ -265,14 +265,14 @@ ARGUMENT_CHAIN:
     YY_REDUCE(result);
   };
 DEFINE_REFERENCE:
-	DEFINE_VARIABLE
-	{
-		$$ = $1;
-	}|
-	DEFINE_FUNCTION
-	{
-		$$ = $1;
-	};
+  DEFINE_VARIABLE
+  {
+    $$ = $1;
+  }|
+  DEFINE_FUNCTION
+  {
+    $$ = $1;
+  };
 
 DEFINE_REFERENCE_CHAN:
   DEFINE_REFERENCE
@@ -317,11 +317,11 @@ VARIABLE:
   
 FUNCTION:
   Identifier '(' ARGUMENT_CHAIN ')'
-	{
+  {
     auto syntax = CFunctionSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, *$1, $3);
-		auto result = _producer.Function(syntax);
+    auto result = _producer.Function(syntax);
 
-		YY_REDUCE(result);
+    YY_REDUCE(result);
   };
 
 DEFINE_VARIABLE:
@@ -379,19 +379,19 @@ FLOW:
   
 STATEMENT:
   DEFINE_VARIABLE ';'
-	{
+  {
     $$ = $1;
   }|
   ASSIGN_VARIABLE ';'
-	{
+  {
     $$ = $1;
   }|
-	DEFINE_FUNCTION
-	{
+  DEFINE_FUNCTION
+  {
     $$ = $1;
-	}|
+  }|
   EXPRESSION ';'
-	{
+  {
     $$ = $1;
   };
   
@@ -408,12 +408,12 @@ BLOCK:
 
 ESSAY:
   Naming Identifier
-	{
+  {
     _producer.PushNaming(*$2);
-	}
-	'{' BLOCK '}'
-	{
-	};
+  }
+  '{' BLOCK '}'
+  {
+  };
 
 %%
 void CParser::error(const CParser::location_type& location, const std::string& message)

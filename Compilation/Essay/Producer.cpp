@@ -125,7 +125,10 @@ CProductor CProducer::DefineVariable(C_DEFINE_VARIABLE_SYNTAX& syntax)
 
   if (result.GetSuccessed())
   {
-    _context.DefineVariable(syntax.GetAccess(), syntax.GetLiveNamespace(), syntax.GetName(), syntax.GetInitialValueID());
+    _context.DefineVariable(syntax.GetAccessType(),
+                            syntax.GetLiveNamespace(),
+                            syntax.GetName(),
+                            syntax.GetInitialValueID());
   }
 
   return move(result);
@@ -152,7 +155,7 @@ CProductor CProducer::DefineFunction(C_DEFINE_FUNCTION_SYNTAX& syntax)
 
   if (result.GetSuccessed())
   {
-    _context.DefineFunction(syntax.GetAccess(),
+    _context.DefineFunction(syntax.GetAccessType(),
                             syntax.GetLiveNamespace(),
                             syntax.GetName(),
                             syntax.GetParameterChainID(),

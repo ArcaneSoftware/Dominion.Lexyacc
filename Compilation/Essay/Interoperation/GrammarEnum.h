@@ -1,3 +1,4 @@
+#pragma once
 #include "Dominion/Compilation/Essay/Interoperation/Dependence.h"
 
 using namespace System;
@@ -27,12 +28,6 @@ public enum class OperationTypeEnum
 };
 
 public enum class VariableTypeEnum
-{
-  Atom,
-  Object,
-};
-
-enum class VariableTypeEnum
 {
   Atom,
   Object,

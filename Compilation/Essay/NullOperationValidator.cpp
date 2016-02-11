@@ -36,7 +36,7 @@ CError CNullUnaryOperationValidator::Validate(C_OPERATION_SYNTAX& syntax, C_CONT
     result.SetSource(EErrorSource::Producing);
     result.SetLiveLine(syntax.GetLiveLine());
     result.SetDescription(CWStringTemplate(L"operand of operation:'%x' is invalid").
-                          Format(CEOperationType(syntax.GetOperationType()).ToString()));
+                          Format(COperationTypeEnum(syntax.GetOperationType()).ToString()));
   }
 
   return move(result);
@@ -72,7 +72,7 @@ CNullBinaryOperationValidator::~CNullBinaryOperationValidator()
 CError CNullBinaryOperationValidator::Validate(C_OPERATION_SYNTAX& syntax, C_CONTEXT& context) const
 {
   CError result;
-  auto operationType = CEOperationType(syntax.GetOperationType()).ToString();
+  auto operationType = COperationTypeEnum(syntax.GetOperationType()).ToString();
 
   if (syntax.GetLeftOperandID() == NONE_ID)
   {

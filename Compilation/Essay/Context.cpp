@@ -80,6 +80,7 @@ void CContext::DefineFunction(EAccessType access,
 bool CContext::HasDefinedIdentifier(WSTRING& fullName, EIdentifierType identifierType) const
 {
   bool defined = false;
+
   switch (identifierType)
   {
     case EIdentifierType::Variable:
@@ -94,22 +95,10 @@ bool CContext::HasDefinedIdentifier(WSTRING& fullName, EIdentifierType identifie
 
   return defined;
 }
+
 bool CContext::HasDefinedIdentifier(C_NAMESPACE& liveNamespace, WSTRING& name, EIdentifierType identifierType) const
 {
-  auto checkedNamespace = CNamespace(liveNamespace);
-  bool defined = false;
-
-  while (!checkedNamespace.Empty())
-  {
-    defined = HasDefinedIdentifier(CIdentifier(checkedNamespace, name).ToString(), identifierType);
-
-    if (defined)
-    {
-      break;
-    }
-
-    checkedNamespace = checkedNamespace.GetParent();
-  }
+  bool defined = HasDefinedIdentifier(CIdentifier(liveNamespace, name).ToString(), identifierType);
 
   return defined;
 }
