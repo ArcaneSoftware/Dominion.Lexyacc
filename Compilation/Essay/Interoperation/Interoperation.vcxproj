@@ -142,9 +142,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssignVariableSyntax.h" />
     <ClInclude Include="ASTs.h" />
     <ClInclude Include="ChainSyntax.h" />
     <ClInclude Include="Context.h" />
+    <ClInclude Include="DefineFunctionSyntax.h" />
     <ClInclude Include="Dependence.h" />
     <ClInclude Include="FunctionSyntax.h" />
     <ClInclude Include="OperationSyntax.h" />
@@ -163,8 +165,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="AssignVariableSyntax.cpp" />
     <ClCompile Include="ChainSyntax.cpp" />
     <ClCompile Include="Context.cpp" />
+    <ClCompile Include="DefineFunctionSyntax.cpp" />
     <ClCompile Include="FunctionSyntax.cpp" />
     <ClCompile Include="OperationSyntax.cpp" />
     <ClCompile Include="Scalar.cpp" />

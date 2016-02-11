@@ -71,6 +71,12 @@
     <ClInclude Include="Scalar.h">
       <Filter>Syntax</Filter>
     </ClInclude>
+    <ClInclude Include="AssignVariableSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="DefineFunctionSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -112,6 +118,12 @@
     </ClCompile>
     <ClCompile Include="Scalar.cpp">
       <Filter>Syntax</Filter>
+    </ClCompile>
+    <ClCompile Include="AssignVariableSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="DefineFunctionSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

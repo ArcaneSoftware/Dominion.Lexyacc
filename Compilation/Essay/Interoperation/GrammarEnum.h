@@ -4,7 +4,7 @@ using namespace System;
 
 BEGIN_DOMINION_COMPILATION_ESSAY
 
-public enum class LIBRARY_EXPORT OperationTypeEnum
+public enum class OperationTypeEnum
 {
   Empty = 0,
   Add,
@@ -26,10 +26,22 @@ public enum class LIBRARY_EXPORT OperationTypeEnum
   Not,
 };
 
-public enum class LIBRARY_EXPORT VariableTypeEnum
+public enum class VariableTypeEnum
 {
   Atom,
   Object,
+};
+
+enum class VariableTypeEnum
+{
+  Atom,
+  Object,
+};
+
+public enum class AccessTypeEnum
+{
+  Private = 0,
+  Public = 1,
 };
 
 END_DOMINION_COMPILATION_ESSAY
