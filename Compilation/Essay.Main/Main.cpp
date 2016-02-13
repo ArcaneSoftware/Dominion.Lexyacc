@@ -1,4 +1,4 @@
-#include "Dominion/Compilation/Essay/Engine.h"
+#include "Dominion/Compilation/Essay/Engine/Engine.h"
 
 using namespace Dominion;
 using namespace Dominion::Compilation::Syntax;

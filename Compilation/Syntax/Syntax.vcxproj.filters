@@ -22,6 +22,7 @@
     <ClInclude Include="NamedReference.h" />
     <ClInclude Include="Reducible.h" />
     <ClInclude Include="AccessType.h" />
+    <ClInclude Include="VariableType.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Error.cpp" />
@@ -35,5 +36,6 @@
     <ClCompile Include="Identifier.cpp" />
     <ClCompile Include="NamedReference.cpp" />
     <ClCompile Include="AccessType.cpp" />
+    <ClCompile Include="VariableType.cpp" />
   </ItemGroup>
 </Project>

@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6D310859-AB12-4D36-8806-D576453FF34D}</ProjectGuid>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Syntax</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
@@ -172,6 +172,7 @@
     <ClInclude Include="UnacceptableWordException.h" />
     <ClInclude Include="ValidateProduction.h" />
     <ClInclude Include="Variable.h" />
+    <ClInclude Include="VariableType.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AccessType.cpp" />
@@ -183,6 +184,7 @@
     <ClCompile Include="Scalar.cpp" />
     <ClCompile Include="UnacceptableWordException.cpp" />
     <ClCompile Include="Variable.cpp" />
+    <ClCompile Include="VariableType.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Dotnet\System\Dominion.Dotnet.System.csproj">

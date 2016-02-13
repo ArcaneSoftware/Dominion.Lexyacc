@@ -1,0 +1,38 @@
+naming Business
+{
+	var a = 9;
+
+	object Custom 
+	{
+		var _id;
+		var _name;
+
+		new
+    {
+      _id = 0;
+			_name = "sa";
+    }
+
+		delete
+    {
+			_id = -1;
+			_name = "";
+    }
+		
+
+		functin Create(var id, var name)
+		{
+			_name = name;
+			_address = address;
+
+			return true;
+		}
+	}
+
+	function Main(var x)
+	{
+		var cust as Custom;
+
+		cust.Create(12, "lpeng", "1xx yy zz");
+	}
+}

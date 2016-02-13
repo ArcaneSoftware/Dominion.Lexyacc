@@ -9,13 +9,28 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Dominion.Compilation.Essay.EssayManagedCompiler</RootNamespace>
     <AssemblyName>EssayManagedCompiler</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -49,12 +64,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Scripts\1.essay" />
+    <None Include="Scripts\2.essay" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Dotnet\System\Dominion.Dotnet.System.csproj">
+      <Project>{9b8a5ac3-78c1-47c5-bb05-67179fb492e7}</Project>
+      <Name>Dominion.Dotnet.System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Native\System\System.vcxproj">
+      <Project>{025a8198-aae4-419d-bf36-cc9a41b909bc}</Project>
+      <Name>Dominion.Native.System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Essay\Engine\Engine.vcxproj">
+      <Project>{06819a0d-c445-43bb-bc7e-61bd5f4c2923}</Project>
+      <Name>Dominion.Compilation.Essay.Engine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Essay\Interoperation\Interoperation.vcxproj">
       <Project>{8a3278fb-c9b1-49a7-a3f7-bd43f3662d6e}</Project>
       <Name>Dominion.Compilation.Essay.Interoperation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Syntax\Syntax.vcxproj">
+      <Project>{6d310859-ab12-4d36-8806-d576453ff34d}</Project>
+      <Name>Dominion.Compilation.Syntax</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

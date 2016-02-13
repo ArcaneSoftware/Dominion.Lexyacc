@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Dominion/Compilation/Essay/Engine.h"
-#include "Dominion/Compilation/Essay/Producer.h"
+#include "Dominion/Compilation/Essay/Engine/Engine.h"
+#include "Dominion/Compilation/Essay/Engine/Producer.h"
 
 BEGIN_DOMINION_COMPILATION_ESSAY
 

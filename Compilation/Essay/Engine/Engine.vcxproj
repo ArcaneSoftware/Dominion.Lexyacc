@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{06819A0D-C445-43BB-BC7E-61BD5F4C2923}</ProjectGuid>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>Engine</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>Dominion.Compilation.Essay.Engine</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>../../../../;../../../Using/LexYacc/;$(IncludePath)</IncludePath>
+    <LibraryPath>../../x64/Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>../../../../;../../../Using/LexYacc/;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>FixFiles.cmd</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>FixFiles.cmd</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AssignVariableSyntax.cpp" />
+    <ClCompile Include="BlockSyntax.cpp" />
+    <ClCompile Include="ChainSyntax.cpp" />
+    <ClCompile Include="Context.cpp" />
+    <ClCompile Include="DefineFunctionSyntax.cpp" />
+    <ClCompile Include="DefineVariableSyntax.cpp" />
+    <ClCompile Include="DuplicationValidator.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="EssaySyntax.cpp" />
+    <ClCompile Include="Function.cpp" />
+    <ClCompile Include="FunctionSyntax.cpp" />
+    <ClCompile Include="GrammarEnum.cpp" />
+    <ClCompile Include="NamingStack.cpp" />
+    <ClCompile Include="NoneSyntaxValidator.cpp" />
+    <ClCompile Include="NullOperationValidator.cpp" />
+    <ClCompile Include="OperationSyntax.cpp" />
+    <ClCompile Include="Parser.yy.cpp" />
+    <ClCompile Include="Producer.cpp" />
+    <ClCompile Include="ReturnSyntax.cpp" />
+    <ClCompile Include="ScalarSyntax.cpp" />
+    <ClCompile Include="Scanner.cpp" />
+    <ClCompile Include="Scanner.ll.cpp" />
+    <ClCompile Include="SyntaxEnum.cpp" />
+    <ClCompile Include="UndefinedReferenceValidator.cpp" />
+    <ClCompile Include="VariableSyntax.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AssignVariableSyntax.h" />
+    <ClInclude Include="ASTs.h" />
+    <ClInclude Include="BlockSyntax.h" />
+    <ClInclude Include="ChainSyntax.h" />
+    <ClInclude Include="Context.h" />
+    <ClInclude Include="DefineFunctionSyntax.h" />
+    <ClInclude Include="DefineVariableSyntax.h" />
+    <ClInclude Include="Dependence.h" />
+    <ClInclude Include="DuplicationValidator.h" />
+    <ClInclude Include="Elementary.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="EssaySyntax.h" />
+    <ClInclude Include="Function.h" />
+    <ClInclude Include="FunctionSyntax.h" />
+    <ClInclude Include="GrammarEnum.h" />
+    <ClInclude Include="location.hh" />
+    <ClInclude Include="NamingStack.h" />
+    <ClInclude Include="NoneSyntaxValidator.h" />
+    <ClInclude Include="NullOperationValidator.h" />
+    <ClInclude Include="OperationSyntax.h" />
+    <ClInclude Include="Parser.yy.h" />
+    <ClInclude Include="position.hh" />
+    <ClInclude Include="Producer.h" />
+    <ClInclude Include="ReturnSyntax.h" />
+    <ClInclude Include="ScalarSyntax.h" />
+    <ClInclude Include="Scanner.h" />
+    <ClInclude Include="stack.hh" />
+    <ClInclude Include="SyntaxEnum.h" />
+    <ClInclude Include="UndefinedReferenceValidator.h" />
+    <ClInclude Include="Validators.h" />
+    <ClInclude Include="VariableSyntax.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FixFiles.cmd" />
+    <None Include="Parser.yy" />
+    <None Include="Scanner.ll" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

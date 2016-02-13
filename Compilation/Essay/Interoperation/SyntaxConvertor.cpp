@@ -106,6 +106,36 @@ OperationSyntax^ SyntaxConvertor::MakeOperation(CEssaySyntax* source)
   return result;
 }
 
+
+BlockSyntax^ SyntaxConvertor::MakeBlock(CEssaySyntax* source)
+{
+  auto syntax = Cast<CBlockSyntax>(source);
+  auto result = gcnew BlockSyntax();
+
+  result->LiveLine = syntax->GetLiveLine();
+  result->LiveNamespace = gcnew Namespace(new CNamespace(syntax->GetLiveNamespace()));
+  result->StatementID = syntax->GetStatementID();
+  result->BlockID = syntax->GetBlockID();
+
+  return result;
+}
+
+DefineVariableSyntax^ SyntaxConvertor::MakeDefineVariable(CEssaySyntax* source)
+{
+  auto syntax = Cast<CDefineVariableSyntax>(source);
+  auto result = gcnew DefineVariableSyntax();
+  auto accessType = CLIString::NativeToCLI(CAccessTypeEnum(syntax->GetAccessType()).ToString().c_str());
+  auto variableType = CLIString::NativeToCLI(CVariableTypeEnum(syntax->GetVariableType()).ToString().c_str());
+
+  result->LiveLine = syntax->GetLiveLine();
+  result->LiveNamespace = gcnew Namespace(new CNamespace(syntax->GetLiveNamespace()));
+  result->Name = CLIString::NativeToCLI(syntax->GetName().c_str());
+  result->AccessType = EnumHelper<AccessTypeEnum>::PARSE(accessType);
+  result->VariableType = EnumHelper<VariableTypeEnum>::PARSE(variableType);
+  result->InitialValueID = syntax->GetInitialValueID();
+
+  return result;
+}
 AssignVariableSyntax^ SyntaxConvertor::MakeAssignVariable(CEssaySyntax* source)
 {
   auto syntax = Cast<CAssignVariableSyntax>(source);
@@ -131,6 +161,18 @@ DefineFunctionSyntax^ SyntaxConvertor::MakeDefineFunction(CEssaySyntax* source)
   result->AccessType = EnumHelper<AccessTypeEnum>::PARSE(typeString);
   result->ParameterChainID = syntax->GetParameterChainID();
   result->BlockID = syntax->GetBlockID();
+
+  return result;
+}
+
+ReturnSyntax^ SyntaxConvertor::MakeReturn(CEssaySyntax* source)
+{
+  auto syntax = Cast<CReturnSyntax>(source);
+  auto result = gcnew ReturnSyntax();
+
+  result->LiveLine = syntax->GetLiveLine();
+  result->LiveNamespace = gcnew Namespace(new CNamespace(syntax->GetLiveNamespace()));
+  result->ExpressionID = syntax->GetExpressionID();
 
   return result;
 }

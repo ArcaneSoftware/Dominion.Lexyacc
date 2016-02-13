@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Dominion.Compilation.Essay;
+using System.IO;
 
 namespace EssayManagedCompiler
 {
@@ -13,8 +14,11 @@ namespace EssayManagedCompiler
     static void Main(string[] args)
     {
       var engine = new SyntaxEngine();
+      var file = new FileInfo("../../Scripts/1.essay");
 
-      string source = "naming Business{var a = 0; function Main(var x){return a + 32}}";
+      var context = engine.Start(file, false);
+
+      // string source = "naming Business{var a = 0; function Main(var x){return a + 32}}";
     }
   }
 }

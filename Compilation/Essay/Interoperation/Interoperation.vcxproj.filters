@@ -77,6 +77,15 @@
     <ClInclude Include="DefineFunctionSyntax.h">
       <Filter>Syntax\ASTs\Statement</Filter>
     </ClInclude>
+    <ClInclude Include="DefineVariableSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="ReturnSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -123,6 +132,15 @@
       <Filter>Syntax\ASTs\Statement</Filter>
     </ClCompile>
     <ClCompile Include="DefineFunctionSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="DefineVariableSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="ReturnSyntax.cpp">
       <Filter>Syntax\ASTs\Statement</Filter>
     </ClCompile>
   </ItemGroup>

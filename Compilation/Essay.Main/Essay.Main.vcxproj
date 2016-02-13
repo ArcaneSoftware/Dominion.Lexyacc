@@ -118,7 +118,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;Dominion.Compilation.Essay.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;Dominion.Compilation.Essay.Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -154,7 +154,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;Dominion.Compilation.Essay.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;Dominion.Compilation.Essay.Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

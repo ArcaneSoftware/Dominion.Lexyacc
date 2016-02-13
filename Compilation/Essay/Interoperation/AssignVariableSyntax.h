@@ -11,7 +11,7 @@ using namespace System;
 
 BEGIN_DOMINION_COMPILATION_ESSAY
 //****************************************************************************************************//
-//ChainSyntax
+//AssignVariableSyntax
 //
 //****************************************************************************************************//
 public ref class AssignVariableSyntax : public RawSyntax

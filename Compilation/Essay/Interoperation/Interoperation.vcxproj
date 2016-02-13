@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8A3278FB-C9B1-49A7-A3F7-BD43F3662D6E}</ProjectGuid>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>Interoperation</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
@@ -111,7 +111,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;Dominion.Compilation.Essay.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;Dominion.Compilation.Essay.Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -133,7 +133,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;Dominion.Compilation.Essay.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Dominion.Native.System.lib;Dominion.Compilation.Syntax.lib;Dominion.Compilation.Essay.Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -144,12 +144,15 @@
   <ItemGroup>
     <ClInclude Include="AssignVariableSyntax.h" />
     <ClInclude Include="ASTs.h" />
+    <ClInclude Include="BlockSyntax.h" />
     <ClInclude Include="ChainSyntax.h" />
     <ClInclude Include="Context.h" />
     <ClInclude Include="DefineFunctionSyntax.h" />
+    <ClInclude Include="DefineVariableSyntax.h" />
     <ClInclude Include="Dependence.h" />
     <ClInclude Include="FunctionSyntax.h" />
     <ClInclude Include="OperationSyntax.h" />
+    <ClInclude Include="ReturnSyntax.h" />
     <ClInclude Include="Scalar.h" />
     <ClInclude Include="ScalarSyntax.h" />
     <ClInclude Include="SyntaxEngine.h" />
@@ -166,11 +169,14 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="AssignVariableSyntax.cpp" />
+    <ClCompile Include="BlockSyntax.cpp" />
     <ClCompile Include="ChainSyntax.cpp" />
     <ClCompile Include="Context.cpp" />
     <ClCompile Include="DefineFunctionSyntax.cpp" />
+    <ClCompile Include="DefineVariableSyntax.cpp" />
     <ClCompile Include="FunctionSyntax.cpp" />
     <ClCompile Include="OperationSyntax.cpp" />
+    <ClCompile Include="ReturnSyntax.cpp" />
     <ClCompile Include="Scalar.cpp" />
     <ClCompile Include="ScalarSyntax.cpp" />
     <ClCompile Include="SyntaxEngine.cpp" />
@@ -198,6 +204,9 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Syntax\Syntax.vcxproj">
       <Project>{6d310859-ab12-4d36-8806-d576453ff34d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Engine\Engine.vcxproj">
+      <Project>{06819a0d-c445-43bb-bc7e-61bd5f4c2923}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
