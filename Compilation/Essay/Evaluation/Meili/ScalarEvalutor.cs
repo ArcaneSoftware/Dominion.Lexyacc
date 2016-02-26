@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Dominion.Compilation.Essay.Evaluation.Meili
 {
-  public class ScalarEvalutor
+  public class ScalarEvalutor : IEvaluative
   {
+    public ScalarEvalutor()
+    {
+    }
+
+    Scalar IEvaluative.Evaluate(Context context)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
