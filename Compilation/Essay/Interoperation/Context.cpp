@@ -29,28 +29,91 @@ Context::!Context()
 {
 }
 
+/*
+Empty = 0,
+//Reference
+Scalar,
+Variable,
+Function,
+//Composition
+Chain,
+Operation,
+Parameter,
+Argurment,
+//Statement
+Block,
+Flow,
+DefineVariable,
+AssignVariable,
+DefineFunction,
+Return,
+*/
+
 RawSyntax^ Context::Build(CEssaySyntax* syntax)
 {
   auto convertor = gcnew SyntaxConvertor();
-  auto type = syntax->GetSyntaxType();
+  RawSyntax^ result = nullptr;
 
   switch (syntax->GetSyntaxType())
   {
     case ESyntaxType::Scalar:
-      return convertor->MakeScalar(syntax);
+    {
+      result = convertor->MakeScalar(syntax);
+    }
+    break;
     case ESyntaxType::Variable:
-      return convertor->MakeVariable(syntax);
+    {
+      result = convertor->MakeVariable(syntax);
+    }
+    break;
     case ESyntaxType::Function:
-      return convertor->MakeFunction(syntax);
+    {
+      result = convertor->MakeFunction(syntax);
+    }
+    break;
     case ESyntaxType::Chain:
-      return convertor->MakeChain(syntax);
+    {
+      result = convertor->MakeChain(syntax);
+    }
+    break;
     case ESyntaxType::Operation:
-      return convertor->MakeOperation(syntax);
-    default:
-      break;
+    {
+      result = convertor->MakeOperation(syntax);
+    }
+    break;
+    case ESyntaxType::Block:
+    {
+      result = convertor->MakeBlock(syntax);
+    }
+    break;
+    case ESyntaxType::DefineVariable:
+    {
+      result = convertor->MakeDefineVariable(syntax);
+    }
+    break;
+    case ESyntaxType::AssignVariable:
+    {
+      result = convertor->MakeAssignVariable(syntax);
+    }
+    break;
+    case ESyntaxType::DefineFunction:
+    {
+      result = convertor->MakeDefineFunction(syntax);
+    }
+    break;
+    case ESyntaxType::Return:
+    {
+      result = convertor->MakeReturn(syntax);
+    }
+    break;
   }
 
-  return nullptr;
+  return result;
+}
+
+int Context::SyntaxAmount::get()
+{
+  return _context->GetSyntaxVector().size();
 }
 
 bool Context::ExistSyntax(int32_t index)

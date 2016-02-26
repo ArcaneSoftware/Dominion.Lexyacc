@@ -29,6 +29,12 @@ protected:
   RawSyntax^ Build(CEssaySyntax* syntax);
 
 public:
+  property int SyntaxAmount
+  {
+    int get();
+  }
+
+public:
   bool ExistSyntax(int32_t index);
   bool HasDefinedIdentifier(String^ fullName, IdentifierTypeEnum identifierType);
   bool HasDefinedIdentifier(Namespace^ liveNamespace, String^ name, IdentifierTypeEnum identifierType);

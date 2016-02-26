@@ -56,7 +56,7 @@ wstring CProducer::GetError() const
 //Reference
 CProductor CProducer::MakeScalar(C_SCALAR_SYNTAX& syntax)
 {
-  return Produce<CEssaySyntax>(syntax);
+  return Produce<CScalarSyntax>(syntax);
 }
 
 CProductor CProducer::MakeVariable(C_VARIABLE_SYNTAX& syntax)

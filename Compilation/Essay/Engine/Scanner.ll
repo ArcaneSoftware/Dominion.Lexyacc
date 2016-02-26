@@ -130,15 +130,15 @@ using namespace Dominion::Compilation::Essay;
 }
 
 [0-9]+ {
-  yylval->numeric = atoi(yytext);
+  yylval->integer = atoi(yytext);
 
-  return YToken::Numeric;
+  return YToken::Integer;
 }
 
 [0-9]+"."[0-9]* {
-  yylval->numeric = atof(yytext);
+  yylval->decimal = atof(yytext);
 
-  return YToken::Numeric;
+  return YToken::Decimal;
 }
 
 [ \t\r]+ {

@@ -60,7 +60,7 @@ using namespace Dominion::Compilation::Essay;
 /* User implementation prologue.  */
 
 /* Line 317 of lalr1.cc  */
-#line 56 "./Parser.yy"
+#line 58 "./Parser.yy"
 
 #ifdef yylex
 #undef yylex
@@ -244,10 +244,10 @@ namespace Dominion { namespace Compilation { namespace Essay {
 
     switch (yytype)
       {
-        case 27: /* "String" */
+        case 28: /* "String" */
 
 /* Line 480 of lalr1.cc  */
-#line 54 "./Parser.yy"
+#line 56 "./Parser.yy"
 	{delete (yyvaluep->litera);};
 
 /* Line 480 of lalr1.cc  */
@@ -444,7 +444,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
 	  case 2:
 
 /* Line 678 of lalr1.cc  */
-#line 70 "./Parser.yy"
+#line 72 "./Parser.yy"
     {
     (yyval.node) = _producer.MakeScalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar())).GetID();
   }
@@ -453,27 +453,27 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 3:
 
 /* Line 678 of lalr1.cc  */
-#line 74 "./Parser.yy"
+#line 76 "./Parser.yy"
     {
-    (yyval.node) = _producer.MakeScalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar((yysemantic_stack_[(1) - (1)].numeric)))).GetID();
+    (yyval.node) = _producer.MakeScalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar((yysemantic_stack_[(1) - (1)].integer)))).GetID();
   }
     break;
 
   case 4:
 
 /* Line 678 of lalr1.cc  */
-#line 78 "./Parser.yy"
+#line 80 "./Parser.yy"
     {
-    (yyval.node) = _producer.MakeScalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar(*(yysemantic_stack_[(1) - (1)].litera)))).GetID();
+    (yyval.node) = _producer.MakeScalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar((yysemantic_stack_[(1) - (1)].decimal)))).GetID();
   }
     break;
 
   case 5:
 
 /* Line 678 of lalr1.cc  */
-#line 82 "./Parser.yy"
+#line 84 "./Parser.yy"
     {
-    (yyval.node) = _producer.MakeScalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar((yysemantic_stack_[(1) - (1)].boolean)))).GetID();
+    (yyval.node) = _producer.MakeScalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar(*(yysemantic_stack_[(1) - (1)].litera)))).GetID();
   }
     break;
 
@@ -482,28 +482,25 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 88 "./Parser.yy"
     {
-    (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
+    (yyval.node) = _producer.MakeScalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar((yysemantic_stack_[(1) - (1)].boolean)))).GetID();
   }
     break;
 
   case 7:
 
 /* Line 678 of lalr1.cc  */
-#line 92 "./Parser.yy"
+#line 94 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Add, (yysemantic_stack_[(3) - (3)].node));
-  	auto result = _producer.MakeBinaryOperation(syntax);
-  
-  	YY_REDUCE(result);
+    (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
   }
     break;
 
   case 8:
 
 /* Line 678 of lalr1.cc  */
-#line 99 "./Parser.yy"
+#line 98 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Subtract, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Add, (yysemantic_stack_[(3) - (3)].node));
   	auto result = _producer.MakeBinaryOperation(syntax);
   
   	YY_REDUCE(result);
@@ -513,7 +510,19 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 9:
 
 /* Line 678 of lalr1.cc  */
-#line 106 "./Parser.yy"
+#line 105 "./Parser.yy"
+    {
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Subtract, (yysemantic_stack_[(3) - (3)].node));
+  	auto result = _producer.MakeBinaryOperation(syntax);
+  
+  	YY_REDUCE(result);
+  }
+    break;
+
+  case 10:
+
+/* Line 678 of lalr1.cc  */
+#line 112 "./Parser.yy"
     {
     auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Multiply, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
@@ -522,10 +531,10 @@ namespace Dominion { namespace Compilation { namespace Essay {
   }
     break;
 
-  case 10:
+  case 11:
 
 /* Line 678 of lalr1.cc  */
-#line 113 "./Parser.yy"
+#line 119 "./Parser.yy"
     {
     auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Divide, (yysemantic_stack_[(3) - (3)].node));
   	auto result = _producer.MakeBinaryOperation(syntax);
@@ -534,24 +543,12 @@ namespace Dominion { namespace Compilation { namespace Essay {
   }
     break;
 
-  case 11:
-
-/* Line 678 of lalr1.cc  */
-#line 120 "./Parser.yy"
-    {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Modulo, (yysemantic_stack_[(3) - (3)].node));
-    auto result = _producer.MakeBinaryOperation(syntax);
-  
-    YY_REDUCE(result);
-  }
-    break;
-
   case 12:
 
 /* Line 678 of lalr1.cc  */
-#line 127 "./Parser.yy"
+#line 126 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Equal, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Modulo, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
   
     YY_REDUCE(result);
@@ -561,9 +558,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 13:
 
 /* Line 678 of lalr1.cc  */
-#line 134 "./Parser.yy"
+#line 133 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::NotEqual, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Equal, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
   
     YY_REDUCE(result);
@@ -573,9 +570,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 14:
 
 /* Line 678 of lalr1.cc  */
-#line 141 "./Parser.yy"
+#line 140 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Match, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::NotEqual, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
   
     YY_REDUCE(result);
@@ -585,9 +582,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 15:
 
 /* Line 678 of lalr1.cc  */
-#line 148 "./Parser.yy"
+#line 147 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::NotMatch, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Match, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
   
     YY_REDUCE(result);
@@ -597,9 +594,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 16:
 
 /* Line 678 of lalr1.cc  */
-#line 155 "./Parser.yy"
+#line 154 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Greater, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::NotMatch, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
   
     YY_REDUCE(result);
@@ -609,9 +606,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 17:
 
 /* Line 678 of lalr1.cc  */
-#line 162 "./Parser.yy"
+#line 161 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::GreaterEqual, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Greater, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
   
     YY_REDUCE(result);
@@ -621,9 +618,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 18:
 
 /* Line 678 of lalr1.cc  */
-#line 169 "./Parser.yy"
+#line 168 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Less, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::GreaterEqual, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
   
     YY_REDUCE(result);
@@ -633,9 +630,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 19:
 
 /* Line 678 of lalr1.cc  */
-#line 176 "./Parser.yy"
+#line 175 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::LessEqual, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Less, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
   
     YY_REDUCE(result);
@@ -645,11 +642,11 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 20:
 
 /* Line 678 of lalr1.cc  */
-#line 183 "./Parser.yy"
+#line 182 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::And, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::LessEqual, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
-    
+  
     YY_REDUCE(result);
   }
     break;
@@ -657,9 +654,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 21:
 
 /* Line 678 of lalr1.cc  */
-#line 190 "./Parser.yy"
+#line 189 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Or, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::And, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
     
     YY_REDUCE(result);
@@ -669,9 +666,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 22:
 
 /* Line 678 of lalr1.cc  */
-#line 197 "./Parser.yy"
+#line 196 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Xor, (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Or, (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeBinaryOperation(syntax);
     
     YY_REDUCE(result);
@@ -681,10 +678,10 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 23:
 
 /* Line 678 of lalr1.cc  */
-#line 204 "./Parser.yy"
+#line 203 "./Parser.yy"
     {
-    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, NONE_ID, EOperationType::Not, (yysemantic_stack_[(2) - (2)].node));
-    auto result = _producer.MakeUnaryOperation(syntax);
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), EOperationType::Xor, (yysemantic_stack_[(3) - (3)].node));
+    auto result = _producer.MakeBinaryOperation(syntax);
     
     YY_REDUCE(result);
   }
@@ -693,25 +690,28 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 24:
 
 /* Line 678 of lalr1.cc  */
-#line 211 "./Parser.yy"
+#line 210 "./Parser.yy"
     {
-    (yyval.node) = (yysemantic_stack_[(3) - (2)].node);
+    auto syntax = COperationSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, NONE_ID, EOperationType::Not, (yysemantic_stack_[(2) - (2)].node));
+    auto result = _producer.MakeUnaryOperation(syntax);
+    
+    YY_REDUCE(result);
   }
     break;
 
   case 25:
 
 /* Line 678 of lalr1.cc  */
-#line 215 "./Parser.yy"
+#line 217 "./Parser.yy"
     {
-    (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
+    (yyval.node) = (yysemantic_stack_[(3) - (2)].node);
   }
     break;
 
   case 26:
 
 /* Line 678 of lalr1.cc  */
-#line 219 "./Parser.yy"
+#line 221 "./Parser.yy"
     {
     (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
   }
@@ -720,63 +720,63 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 27:
 
 /* Line 678 of lalr1.cc  */
-#line 224 "./Parser.yy"
+#line 225 "./Parser.yy"
     {
-    (yyval.node) = 0;
+    (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
   }
     break;
 
   case 28:
 
 /* Line 678 of lalr1.cc  */
-#line 228 "./Parser.yy"
+#line 230 "./Parser.yy"
     {
-    (yyval.node) = 1;
+    (yyval.node) = 0;
   }
     break;
 
   case 29:
 
 /* Line 678 of lalr1.cc  */
-#line 232 "./Parser.yy"
+#line 234 "./Parser.yy"
     {
-    (yyval.node) = 0;
+    (yyval.node) = 1;
   }
     break;
 
   case 30:
 
 /* Line 678 of lalr1.cc  */
-#line 237 "./Parser.yy"
+#line 238 "./Parser.yy"
     {
-    (yyval.node) = -1;
+    (yyval.node) = 0;
   }
     break;
 
   case 31:
 
 /* Line 678 of lalr1.cc  */
-#line 240 "./Parser.yy"
+#line 243 "./Parser.yy"
     {
-    (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
+    (yyval.node) = -1;
   }
     break;
 
   case 32:
 
 /* Line 678 of lalr1.cc  */
-#line 245 "./Parser.yy"
+#line 246 "./Parser.yy"
     {
-    (yyval.node) = -1;
+    (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
   }
     break;
 
   case 33:
 
 /* Line 678 of lalr1.cc  */
-#line 248 "./Parser.yy"
+#line 251 "./Parser.yy"
     {
-    (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
+    (yyval.node) = -1;
   }
     break;
 
@@ -785,6 +785,15 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 678 of lalr1.cc  */
 #line 254 "./Parser.yy"
     {
+    (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
+  }
+    break;
+
+  case 35:
+
+/* Line 678 of lalr1.cc  */
+#line 260 "./Parser.yy"
+    {
     auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(1) - (1)].node), NONE_ID);
     auto result = _producer.MakeChain(syntax);
   
@@ -792,10 +801,10 @@ namespace Dominion { namespace Compilation { namespace Essay {
   }
     break;
 
-  case 35:
+  case 36:
 
 /* Line 678 of lalr1.cc  */
-#line 261 "./Parser.yy"
+#line 267 "./Parser.yy"
     {
     auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), (yysemantic_stack_[(3) - (3)].node));
     auto result = _producer.MakeChain(syntax);
@@ -804,24 +813,12 @@ namespace Dominion { namespace Compilation { namespace Essay {
   }
     break;
 
-  case 36:
-
-/* Line 678 of lalr1.cc  */
-#line 295 "./Parser.yy"
-    {
-    auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(1) - (1)].node), NONE_ID);
-    auto result = _producer.MakeChain(syntax);
-    
-    YY_REDUCE(result);
-  }
-    break;
-
   case 37:
 
 /* Line 678 of lalr1.cc  */
-#line 302 "./Parser.yy"
+#line 301 "./Parser.yy"
     {
-    auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), (yysemantic_stack_[(3) - (3)].node));
+    auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(1) - (1)].node), NONE_ID);
     auto result = _producer.MakeChain(syntax);
     
     YY_REDUCE(result);
@@ -831,10 +828,10 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 38:
 
 /* Line 678 of lalr1.cc  */
-#line 311 "./Parser.yy"
+#line 308 "./Parser.yy"
     {
-    auto syntax = CVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, *(yysemantic_stack_[(1) - (1)].litera));
-    auto result = _producer.MakeVariable(syntax);
+    auto syntax = CChainSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), (yysemantic_stack_[(3) - (3)].node));
+    auto result = _producer.MakeChain(syntax);
     
     YY_REDUCE(result);
   }
@@ -843,7 +840,19 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 39:
 
 /* Line 678 of lalr1.cc  */
-#line 320 "./Parser.yy"
+#line 317 "./Parser.yy"
+    {
+    auto syntax = CVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, *(yysemantic_stack_[(1) - (1)].litera));
+    auto result = _producer.MakeVariable(syntax);
+    
+    YY_REDUCE(result);
+  }
+    break;
+
+  case 40:
+
+/* Line 678 of lalr1.cc  */
+#line 326 "./Parser.yy"
     {
     auto syntax = CFunctionSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, *(yysemantic_stack_[(4) - (1)].litera), (yysemantic_stack_[(4) - (3)].node));
     auto result = _producer.MakeFunction(syntax);
@@ -852,24 +861,12 @@ namespace Dominion { namespace Compilation { namespace Essay {
   }
     break;
 
-  case 40:
-
-/* Line 678 of lalr1.cc  */
-#line 329 "./Parser.yy"
-    {
-    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (EAccessType)(yysemantic_stack_[(3) - (1)].node), EVariableType::Atom, *(yysemantic_stack_[(3) - (3)].litera), NONE_ID);
-    auto result = _producer.MakeDefineVariable(syntax);
-    
-    YY_REDUCE(result);
-  }
-    break;
-
   case 41:
 
 /* Line 678 of lalr1.cc  */
-#line 336 "./Parser.yy"
+#line 335 "./Parser.yy"
     {
-    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (EAccessType)(yysemantic_stack_[(5) - (1)].node), EVariableType::Atom, *(yysemantic_stack_[(5) - (3)].litera), (yysemantic_stack_[(5) - (5)].node));
+    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (EAccessType)(yysemantic_stack_[(3) - (1)].node), EVariableType::Atom, *(yysemantic_stack_[(3) - (3)].litera), NONE_ID);
     auto result = _producer.MakeDefineVariable(syntax);
     
     YY_REDUCE(result);
@@ -879,10 +876,10 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 42:
 
 /* Line 678 of lalr1.cc  */
-#line 345 "./Parser.yy"
+#line 342 "./Parser.yy"
     {
-    auto syntax = CAssignVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), (yysemantic_stack_[(3) - (3)].node));
-    auto result = _producer.MakeAssignVariable(syntax);
+    auto syntax = CDefineVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (EAccessType)(yysemantic_stack_[(5) - (1)].node), EVariableType::Atom, *(yysemantic_stack_[(5) - (3)].litera), (yysemantic_stack_[(5) - (5)].node));
+    auto result = _producer.MakeDefineVariable(syntax);
     
     YY_REDUCE(result);
   }
@@ -891,16 +888,28 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 43:
 
 /* Line 678 of lalr1.cc  */
-#line 354 "./Parser.yy"
+#line 351 "./Parser.yy"
     {
-    _producer.PushNaming(*(yysemantic_stack_[(3) - (3)].litera));
+    auto syntax = CAssignVariableSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(3) - (1)].node), (yysemantic_stack_[(3) - (3)].node));
+    auto result = _producer.MakeAssignVariable(syntax);
+    
+    YY_REDUCE(result);
   }
     break;
 
   case 44:
 
 /* Line 678 of lalr1.cc  */
-#line 358 "./Parser.yy"
+#line 360 "./Parser.yy"
+    {
+    _producer.PushNaming(*(yysemantic_stack_[(3) - (3)].litera));
+  }
+    break;
+
+  case 45:
+
+/* Line 678 of lalr1.cc  */
+#line 364 "./Parser.yy"
     {
     auto syntax = CDefineFunctionSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE.GetParent(), (EAccessType)(yysemantic_stack_[(10) - (1)].node), *(yysemantic_stack_[(10) - (3)].litera), (yysemantic_stack_[(10) - (6)].node), (yysemantic_stack_[(10) - (9)].node));
     auto result = _producer.MakeDefineFunction(syntax);
@@ -911,10 +920,10 @@ namespace Dominion { namespace Compilation { namespace Essay {
   }
     break;
 
-  case 45:
+  case 46:
 
 /* Line 678 of lalr1.cc  */
-#line 369 "./Parser.yy"
+#line 375 "./Parser.yy"
     {
     auto syntax = CReturnSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(2) - (2)].node));
     auto result = _producer.MakeReturn(syntax);
@@ -923,19 +932,10 @@ namespace Dominion { namespace Compilation { namespace Essay {
   }
     break;
 
-  case 46:
-
-/* Line 678 of lalr1.cc  */
-#line 382 "./Parser.yy"
-    {
-    (yyval.node) = (yysemantic_stack_[(2) - (1)].node);
-  }
-    break;
-
   case 47:
 
 /* Line 678 of lalr1.cc  */
-#line 386 "./Parser.yy"
+#line 388 "./Parser.yy"
     {
     (yyval.node) = (yysemantic_stack_[(2) - (1)].node);
   }
@@ -944,25 +944,25 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 48:
 
 /* Line 678 of lalr1.cc  */
-#line 390 "./Parser.yy"
+#line 392 "./Parser.yy"
     {
-    (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
+    (yyval.node) = (yysemantic_stack_[(2) - (1)].node);
   }
     break;
 
   case 49:
 
 /* Line 678 of lalr1.cc  */
-#line 394 "./Parser.yy"
+#line 396 "./Parser.yy"
     {
-    (yyval.node) = (yysemantic_stack_[(2) - (1)].node);
+    (yyval.node) = (yysemantic_stack_[(1) - (1)].node);
   }
     break;
 
   case 50:
 
 /* Line 678 of lalr1.cc  */
-#line 398 "./Parser.yy"
+#line 400 "./Parser.yy"
     {
     (yyval.node) = (yysemantic_stack_[(2) - (1)].node);
   }
@@ -971,16 +971,25 @@ namespace Dominion { namespace Compilation { namespace Essay {
   case 51:
 
 /* Line 678 of lalr1.cc  */
-#line 403 "./Parser.yy"
+#line 404 "./Parser.yy"
     {
-    (yyval.node) = NONE_ID;
+    (yyval.node) = (yysemantic_stack_[(2) - (1)].node);
   }
     break;
 
   case 52:
 
 /* Line 678 of lalr1.cc  */
-#line 406 "./Parser.yy"
+#line 409 "./Parser.yy"
+    {
+    (yyval.node) = NONE_ID;
+  }
+    break;
+
+  case 53:
+
+/* Line 678 of lalr1.cc  */
+#line 412 "./Parser.yy"
     {
     auto syntax = CBlockSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, (yysemantic_stack_[(2) - (1)].node), (yysemantic_stack_[(2) - (2)].node));
     auto result = _producer.MakeBlock(syntax);
@@ -989,19 +998,19 @@ namespace Dominion { namespace Compilation { namespace Essay {
   }
     break;
 
-  case 53:
+  case 54:
 
 /* Line 678 of lalr1.cc  */
-#line 415 "./Parser.yy"
+#line 421 "./Parser.yy"
     {
     _producer.PushNaming(*(yysemantic_stack_[(2) - (2)].litera));
   }
     break;
 
-  case 54:
+  case 55:
 
 /* Line 678 of lalr1.cc  */
-#line 419 "./Parser.yy"
+#line 425 "./Parser.yy"
     {
   }
     break;
@@ -1009,7 +1018,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
 
 
 /* Line 678 of lalr1.cc  */
-#line 1013 "Parser.yy.cpp"
+#line 1022 "Parser.yy.cpp"
 	default:
           break;
       }
@@ -1214,20 +1223,20 @@ namespace Dominion { namespace Compilation { namespace Essay {
 
   /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
      STATE-NUM.  */
-  const signed char CParser::yypact_ninf_ = -81;
+  const signed char CParser::yypact_ninf_ = -83;
   const short int
   CParser::yypact_[] =
   {
-       -12,   -11,    14,   -81,   -81,   -23,    68,   -81,    39,   -81,
-     -81,   -81,   -20,   -81,   -81,    39,    39,   -81,    48,   -16,
-     -18,   -81,   -17,     0,   -81,     2,    68,   -22,   116,   -81,
-      39,     7,   105,    39,    39,    39,    39,    39,    39,    39,
-      39,    39,    39,    39,    39,    39,    39,    39,    39,   -81,
-      -2,    20,    39,   -81,   -81,   -81,   -81,   -81,   116,     9,
-      11,   -81,   154,   154,    53,    53,    53,    53,   154,   154,
-     145,   145,   116,   157,   157,     7,     7,     7,    10,   -81,
-     116,    39,   -81,    39,    15,   -81,   116,   -13,    31,    32,
-      50,   -81,   -13,    12,   -81,    68,    28,   -81
+       -12,   -22,    13,   -83,   -83,   -26,    69,   -83,    39,   -83,
+     -83,   -83,   -83,   -19,   -83,   -83,    39,    39,   -83,    48,
+      -5,   -21,   -83,   -23,   -20,   -83,   -18,    69,     2,   118,
+     -83,    39,     7,   107,    39,    39,    39,    39,    39,    39,
+      39,    39,    39,    39,    39,    39,    39,    39,    39,    39,
+     -83,    -1,    18,    39,   -83,   -83,   -83,   -83,   -83,   118,
+       8,    10,   -83,   157,   157,    54,    54,    54,    54,   157,
+     157,   148,   148,   118,    68,    68,     7,     7,     7,     9,
+     -83,   118,    39,   -83,    39,    14,   -83,   118,   -16,    31,
+      33,    32,   -83,   -16,    11,   -83,    69,    57,   -83
   };
 
   /* YYDEFACT[S] -- default rule to reduce with in state S when YYTABLE
@@ -1236,87 +1245,87 @@ namespace Dominion { namespace Compilation { namespace Essay {
   const unsigned char
   CParser::yydefact_[] =
   {
-         0,     0,     0,    53,     1,     0,    27,     2,     0,    28,
-      29,     3,    38,     4,     5,     0,     0,     6,     0,     0,
-      25,    26,     0,     0,    48,     0,    27,     0,    45,    25,
-      32,    23,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     0,     0,     0,     0,     0,    50,
-       0,     0,     0,    46,    47,    49,    52,    54,    33,    34,
-       0,    24,    12,    13,    16,    17,    18,    19,    14,    15,
-      20,    21,    22,     7,     8,     9,    10,    11,    40,    43,
-      42,    32,    39,     0,     0,    35,    41,    30,     0,    36,
-       0,    31,    30,     0,    37,    27,     0,    44
+         0,     0,     0,    54,     1,     0,    28,     2,     0,    29,
+      30,     3,     4,    39,     5,     6,     0,     0,     7,     0,
+       0,    26,    27,     0,     0,    49,     0,    28,     0,    46,
+      26,    33,    24,     0,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+      51,     0,     0,     0,    47,    48,    50,    53,    55,    34,
+      35,     0,    25,    13,    14,    17,    18,    19,    20,    15,
+      16,    21,    22,    23,     8,     9,    10,    11,    12,    41,
+      44,    43,    33,    40,     0,     0,    36,    42,    31,     0,
+      37,     0,    32,    31,     0,    38,    28,     0,    45
   };
 
   /* YYPGOTO[NTERM-NUM].  */
   const signed char
   CParser::yypgoto_[] =
   {
-       -81,   -81,    -7,   -80,   -81,   -81,    16,     6,    -6,   -81,
-     -74,   -81,   -81,   -81,   -81,   -81,   -24,   -81,   -81
+       -83,   -83,    -7,   -82,   -83,   -83,    21,    12,    -6,   -83,
+     -76,   -83,   -83,   -83,   -83,   -83,   -25,   -83,   -83
   };
 
   /* YYDEFGOTO[NTERM-NUM].  */
   const signed char
   CParser::yydefgoto_[] =
   {
-        -1,    17,    18,    19,    89,    59,    60,    90,    29,    21,
-      22,    23,    24,    84,    25,    26,    27,     2,     5
+        -1,    18,    19,    20,    90,    60,    61,    91,    30,    22,
+      23,    24,    25,    85,    26,    27,    28,     2,     5
   };
 
   /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
      positive, shift that token.  If negative, reduce the rule which
      number is the opposite.  If zero, do what YYDEFACT says.  */
-  const signed char CParser::yytable_ninf_ = -52;
+  const signed char CParser::yytable_ninf_ = -53;
   const signed char
   CParser::yytable_[] =
   {
-        20,    28,    56,    50,     1,    51,   -27,    88,    31,    32,
-       9,    10,    88,    91,     4,     3,    30,     6,    91,    57,
-      20,    52,    43,    58,    78,    53,    62,    63,    64,    65,
+        21,    29,    57,   -28,     1,     3,    89,     9,    10,    32,
+      33,    89,    92,     4,    51,     6,    52,    92,    31,    53,
+      54,    21,    44,    55,    59,    56,    79,    63,    64,    65,
       66,    67,    68,    69,    70,    71,    72,    73,    74,    75,
-      76,    77,    54,     7,    55,    80,    79,    81,    82,    83,
-      50,    87,    95,    33,    34,    35,    36,    37,    38,    39,
-      40,    41,    42,    43,    11,    12,    13,    14,    43,    97,
-      92,    96,     7,    15,    58,    16,    86,    44,    45,    46,
-      47,    48,    44,    45,    46,    47,    48,    93,     8,    20,
-      49,     9,    10,    11,    12,    13,    14,    85,    94,     0,
-       0,     0,    15,     0,    16,     0,     0,     0,     0,   -51,
-      33,    34,    35,    36,    37,    38,    39,    40,    41,    42,
-      43,    33,    34,    35,    36,    37,    38,    39,    40,    41,
-      42,    43,     0,     0,    44,    45,    46,    47,    48,     0,
-       0,     0,    61,     0,     0,    44,    45,    46,    47,    48,
-      33,    34,    35,    36,    37,    38,    39,    40,     0,     0,
-      43,    35,    36,    37,    38,     0,     0,     0,     0,    43,
-       0,     0,    43,     0,    44,    45,    46,    47,    48,     0,
-       0,     0,     0,    44,    45,    46,    47,    48,    46,    47,
-      48
+      76,    77,    78,     7,    58,    80,    81,    82,    83,    84,
+      51,    88,    96,    34,    35,    36,    37,    38,    39,    40,
+      41,    42,    43,    44,    11,    12,    13,    14,    15,    44,
+      94,    97,    93,     7,    16,    59,    17,    87,    45,    46,
+      47,    48,    49,    44,    45,    46,    47,    48,    49,     8,
+      21,    50,     9,    10,    11,    12,    13,    14,    15,    98,
+      47,    48,    49,    86,    16,    95,    17,     0,     0,     0,
+       0,   -52,    34,    35,    36,    37,    38,    39,    40,    41,
+      42,    43,    44,    34,    35,    36,    37,    38,    39,    40,
+      41,    42,    43,    44,     0,     0,     0,    45,    46,    47,
+      48,    49,     0,     0,     0,    62,     0,     0,    45,    46,
+      47,    48,    49,    34,    35,    36,    37,    38,    39,    40,
+      41,     0,     0,    44,    36,    37,    38,    39,     0,     0,
+       0,     0,    44,     0,     0,     0,     0,     0,    45,    46,
+      47,    48,    49,     0,     0,     0,     0,    45,    46,    47,
+      48,    49
   };
 
   /* YYCHECK.  */
   const signed char
   CParser::yycheck_[] =
   {
-         6,     8,    26,    19,    16,    21,    19,    87,    15,    16,
-      23,    24,    92,    87,     0,    26,    36,    40,    92,    41,
-      26,    39,    15,    30,    26,    42,    33,    34,    35,    36,
+         6,     8,    27,    19,    16,    27,    88,    23,    24,    16,
+      17,    93,    88,     0,    19,    41,    21,    93,    37,    40,
+      43,    27,    15,    43,    31,    43,    27,    34,    35,    36,
       37,    38,    39,    40,    41,    42,    43,    44,    45,    46,
-      47,    48,    42,     4,    42,    52,    26,    38,    37,    39,
-      19,    36,    40,     5,     6,     7,     8,     9,    10,    11,
-      12,    13,    14,    15,    25,    26,    27,    28,    15,    41,
-      38,    95,     4,    34,    81,    36,    83,    29,    30,    31,
-      32,    33,    29,    30,    31,    32,    33,    37,    20,    95,
-      42,    23,    24,    25,    26,    27,    28,    81,    92,    -1,
-      -1,    -1,    34,    -1,    36,    -1,    -1,    -1,    -1,    41,
-       5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,     5,     6,     7,     8,     9,    10,    11,    12,    13,
-      14,    15,    -1,    -1,    29,    30,    31,    32,    33,    -1,
-      -1,    -1,    37,    -1,    -1,    29,    30,    31,    32,    33,
-       5,     6,     7,     8,     9,    10,    11,    12,    -1,    -1,
-      15,     7,     8,     9,    10,    -1,    -1,    -1,    -1,    15,
-      -1,    -1,    15,    -1,    29,    30,    31,    32,    33,    -1,
-      -1,    -1,    -1,    29,    30,    31,    32,    33,    31,    32,
-      33
+      47,    48,    49,     4,    42,    27,    53,    39,    38,    40,
+      19,    37,    41,     5,     6,     7,     8,     9,    10,    11,
+      12,    13,    14,    15,    25,    26,    27,    28,    29,    15,
+      38,    96,    39,     4,    35,    82,    37,    84,    30,    31,
+      32,    33,    34,    15,    30,    31,    32,    33,    34,    20,
+      96,    43,    23,    24,    25,    26,    27,    28,    29,    42,
+      32,    33,    34,    82,    35,    93,    37,    -1,    -1,    -1,
+      -1,    42,     5,     6,     7,     8,     9,    10,    11,    12,
+      13,    14,    15,     5,     6,     7,     8,     9,    10,    11,
+      12,    13,    14,    15,    -1,    -1,    -1,    30,    31,    32,
+      33,    34,    -1,    -1,    -1,    38,    -1,    -1,    30,    31,
+      32,    33,    34,     5,     6,     7,     8,     9,    10,    11,
+      12,    -1,    -1,    15,     7,     8,     9,    10,    -1,    -1,
+      -1,    -1,    15,    -1,    -1,    -1,    -1,    -1,    30,    31,
+      32,    33,    34,    -1,    -1,    -1,    -1,    30,    31,    32,
+      33,    34
   };
 
   /* STOS_[STATE-NUM] -- The (internal number of the) accessing
@@ -1324,16 +1333,16 @@ namespace Dominion { namespace Compilation { namespace Essay {
   const unsigned char
   CParser::yystos_[] =
   {
-         0,    16,    60,    26,     0,    61,    40,     4,    20,    23,
-      24,    25,    26,    27,    28,    34,    36,    44,    45,    46,
-      51,    52,    53,    54,    55,    57,    58,    59,    45,    51,
-      36,    45,    45,     5,     6,     7,     8,     9,    10,    11,
-      12,    13,    14,    15,    29,    30,    31,    32,    33,    42,
-      19,    21,    39,    42,    42,    42,    59,    41,    45,    48,
-      49,    37,    45,    45,    45,    45,    45,    45,    45,    45,
-      45,    45,    45,    45,    45,    45,    45,    45,    26,    26,
-      45,    38,    37,    39,    56,    49,    45,    36,    46,    47,
-      50,    53,    38,    37,    50,    40,    59,    41
+         0,    16,    61,    27,     0,    62,    41,     4,    20,    23,
+      24,    25,    26,    27,    28,    29,    35,    37,    45,    46,
+      47,    52,    53,    54,    55,    56,    58,    59,    60,    46,
+      52,    37,    46,    46,     5,     6,     7,     8,     9,    10,
+      11,    12,    13,    14,    15,    30,    31,    32,    33,    34,
+      43,    19,    21,    40,    43,    43,    43,    60,    42,    46,
+      49,    50,    38,    46,    46,    46,    46,    46,    46,    46,
+      46,    46,    46,    46,    46,    46,    46,    46,    46,    27,
+      27,    46,    39,    38,    40,    57,    50,    46,    37,    47,
+      48,    51,    54,    39,    38,    51,    41,    60,    42
   };
 
 #if YYDEBUG
@@ -1344,9 +1353,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
   {
          0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
      265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
-     275,   276,   277,   278,   279,   280,   281,   282,   283,    43,
-      45,    42,    47,    37,    33,   284,    40,    41,    44,    61,
-     123,   125,    59
+     275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
+      43,    45,    42,    47,    37,    33,   285,    40,    41,    44,
+      61,   123,   125,    59
   };
 #endif
 
@@ -1354,24 +1363,24 @@ namespace Dominion { namespace Compilation { namespace Essay {
   const unsigned char
   CParser::yyr1_[] =
   {
-         0,    43,    44,    44,    44,    44,    45,    45,    45,    45,
-      45,    45,    45,    45,    45,    45,    45,    45,    45,    45,
-      45,    45,    45,    45,    45,    45,    45,    46,    46,    46,
-      47,    47,    48,    48,    49,    49,    50,    50,    51,    52,
-      53,    53,    54,    56,    55,    57,    58,    58,    58,    58,
-      58,    59,    59,    61,    60
+         0,    44,    45,    45,    45,    45,    45,    46,    46,    46,
+      46,    46,    46,    46,    46,    46,    46,    46,    46,    46,
+      46,    46,    46,    46,    46,    46,    46,    46,    47,    47,
+      47,    48,    48,    49,    49,    50,    50,    51,    51,    52,
+      53,    54,    54,    55,    57,    56,    58,    59,    59,    59,
+      59,    59,    60,    60,    62,    61
   };
 
   /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
   const unsigned char
   CParser::yyr2_[] =
   {
-         0,     2,     1,     1,     1,     1,     1,     3,     3,     3,
+         0,     2,     1,     1,     1,     1,     1,     1,     3,     3,
        3,     3,     3,     3,     3,     3,     3,     3,     3,     3,
-       3,     3,     3,     2,     3,     1,     1,     0,     1,     1,
-       0,     1,     0,     1,     1,     3,     1,     3,     1,     4,
-       3,     5,     3,     0,    10,     2,     2,     2,     1,     2,
-       2,     0,     2,     0,     6
+       3,     3,     3,     3,     2,     3,     1,     1,     0,     1,
+       1,     0,     1,     0,     1,     1,     3,     1,     3,     1,
+       4,     3,     5,     3,     0,    10,     2,     2,     2,     1,
+       2,     2,     0,     2,     0,     6
   };
 
 #if YYDEBUG || YYERROR_VERBOSE || YYTOKEN_TABLE
@@ -1383,9 +1392,9 @@ namespace Dominion { namespace Compilation { namespace Essay {
     "_EOF_", "error", "$undefined", "EOL", "Nil", "Equal", "NotEqual",
   "Greater", "GreaterEqual", "Less", "LessEqual", "Match", "NotMatch",
   "And", "Or", "Xor", "Naming", "If", "Else", "Var", "Return", "Function",
-  "Object", "Public", "Private", "Numeric", "Identifier", "String",
-  "Boolean", "'+'", "'-'", "'*'", "'/'", "'%'", "'!'", "UMINUS", "'('",
-  "')'", "','", "'='", "'{'", "'}'", "';'", "$accept", "SCALAR",
+  "Object", "Public", "Private", "Integer", "Decimal", "Identifier",
+  "String", "Boolean", "'+'", "'-'", "'*'", "'/'", "'%'", "'!'", "UMINUS",
+  "'('", "')'", "','", "'='", "'{'", "'}'", "';'", "$accept", "SCALAR",
   "EXPRESSION", "ACCESS", "PARAMETER", "ARGUMENT", "ARGUMENT_CHAIN",
   "PARAMETER_CHAIN", "VARIABLE", "FUNCTION", "DEFINE_VARIABLE",
   "ASSIGN_VARIABLE", "DEFINE_FUNCTION", "$@1", "RETURN", "STATEMENT",
@@ -1398,24 +1407,24 @@ namespace Dominion { namespace Compilation { namespace Essay {
   const CParser::rhs_number_type
   CParser::yyrhs_[] =
   {
-        60,     0,    -1,     4,    -1,    25,    -1,    27,    -1,    28,
-      -1,    44,    -1,    45,    29,    45,    -1,    45,    30,    45,
-      -1,    45,    31,    45,    -1,    45,    32,    45,    -1,    45,
-      33,    45,    -1,    45,     5,    45,    -1,    45,     6,    45,
-      -1,    45,    11,    45,    -1,    45,    12,    45,    -1,    45,
-       7,    45,    -1,    45,     8,    45,    -1,    45,     9,    45,
-      -1,    45,    10,    45,    -1,    45,    13,    45,    -1,    45,
-      14,    45,    -1,    45,    15,    45,    -1,    34,    45,    -1,
-      36,    45,    37,    -1,    51,    -1,    52,    -1,    -1,    23,
-      -1,    24,    -1,    -1,    53,    -1,    -1,    45,    -1,    48,
-      -1,    48,    38,    49,    -1,    47,    -1,    47,    38,    50,
-      -1,    26,    -1,    26,    36,    49,    37,    -1,    46,    19,
-      26,    -1,    46,    19,    26,    39,    45,    -1,    51,    39,
-      45,    -1,    -1,    46,    21,    26,    56,    36,    50,    37,
-      40,    59,    41,    -1,    20,    45,    -1,    53,    42,    -1,
-      54,    42,    -1,    55,    -1,    57,    42,    -1,    45,    42,
-      -1,    -1,    58,    59,    -1,    -1,    16,    26,    61,    40,
-      59,    41,    -1
+        61,     0,    -1,     4,    -1,    25,    -1,    26,    -1,    28,
+      -1,    29,    -1,    45,    -1,    46,    30,    46,    -1,    46,
+      31,    46,    -1,    46,    32,    46,    -1,    46,    33,    46,
+      -1,    46,    34,    46,    -1,    46,     5,    46,    -1,    46,
+       6,    46,    -1,    46,    11,    46,    -1,    46,    12,    46,
+      -1,    46,     7,    46,    -1,    46,     8,    46,    -1,    46,
+       9,    46,    -1,    46,    10,    46,    -1,    46,    13,    46,
+      -1,    46,    14,    46,    -1,    46,    15,    46,    -1,    35,
+      46,    -1,    37,    46,    38,    -1,    52,    -1,    53,    -1,
+      -1,    23,    -1,    24,    -1,    -1,    54,    -1,    -1,    46,
+      -1,    49,    -1,    49,    39,    50,    -1,    48,    -1,    48,
+      39,    51,    -1,    27,    -1,    27,    37,    50,    38,    -1,
+      47,    19,    27,    -1,    47,    19,    27,    40,    46,    -1,
+      52,    40,    46,    -1,    -1,    47,    21,    27,    57,    37,
+      51,    38,    41,    60,    42,    -1,    20,    46,    -1,    54,
+      43,    -1,    55,    43,    -1,    56,    -1,    58,    43,    -1,
+      46,    43,    -1,    -1,    59,    60,    -1,    -1,    16,    27,
+      62,    41,    60,    42,    -1
   };
 
   /* YYPRHS[YYN] -- Index of the first RHS symbol of rule number YYN in
@@ -1423,24 +1432,24 @@ namespace Dominion { namespace Compilation { namespace Essay {
   const unsigned char
   CParser::yyprhs_[] =
   {
-         0,     0,     3,     5,     7,     9,    11,    13,    17,    21,
-      25,    29,    33,    37,    41,    45,    49,    53,    57,    61,
-      65,    69,    73,    77,    80,    84,    86,    88,    89,    91,
-      93,    94,    96,    97,    99,   101,   105,   107,   111,   113,
-     118,   122,   128,   132,   133,   144,   147,   150,   153,   155,
-     158,   161,   162,   165,   166
+         0,     0,     3,     5,     7,     9,    11,    13,    15,    19,
+      23,    27,    31,    35,    39,    43,    47,    51,    55,    59,
+      63,    67,    71,    75,    79,    82,    86,    88,    90,    91,
+      93,    95,    96,    98,    99,   101,   103,   107,   109,   113,
+     115,   120,   124,   130,   134,   135,   146,   149,   152,   155,
+     157,   160,   163,   164,   167,   168
   };
 
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
   const unsigned short int
   CParser::yyrline_[] =
   {
-         0,    69,    69,    73,    77,    81,    87,    91,    98,   105,
-     112,   119,   126,   133,   140,   147,   154,   161,   168,   175,
-     182,   189,   196,   203,   210,   214,   218,   224,   227,   231,
-     237,   239,   245,   247,   253,   260,   294,   301,   310,   319,
-     328,   335,   344,   354,   353,   368,   381,   385,   389,   393,
-     397,   403,   405,   415,   414
+         0,    71,    71,    75,    79,    83,    87,    93,    97,   104,
+     111,   118,   125,   132,   139,   146,   153,   160,   167,   174,
+     181,   188,   195,   202,   209,   216,   220,   224,   230,   233,
+     237,   243,   245,   251,   253,   259,   266,   300,   307,   316,
+     325,   334,   341,   350,   360,   359,   374,   387,   391,   395,
+     399,   403,   409,   411,   421,   420
   };
 
   // Print the state stack on the debug stream.
@@ -1483,16 +1492,16 @@ namespace Dominion { namespace Compilation { namespace Essay {
            0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,    34,     2,     2,     2,    33,     2,     2,
-      36,    37,    31,    29,    38,    30,     2,    32,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,    42,
-       2,    39,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,    35,     2,     2,     2,    34,     2,     2,
+      37,    38,    32,    30,    39,    31,     2,    33,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,    43,
+       2,    40,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,    40,     2,    41,     2,     2,     2,     2,
+       2,     2,     2,    41,     2,    42,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -1508,7 +1517,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
       15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
-      25,    26,    27,    28,    35
+      25,    26,    27,    28,    29,    36
     };
     if ((unsigned int) t <= yyuser_token_number_max_)
       return translate_table[t];
@@ -1517,15 +1526,15 @@ namespace Dominion { namespace Compilation { namespace Essay {
   }
 
   const int CParser::yyeof_ = 0;
-  const int CParser::yylast_ = 190;
+  const int CParser::yylast_ = 191;
   const int CParser::yynnts_ = 19;
   const int CParser::yyempty_ = -2;
   const int CParser::yyfinal_ = 4;
   const int CParser::yyterror_ = 1;
   const int CParser::yyerrcode_ = 256;
-  const int CParser::yyntokens_ = 43;
+  const int CParser::yyntokens_ = 44;
 
-  const unsigned int CParser::yyuser_token_number_max_ = 284;
+  const unsigned int CParser::yyuser_token_number_max_ = 285;
   const CParser::token_number_type CParser::yyundef_token_ = 2;
 
 
@@ -1535,11 +1544,11 @@ namespace Dominion { namespace Compilation { namespace Essay {
 } } } // Dominion::Compilation::Essay
 
 /* Line 1054 of lalr1.cc  */
-#line 1539 "Parser.yy.cpp"
+#line 1548 "Parser.yy.cpp"
 
 
 /* Line 1056 of lalr1.cc  */
-#line 422 "./Parser.yy"
+#line 428 "./Parser.yy"
 
 void CParser::error(const CParser::location_type& location, const std::string& message)
 {

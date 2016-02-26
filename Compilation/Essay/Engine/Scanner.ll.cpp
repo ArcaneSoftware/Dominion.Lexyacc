@@ -895,18 +895,18 @@ case 29:
 YY_RULE_SETUP
 #line 132 "./Scanner.ll"
 {
-  yylval->numeric = atoi(yytext);
+  yylval->integer = atoi(yytext);
 
-  return YToken::Numeric;
+  return YToken::Integer;
 }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
 #line 138 "./Scanner.ll"
 {
-  yylval->numeric = atof(yytext);
+  yylval->decimal = atof(yytext);
 
-  return YToken::Numeric;
+  return YToken::Decimal;
 }
 	YY_BREAK
 case 31:

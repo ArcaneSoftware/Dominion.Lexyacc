@@ -42,13 +42,14 @@ CScalar::CScalar(C_SCALAR&& that) :
 CScalar::CScalar(int64_t value) :
   _scalarType(EScalarType::Integer),
   _integerValue(value),
+  _decimalValue(0),
   _booleanValue(false)
 {
-
 }
 
 CScalar::CScalar(double value) :
   _scalarType(EScalarType::Decimal),
+  _integerValue(0),
   _decimalValue(value),
   _booleanValue(false)
 {

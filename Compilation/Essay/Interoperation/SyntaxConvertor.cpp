@@ -21,25 +21,7 @@ SyntaxConvertor::~SyntaxConvertor()
 SyntaxConvertor::!SyntaxConvertor()
 {
 }
-/*
-Empty = 0,
-//Reference
-Scalar,
-Variable,
-Function,
-//Composition
-Chain,
-Operation,
-Parameter,
-Argurment,
-//Statement
-Block,
-Flow,
-DefineVariable,
-AssignVariable,
-DefineFunction,
-Return,
-*/
+
 ScalarSyntax^ SyntaxConvertor::MakeScalar(CEssaySyntax* source)
 {
   auto syntax = Cast<CScalarSyntax>(source);
@@ -47,6 +29,7 @@ ScalarSyntax^ SyntaxConvertor::MakeScalar(CEssaySyntax* source)
 
   result->LiveLine = syntax->GetLiveLine();
   result->LiveNamespace = gcnew Namespace(new CNamespace(syntax->GetLiveNamespace()));
+  result->Value = gcnew Scalar();
 
   switch (syntax->GetScalarType())
   {
@@ -54,6 +37,7 @@ ScalarSyntax^ SyntaxConvertor::MakeScalar(CEssaySyntax* source)
     {
       result->Value->IntegerValue = syntax->GetValue().GetIntegerValue();
     }
+    break;
     case EScalarType::Decimal:
     {
       result->Value->DecimalValue = syntax->GetValue().GetDecimalValue();

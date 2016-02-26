@@ -22,7 +22,8 @@ using namespace Dominion::Compilation::Essay;
 
 %union
 {
-  double numeric;
+  int64_t integer;
+  double decimal;
   wstring* litera;
   bool boolean;
   int32_t node;
@@ -34,7 +35,8 @@ using namespace Dominion::Compilation::Essay;
 %token Equal NotEqual Greater GreaterEqual Less LessEqual Match NotMatch And Or Xor
 %token Naming If Else Var Return Function Object Public Private
 
-%token <numeric> Numeric
+%token <integer> Integer
+%token <decimal> Decimal
 %token <litera> Identifier
 %token <litera> String
 %token <boolean> Boolean
@@ -70,7 +72,11 @@ SCALAR:
   {
     $$ = _producer.MakeScalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar())).GetID();
   }|
-  Numeric
+  Integer
+  {
+    $$ = _producer.MakeScalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar($1))).GetID();
+  }|
+  Decimal
   {
     $$ = _producer.MakeScalar(CScalarSyntax(YY_LIVE_LINE, YY_LIVE_NAMESPACE, CScalar($1))).GetID();
   }|

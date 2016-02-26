@@ -24,7 +24,12 @@ void F2()
     if (ifs.good())
     {
       auto c = engine.Run(ifs);
-      auto s = engine.GetErrorText();
+      auto context = engine.GetContext();
+
+      for (int i = 0; i < context.GetSyntaxVector().size(); i++)
+      {
+        auto syntax = context.GetSyntax(i);
+      }
     }
   }
   catch (CException& e)

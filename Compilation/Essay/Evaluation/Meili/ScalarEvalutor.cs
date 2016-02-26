@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dominion.Compilation.Essay
+namespace Dominion.Compilation.Essay.Evaluation.Meili
 {
-  public class Class1
+  public class ScalarEvalutor
   {
   }
 }

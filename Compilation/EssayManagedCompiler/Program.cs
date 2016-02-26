@@ -18,6 +18,13 @@ namespace EssayManagedCompiler
 
       var context = engine.Start(file, false);
 
+      int a = context.SyntaxAmount;
+
+      for (int i = 0; i < context.SyntaxAmount; i++)
+      {
+        var syntax = context.GetSyntax(i);
+      }
+
       // string source = "naming Business{var a = 0; function Main(var x){return a + 32}}";
     }
   }
