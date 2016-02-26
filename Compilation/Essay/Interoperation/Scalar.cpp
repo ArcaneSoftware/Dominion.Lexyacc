@@ -16,9 +16,15 @@ Scalar::Scalar() :
 {
 }
 
+Scalar::Scalar(long value) :
+  _scalarType(ScalarTypeEnum::Integer),
+  _integerValue(value)
+{
+}
+
 Scalar::Scalar(double value) :
-  _scalarType(ScalarTypeEnum::Numeric),
-  _numericValue(value)
+  _scalarType(ScalarTypeEnum::Decimal),
+  _decimalValue(value)
 {
 }
 
@@ -52,15 +58,26 @@ void Scalar::ScalarType::set(ScalarTypeEnum value)
   _scalarType = value;
 }
 
-double Scalar::NumericValue::get()
+long Scalar::IntegerValue::get()
 {
-  return _numericValue;
+  return _integerValue;
 }
 
-void Scalar::NumericValue::set(double value)
+void Scalar::IntegerValue::set(long value)
 {
-  _numericValue = value;
-  ScalarType = ScalarTypeEnum::Numeric;
+  _integerValue = value;
+  ScalarType = ScalarTypeEnum::Integer;
+}
+
+double Scalar::DecimalValue::get()
+{
+  return _decimalValue;
+}
+
+void Scalar::DecimalValue::set(double value)
+{
+  _decimalValue = value;
+  ScalarType = ScalarTypeEnum::Decimal;
 }
 
 String^ Scalar::StringValue::get()
@@ -98,8 +115,12 @@ String^ Scalar::ToString()
   {
     case ScalarTypeEnum::Nil:
       return L"nil";
-    case ScalarTypeEnum::Numeric:
-      builder.Input(NumericValue);
+    case ScalarTypeEnum::Integer:
+      builder.Input(IntegerValue);
+
+      return CLIString::NativeToCLI(builder.Output().c_str());
+    case ScalarTypeEnum::Decimal:
+      builder.Input(DecimalValue);
 
       return CLIString::NativeToCLI(builder.Output().c_str());
     case ScalarTypeEnum::String:

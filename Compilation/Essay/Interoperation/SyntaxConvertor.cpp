@@ -21,7 +21,25 @@ SyntaxConvertor::~SyntaxConvertor()
 SyntaxConvertor::!SyntaxConvertor()
 {
 }
-
+/*
+Empty = 0,
+//Reference
+Scalar,
+Variable,
+Function,
+//Composition
+Chain,
+Operation,
+Parameter,
+Argurment,
+//Statement
+Block,
+Flow,
+DefineVariable,
+AssignVariable,
+DefineFunction,
+Return,
+*/
 ScalarSyntax^ SyntaxConvertor::MakeScalar(CEssaySyntax* source)
 {
   auto syntax = Cast<CScalarSyntax>(source);
@@ -32,9 +50,13 @@ ScalarSyntax^ SyntaxConvertor::MakeScalar(CEssaySyntax* source)
 
   switch (syntax->GetScalarType())
   {
-    case EScalarType::Numeric:
+    case EScalarType::Integer:
     {
-      result->Value->NumericValue = syntax->GetValue().GetNumericValue();
+      result->Value->IntegerValue = syntax->GetValue().GetIntegerValue();
+    }
+    case EScalarType::Decimal:
+    {
+      result->Value->DecimalValue = syntax->GetValue().GetDecimalValue();
     }
     break;
     case EScalarType::String:

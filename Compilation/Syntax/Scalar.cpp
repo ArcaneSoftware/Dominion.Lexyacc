@@ -12,7 +12,8 @@ using namespace Dominion::Compilation::Syntax;
 //*******************************************************************************************************************//
 CScalar::CScalar() :
   _scalarType(EScalarType::Nil),
-  _numericValue(0),
+  _integerValue(0),
+  _decimalValue(0),
   _booleanValue(false)
 {
 }
@@ -20,7 +21,8 @@ CScalar::CScalar() :
 CScalar::CScalar(C_SCALAR& that) :
   CObject(that),
   _scalarType(that._scalarType),
-  _numericValue(that._numericValue),
+  _integerValue(that._integerValue),
+  _decimalValue(that._decimalValue),
   _stringValue(that._stringValue),
   _booleanValue(that._booleanValue)
 {
@@ -29,22 +31,33 @@ CScalar::CScalar(C_SCALAR& that) :
 CScalar::CScalar(C_SCALAR&& that) :
   CObject(that),
   _scalarType(move(that._scalarType)),
-  _numericValue(move(that._numericValue)),
+  _integerValue(move(that._integerValue)),
+  _decimalValue(move(that._decimalValue)),
   _stringValue(move(that._stringValue)),
   _booleanValue(move(that._booleanValue))
 {
 }
 
+
+CScalar::CScalar(int64_t value) :
+  _scalarType(EScalarType::Integer),
+  _integerValue(value),
+  _booleanValue(false)
+{
+
+}
+
 CScalar::CScalar(double value) :
-  _scalarType(EScalarType::Numeric),
-  _numericValue(value),
+  _scalarType(EScalarType::Decimal),
+  _decimalValue(value),
   _booleanValue(false)
 {
 }
 
 CScalar::CScalar(char* value) :
   _scalarType(EScalarType::String),
-  _numericValue(0),
+  _integerValue(0),
+  _decimalValue(0),
   _stringValue(WSTR(value)),
   _booleanValue(false)
 {
@@ -52,7 +65,8 @@ CScalar::CScalar(char* value) :
 
 CScalar::CScalar(MSTRING& value) :
   _scalarType(EScalarType::String),
-  _numericValue(0),
+  _integerValue(0),
+  _decimalValue(0),
   _stringValue(WSTR(value)),
   _booleanValue(false)
 {
@@ -60,7 +74,8 @@ CScalar::CScalar(MSTRING& value) :
 
 CScalar::CScalar(const wchar_t* value) :
   _scalarType(EScalarType::String),
-  _numericValue(0),
+  _integerValue(0),
+  _decimalValue(0),
   _stringValue(value),
   _booleanValue(false)
 {
@@ -68,7 +83,8 @@ CScalar::CScalar(const wchar_t* value) :
 
 CScalar::CScalar(WSTRING& value) :
   _scalarType(EScalarType::String),
-  _numericValue(0),
+  _integerValue(0),
+  _decimalValue(0),
   _stringValue(value),
   _booleanValue(false)
 {
@@ -76,7 +92,8 @@ CScalar::CScalar(WSTRING& value) :
 
 CScalar::CScalar(bool value) :
   _scalarType(EScalarType::Boolean),
-  _numericValue(0),
+  _integerValue(0),
+  _decimalValue(0),
   _booleanValue(value)
 {
 }
@@ -92,8 +109,12 @@ wstring CScalar::ToString() const
 
   switch (_scalarType)
   {
-    case EScalarType::Numeric:
-      stream << _numericValue;
+    case EScalarType::Integer:
+      stream << _integerValue;
+      stream >> string;
+      stream.clear();
+    case EScalarType::Decimal:
+      stream << _decimalValue;
       stream >> string;
       stream.clear();
       break;
@@ -105,7 +126,7 @@ wstring CScalar::ToString() const
 
       break;
     case EScalarType::Nil:
-      string = L"Null";
+      string = L"nil";
       break;
   }
 
@@ -122,7 +143,8 @@ C_SCALAR& CScalar::operator=(C_SCALAR& that)
   CObject::operator=(that);
 
   _scalarType = that._scalarType;
-  _numericValue = that._numericValue;
+  _integerValue = that._integerValue;
+  _decimalValue = that._decimalValue;
   _stringValue = that._stringValue;
   _booleanValue = that._booleanValue;
 

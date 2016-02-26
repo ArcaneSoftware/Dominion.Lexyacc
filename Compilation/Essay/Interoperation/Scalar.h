@@ -17,7 +17,8 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 public enum class ScalarTypeEnum
 {
   Nil = 0,
-  Numeric,
+  Integer,
+  Decimal,
   String,
   Boolean
 };
@@ -29,6 +30,7 @@ public ref class Scalar
 {
 public:
   Scalar();
+  Scalar(long value);
   Scalar(double value);
   Scalar(String^ value);
   Scalar(bool value);
@@ -42,8 +44,13 @@ public:
     ScalarTypeEnum get();
     void set(ScalarTypeEnum value);
   }
+  property long IntegerValue
+  {
+    long get();
+    void set(long value);
+  }
 
-  property double NumericValue
+  property double DecimalValue
   {
     double get();
     void set(double value);
@@ -70,7 +77,8 @@ public:
 
 private:
   ScalarTypeEnum _scalarType;
-  double _numericValue;
+  long _integerValue;
+  double _decimalValue;
   String^ _stringValue;
   bool _booleanValue;
 };

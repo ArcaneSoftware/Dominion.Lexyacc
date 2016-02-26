@@ -29,6 +29,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominion.Compilation.Essay.Evaluation", "Essay\Evaluation\Dominion.Compilation.Essay.Evaluation.csproj", "{A66B904F-264F-4403-A4E4-9D7292B533F8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dominion.Compilation.Essay.Engine", "Essay\Engine\Engine.vcxproj", "{06819A0D-C445-43BB-BC7E-61BD5F4C2923}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6D310859-AB12-4D36-8806-D576453FF34D} = {6D310859-AB12-4D36-8806-D576453FF34D}
+		{025A8198-AAE4-419D-BF36-CC9A41B909BC} = {025A8198-AAE4-419D-BF36-CC9A41B909BC}
+		{9B8A5AC3-78C1-47C5-BB05-67179FB492E7} = {9B8A5AC3-78C1-47C5-BB05-67179FB492E7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

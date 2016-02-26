@@ -15,7 +15,8 @@ BEGIN_DOMINION_COMPILATION_SYNTAX
 enum class LIBRARY_EXPORT EScalarType
 {
   Nil = 0,
-  Numeric,
+  Integer,
+  Decimal,
   String,
   Boolean,
   Object
@@ -32,6 +33,7 @@ public:
   CScalar();
   CScalar(C_SCALAR& that);
   CScalar(C_SCALAR&& that);
+  explicit CScalar(int64_t value);
   explicit CScalar(double value);
   explicit CScalar(char* value);
   explicit CScalar(MSTRING& value);
@@ -45,7 +47,8 @@ public:
   bool IsNil() const;
 
   CLASS_PROPERTY(EScalarType, _scalarType, ScalarType);
-  CLASS_PROPERTY(double, _numericValue, NumericValue);
+  CLASS_PROPERTY(int64_t, _integerValue, IntegerValue);
+  CLASS_PROPERTY(double, _decimalValue, DecimalValue);
   CLASS_PROPERTY(wstring, _stringValue, StringValue);
   CLASS_PROPERTY(bool, _booleanValue, BooleanValue);
 
@@ -53,7 +56,8 @@ public:
 
 private:
   EScalarType _scalarType;
-  double _numericValue;
+  int64_t _integerValue;
+  double _decimalValue;
   wstring _stringValue;
   bool _booleanValue;
 };
