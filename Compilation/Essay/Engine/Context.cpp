@@ -127,6 +127,11 @@ int32_t CContext::AppendSyntax(CEssaySyntax* syntax)
   return _syntaxVector.size() - 1;
 }
 
+C_VARIABLE& CContext::GetVariable(CIdentifier identifier)
+{
+  return _variableMap[identifier.ToString()];
+}
+
 C_CONTEXT& CContext::operator=(C_CONTEXT& that)
 {
   CObject::operator=(that);

@@ -7,6 +7,7 @@
 
 #include "Dominion/Compilation/Essay/Interoperation/Dependence.h"
 #include "Dominion/Compilation/Essay/Interoperation/RawSyntax.h"
+#include "Dominion/Compilation/Essay/Interoperation/Variable.h"
 
 using namespace System;
 
@@ -39,6 +40,7 @@ public:
   bool HasDefinedIdentifier(String^ fullName, IdentifierTypeEnum identifierType);
   bool HasDefinedIdentifier(Namespace^ liveNamespace, String^ name, IdentifierTypeEnum identifierType);
   RawSyntax^ GetSyntax(int32_t index);
+  Variable^ GetVariable(CIdentifier identifier);
 
   property int32_t EntryIndex
   {

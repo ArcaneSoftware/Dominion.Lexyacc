@@ -49,9 +49,6 @@
     <ClInclude Include="SyntaxConvertor.h">
       <Filter>Syntax</Filter>
     </ClInclude>
-    <ClInclude Include="SyntaxTypeEnum.h">
-      <Filter>Syntax</Filter>
-    </ClInclude>
     <ClInclude Include="Context.h">
       <Filter>Syntax</Filter>
     </ClInclude>
@@ -85,6 +82,18 @@
     </ClInclude>
     <ClInclude Include="ReturnSyntax.h">
       <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="Reducible.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
+    <ClInclude Include="Variable.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
+    <ClInclude Include="Identifier.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
+    <ClInclude Include="NamedReference.h">
+      <Filter>Syntax</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +151,15 @@
     </ClCompile>
     <ClCompile Include="ReturnSyntax.cpp">
       <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="Variable.cpp">
+      <Filter>Syntax</Filter>
+    </ClCompile>
+    <ClCompile Include="Identifier.cpp">
+      <Filter>Syntax</Filter>
+    </ClCompile>
+    <ClCompile Include="NamedReference.cpp">
+      <Filter>Syntax</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
