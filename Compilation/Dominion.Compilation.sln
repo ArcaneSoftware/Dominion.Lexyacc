@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dominion.Compilation.TransactSQL", "TransactSQL\TransactSQL.vcxproj", "{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dominion.Compilation.Syntax", "Syntax\Syntax.vcxproj", "{6D310859-AB12-4D36-8806-D576453FF34D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{025A8198-AAE4-419D-BF36-CC9A41B909BC} = {025A8198-AAE4-419D-BF36-CC9A41B909BC}
@@ -21,8 +19,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EssayManagedCompiler", "EssayManagedCompiler\EssayManagedCompiler.csproj", "{6E2B0FA8-F1D9-45AF-821D-16414630573C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Essay", "Essay", "{6D0CEB99-992E-4E74-9040-9E3DBAA18F4A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TransactSQL", "TransactSQL", "{1840D6A4-4DBD-42B8-AA60-4A64BC100FB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{AA9A6DD9-92C7-49E3-987B-047711DCD605}"
 EndProject
@@ -47,16 +43,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}.Debug|x64.ActiveCfg = Debug|x64
-		{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}.Debug|x64.Build.0 = Debug|x64
-		{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}.Debug|x86.ActiveCfg = Debug|Win32
-		{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}.Debug|x86.Build.0 = Debug|Win32
-		{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}.Release|Any CPU.ActiveCfg = Release|Win32
-		{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}.Release|x64.ActiveCfg = Release|x64
-		{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}.Release|x64.Build.0 = Release|x64
-		{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}.Release|x86.ActiveCfg = Release|Win32
-		{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F}.Release|x86.Build.0 = Release|Win32
 		{6D310859-AB12-4D36-8806-D576453FF34D}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{6D310859-AB12-4D36-8806-D576453FF34D}.Debug|x64.ActiveCfg = Debug|x64
 		{6D310859-AB12-4D36-8806-D576453FF34D}.Debug|x64.Build.0 = Debug|x64
@@ -160,7 +146,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{BBBCD646-36D9-4F05-BD8C-BE8784CC7E9F} = {1840D6A4-4DBD-42B8-AA60-4A64BC100FB1}
 		{42BBA399-9FE9-4B42-9CCF-C4983B27A0EF} = {6D0CEB99-992E-4E74-9040-9E3DBAA18F4A}
 		{025A8198-AAE4-419D-BF36-CC9A41B909BC} = {AA9A6DD9-92C7-49E3-987B-047711DCD605}
 		{8A3278FB-C9B1-49A7-A3F7-BD43F3662D6E} = {6D0CEB99-992E-4E74-9040-9E3DBAA18F4A}

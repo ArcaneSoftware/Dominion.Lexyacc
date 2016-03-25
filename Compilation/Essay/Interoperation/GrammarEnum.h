@@ -33,10 +33,4 @@ public enum class VariableTypeEnum
   Object,
 };
 
-public enum class AccessTypeEnum
-{
-  Private = 0,
-  Public = 1,
-};
-
 END_DOMINION_COMPILATION_ESSAY

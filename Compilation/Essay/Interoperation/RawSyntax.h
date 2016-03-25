@@ -8,6 +8,7 @@
 #include "Dominion/Compilation/Essay/Interoperation/Namespace.h"
 #include "Dominion/Compilation/Essay/Interoperation/Reducible.h"
 #include "Dominion/Compilation/Essay/Interoperation/Scalar.h"
+#include "Dominion/Compilation/Essay/Interoperation/NamedReference.h"
 
 using namespace System;
 
@@ -76,6 +77,12 @@ public:
   {
     Namespace^ get();
     void set(Namespace^ value);
+  }
+
+  property IReducible<Scalar^, Context^>^ Reduciable
+  {
+    IReducible<Scalar^, Context^>^ get();
+    void set(IReducible<Scalar^, Context^>^ value);
   }
 
 private:

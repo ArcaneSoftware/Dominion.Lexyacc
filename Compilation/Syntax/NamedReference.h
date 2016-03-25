@@ -22,16 +22,16 @@ public:
   CNamedReference();
   CNamedReference(C_NAMED_REFERENCE& that);
   CNamedReference(C_NAMED_REFERENCE&& that);
-  explicit CNamedReference(EAccessType access, C_IDENTIFIER& identifier);
+  explicit CNamedReference(EAccessType accessType, C_IDENTIFIER& identifier);
   virtual ~CNamedReference();
 
-  CLASS_PROPERTY(EAccessType, _access, Access);
+  CLASS_PROPERTY(EAccessType, _accessType, AccessType);
   CLASS_PROPERTY(CIdentifier, _identifier, Identifier);
 
   C_NAMED_REFERENCE& operator=(C_NAMED_REFERENCE& that);
 
 private:
-  EAccessType _access;
+  EAccessType _accessType;
   CIdentifier _identifier;
 };
 

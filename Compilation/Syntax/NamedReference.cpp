@@ -15,20 +15,20 @@ CNamedReference::CNamedReference()
 
 CNamedReference::CNamedReference(C_NAMED_REFERENCE& that) :
   CObject(that),
-  _access(that._access),
+  _accessType(that._accessType),
   _identifier(that._identifier)
 {
 }
 
 CNamedReference::CNamedReference(C_NAMED_REFERENCE&& that) :
   CObject(that),
-  _access(move(that._access)),
+  _accessType(move(that._accessType)),
   _identifier(move(that._identifier))
 {
 }
 
-CNamedReference::CNamedReference(EAccessType access, C_IDENTIFIER& identifier) :
-  _access(access),
+CNamedReference::CNamedReference(EAccessType accessType, C_IDENTIFIER& identifier) :
+  _accessType(accessType),
   _identifier(identifier)
 {
 }
@@ -41,7 +41,7 @@ C_NAMED_REFERENCE& CNamedReference::operator=(C_NAMED_REFERENCE& that)
 {
   CObject::operator=(that);
 
-  _access = that._access;
+  _accessType = that._accessType;
   _identifier = that._identifier;
 
   return *this;

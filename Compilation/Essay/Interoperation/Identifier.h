@@ -17,7 +17,11 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 public ref class Identifier
 {
 public:
+  static Identifier^ CREATE(C_IDENTIFIER& native);
+
+public:
   Identifier();
+  Identifier(String^ fullName);
   ~Identifier();
 protected:
   !Identifier();
