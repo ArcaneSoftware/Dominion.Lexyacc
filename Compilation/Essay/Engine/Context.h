@@ -46,7 +46,8 @@ public:
   bool ExistSyntax(int32_t syntaxID) const;
   shared_ptr<CEssaySyntax> GetSyntax(int32_t id) const;
   int32_t AppendSyntax(CEssaySyntax* syntax);
-  C_VARIABLE& GetVariable(CIdentifier identifier);
+  C_VARIABLE& GetVariable(WSTRING& identifier) const;
+  C_VARIABLE& GetVariable(C_IDENTIFIER& identifier) const;
 
   CLASS_PROPERTY(map<wstring _COMMA CVariable>, _variableMap, VariableMap);
   CLASS_PROPERTY(map<wstring _COMMA CFunction>, _functionMap, FunctionMap);

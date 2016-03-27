@@ -59,3 +59,13 @@ void RawSyntax::LiveNamespace::set(Namespace^ value)
 {
   _liveNamespace = value;
 }
+
+IReducible<Scalar^, Context^>^ RawSyntax::Reduciable::get()
+{
+  return _reduciable;
+}
+
+void RawSyntax::Reduciable::set(IReducible<Scalar^, Context^>^ value)
+{
+  _reduciable = value;
+}

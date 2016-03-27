@@ -167,7 +167,6 @@
     <ClInclude Include="NamedReference.h" />
     <ClInclude Include="Namespace.h" />
     <ClInclude Include="Productor.h" />
-    <ClInclude Include="Reducible.h" />
     <ClInclude Include="Scalar.h" />
     <ClInclude Include="UnacceptableWordException.h" />
     <ClInclude Include="ValidateProduction.h" />

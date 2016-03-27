@@ -200,6 +200,14 @@
     <None Include="Parser.yy" />
     <None Include="Scanner.ll" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Native\System\System.vcxproj">
+      <Project>{025a8198-aae4-419d-bf36-cc9a41b909bc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Syntax\Syntax.vcxproj">
+      <Project>{6d310859-ab12-4d36-8806-d576453ff34d}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

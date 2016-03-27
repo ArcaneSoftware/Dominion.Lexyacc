@@ -149,6 +149,11 @@ Variable^ Context::GetVariable(Identifier^ identifier)
   return Variable::CREATE(nVariable);
 }
 
+Variable^ Context::GetVariable(String^ identifier)
+{
+
+}
+
 int32_t Context::EntryIndex::get()
 {
   return _context->GetEntryID();

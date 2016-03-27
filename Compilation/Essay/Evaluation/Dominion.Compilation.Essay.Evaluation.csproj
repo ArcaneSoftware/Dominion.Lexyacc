@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IEvaluative.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScalarEvalutor.cs" />
   </ItemGroup>
