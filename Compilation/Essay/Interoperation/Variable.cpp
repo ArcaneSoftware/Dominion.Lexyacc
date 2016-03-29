@@ -18,6 +18,7 @@ Variable^ Variable::CREATE(C_VARIABLE& native)
   auto result = gcnew Variable();
 
   result->AccessType = EnumHelper<AccessTypeEnum>::PARSE(accessTypeString);
+  result->IdentifierObject = Identifier::CREATE(native.GetIdentifier());
   result->InitialValueID = native.GetInitialValueID();
   result->RealValueID = native.GetRealValueID();
   result->IsArgument = native.GetIsArgument();

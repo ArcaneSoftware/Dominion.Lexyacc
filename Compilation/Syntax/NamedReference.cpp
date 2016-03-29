@@ -9,7 +9,8 @@ using namespace Dominion::Compilation::Syntax;
 //********************************************************************************************************************//
 //CNamedReference
 //********************************************************************************************************************//
-CNamedReference::CNamedReference()
+CNamedReference::CNamedReference() :
+  _accessType(EAccessType::Private)
 {
 }
 
@@ -35,6 +36,11 @@ CNamedReference::CNamedReference(EAccessType accessType, C_IDENTIFIER& identifie
 
 CNamedReference::~CNamedReference()
 {
+}
+
+bool CNamedReference::IsAvailable() const
+{
+  return !_identifier.GetName().empty();
 }
 
 C_NAMED_REFERENCE& CNamedReference::operator=(C_NAMED_REFERENCE& that)

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Dominion.Compilation.Essay;
+using Dominion.Compilation.Syntax;
 using System.IO;
 
 namespace EssayManagedCompiler
@@ -18,7 +19,7 @@ namespace EssayManagedCompiler
 
       var context = engine.Start(file, false);
 
-      //var a = context.GetVariable();
+      var a = context.GetVariable("Business.a").Available;
 
 
       // string source = "naming Business{var a = 0; function Main(var x){return a + 32}}";

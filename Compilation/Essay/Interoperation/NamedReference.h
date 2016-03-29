@@ -45,6 +45,11 @@ public:
     void set(Identifier^ value);
   }
 
+  property bool Available
+  {
+    bool get();
+  }
+
 private:
   AccessTypeEnum _accessType;
   Identifier^ _identifierObject;

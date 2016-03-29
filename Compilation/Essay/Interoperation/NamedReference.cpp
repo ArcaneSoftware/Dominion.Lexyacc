@@ -11,9 +11,10 @@ using namespace Dominion::Compilation::Essay;
 //********************************************************************************************************************//
 //NamedReference
 //********************************************************************************************************************//
-NamedReference::NamedReference()
+NamedReference::NamedReference() :
+  _accessType(AccessTypeEnum::Private),
+  _identifierObject(gcnew Identifier())
 {
-
 }
 
 NamedReference::~NamedReference()
@@ -42,4 +43,9 @@ Identifier^ NamedReference::IdentifierObject::get()
 void NamedReference::IdentifierObject::set(Identifier^ value)
 {
   _identifierObject = value;
+}
+
+bool NamedReference::Available::get()
+{
+  return !_identifierObject->Name->Empty;
 }

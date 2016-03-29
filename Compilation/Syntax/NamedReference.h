@@ -25,6 +25,8 @@ public:
   explicit CNamedReference(EAccessType accessType, C_IDENTIFIER& identifier);
   virtual ~CNamedReference();
 
+  bool IsAvailable() const;
+
   CLASS_PROPERTY(EAccessType, _accessType, AccessType);
   CLASS_PROPERTY(CIdentifier, _identifier, Identifier);
 

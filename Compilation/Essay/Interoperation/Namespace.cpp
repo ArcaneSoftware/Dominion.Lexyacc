@@ -10,9 +10,9 @@ using namespace Dominion::Compilation::Essay;
 //********************************************************************************************************************//
 //Namespace
 //********************************************************************************************************************//
-Namespace::Namespace()
+Namespace::Namespace() :
+  _native(nullptr)
 {
-  _native = nullptr;
 }
 Namespace::Namespace(CNamespace* native) :
   _native(native)

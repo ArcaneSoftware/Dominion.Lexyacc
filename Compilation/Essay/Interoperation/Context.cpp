@@ -140,6 +140,16 @@ RawSyntax^ Context::GetSyntax(int32_t index)
   return Build(_context->GetSyntax(index).get());
 }
 
+Variable^ Context::GetVariable(String^ identifier)
+{
+  wchar_t wcsName[256] = { 0 };
+  CLIString::CLIToNative(identifier, wcsName);
+
+  auto nVariable = _context->GetVariable(wcsName);
+
+  return Variable::CREATE(nVariable);
+}
+
 Variable^ Context::GetVariable(Identifier^ identifier)
 {
   wchar_t wcsName[256] = { 0 };
@@ -147,11 +157,6 @@ Variable^ Context::GetVariable(Identifier^ identifier)
   auto nVariable = _context->GetVariable(CIdentifier(*(identifier->LiveNamespace->GetNative()), wstring(wcsName)));
 
   return Variable::CREATE(nVariable);
-}
-
-Variable^ Context::GetVariable(String^ identifier)
-{
-
 }
 
 int32_t Context::EntryIndex::get()

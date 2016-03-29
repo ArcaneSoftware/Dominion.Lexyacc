@@ -21,7 +21,9 @@ Identifier^ Identifier::CREATE(C_IDENTIFIER& identifier)
   return result;
 }
 
-Identifier::Identifier()
+Identifier::Identifier() :
+  _liveNamespace(gcnew Namespace()),
+  _name(String::Empty)
 {
 }
 

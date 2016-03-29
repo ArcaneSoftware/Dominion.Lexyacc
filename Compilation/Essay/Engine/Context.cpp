@@ -127,17 +127,14 @@ int32_t CContext::AppendSyntax(CEssaySyntax* syntax)
   return _syntaxVector.size() - 1;
 }
 
-C_VARIABLE& CContext::GetVariable(WSTRING& identifier) const
+CVariable CContext::GetVariable(WSTRING& identifier) const
 {
   auto iterator = _variableMap.find(identifier);
 
-  if (iterator != _variableMap.end())
-  {
-    return iterator->second;
-  }
+  return iterator == _variableMap.end() ? move(CVariable()) : iterator->second;
 }
 
-C_VARIABLE& CContext::GetVariable(C_IDENTIFIER& identifier) const
+CVariable CContext::GetVariable(C_IDENTIFIER& identifier) const
 {
   return GetVariable(identifier.ToString());
 }

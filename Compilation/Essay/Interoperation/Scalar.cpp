@@ -12,19 +12,22 @@ using namespace Dominion::Compilation::Essay;
 //Scalar
 //********************************************************************************************************************//
 Scalar::Scalar() :
-  _scalarType(ScalarTypeEnum::Nil)
+  _scalarType(ScalarTypeEnum::Nil),
+  _stringValue(String::Empty)
 {
 }
 
 Scalar::Scalar(long value) :
   _scalarType(ScalarTypeEnum::Integer),
-  _integerValue(value)
+  _integerValue(value),
+  _stringValue(String::Empty)
 {
 }
 
 Scalar::Scalar(double value) :
   _scalarType(ScalarTypeEnum::Decimal),
-  _decimalValue(value)
+  _decimalValue(value),
+  _stringValue(String::Empty)
 {
 }
 
@@ -36,7 +39,8 @@ Scalar::Scalar(String^ value) :
 
 Scalar::Scalar(bool value) :
   _scalarType(ScalarTypeEnum::Boolean),
-  _booleanValue(value)
+  _booleanValue(value),
+  _stringValue(String::Empty)
 {
 }
 

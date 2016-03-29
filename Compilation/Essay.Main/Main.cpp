@@ -26,6 +26,8 @@ void F2()
       auto c = engine.Run(ifs);
       auto context = engine.GetContext();
 
+      auto a = context.GetVariable(L"Business.a").IsAvailable();
+
       for (int i = 0; i < context.GetSyntaxVector().size(); i++)
       {
         auto syntax = context.GetSyntax(i);

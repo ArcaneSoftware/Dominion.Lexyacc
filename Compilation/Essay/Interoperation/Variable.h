@@ -14,7 +14,7 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //Variable
 //
 //****************************************************************************************************//
-public ref class Variable : NamedReference
+public ref class Variable : public NamedReference
 {
 public:
   static Variable^ CREATE(C_VARIABLE& native);
@@ -44,7 +44,7 @@ public:
     void set(bool value);
   }
 
-private:
+protected:
   int32_t _initialValueID;
   int32_t _realValueID;
   bool _isArgument;
