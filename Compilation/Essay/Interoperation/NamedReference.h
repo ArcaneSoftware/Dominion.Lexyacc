@@ -52,7 +52,7 @@ public:
 
 private:
   AccessTypeEnum _accessType;
-  Identifier^ _identifierObject;
+  Identifier^ _identifier;
 };
 
 END_DOMINION_COMPILATION_ESSAY

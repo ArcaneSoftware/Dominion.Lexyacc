@@ -13,7 +13,7 @@ using namespace Dominion::Compilation::Essay;
 //********************************************************************************************************************//
 NamedReference::NamedReference() :
   _accessType(AccessTypeEnum::Private),
-  _identifierObject(gcnew Identifier())
+  _identifier(gcnew Identifier())
 {
 }
 
@@ -37,15 +37,15 @@ void NamedReference::AccessType::set(AccessTypeEnum value)
 
 Identifier^ NamedReference::IdentifierObject::get()
 {
-  return _identifierObject;
+  return _identifier;
 }
 
 void NamedReference::IdentifierObject::set(Identifier^ value)
 {
-  _identifierObject = value;
+  _identifier = value;
 }
 
 bool NamedReference::Available::get()
 {
-  return !_identifierObject->Name->Empty;
+  return _identifier->Name->Length > 0;
 }
