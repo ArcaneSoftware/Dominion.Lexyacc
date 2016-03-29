@@ -26,7 +26,7 @@ protected:
 
 protected:
   template<typename TTarit>
-  TTarit* Cast(CEssaySyntax* syntax)
+  TTarit* Cast(CAbstractSyntaxTree<ESyntaxType>* syntax)
   {
     TTarit* result = dynamic_cast<TTarit*>(syntax);
 
@@ -35,18 +35,18 @@ protected:
 
 public:
   //Reference
-  ScalarSyntax^ MakeScalar(CEssaySyntax* source);
-  VariableSyntax^ MakeVariable(CEssaySyntax* source);
-  FunctionSyntax^ MakeFunction(CEssaySyntax* source);
+  ScalarSyntax^ MakeScalar(CAbstractSyntaxTree<ESyntaxType>* source);
+  VariableSyntax^ MakeVariable(CAbstractSyntaxTree<ESyntaxType>* source);
+  FunctionSyntax^ MakeFunction(CAbstractSyntaxTree<ESyntaxType>* source);
   //Component
-  ChainSyntax^ MakeChain(CEssaySyntax* source);
-  OperationSyntax^ MakeOperation(CEssaySyntax* source);
+  ChainSyntax^ MakeChain(CAbstractSyntaxTree<ESyntaxType>* source);
+  OperationSyntax^ MakeOperation(CAbstractSyntaxTree<ESyntaxType>* source);
   //Statement
-  BlockSyntax^ MakeBlock(CEssaySyntax* source);
-  DefineVariableSyntax^ MakeDefineVariable(CEssaySyntax* source);
-  AssignVariableSyntax^ MakeAssignVariable(CEssaySyntax* source);
-  DefineFunctionSyntax^ MakeDefineFunction(CEssaySyntax* source);
-  ReturnSyntax^ MakeReturn(CEssaySyntax* source);
+  BlockSyntax^ MakeBlock(CAbstractSyntaxTree<ESyntaxType>* source);
+  DefineVariableSyntax^ MakeDefineVariable(CAbstractSyntaxTree<ESyntaxType>* source);
+  AssignVariableSyntax^ MakeAssignVariable(CAbstractSyntaxTree<ESyntaxType>* source);
+  DefineFunctionSyntax^ MakeDefineFunction(CAbstractSyntaxTree<ESyntaxType>* source);
+  ReturnSyntax^ MakeReturn(CAbstractSyntaxTree<ESyntaxType>* source);
 };
 
 END_DOMINION_COMPILATION_ESSAY

@@ -13,10 +13,10 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CBlockSyntax, C_BLOCK_SYNTAX);
-class LIBRARY_EXPORT CBlockSyntax : public CEssaySyntax
+class LIBRARY_EXPORT CBlockSyntax : public CAbstractSyntaxTree<ESyntaxType>
 {
 public:
-  CLASS_INHERITOR(CEssaySyntax, CBlockSyntax);
+  CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, CBlockSyntax);
 
   CBlockSyntax();
   CBlockSyntax(C_BLOCK_SYNTAX& that);

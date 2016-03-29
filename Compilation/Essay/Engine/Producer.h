@@ -75,7 +75,7 @@ public:
   CProductor MakeDefineFunction(C_DEFINE_FUNCTION_SYNTAX& syntax);
   CProductor MakeReturn(C_RETURN_SYNTAX& syntax);
 
-  shared_ptr<CEssaySyntax> GetSyntax(int32_t syntaxID) const;
+  shared_ptr<CAbstractSyntaxTree<ESyntaxType>> GetSyntax(int32_t syntaxID) const;
   WSTRING& GetFile() const;
   void SetEntry(int32_t entryID);
   void PushNaming(WSTRING& naming);

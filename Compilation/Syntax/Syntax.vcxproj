@@ -159,10 +159,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AbstractSyntaxTree.h" />
-    <ClInclude Include="AccessType.h" />
+    <ClInclude Include="BaseContext.h" />
     <ClInclude Include="Dependence.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="Failure.h" />
+    <ClInclude Include="Function.h" />
     <ClInclude Include="Identifier.h" />
     <ClInclude Include="NamedReference.h" />
     <ClInclude Include="Namespace.h" />
@@ -174,8 +175,8 @@
     <ClInclude Include="VariableType.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AccessType.cpp" />
     <ClCompile Include="Error.cpp" />
+    <ClCompile Include="Function.cpp" />
     <ClCompile Include="Identifier.cpp" />
     <ClCompile Include="NamedReference.cpp" />
     <ClCompile Include="Namespace.cpp" />

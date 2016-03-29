@@ -27,7 +27,7 @@ protected:
   !Context();
 
 protected:
-  RawSyntax^ Build(CEssaySyntax* syntax);
+  RawSyntax^ Build(CAbstractSyntaxTree<ESyntaxType>* syntax);
 
 public:
   property int SyntaxAmount

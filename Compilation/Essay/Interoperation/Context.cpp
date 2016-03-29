@@ -49,7 +49,7 @@ DefineFunction,
 Return,
 */
 
-RawSyntax^ Context::Build(CEssaySyntax* syntax)
+RawSyntax^ Context::Build(CAbstractSyntaxTree<ESyntaxType>* syntax)
 {
   auto convertor = gcnew SyntaxConvertor();
   RawSyntax^ result = nullptr;

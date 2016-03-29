@@ -36,12 +36,6 @@
     <ClCompile Include="Context.cpp">
       <Filter>Syntax\Elementary</Filter>
     </ClCompile>
-    <ClCompile Include="Function.cpp">
-      <Filter>Syntax\Elementary</Filter>
-    </ClCompile>
-    <ClCompile Include="SyntaxEnum.cpp">
-      <Filter>Syntax\Elementary</Filter>
-    </ClCompile>
     <ClCompile Include="ChainSyntax.cpp">
       <Filter>Syntax\ASTs\Composition</Filter>
     </ClCompile>
@@ -68,9 +62,6 @@
     </ClCompile>
     <ClCompile Include="DefineVariableSyntax.cpp">
       <Filter>Syntax\ASTs\Statement</Filter>
-    </ClCompile>
-    <ClCompile Include="EssaySyntax.cpp">
-      <Filter>Syntax\ASTs</Filter>
     </ClCompile>
     <ClCompile Include="DuplicationValidator.cpp">
       <Filter>Engine\Production</Filter>
@@ -105,6 +96,9 @@
     <ClCompile Include="ReturnSyntax.cpp">
       <Filter>Syntax\ASTs\Statement</Filter>
     </ClCompile>
+    <ClCompile Include="SyntaxType.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GrammarEnum.h">
@@ -115,12 +109,6 @@
       <Filter>Syntax\Elementary</Filter>
     </ClInclude>
     <ClInclude Include="Elementary.h">
-      <Filter>Syntax\Elementary</Filter>
-    </ClInclude>
-    <ClInclude Include="Function.h">
-      <Filter>Syntax\Elementary</Filter>
-    </ClInclude>
-    <ClInclude Include="SyntaxEnum.h">
       <Filter>Syntax\Elementary</Filter>
     </ClInclude>
     <ClInclude Include="ChainSyntax.h">
@@ -152,9 +140,6 @@
     </ClInclude>
     <ClInclude Include="DefineVariableSyntax.h">
       <Filter>Syntax\ASTs\Statement</Filter>
-    </ClInclude>
-    <ClInclude Include="EssaySyntax.h">
-      <Filter>Syntax\ASTs</Filter>
     </ClInclude>
     <ClInclude Include="DuplicationValidator.h">
       <Filter>Engine\Production</Filter>
@@ -197,6 +182,9 @@
     </ClInclude>
     <ClInclude Include="ReturnSyntax.h">
       <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="SyntaxType.h">
+      <Filter>Syntax\Elementary</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

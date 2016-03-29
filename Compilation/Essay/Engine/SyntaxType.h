@@ -33,33 +33,28 @@ enum class LIBRARY_EXPORT ESyntaxType
   Return,
 };
 //*****************************************************************************************************************//
-//CESyntaxType
+//CSyntaxTypeEnum
 //
 //*****************************************************************************************************************//
-CLASS_DECLARATION(CESyntaxType, CE_SYNTAX_TYPE);
-class LIBRARY_EXPORT CESyntaxType : public CEnum<ESyntaxType>
+CLASS_DECLARATION(CSyntaxTypeEnum, CE_SYNTAX_TYPE);
+class LIBRARY_EXPORT CSyntaxTypeEnum : public CEnum<ESyntaxType>
 {
 public:
-  CLASS_INHERITOR(CEnum<ESyntaxType>, CESyntaxType);
+  CLASS_INHERITOR(CEnum<ESyntaxType>, CSyntaxTypeEnum);
 
   static map<wstring, ESyntaxType> STRING_TO_VALUE();
   static map<ESyntaxType, wstring> VALUE_TO_STRING();
 
-  CESyntaxType();
-  CESyntaxType(CE_SYNTAX_TYPE& that);
-  CESyntaxType(CE_SYNTAX_TYPE&& that);
-  explicit CESyntaxType(ESyntaxType value);
-  explicit CESyntaxType(WSTRING& valueString);
-  virtual ~CESyntaxType();
+  CSyntaxTypeEnum();
+  CSyntaxTypeEnum(CE_SYNTAX_TYPE& that);
+  CSyntaxTypeEnum(CE_SYNTAX_TYPE&& that);
+  explicit CSyntaxTypeEnum(ESyntaxType value);
+  explicit CSyntaxTypeEnum(WSTRING& valueString);
+  virtual ~CSyntaxTypeEnum();
 
   CE_SYNTAX_TYPE& operator=(CE_SYNTAX_TYPE& that);
 };
 
 
-enum class LIBRARY_EXPORT EIdentifierType
-{
-  Variable,
-  Function,
-};
 
 END_DOMINION_COMPILATION_ESSAY

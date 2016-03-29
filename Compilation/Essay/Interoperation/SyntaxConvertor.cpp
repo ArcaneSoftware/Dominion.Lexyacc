@@ -22,7 +22,7 @@ SyntaxConvertor::!SyntaxConvertor()
 {
 }
 
-ScalarSyntax^ SyntaxConvertor::MakeScalar(CEssaySyntax* source)
+ScalarSyntax^ SyntaxConvertor::MakeScalar(CAbstractSyntaxTree<ESyntaxType>* source)
 {
   auto syntax = Cast<CScalarSyntax>(source);
   auto result = gcnew ScalarSyntax();
@@ -58,7 +58,7 @@ ScalarSyntax^ SyntaxConvertor::MakeScalar(CEssaySyntax* source)
   return result;
 }
 
-VariableSyntax^ SyntaxConvertor::MakeVariable(CEssaySyntax* source)
+VariableSyntax^ SyntaxConvertor::MakeVariable(CAbstractSyntaxTree<ESyntaxType>* source)
 {
   auto syntax = Cast<CVariableSyntax>(source);
   auto result = gcnew VariableSyntax();
@@ -70,7 +70,7 @@ VariableSyntax^ SyntaxConvertor::MakeVariable(CEssaySyntax* source)
   return result;
 }
 
-FunctionSyntax^ SyntaxConvertor::MakeFunction(CEssaySyntax* source)
+FunctionSyntax^ SyntaxConvertor::MakeFunction(CAbstractSyntaxTree<ESyntaxType>* source)
 {
   auto syntax = Cast<CFunctionSyntax>(source);
   auto result = gcnew FunctionSyntax();
@@ -84,7 +84,7 @@ FunctionSyntax^ SyntaxConvertor::MakeFunction(CEssaySyntax* source)
   return result;
 }
 
-ChainSyntax^ SyntaxConvertor::MakeChain(CEssaySyntax* source)
+ChainSyntax^ SyntaxConvertor::MakeChain(CAbstractSyntaxTree<ESyntaxType>* source)
 {
   auto syntax = Cast<CChainSyntax>(source);
   auto result = gcnew ChainSyntax();
@@ -97,7 +97,7 @@ ChainSyntax^ SyntaxConvertor::MakeChain(CEssaySyntax* source)
   return result;
 }
 
-OperationSyntax^ SyntaxConvertor::MakeOperation(CEssaySyntax* source)
+OperationSyntax^ SyntaxConvertor::MakeOperation(CAbstractSyntaxTree<ESyntaxType>* source)
 {
   auto syntax = Cast<COperationSyntax>(source);
   auto result = gcnew OperationSyntax();
@@ -113,7 +113,7 @@ OperationSyntax^ SyntaxConvertor::MakeOperation(CEssaySyntax* source)
 }
 
 
-BlockSyntax^ SyntaxConvertor::MakeBlock(CEssaySyntax* source)
+BlockSyntax^ SyntaxConvertor::MakeBlock(CAbstractSyntaxTree<ESyntaxType>* source)
 {
   auto syntax = Cast<CBlockSyntax>(source);
   auto result = gcnew BlockSyntax();
@@ -126,7 +126,7 @@ BlockSyntax^ SyntaxConvertor::MakeBlock(CEssaySyntax* source)
   return result;
 }
 
-DefineVariableSyntax^ SyntaxConvertor::MakeDefineVariable(CEssaySyntax* source)
+DefineVariableSyntax^ SyntaxConvertor::MakeDefineVariable(CAbstractSyntaxTree<ESyntaxType>* source)
 {
   auto syntax = Cast<CDefineVariableSyntax>(source);
   auto result = gcnew DefineVariableSyntax();
@@ -142,7 +142,7 @@ DefineVariableSyntax^ SyntaxConvertor::MakeDefineVariable(CEssaySyntax* source)
 
   return result;
 }
-AssignVariableSyntax^ SyntaxConvertor::MakeAssignVariable(CEssaySyntax* source)
+AssignVariableSyntax^ SyntaxConvertor::MakeAssignVariable(CAbstractSyntaxTree<ESyntaxType>* source)
 {
   auto syntax = Cast<CAssignVariableSyntax>(source);
   auto result = gcnew AssignVariableSyntax();
@@ -155,7 +155,7 @@ AssignVariableSyntax^ SyntaxConvertor::MakeAssignVariable(CEssaySyntax* source)
   return result;
 }
 
-DefineFunctionSyntax^ SyntaxConvertor::MakeDefineFunction(CEssaySyntax* source)
+DefineFunctionSyntax^ SyntaxConvertor::MakeDefineFunction(CAbstractSyntaxTree<ESyntaxType>* source)
 {
   auto syntax = Cast<CDefineFunctionSyntax>(source);
   auto result = gcnew DefineFunctionSyntax();
@@ -171,7 +171,7 @@ DefineFunctionSyntax^ SyntaxConvertor::MakeDefineFunction(CEssaySyntax* source)
   return result;
 }
 
-ReturnSyntax^ SyntaxConvertor::MakeReturn(CEssaySyntax* source)
+ReturnSyntax^ SyntaxConvertor::MakeReturn(CAbstractSyntaxTree<ESyntaxType>* source)
 {
   auto syntax = Cast<CReturnSyntax>(source);
   auto result = gcnew ReturnSyntax();

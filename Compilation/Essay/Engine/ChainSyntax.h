@@ -13,10 +13,10 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CChainSyntax, C_CHAIN_SYNTAX);
-class LIBRARY_EXPORT CChainSyntax : public CEssaySyntax
+class LIBRARY_EXPORT CChainSyntax : public CAbstractSyntaxTree<ESyntaxType>
 {
 public:
-  CLASS_INHERITOR(CEssaySyntax, CChainSyntax);
+  CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, CChainSyntax);
 
   CChainSyntax();
   CChainSyntax(C_CHAIN_SYNTAX& that);

@@ -13,10 +13,10 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CVariableSyntax, C_VARIABLE_SYNTAX);
-class LIBRARY_EXPORT CVariableSyntax : public CEssaySyntax
+class LIBRARY_EXPORT CVariableSyntax : public CAbstractSyntaxTree<ESyntaxType>
 {
 public:
-  CLASS_INHERITOR(CEssaySyntax, CVariableSyntax);
+  CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, CVariableSyntax);
 
   CVariableSyntax();
   CVariableSyntax(C_VARIABLE_SYNTAX& that);

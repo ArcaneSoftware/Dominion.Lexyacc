@@ -13,10 +13,10 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CReturnSyntax, C_RETURN_SYNTAX);
-class LIBRARY_EXPORT CReturnSyntax : public CEssaySyntax
+class LIBRARY_EXPORT CReturnSyntax : public CAbstractSyntaxTree<ESyntaxType>
 {
 public:
-  CLASS_INHERITOR(CEssaySyntax, CReturnSyntax);
+  CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, CReturnSyntax);
 
   CReturnSyntax();
   CReturnSyntax(C_RETURN_SYNTAX& that);

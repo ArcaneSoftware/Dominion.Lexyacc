@@ -3,13 +3,13 @@
 //AUTHOR:
 //SUMMARY:
 //*******************************************************************************************************************//
-#include "SyntaxEnum.h"
+#include "SyntaxType.h"
 
 using namespace Dominion::Compilation::Essay;
 //*******************************************************************************************************************//
-//CESyntaxType
+//CSyntaxTypeEnum
 //*******************************************************************************************************************//
-map<wstring, ESyntaxType> CESyntaxType::STRING_TO_VALUE()
+map<wstring, ESyntaxType> CSyntaxTypeEnum::STRING_TO_VALUE()
 {
   map<wstring, ESyntaxType> map;
 
@@ -31,7 +31,7 @@ map<wstring, ESyntaxType> CESyntaxType::STRING_TO_VALUE()
   return move(map);
 }
 
-map<ESyntaxType, wstring> CESyntaxType::VALUE_TO_STRING()
+map<ESyntaxType, wstring> CSyntaxTypeEnum::VALUE_TO_STRING()
 {
   map<ESyntaxType, wstring> map;
 
@@ -53,35 +53,35 @@ map<ESyntaxType, wstring> CESyntaxType::VALUE_TO_STRING()
   return move(map);
 }
 
-CESyntaxType::CESyntaxType()
+CSyntaxTypeEnum::CSyntaxTypeEnum()
 {
 }
 
-CESyntaxType::CESyntaxType(CE_SYNTAX_TYPE& that) :
+CSyntaxTypeEnum::CSyntaxTypeEnum(CE_SYNTAX_TYPE& that) :
   CEnum(that)
 {
 }
 
-CESyntaxType::CESyntaxType(CE_SYNTAX_TYPE&& that) :
+CSyntaxTypeEnum::CSyntaxTypeEnum(CE_SYNTAX_TYPE&& that) :
   CEnum(that)
 {
 }
 
-CESyntaxType::CESyntaxType(ESyntaxType value) :
+CSyntaxTypeEnum::CSyntaxTypeEnum(ESyntaxType value) :
   CEnum(value, STRING_TO_VALUE, VALUE_TO_STRING)
 {
 }
 
-CESyntaxType::CESyntaxType(WSTRING& valueString) :
+CSyntaxTypeEnum::CSyntaxTypeEnum(WSTRING& valueString) :
   CEnum(valueString, STRING_TO_VALUE, VALUE_TO_STRING)
 {
 }
 
-CESyntaxType::~CESyntaxType()
+CSyntaxTypeEnum::~CSyntaxTypeEnum()
 {
 }
 
-CE_SYNTAX_TYPE& CESyntaxType::operator=(CE_SYNTAX_TYPE& that)
+CE_SYNTAX_TYPE& CSyntaxTypeEnum::operator=(CE_SYNTAX_TYPE& that)
 {
   CEnum<ESyntaxType>::operator=(that);
 

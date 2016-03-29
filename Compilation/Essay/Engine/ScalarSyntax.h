@@ -13,10 +13,10 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CScalarSyntax, C_SCALAR_SYNTAX);
-class LIBRARY_EXPORT CScalarSyntax : public CEssaySyntax
+class LIBRARY_EXPORT CScalarSyntax : public CAbstractSyntaxTree<ESyntaxType>
 {
 public:
-  CLASS_INHERITOR(CEssaySyntax, CScalarSyntax);
+  CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, CScalarSyntax);
 
   CScalarSyntax();
   CScalarSyntax(C_SCALAR_SYNTAX& that);

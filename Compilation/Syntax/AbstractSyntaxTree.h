@@ -5,20 +5,20 @@
 //*******************************************************************************************************************//
 #pragma once
 
-#include "Dominion/Compilation/Syntax/Dependence.h"
+#include "Dominion/Compilation/Syntax/Namespace.h"
 
 BEGIN_DOMINION_COMPILATION_SYNTAX
 //*****************************************************************************************************************//
 //CAbstractSyntaxTree
 //
 //*****************************************************************************************************************//
-template<typename TESyntax>
+template<typename TESyntaxType>
 class LIBRARY_EXPORT CAbstractSyntaxTree : public CObject
 {
 public:
-  TYPEDEF(CAbstractSyntaxTree<TESyntax>, Class, CLASS);
+  TYPEDEF(CAbstractSyntaxTree<TESyntaxType>, Class, CLASS);
   CLASS_INHERITOR(CObject, Class);
-  typedef const TESyntax T_SYNTAX_TYPE;
+  typedef const TESyntaxType TE_SYNTAX_TYPE;
 
   CAbstractSyntaxTree() :
     _liveLine(NONE_LINE)
@@ -28,20 +28,25 @@ public:
   CAbstractSyntaxTree(CLASS& that) :
     CObject(that),
     _syntaxType(that._syntaxType),
-    _liveLine(that._liveLine)
+    _liveLine(that._liveLine),
+    _liveNamespace(that._liveNamespace)
   {
   }
 
   CAbstractSyntaxTree(CLASS&& that) :
     CObject(that),
     _syntaxType(move(that._syntaxType)),
-    _liveLine(move(that._liveLine))
+    _liveLine(move(that._liveLine)),
+    _liveNamespace(move(that._liveNamespace))
   {
   }
 
-  explicit CAbstractSyntaxTree(TESyntax syntaxType, int32_t liveLine = NONE_LINE) :
+  explicit CAbstractSyntaxTree(TESyntaxType syntaxType,
+                               int32_t liveLine = NONE_LINE,
+                               C_NAMESPACE& liveNamespace = CNamespace()) :
     _syntaxType(syntaxType),
-    _liveLine(liveLine)
+    _liveLine(liveLine),
+    _liveNamespace(liveNamespace)
   {
   }
 
@@ -54,8 +59,9 @@ public:
     return NSTR;
   }
   //}
-  CLASS_PROPERTY(TESyntax, _syntaxType, SyntaxType);
+  CLASS_PROPERTY(TESyntaxType, _syntaxType, SyntaxType);
   CLASS_PROPERTY(int32_t, _liveLine, LiveLine);
+  CLASS_PROPERTY(CNamespce, _liveNamespace, LiveNamespace);
 
   CLASS& operator=(CLASS& that)
   {
@@ -63,13 +69,15 @@ public:
 
     _syntaxType = that._syntaxType;
     _liveLine = that._liveLine;
+    _liveNamespace = that._liveNamespace;
 
     return *this;
   }
 
 private:
-  TESyntax _syntaxType;
+  TESyntaxType _syntaxType;
   int32_t _liveLine;
+  CNamespace _liveNamespace;
 };
 
 END_DOMINION_COMPILATION_SYNTAX

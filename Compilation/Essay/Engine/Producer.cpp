@@ -180,7 +180,7 @@ CProductor CProducer::MakeReturn(C_RETURN_SYNTAX& syntax)
   return Produce<CReturnSyntax>(syntax, errors);
 }
 
-shared_ptr<CEssaySyntax> CProducer::GetSyntax(int32_t syntaxID) const
+shared_ptr<CAbstractSyntaxTree<ESyntaxType>> CProducer::GetSyntax(int32_t syntaxID) const
 {
   return _context.GetSyntax(syntaxID);
 }

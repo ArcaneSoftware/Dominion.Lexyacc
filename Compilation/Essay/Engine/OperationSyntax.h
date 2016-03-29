@@ -13,10 +13,10 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(COperationSyntax, C_OPERATION_SYNTAX);
-class LIBRARY_EXPORT COperationSyntax : public CEssaySyntax
+class LIBRARY_EXPORT COperationSyntax : public CAbstractSyntaxTree<ESyntaxType>
 {
 public:
-  CLASS_INHERITOR(CEssaySyntax, COperationSyntax);
+  CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, COperationSyntax);
 
   COperationSyntax();
   COperationSyntax(C_OPERATION_SYNTAX& that);

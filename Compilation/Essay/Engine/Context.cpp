@@ -25,7 +25,7 @@ CContext::CContext(C_CONTEXT& that) :
   CObject(that),
   _variableMap(that._variableMap),
   _functionMap(that._functionMap),
-  _syntaxVector(that._syntaxVector),
+  _syntaxes(that._syntaxes),
   _entryID(that._entryID),
   _ToKey(that._ToKey)
 {
@@ -35,7 +35,7 @@ CContext::CContext(C_CONTEXT&& that) :
   CObject(that),
   _variableMap(move(that._variableMap)),
   _functionMap(move(that._functionMap)),
-  _syntaxVector(move(that._syntaxVector)),
+  _syntaxes(move(that._syntaxes)),
   _entryID(move(that._entryID)),
   _ToKey(move(that._ToKey))
 {
@@ -51,7 +51,7 @@ CContext::~CContext()
 {
   _variableMap.clear();
   _functionMap.clear();
-  _syntaxVector.clear();
+  _syntaxes.clear();
 }
 
 FToEssayKey CContext::ToKey()
@@ -105,26 +105,26 @@ bool CContext::HasDefinedIdentifier(C_NAMESPACE& liveNamespace, WSTRING& name, E
 
 bool CContext::ExistSyntax(int32_t syntaxID) const
 {
-  return syntaxID != NONE_ID && syntaxID < _syntaxVector.size();
+  return syntaxID != NONE_ID && syntaxID < _syntaxes.size();
 }
 
-shared_ptr<CEssaySyntax> CContext::GetSyntax(int32_t syntaxID) const
+shared_ptr<CAbstractSyntaxTree<ESyntaxType>> CContext::GetSyntax(int32_t syntaxID) const
 {
   if (ExistSyntax(syntaxID))
   {
-    return _syntaxVector[syntaxID];
+    return _syntaxes[syntaxID];
   }
   else
   {
-    return shared_ptr<CEssaySyntax>(nullptr);
+    return shared_ptr<CAbstractSyntaxTree<ESyntaxType>>(nullptr);
   }
 }
 
-int32_t CContext::AppendSyntax(CEssaySyntax* syntax)
+int32_t CContext::AppendSyntax(CAbstractSyntaxTree<ESyntaxType>* syntax)
 {
-  _syntaxVector.push_back(shared_ptr<CEssaySyntax>(syntax));
+  _syntaxes.push_back(shared_ptr<CAbstractSyntaxTree<ESyntaxType>>(syntax));
 
-  return _syntaxVector.size() - 1;
+  return _syntaxes.size() - 1;
 }
 
 CVariable CContext::GetVariable(WSTRING& identifier) const
@@ -145,7 +145,7 @@ C_CONTEXT& CContext::operator=(C_CONTEXT& that)
 
   _variableMap = that._variableMap;
   _functionMap = that._functionMap;
-  _syntaxVector = that._syntaxVector;
+  _syntaxes = that._syntaxes;
   _entryID = that._entryID;
   _ToKey = that._ToKey;
 

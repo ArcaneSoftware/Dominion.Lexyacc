@@ -13,10 +13,10 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CDefineFunctionSyntax, C_DEFINE_FUNCTION_SYNTAX);
-class LIBRARY_EXPORT CDefineFunctionSyntax : public CEssaySyntax
+class LIBRARY_EXPORT CDefineFunctionSyntax : public CAbstractSyntaxTree<ESyntaxType>
 {
 public:
-  CLASS_INHERITOR(CEssaySyntax, CDefineFunctionSyntax);
+  CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, CDefineFunctionSyntax);
 
   CDefineFunctionSyntax();
   CDefineFunctionSyntax(C_DEFINE_FUNCTION_SYNTAX& that);

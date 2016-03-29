@@ -5,9 +5,9 @@
 //********************************************************************************************************************//
 #pragma once
 
-#include "Dominion/Compilation/Essay/Engine/Dependence.h"
+#include "Dominion/Compilation/Syntax/NamedReference.h"
 
-BEGIN_DOMINION_COMPILATION_ESSAY
+BEGIN_DOMINION_COMPILATION_SYNTAX
 //********************************************************************************************************************//
 //CVariable
 //
@@ -34,4 +34,4 @@ private:
   int32_t _blockID;
 };
 
-END_DOMINION_COMPILATION_ESSAY
+END_DOMINION_COMPILATION_SYNTAX
