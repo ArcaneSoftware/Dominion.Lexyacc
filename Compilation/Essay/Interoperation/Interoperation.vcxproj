@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="AssignVariableSyntax.h" />
     <ClInclude Include="ASTs.h" />
+    <ClInclude Include="BaseContext.h" />
     <ClInclude Include="BlockSyntax.h" />
     <ClInclude Include="ChainSyntax.h" />
     <ClInclude Include="Context.h" />
@@ -161,7 +162,7 @@
     <ClInclude Include="SyntaxEngine.h" />
     <ClInclude Include="GrammarEnum.h" />
     <ClInclude Include="Namespace.h" />
-    <ClInclude Include="RawSyntax.h" />
+    <ClInclude Include="AbstractSyntaxTree.h" />
     <ClInclude Include="Interoperation.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
@@ -186,7 +187,7 @@
     <ClCompile Include="ScalarSyntax.cpp" />
     <ClCompile Include="SyntaxEngine.cpp" />
     <ClCompile Include="Namespace.cpp" />
-    <ClCompile Include="RawSyntax.cpp" />
+    <ClCompile Include="AbstractSyntaxTree.cpp" />
     <ClCompile Include="Interoperation.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::Essay;
 //ScalarSyntax
 //********************************************************************************************************************//
 ScalarSyntax::ScalarSyntax() :
-  RawSyntax(SyntaxTypeEnum::Scalar, LineConst::NONE),
+  AbstractSyntaxTree(SyntaxTypeEnum::Scalar, LineConst::NONE),
   _value(gcnew Scalar())
 {
 }

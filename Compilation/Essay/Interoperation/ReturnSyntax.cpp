@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::Essay;
 //ReturnSyntax
 //********************************************************************************************************************//
 ReturnSyntax::ReturnSyntax() :
-  RawSyntax(SyntaxTypeEnum::Return, LineConst::NONE),
+  AbstractSyntaxTree(SyntaxTypeEnum::Return, LineConst::NONE),
   _expressionID(IDConst::NONE)
 {
 }

@@ -61,7 +61,7 @@ public:
   //}
   CLASS_PROPERTY(TESyntaxType, _syntaxType, SyntaxType);
   CLASS_PROPERTY(int32_t, _liveLine, LiveLine);
-  CLASS_PROPERTY(CNamespce, _liveNamespace, LiveNamespace);
+  CLASS_PROPERTY(CNamespace, _liveNamespace, LiveNamespace);
 
   CLASS& operator=(CLASS& that)
   {

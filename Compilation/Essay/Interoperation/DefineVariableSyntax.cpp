@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::Essay;
 //DefineVariableSyntax
 //********************************************************************************************************************//
 DefineVariableSyntax::DefineVariableSyntax() :
-  RawSyntax(SyntaxTypeEnum::DefineVariable, LineConst::NONE),
+  AbstractSyntaxTree(SyntaxTypeEnum::DefineVariable, LineConst::NONE),
   _initialValueID(IDConst::NONE)
 {
 }

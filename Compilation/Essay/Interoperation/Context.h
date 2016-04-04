@@ -5,9 +5,7 @@
 //********************************************************************************************************************//
 #pragma once
 
-#include "Dominion/Compilation/Essay/Interoperation/Dependence.h"
-#include "Dominion/Compilation/Essay/Interoperation/RawSyntax.h"
-#include "Dominion/Compilation/Essay/Interoperation/Variable.h"
+#include "Dominion/Compilation/Essay/Interoperation/BaseContext.h"
 
 using namespace System;
 
@@ -16,7 +14,7 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //Context
 //
 //*****************************************************************************************************************//
-public ref class Context
+public ref class Context : IBaseContext
 {
 protected:
   Context();
@@ -27,7 +25,7 @@ protected:
   !Context();
 
 protected:
-  RawSyntax^ Build(CAbstractSyntaxTree<ESyntaxType>* syntax);
+  AbstractSyntaxTree^ Build(CAbstractSyntaxTree<ESyntaxType>* syntax);
 
 public:
   property int SyntaxAmount
@@ -36,12 +34,12 @@ public:
   }
 
 public:
-  bool ExistSyntax(int32_t index);
-  bool HasDefinedIdentifier(String^ fullName, IdentifierTypeEnum identifierType);
-  bool HasDefinedIdentifier(Namespace^ liveNamespace, String^ name, IdentifierTypeEnum identifierType);
-  RawSyntax^ GetSyntax(int32_t index);
-  Variable^ GetVariable(String^ identifier);
-  Variable^ GetVariable(Identifier^ identifier);
+  bool ExistSyntax(int32_t index) override;
+  bool HasDefinedIdentifier(String^ fullName, IdentifierTypeEnum identifierType) override;
+  bool HasDefinedIdentifier(Namespace^ liveNamespace, String^ name, IdentifierTypeEnum identifierType) override;
+  AbstractSyntaxTree^ GetSyntax(int32_t index) override;
+  Variable^ GetVariable(String^ identifier) override;
+  Variable^ GetVariable(Identifier^ identifier) override;
 
   property int32_t EntryIndex
   {

@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Dominion/Compilation/Essay/Interoperation/Dependence.h"
+#include "Dominion/Compilation/Essay/Interoperation/Scalar.h"
+#include "Dominion/Compilation/Essay/Interoperation/BaseContext.h"
 
 using namespace System;
 
@@ -9,10 +10,9 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //IReducible
 //
 //****************************************************************************************************//
-generic<typename TOutput, typename TContext>
 public interface class IReducible
 {
-  TOutput Reduce(TContext context);
+  Scalar^ Reduce(IBaseContext^ context);
 };
 
 END_DOMINION_COMPILATION_ESSAY

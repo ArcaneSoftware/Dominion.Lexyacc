@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::Essay;
 //BlockSyntax
 //********************************************************************************************************************//
 BlockSyntax::BlockSyntax() :
-  RawSyntax(SyntaxTypeEnum::Block, LineConst::NONE),
+  AbstractSyntaxTree(SyntaxTypeEnum::Block, LineConst::NONE),
   _statementID(IDConst::NONE),
   _blockID(IDConst::NONE)
 {

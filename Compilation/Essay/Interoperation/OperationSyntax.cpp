@@ -12,7 +12,7 @@ using namespace Dominion::Compilation::Essay;
 //OperationSyntax
 //********************************************************************************************************************//
 OperationSyntax::OperationSyntax() :
-  RawSyntax(SyntaxTypeEnum::Operation, LineConst::NONE),
+  AbstractSyntaxTree(SyntaxTypeEnum::Operation, LineConst::NONE),
   _leftOperandID(IDConst::NONE),
   _rightOperandID(IDConst::NONE)
 {

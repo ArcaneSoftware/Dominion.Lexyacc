@@ -49,10 +49,10 @@ DefineFunction,
 Return,
 */
 
-RawSyntax^ Context::Build(CAbstractSyntaxTree<ESyntaxType>* syntax)
+AbstractSyntaxTree^ Context::Build(CAbstractSyntaxTree<ESyntaxType>* syntax)
 {
   auto convertor = gcnew SyntaxConvertor();
-  RawSyntax^ result = nullptr;
+  AbstractSyntaxTree^ result = nullptr;
 
   switch (syntax->GetSyntaxType())
   {
@@ -113,7 +113,7 @@ RawSyntax^ Context::Build(CAbstractSyntaxTree<ESyntaxType>* syntax)
 
 int Context::SyntaxAmount::get()
 {
-  return _context->GetSyntaxVector().size();
+  return _context->GetSyntaxes().size();
 }
 
 bool Context::ExistSyntax(int32_t index)
@@ -135,7 +135,7 @@ bool Context::HasDefinedIdentifier(Namespace^ liveNamespace, String^ name, Ident
   return _context->HasDefinedIdentifier(*liveNamespace->GetNative(), wcsName, (EIdentifierType)(int)identifierType);
 }
 
-RawSyntax^ Context::GetSyntax(int32_t index)
+AbstractSyntaxTree^ Context::GetSyntax(int32_t index)
 {
   return Build(_context->GetSyntax(index).get());
 }

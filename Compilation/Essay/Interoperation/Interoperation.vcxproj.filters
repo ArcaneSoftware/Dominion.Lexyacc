@@ -43,9 +43,6 @@
     <ClInclude Include="Namespace.h">
       <Filter>Syntax</Filter>
     </ClInclude>
-    <ClInclude Include="RawSyntax.h">
-      <Filter>Syntax</Filter>
-    </ClInclude>
     <ClInclude Include="SyntaxConvertor.h">
       <Filter>Syntax</Filter>
     </ClInclude>
@@ -95,6 +92,12 @@
     <ClInclude Include="NamedReference.h">
       <Filter>Syntax</Filter>
     </ClInclude>
+    <ClInclude Include="BaseContext.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractSyntaxTree.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -110,9 +113,6 @@
       <Filter>Syntax\ASTs\Composition</Filter>
     </ClCompile>
     <ClCompile Include="Namespace.cpp">
-      <Filter>Syntax</Filter>
-    </ClCompile>
-    <ClCompile Include="RawSyntax.cpp">
       <Filter>Syntax</Filter>
     </ClCompile>
     <ClCompile Include="SyntaxConvertor.cpp">
@@ -159,6 +159,9 @@
       <Filter>Syntax</Filter>
     </ClCompile>
     <ClCompile Include="NamedReference.cpp">
+      <Filter>Syntax</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractSyntaxTree.cpp">
       <Filter>Syntax</Filter>
     </ClCompile>
   </ItemGroup>

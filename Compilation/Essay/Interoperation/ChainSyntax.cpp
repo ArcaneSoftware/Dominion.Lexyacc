@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::Essay;
 //ChainSyntax
 //********************************************************************************************************************//
 ChainSyntax::ChainSyntax() :
-  RawSyntax(SyntaxTypeEnum::Chain, LineConst::NONE),
+  AbstractSyntaxTree(SyntaxTypeEnum::Chain, LineConst::NONE),
   _currentID(IDConst::NONE),
   _nextID(IDConst::NONE)
 {

@@ -5,7 +5,7 @@
 //********************************************************************************************************************//
 #pragma once
 
-#include "Dominion/Compilation/Essay/Interoperation/RawSyntax.h"
+#include "Dominion/Compilation/Essay/Interoperation/AbstractSyntaxTree.h"
 
 using namespace System;
 
@@ -14,7 +14,7 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //VariableSyntax
 //
 //****************************************************************************************************//
-public ref class VariableSyntax : public RawSyntax
+public ref class VariableSyntax : public AbstractSyntaxTree
 {
 public:
   VariableSyntax();

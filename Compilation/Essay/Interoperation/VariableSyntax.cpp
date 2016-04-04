@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::Essay;
 //VariableSyntax
 //********************************************************************************************************************//
 VariableSyntax::VariableSyntax() :
-  RawSyntax(SyntaxTypeEnum::Variable, LineConst::NONE)
+  AbstractSyntaxTree(SyntaxTypeEnum::Variable, LineConst::NONE)
 {
 }
 

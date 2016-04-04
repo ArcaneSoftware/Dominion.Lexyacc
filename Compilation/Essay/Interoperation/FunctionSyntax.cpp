@@ -11,7 +11,7 @@ using namespace Dominion::Compilation::Essay;
 //FunctionSyntax
 //********************************************************************************************************************//
 FunctionSyntax::FunctionSyntax() :
-  RawSyntax(SyntaxTypeEnum::Function, LineConst::NONE),
+  AbstractSyntaxTree(SyntaxTypeEnum::Function, LineConst::NONE),
   _argumentChainID(IDConst::NONE)
 {
 }
