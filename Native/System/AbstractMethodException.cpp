@@ -34,6 +34,12 @@ CAbstractMethodException::CAbstractMethodException(C_TROUBLESPOT& troublespot) :
 {
 }
 
+CAbstractMethodException::CAbstractMethodException(C_SCENE& scene) :
+  CException(CTroublespot(scene, L"", L"", L""))
+{
+
+}
+
 CAbstractMethodException::~CAbstractMethodException()
 {
 }

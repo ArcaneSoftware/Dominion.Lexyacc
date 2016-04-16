@@ -20,7 +20,9 @@ namespace EssayManagedCompiler
       var context = engine.Start(file, false);
 
       var a = context.GetVariable("Business.Main.cust");
-      var b = a.Available;
+      a.RealValueID = 90;
+
+      var aa = context.GetVariable("Business.Main.cust");
 
 
       // string source = "naming Business{var a = 0; function Main(var x){return a + 32}}";

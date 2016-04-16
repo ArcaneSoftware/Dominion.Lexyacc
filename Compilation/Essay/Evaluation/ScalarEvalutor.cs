@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominion.Compilation.Essay.Evaluation
 {
-  public class ScalarEvalutor : IReducible
+  public class ScalarEvalutor : Evalutor, IEvaluative
   {
     public ScalarEvalutor(ScalarSyntax syntax)
     {
@@ -19,7 +19,7 @@ namespace Dominion.Compilation.Essay.Evaluation
       set;
     }
 
-    Scalar IReducible.Reduce(IBaseContext context)
+    Scalar IEvaluative.Reduce(IBaseContext context)
     {
       return Syntax.Value;
     }

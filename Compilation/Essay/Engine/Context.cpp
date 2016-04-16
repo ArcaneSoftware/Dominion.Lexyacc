@@ -9,40 +9,24 @@ using namespace Dominion::Compilation::Essay;
 //*******************************************************************************************************************//
 //CContext
 //*******************************************************************************************************************//
-wstring CContext::DEFAULT_TO_KEY(WSTRING& input)
-{
-  return input;
-}
-
 CContext::CContext() :
-  _entryID(NONE_ID),
-  _ToKey(DEFAULT_TO_KEY)
+  CBaseContext()
 {
 }
 
 CContext::CContext(C_CONTEXT& that) :
-  CObject(that),
+  CBaseContext(that),
   _variableMap(that._variableMap),
   _functionMap(that._functionMap),
-  _syntaxes(that._syntaxes),
-  _entryID(that._entryID),
-  _ToKey(that._ToKey)
+  _syntaxes(that._syntaxes)
 {
 }
 
 CContext::CContext(C_CONTEXT&& that) :
-  CObject(that),
+  CBaseContext(that),
   _variableMap(move(that._variableMap)),
   _functionMap(move(that._functionMap)),
-  _syntaxes(move(that._syntaxes)),
-  _entryID(move(that._entryID)),
-  _ToKey(move(that._ToKey))
-{
-}
-
-CContext::CContext(FToEssayKey ToEssayKey) :
-  _entryID(NONE_ID),
-  _ToKey(ToEssayKey)
+  _syntaxes(move(that._syntaxes))
 {
 }
 
@@ -51,11 +35,6 @@ CContext::~CContext()
   _variableMap.clear();
   _functionMap.clear();
   _syntaxes.clear();
-}
-
-FToEssayKey CContext::ToKey()
-{
-  return _ToKey;
 }
 
 void CContext::DefineVariable(EAccessType access, C_NAMESPACE& liveNamespace, WSTRING& name, int32_t initialValueID)
@@ -138,15 +117,28 @@ CVariable CContext::GetVariable(C_IDENTIFIER& identifier) const
   return GetVariable(identifier.ToString());
 }
 
+void CContext::SetVariableValue(WSTRING& identifier, int valueID)
+{
+  auto iterator = _variableMap.find(identifier);
+
+  if (iterator != _variableMap.end())
+  {
+    iterator->second.SetRealValueID(valueID);
+  }
+}
+
+void CContext::SetVariableValue(C_IDENTIFIER& identifier, int valueID)
+{
+  SetVariableValue(identifier.ToString(), valueID);
+}
+
 C_CONTEXT& CContext::operator=(C_CONTEXT& that)
 {
-  CObject::operator=(that);
+  CBaseContext::operator=(that);
 
   _variableMap = that._variableMap;
   _functionMap = that._functionMap;
   _syntaxes = that._syntaxes;
-  _entryID = that._entryID;
-  _ToKey = that._ToKey;
 
   return *this;
 }

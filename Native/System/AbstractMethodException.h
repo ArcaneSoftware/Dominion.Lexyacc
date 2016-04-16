@@ -26,6 +26,7 @@ public:
   CAbstractMethodException(C_ABSTRACT_METHOD_EXCEPTION& that);
   CAbstractMethodException(C_ABSTRACT_METHOD_EXCEPTION&& that);
   explicit CAbstractMethodException(C_TROUBLESPOT& troublespot);
+  explicit CAbstractMethodException(C_SCENE& scene);
   virtual ~CAbstractMethodException();
 
   C_ABSTRACT_METHOD_EXCEPTION& operator=(C_ABSTRACT_METHOD_EXCEPTION& that);

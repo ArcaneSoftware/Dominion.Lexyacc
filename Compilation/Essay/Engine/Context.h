@@ -9,27 +9,23 @@
 #include "Dominion/Compilation/Essay/Engine/SyntaxType.h"
 
 BEGIN_DOMINION_COMPILATION_ESSAY
-typedef function<wstring(WSTRING&)> FToEssayKey;
 //*****************************************************************************************************************//
 //CContext
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CContext, C_CONTEXT);
-class LIBRARY_EXPORT CContext : public CObject, public IBaseContext<ESyntaxType>
+class LIBRARY_EXPORT CContext : public CBaseContext<ESyntaxType>
 {
 public:
   static wstring DEFAULT_TO_KEY(WSTRING& input);
 
 public:
-  CLASS_INHERITOR(CObject, CContext);
+  CLASS_INHERITOR(CBaseContext<ESyntaxType>, CContext);
 
   CContext();
   CContext(C_CONTEXT& that);
   CContext(C_CONTEXT&& that);
-  CContext(FToEssayKey ToEssayKey);
   virtual ~CContext();
-
-  FToEssayKey ToKey();
 
   virtual void DefineVariable(EAccessType access,
                               C_NAMESPACE& liveNamespace, WSTRING& name,
@@ -51,10 +47,12 @@ public:
   virtual CVariable GetVariable(WSTRING& identifier) const override;
   virtual CVariable GetVariable(C_IDENTIFIER& identifier) const override;
 
+  virtual void SetVariableValue(WSTRING& identifier, int valueID) override;
+  virtual void SetVariableValue(C_IDENTIFIER& identifier, int valueID) override;
+
   CLASS_PROPERTY(map<wstring _COMMA CVariable>, _variableMap, VariableMap);
   CLASS_PROPERTY(map<wstring _COMMA CFunction>, _functionMap, FunctionMap);
   CLASS_PROPERTY(vector<shared_ptr<CAbstractSyntaxTree<ESyntaxType>>>, _syntaxes, Syntaxes);
-  CLASS_PROPERTY(int32_t, _entryID, EntryID);
 
 public:
   C_CONTEXT& operator=(C_CONTEXT& that);
@@ -63,8 +61,6 @@ private:
   map<wstring, CVariable> _variableMap;
   map<wstring, CFunction> _functionMap;
   vector<shared_ptr<CAbstractSyntaxTree<ESyntaxType>>> _syntaxes;
-  int32_t _entryID;
-  FToEssayKey _ToKey;
 };
 
 END_DOMINION_COMPILATION_ESSAY

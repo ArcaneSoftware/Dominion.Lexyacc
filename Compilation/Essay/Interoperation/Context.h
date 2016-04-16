@@ -40,6 +40,8 @@ public:
   AbstractSyntaxTree^ GetSyntax(int32_t index) override;
   Variable^ GetVariable(String^ identifier) override;
   Variable^ GetVariable(Identifier^ identifier) override;
+  void SetVariableValue(String^ identifier, int32_t valueID) override;
+  void SetVariableValue(Identifier^ identifier, int32_t valueID) override;
 
   property int32_t EntryIndex
   {

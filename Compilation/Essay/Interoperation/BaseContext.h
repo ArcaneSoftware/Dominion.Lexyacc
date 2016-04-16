@@ -18,6 +18,8 @@ public interface class IBaseContext
   AbstractSyntaxTree^ GetSyntax(int32_t index);
   Variable^ GetVariable(String^ identifier);
   Variable^ GetVariable(Identifier^ identifier);
+  void SetVariableValue(String^ identifier, int32_t valueID);
+  void SetVariableValue(Identifier^ identifier, int32_t valueID);
 };
 
 END_DOMINION_COMPILATION_ESSAY

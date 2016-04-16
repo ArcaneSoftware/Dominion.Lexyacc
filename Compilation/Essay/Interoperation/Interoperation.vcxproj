@@ -155,7 +155,6 @@
     <ClInclude Include="Identifier.h" />
     <ClInclude Include="NamedReference.h" />
     <ClInclude Include="OperationSyntax.h" />
-    <ClInclude Include="Reducible.h" />
     <ClInclude Include="ReturnSyntax.h" />
     <ClInclude Include="Scalar.h" />
     <ClInclude Include="ScalarSyntax.h" />

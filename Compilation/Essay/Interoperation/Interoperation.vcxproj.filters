@@ -80,9 +80,6 @@
     <ClInclude Include="ReturnSyntax.h">
       <Filter>Syntax\ASTs\Statement</Filter>
     </ClInclude>
-    <ClInclude Include="Reducible.h">
-      <Filter>Syntax</Filter>
-    </ClInclude>
     <ClInclude Include="Variable.h">
       <Filter>Syntax</Filter>
     </ClInclude>
