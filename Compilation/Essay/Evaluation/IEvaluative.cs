@@ -8,6 +8,6 @@ namespace Dominion.Compilation.Essay.Evaluation
 {
   public interface IEvaluative
   {
-    Scalar Reduce(IBaseContext context);
+    Scalar Reduce(Context context);
   }
 }

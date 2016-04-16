@@ -89,9 +89,6 @@
     <ClInclude Include="NamedReference.h">
       <Filter>Syntax</Filter>
     </ClInclude>
-    <ClInclude Include="BaseContext.h">
-      <Filter>Syntax</Filter>
-    </ClInclude>
     <ClInclude Include="AbstractSyntaxTree.h">
       <Filter>Syntax</Filter>
     </ClInclude>

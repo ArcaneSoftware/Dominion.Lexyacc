@@ -19,7 +19,7 @@ namespace Dominion.Compilation.Essay.Evaluation
       set;
     }
 
-    Scalar IEvaluative.Reduce(IBaseContext context)
+    Scalar IEvaluative.Reduce(Context context)
     {
       var identifier = new Identifier
       {
