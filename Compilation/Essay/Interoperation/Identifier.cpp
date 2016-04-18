@@ -44,6 +44,14 @@ Identifier::Identifier(String^ fullName)
   }
 }
 
+
+Identifier::Identifier(Namespace^ liveNamespace, String^ name) :
+  _liveNamespace(liveNamespace),
+  _name(name)
+{
+
+}
+
 Identifier::~Identifier()
 {
 }

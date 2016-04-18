@@ -5,7 +5,7 @@
 //*******************************************************************************************************************//
 #pragma once
 
-#include "Dominion/Compilation/Syntax/Namespace.h"
+#include "Dominion/Compilation/Syntax/Identifier.h"
 
 BEGIN_DOMINION_COMPILATION_SYNTAX
 //*****************************************************************************************************************//
@@ -54,9 +54,9 @@ public:
   {
   }
   //{
-  virtual wstring Naming() const
+  virtual CIdentifier GetIdentifier() const
   {
-    return NSTR;
+    return CIdentifier();
   }
   //}
   CLASS_PROPERTY(TESyntaxType, _syntaxType, SyntaxType);

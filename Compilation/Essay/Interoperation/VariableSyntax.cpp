@@ -32,3 +32,8 @@ void VariableSyntax::Name::set(String^ value)
 {
   _name = value;
 }
+
+Identifier^ VariableSyntax::GetIdentifier()
+{
+  return gcnew Identifier(LiveNamespace, Name);
+}

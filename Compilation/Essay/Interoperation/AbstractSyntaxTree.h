@@ -77,6 +77,8 @@ public:
     void set(Namespace^ value);
   }
 
+  virtual Identifier^ GetIdentifier();
+
 private:
   SyntaxTypeEnum _syntaxType;
   int32_t _liveLine;

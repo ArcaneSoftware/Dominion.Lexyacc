@@ -29,6 +29,8 @@ public:
     void set(String^ value);
   }
 
+  Identifier^ GetIdentifier() override;
+
 private:
   String^ _name;
 };

@@ -40,6 +40,11 @@ CFunctionSyntax::~CFunctionSyntax()
 {
 }
 
+CIdentifier CFunctionSyntax::GetIdentifier() const
+{
+  return CIdentifier(GetLiveNamespace(), _name);
+}
+
 C_FUNCTION_SYNTAX& CFunctionSyntax::operator=(C_FUNCTION_SYNTAX& that)
 {
   CAbstractSyntaxTree<ESyntaxType>::operator=(that);

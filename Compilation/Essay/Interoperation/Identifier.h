@@ -22,6 +22,7 @@ public:
 public:
   Identifier();
   Identifier(String^ fullName);
+  Identifier(Namespace^ liveNamespace, String^ name);
   ~Identifier();
 protected:
   !Identifier();

@@ -59,3 +59,8 @@ void AbstractSyntaxTree::LiveNamespace::set(Namespace^ value)
 {
   _liveNamespace = value;
 }
+
+Identifier^ AbstractSyntaxTree::GetIdentifier()
+{
+  return gcnew Identifier();
+}

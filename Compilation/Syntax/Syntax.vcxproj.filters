@@ -20,7 +20,6 @@
     <ClInclude Include="Namespace.h" />
     <ClInclude Include="Identifier.h" />
     <ClInclude Include="NamedReference.h" />
-    <ClInclude Include="BaseContext.h" />
     <ClInclude Include="Function.h" />
     <ClInclude Include="VariableType.h" />
   </ItemGroup>

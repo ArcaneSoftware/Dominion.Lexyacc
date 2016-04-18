@@ -35,6 +35,8 @@ public:
     void set(int32_t value);
   }
 
+  Identifier^ GetIdentifier() override;
+
 private:
   String^ _name;
   int32_t _argumentChainID;

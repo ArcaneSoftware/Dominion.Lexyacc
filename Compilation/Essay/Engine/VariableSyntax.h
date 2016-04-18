@@ -24,6 +24,8 @@ public:
   CVariableSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, WSTRING& name);
   virtual ~CVariableSyntax();
 
+  virtual CIdentifier GetIdentifier() const override;
+
   CLASS_PROPERTY(wstring, _name, Name);
 
   C_VARIABLE_SYNTAX& operator=(C_VARIABLE_SYNTAX& that);

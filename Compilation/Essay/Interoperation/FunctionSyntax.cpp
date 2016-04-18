@@ -43,3 +43,8 @@ void FunctionSyntax::ArgumentChainID::set(int32_t value)
 {
   _argumentChainID = value;
 }
+
+Identifier^ FunctionSyntax::GetIdentifier()
+{
+  return gcnew Identifier(LiveNamespace, Name);
+}

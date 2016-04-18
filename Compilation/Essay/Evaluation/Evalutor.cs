@@ -8,7 +8,7 @@ namespace Dominion.Compilation.Essay.Evaluation
 {
   public class Evalutor
   {
-    public IEvaluative Create(int id, Context context)
+    public static IEvaluative CREATE(int id, Context context)
     {
       var syntax = context.GetSyntax(id);
 

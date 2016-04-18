@@ -9,7 +9,6 @@
 #include "Dominion/Compilation/Syntax/Failure.h"
 #include "Dominion/Compilation/Syntax/Scalar.h"
 #include "Dominion/Compilation/Syntax/AbstractSyntaxTree.h"
-#include "Dominion/Compilation/Syntax/BaseContext.h"
 #include "Dominion/Compilation/Syntax/Namespace.h"
 #include "Dominion/Compilation/Syntax/Identifier.h"
 #include "Dominion/Compilation/Syntax/Variable.h"

@@ -41,8 +41,8 @@ public:
   AbstractSyntaxTree^ GetSyntax(int32_t index);
   Variable^ GetVariable(String^ identifier);
   Variable^ GetVariable(Identifier^ identifier);
-  void SetVariableValue(String^ identifier, int32_t valueID);
-  void SetVariableValue(Identifier^ identifier, int32_t valueID);
+  bool SetVariableValue(String^ identifier, int32_t valueID);
+  bool SetVariableValue(Identifier^ identifier, int32_t valueID);
 
   property int32_t EntryIndex
   {

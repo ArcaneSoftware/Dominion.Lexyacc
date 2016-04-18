@@ -24,6 +24,8 @@ public:
   CFunctionSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, WSTRING& name, int32_t argumentID);
   virtual ~CFunctionSyntax();
 
+  virtual CIdentifier GetIdentifier() const override;
+
   CLASS_PROPERTY(wstring, _name, Name);
   CLASS_PROPERTY(int32_t, _argumentChainID, ArgumentChainID);
 

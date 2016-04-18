@@ -28,7 +28,7 @@ namespace Dominion.Compilation.Essay.Evaluation
       };
       var varible = context.GetVariable(identifier);
 
-      return Create(varible.RealValueID, context).Reduce(context);
+      return CREATE(varible.RealValueID, context).Reduce(context);
     }
   }
 }

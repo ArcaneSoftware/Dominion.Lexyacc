@@ -159,17 +159,17 @@ Variable^ Context::GetVariable(Identifier^ identifier)
   return Variable::CREATE(nVariable);
 }
 
-void Context::SetVariableValue(String^ identifier, int32_t valueID)
+bool Context::SetVariableValue(String^ identifier, int32_t valueID)
 {
   wchar_t wcsName[256] = { 0 };
   CLIString::CLIToNative(identifier, wcsName);
 
-  _context->SetVariableValue(wcsName, valueID);
+  return _context->SetVariableValue(wcsName, valueID);
 }
 
-void Context::SetVariableValue(Identifier^ identifier, int32_t valueID)
+bool Context::SetVariableValue(Identifier^ identifier, int32_t valueID)
 {
-  SetVariableValue(identifier->ToString(), valueID);
+  return SetVariableValue(identifier->ToString(), valueID);
 }
 
 int32_t Context::EntryIndex::get()

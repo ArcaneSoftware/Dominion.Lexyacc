@@ -36,6 +36,11 @@ CVariableSyntax::~CVariableSyntax()
 {
 }
 
+CIdentifier CVariableSyntax::GetIdentifier() const
+{
+  return CIdentifier(GetLiveNamespace(), _name);
+}
+
 C_VARIABLE_SYNTAX& CVariableSyntax::operator=(C_VARIABLE_SYNTAX& that)
 {
   CAbstractSyntaxTree<ESyntaxType>::operator=(that);

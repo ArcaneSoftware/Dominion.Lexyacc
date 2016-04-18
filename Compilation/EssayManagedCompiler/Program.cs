@@ -20,7 +20,8 @@ namespace EssayManagedCompiler
       var context = engine.Start(file, false);
 
       var a = context.GetVariable("Business.Main.cust");
-      a.RealValueID = 90;
+
+      context.SetVariableValue("Business.Main.cust", 90);
 
       var aa = context.GetVariable("Business.Main.cust");
 
