@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Syntax">
+      <UniqueIdentifier>{6bd0be50-9467-4076-a3a9-5fcd4ca63be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax\ASTs">
+      <UniqueIdentifier>{e9a92137-1da3-4591-ad77-bd22a424e97f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax\ASTs\Composition">
+      <UniqueIdentifier>{51fbae24-8029-4524-aa43-5c6ab84beb6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax\ASTs\Reference">
+      <UniqueIdentifier>{9c02b6d3-9541-4151-8e26-0877683c1b2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax\Elementary">
+      <UniqueIdentifier>{a9227375-a03d-462f-87e5-6f702d317850}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Syntax\ASTs\Statement">
+      <UniqueIdentifier>{e64ff9f8-1c6f-43ee-b69c-20fce732c490}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{f3f51879-23e7-453c-8d6d-fc9d35746609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\LexYacc">
+      <UniqueIdentifier>{489c3a3a-30e5-4c96-a7b7-3a87c3540227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Production">
+      <UniqueIdentifier>{e1c85865-555c-4c4d-b239-bdbf91950f13}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GrammarEnum.cpp">
+      <Filter>Syntax</Filter>
+    </ClCompile>
+    <ClCompile Include="Context.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
+    <ClCompile Include="ChainSyntax.cpp">
+      <Filter>Syntax\ASTs\Composition</Filter>
+    </ClCompile>
+    <ClCompile Include="OperationSyntax.cpp">
+      <Filter>Syntax\ASTs\Composition</Filter>
+    </ClCompile>
+    <ClCompile Include="ScalarSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="VariableSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionSyntax.cpp">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="AssignVariableSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="DefineFunctionSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="DefineVariableSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="DuplicationValidator.cpp">
+      <Filter>Engine\Production</Filter>
+    </ClCompile>
+    <ClCompile Include="NamingStack.cpp">
+      <Filter>Engine\Production</Filter>
+    </ClCompile>
+    <ClCompile Include="NoneSyntaxValidator.cpp">
+      <Filter>Engine\Production</Filter>
+    </ClCompile>
+    <ClCompile Include="NullOperationValidator.cpp">
+      <Filter>Engine\Production</Filter>
+    </ClCompile>
+    <ClCompile Include="Producer.cpp">
+      <Filter>Engine\Production</Filter>
+    </ClCompile>
+    <ClCompile Include="UndefinedReferenceValidator.cpp">
+      <Filter>Engine\Production</Filter>
+    </ClCompile>
+    <ClCompile Include="Parser.yy.cpp">
+      <Filter>Engine\LexYacc</Filter>
+    </ClCompile>
+    <ClCompile Include="Scanner.cpp">
+      <Filter>Engine\LexYacc</Filter>
+    </ClCompile>
+    <ClCompile Include="Scanner.ll.cpp">
+      <Filter>Engine\LexYacc</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ReturnSyntax.cpp">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClCompile>
+    <ClCompile Include="SyntaxType.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GrammarEnum.h">
+      <Filter>Syntax</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependence.h" />
+    <ClInclude Include="Context.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="Elementary.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="ChainSyntax.h">
+      <Filter>Syntax\ASTs\Composition</Filter>
+    </ClInclude>
+    <ClInclude Include="OperationSyntax.h">
+      <Filter>Syntax\ASTs\Composition</Filter>
+    </ClInclude>
+    <ClInclude Include="ScalarSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="ASTs.h">
+      <Filter>Syntax\ASTs</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionSyntax.h">
+      <Filter>Syntax\ASTs\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="AssignVariableSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="DefineFunctionSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="DefineVariableSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="DuplicationValidator.h">
+      <Filter>Engine\Production</Filter>
+    </ClInclude>
+    <ClInclude Include="NamingStack.h">
+      <Filter>Engine\Production</Filter>
+    </ClInclude>
+    <ClInclude Include="NoneSyntaxValidator.h">
+      <Filter>Engine\Production</Filter>
+    </ClInclude>
+    <ClInclude Include="NullOperationValidator.h">
+      <Filter>Engine\Production</Filter>
+    </ClInclude>
+    <ClInclude Include="Producer.h">
+      <Filter>Engine\Production</Filter>
+    </ClInclude>
+    <ClInclude Include="UndefinedReferenceValidator.h">
+      <Filter>Engine\Production</Filter>
+    </ClInclude>
+    <ClInclude Include="Validators.h">
+      <Filter>Engine\Production</Filter>
+    </ClInclude>
+    <ClInclude Include="location.hh">
+      <Filter>Engine\LexYacc</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser.yy.h">
+      <Filter>Engine\LexYacc</Filter>
+    </ClInclude>
+    <ClInclude Include="position.hh">
+      <Filter>Engine\LexYacc</Filter>
+    </ClInclude>
+    <ClInclude Include="Scanner.h">
+      <Filter>Engine\LexYacc</Filter>
+    </ClInclude>
+    <ClInclude Include="stack.hh">
+      <Filter>Engine\LexYacc</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ReturnSyntax.h">
+      <Filter>Syntax\ASTs\Statement</Filter>
+    </ClInclude>
+    <ClInclude Include="SyntaxType.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FixFiles.cmd">
+      <Filter>Engine\LexYacc</Filter>
+    </None>
+    <None Include="Parser.yy">
+      <Filter>Engine\LexYacc</Filter>
+    </None>
+    <None Include="Scanner.ll">
+      <Filter>Engine\LexYacc</Filter>
+    </None>
+  </ItemGroup>
+</Project>

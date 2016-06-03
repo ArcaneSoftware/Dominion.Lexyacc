@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CLI">
+      <UniqueIdentifier>{a86e0ceb-2d5e-4003-8bd6-200400b667ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Native">
+      <UniqueIdentifier>{54f1ed1d-9960-4781-83c2-f1bbaee3ea47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Native\Types">
+      <UniqueIdentifier>{140269ab-a46f-4390-82b8-74cc03803a6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Native\Failure">
+      <UniqueIdentifier>{8d3386d8-5cfa-4741-9208-a2e912a922aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Native\IO">
+      <UniqueIdentifier>{53d2b8c2-f052-450e-9a82-4d8ce670a177}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractMethodException.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="CaughtException.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="CLIString.h">
+      <Filter>CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="Bool.h">
+      <Filter>Native\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Failure.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyStringException.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="ExceedMemoryException.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="Case.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>Native\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="FilePath.h">
+      <Filter>Native\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="FileStream.h">
+      <Filter>Native\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="FileStreamException.h">
+      <Filter>Native\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="InexistentKeyException.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="Integer.h">
+      <Filter>Native\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="InvokingException.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="NullException.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="NumericInfo.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="SubscriptOverflowException.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>Native\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Selector.h">
+      <Filter>Native\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="SubjectFileStream.h">
+      <Filter>Native\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="SubjectPersisting.h">
+      <Filter>Native\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="Troublespot.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="ZeroException.h">
+      <Filter>Native\Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Native\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom.h">
+      <Filter>Native</Filter>
+    </ClInclude>
+    <ClInclude Include="Base.h">
+      <Filter>Native</Filter>
+    </ClInclude>
+    <ClInclude Include="Comparable.h">
+      <Filter>Native</Filter>
+    </ClInclude>
+    <ClInclude Include="Filterable.h">
+      <Filter>Native</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Native</Filter>
+    </ClInclude>
+    <ClInclude Include="Observed.h">
+      <Filter>Native</Filter>
+    </ClInclude>
+    <ClInclude Include="Precompiled.h">
+      <Filter>Native</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Native</Filter>
+    </ClInclude>
+    <ClInclude Include="Standard.h">
+      <Filter>Native</Filter>
+    </ClInclude>
+    <ClInclude Include="StringBuilder.h">
+      <Filter>Native</Filter>
+    </ClInclude>
+    <ClInclude Include="StringTemplate.h">
+      <Filter>Native</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AbstractMethodException.cpp">
+      <Filter>Native\Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="CaughtException.cpp">
+      <Filter>Native\Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="CLIString.cpp">
+      <Filter>CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="Bool.cpp">
+      <Filter>Native\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="EmptyStringException.cpp">
+      <Filter>Native\Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="ExceedMemoryException.cpp">
+      <Filter>Native\Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>Native\Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="Case.cpp">
+      <Filter>Native\Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="FilePath.cpp">
+      <Filter>Native\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="FileStream.cpp">
+      <Filter>Native\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="FileStreamException.cpp">
+      <Filter>Native\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="InvokingException.cpp">
+      <Filter>Native\Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="SubscriptOverflowException.cpp">
+      <Filter>Native\Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="Troublespot.cpp">
+      <Filter>Native\Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="ZeroException.cpp">
+      <Filter>Native\Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom.cpp">
+      <Filter>Native</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Native</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Native</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
