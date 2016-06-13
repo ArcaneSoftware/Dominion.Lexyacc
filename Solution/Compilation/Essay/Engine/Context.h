@@ -6,7 +6,7 @@
 #pragma once
 
 #include "Compilation/Essay/Engine/Dependence.h"
-#include "Compilation/Essay/Engine/SyntaxType.h"
+#include "Compilation/Essay/Engine/Contextual.h"
 
 BEGIN_DOMINION_COMPILATION_ESSAY
 typedef function<wstring(WSTRING&)> FToContextKey;
@@ -15,7 +15,8 @@ typedef function<wstring(WSTRING&)> FToContextKey;
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CContext, C_CONTEXT);
-class LIBRARY_EXPORT CContext : public CObject
+class LIBRARY_EXPORT CContext : public CObject,
+  public IContextual<ESyntaxType>
 {
 public:
   static wstring DEFAULT_TO_KEY(WSTRING& input);
@@ -31,25 +32,17 @@ public:
   virtual ~CContext();
 
 public:
-  void DefineVariable(EAccessType access,
-                      C_NAMESPACE& liveNamespace, WSTRING& name,
-                      int32_t initialValueID);
-  void DefineFunction(EAccessType access,
-                      C_NAMESPACE& liveNamespace,
-                      WSTRING& name,
-                      int32_t parameterChainID,
-                      int32_t blockID);
-  bool HasDefinedIdentifier(WSTRING& fullName, EIdentifierType identifierType) const;
-  bool HasDefinedIdentifier(C_NAMESPACE& liveNamespace,
-                            WSTRING& name,
-                            EIdentifierType identifierType) const;
-  bool ExistSyntax(int32_t syntaxID) const;
-  shared_ptr<CAbstractSyntaxTree<ESyntaxType>> GetSyntax(int32_t id) const;
-  int32_t AppendSyntax(CAbstractSyntaxTree<ESyntaxType>* syntax);
-  CVariable GetVariable(WSTRING& identifier) const;
-  CVariable GetVariable(C_IDENTIFIER& identifier) const;
-  bool SetVariableValue(WSTRING& identifier, int valueID);
-  bool SetVariableValue(C_IDENTIFIER& identifier, int valueID);
+  virtual void DefineVariable(EAccessType access, C_NAMESPACE& liveNamespace, WSTRING& name, int32_t initialValueID) override;
+  virtual void DefineFunction(EAccessType access, C_NAMESPACE& liveNamespace, WSTRING& name, int32_t parameterChainID, int32_t blockID) override;
+  virtual bool HasDefinedIdentifier(WSTRING& fullName, EIdentifierType identifierType) const;
+  virtual bool HasDefinedIdentifier(C_NAMESPACE& liveNamespace, WSTRING& name, EIdentifierType identifierType) const;
+  virtual bool ExistSyntax(int32_t syntaxID) const override;
+  virtual shared_ptr<CAbstractSyntaxTree<ESyntaxType>> GetSyntax(int32_t id) const override;
+  virtual int32_t AppendSyntax(CAbstractSyntaxTree<ESyntaxType>* syntax) override;
+  virtual CVariable GetVariable(WSTRING& identifier) const override;
+  virtual CVariable GetVariable(C_IDENTIFIER& identifier) const override;
+  virtual bool SetVariableValue(WSTRING& identifier, int valueID) override;
+  virtual bool SetVariableValue(C_IDENTIFIER& identifier, int valueID) override;
 
 public:
   CLASS_PROPERTY(map<wstring _COMMA CVariable>, _variableMap, VariableMap);

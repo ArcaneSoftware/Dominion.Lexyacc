@@ -13,20 +13,15 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CDefineVariableSyntax, C_DEFINE_VARIABLE_SYNTAX);
-class LIBRARY_EXPORT CDefineVariableSyntax : public CAbstractSyntaxTree<ESyntaxType>
+class LIBRARY_EXPORT CDefineVariableSyntax : public CBaseSyntax
 {
 public:
-  CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, CDefineVariableSyntax);
+  CLASS_INHERITOR(CBaseSyntax, CDefineVariableSyntax);
 
   CDefineVariableSyntax();
   CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX& that);
   CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX&& that);
-  CDefineVariableSyntax(int32_t liveLine,
-                        C_NAMESPACE& liveNamespace,
-                        EAccessType access,
-                        EVariableType variableType,
-                        WSTRING& name,
-                        int32_t initialValueID);
+  CDefineVariableSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, EAccessType access, EVariableType variableType, WSTRING& name, int32_t initialValueID);
   virtual ~CDefineVariableSyntax();
 
   CLASS_PROPERTY(EAccessType, _accessType, AccessType);

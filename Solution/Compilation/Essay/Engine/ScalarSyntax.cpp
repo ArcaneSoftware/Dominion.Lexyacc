@@ -10,24 +10,24 @@ using namespace Dominion::Compilation::Essay;
 //CScalarSyntax
 //*******************************************************************************************************************//
 CScalarSyntax::CScalarSyntax() :
-  CAbstractSyntaxTree<ESyntaxType>(ESyntaxType::Scalar)
+  CBaseSyntax(ESyntaxType::Scalar)
 {
 }
 
 CScalarSyntax::CScalarSyntax(C_SCALAR_SYNTAX& that) :
-  CAbstractSyntaxTree<ESyntaxType>(that),
+  CBaseSyntax(that),
   _value(that._value)
 {
 }
 
 CScalarSyntax::CScalarSyntax(C_SCALAR_SYNTAX&& that) :
-  CAbstractSyntaxTree<ESyntaxType>(that),
+  CBaseSyntax(that),
   _value(move(that._value))
 {
 }
 
 CScalarSyntax::CScalarSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, C_SCALAR& value) :
-  CAbstractSyntaxTree<ESyntaxType>(ESyntaxType::Scalar, liveLine, liveNamespace),
+  CBaseSyntax(ESyntaxType::Scalar, liveLine, liveNamespace),
   _value(value)
 {
 }
@@ -48,7 +48,7 @@ EScalarType CScalarSyntax::GetScalarType() const
 
 C_SCALAR_SYNTAX& CScalarSyntax::operator=(C_SCALAR_SYNTAX& that)
 {
-  CAbstractSyntaxTree<ESyntaxType>::operator=(that);
+  CBaseSyntax::operator=(that);
 
   _value = that._value;
 

@@ -10,13 +10,13 @@ using namespace Dominion::Compilation::Essay;
 //CDefineVariableSyntax
 //*******************************************************************************************************************//
 CDefineVariableSyntax::CDefineVariableSyntax() :
-  CAbstractSyntaxTree<ESyntaxType>(ESyntaxType::DefineVariable),
+  CBaseSyntax(ESyntaxType::DefineVariable),
   _initialValueID(NONE_ID)
 {
 }
 
 CDefineVariableSyntax::CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX& that) :
-  CAbstractSyntaxTree<ESyntaxType>(that),
+  CBaseSyntax(that),
   _accessType(that._accessType),
   _variableType(that._variableType),
   _name(that._name),
@@ -25,7 +25,7 @@ CDefineVariableSyntax::CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX& that) :
 }
 
 CDefineVariableSyntax::CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX&& that) :
-  CAbstractSyntaxTree<ESyntaxType>(that),
+  CBaseSyntax(that),
   _accessType(move(that._accessType)),
   _variableType(move(that._variableType)),
   _name(move(that._name)),
@@ -33,13 +33,8 @@ CDefineVariableSyntax::CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX&& that) :
 {
 }
 
-CDefineVariableSyntax::CDefineVariableSyntax(int32_t liveLine,
-                                             C_NAMESPACE& liveNamespace,
-                                             EAccessType access,
-                                             EVariableType variableType,
-                                             WSTRING& name,
-                                             int32_t initialValueID) :
-  CAbstractSyntaxTree<ESyntaxType>(ESyntaxType::DefineVariable, liveLine, liveNamespace),
+CDefineVariableSyntax::CDefineVariableSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, EAccessType access, EVariableType variableType, WSTRING& name, int32_t initialValueID) :
+  CBaseSyntax(ESyntaxType::DefineVariable, liveLine, liveNamespace),
   _accessType(access),
   _variableType(variableType),
   _name(name),
@@ -53,7 +48,7 @@ CDefineVariableSyntax::~CDefineVariableSyntax()
 
 C_DEFINE_VARIABLE_SYNTAX& CDefineVariableSyntax::operator=(C_DEFINE_VARIABLE_SYNTAX& that)
 {
-  CAbstractSyntaxTree<ESyntaxType>::operator=(that);
+  CBaseSyntax::operator=(that);
 
   _accessType = that._accessType;
   _variableType = that._variableType;

@@ -13,20 +13,15 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CDefineFunctionSyntax, C_DEFINE_FUNCTION_SYNTAX);
-class LIBRARY_EXPORT CDefineFunctionSyntax : public CAbstractSyntaxTree<ESyntaxType>
+class LIBRARY_EXPORT CDefineFunctionSyntax : public CBaseSyntax
 {
 public:
-  CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, CDefineFunctionSyntax);
+  CLASS_INHERITOR(CBaseSyntax, CDefineFunctionSyntax);
 
   CDefineFunctionSyntax();
   CDefineFunctionSyntax(C_DEFINE_FUNCTION_SYNTAX& that);
   CDefineFunctionSyntax(C_DEFINE_FUNCTION_SYNTAX&& that);
-  CDefineFunctionSyntax(int32_t liveLine,
-                        C_NAMESPACE& liveNamespace,
-                        EAccessType accessType,
-                        WSTRING& name,
-                        int32_t parameterChainID,
-                        int32_t blockID);
+  CDefineFunctionSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, EAccessType accessType, WSTRING& name, int32_t parameterChainID, int32_t blockID);
   virtual ~CDefineFunctionSyntax();
 
   CLASS_PROPERTY(EAccessType, _accessType, AccessType);

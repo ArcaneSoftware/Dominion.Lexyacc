@@ -13,19 +13,15 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(COperationSyntax, C_OPERATION_SYNTAX);
-class LIBRARY_EXPORT COperationSyntax : public CAbstractSyntaxTree<ESyntaxType>
+class LIBRARY_EXPORT COperationSyntax : public CBaseSyntax
 {
 public:
-  CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, COperationSyntax);
+  CLASS_INHERITOR(CBaseSyntax, COperationSyntax);
 
   COperationSyntax();
   COperationSyntax(C_OPERATION_SYNTAX& that);
   COperationSyntax(C_OPERATION_SYNTAX&& that);
-  COperationSyntax(int32_t liveLine,
-                   C_NAMESPACE& liveNamespace,
-                   int32_t leftOperandID,
-                   EOperationType operationType,
-                   int32_t rightOperandID);
+  COperationSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, int32_t leftOperandID, EOperationType operationType, int32_t rightOperandID);
   virtual ~COperationSyntax();
 
   CLASS_PROPERTY(EOperationType, _operationType, OperationType);

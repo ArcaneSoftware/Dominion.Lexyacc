@@ -13,7 +13,7 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CVariableSyntax, C_VARIABLE_SYNTAX);
-class LIBRARY_EXPORT CVariableSyntax : public CAbstractSyntaxTree<ESyntaxType>
+class LIBRARY_EXPORT CVariableSyntax : public CBaseSyntax
 {
 public:
   CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, CVariableSyntax);

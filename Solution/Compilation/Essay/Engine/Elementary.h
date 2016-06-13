@@ -7,4 +7,5 @@
 
 #include "Compilation/Essay/Engine/GrammarEnum.h"
 #include "Compilation/Essay/Engine/SyntaxType.h"
+#include "Compilation/Essay/Engine/BaseSyntax.h"
 #include "Compilation/Essay/Engine/Context.h"

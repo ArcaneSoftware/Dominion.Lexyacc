@@ -10,27 +10,27 @@ using namespace Dominion::Compilation::Essay;
 //CFunctionSyntax
 //*******************************************************************************************************************//
 CFunctionSyntax::CFunctionSyntax() :
-  CAbstractSyntaxTree<ESyntaxType>(ESyntaxType::Function),
+  CBaseSyntax(ESyntaxType::Function),
   _argumentChainID(NONE_ID)
 {
 }
 
 CFunctionSyntax::CFunctionSyntax(C_FUNCTION_SYNTAX& that) :
-  CAbstractSyntaxTree<ESyntaxType>(that),
+  CBaseSyntax(that),
   _name(that._name),
   _argumentChainID(that._argumentChainID)
 {
 }
 
 CFunctionSyntax::CFunctionSyntax(C_FUNCTION_SYNTAX&& that) :
-  CAbstractSyntaxTree<ESyntaxType>(that),
+  CBaseSyntax(that),
   _name(move(that._name)),
   _argumentChainID(move(that._argumentChainID))
 {
 }
 
 CFunctionSyntax::CFunctionSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, WSTRING& name, int32_t argumentChainID) :
-  CAbstractSyntaxTree<ESyntaxType>(ESyntaxType::Function, liveLine, liveNamespace),
+  CBaseSyntax(ESyntaxType::Function, liveLine, liveNamespace),
   _name(name),
   _argumentChainID(argumentChainID)
 {
@@ -47,7 +47,7 @@ CIdentifier CFunctionSyntax::GetIdentifier() const
 
 C_FUNCTION_SYNTAX& CFunctionSyntax::operator=(C_FUNCTION_SYNTAX& that)
 {
-  CAbstractSyntaxTree<ESyntaxType>::operator=(that);
+  CBaseSyntax::operator=(that);
 
   _name = that._name;
   _argumentChainID = that._argumentChainID;

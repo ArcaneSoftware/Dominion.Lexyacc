@@ -99,6 +99,9 @@
     <ClCompile Include="SyntaxType.cpp">
       <Filter>Syntax\Elementary</Filter>
     </ClCompile>
+    <ClCompile Include="BaseSyntax.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GrammarEnum.h">
@@ -184,6 +187,12 @@
       <Filter>Syntax\ASTs\Statement</Filter>
     </ClInclude>
     <ClInclude Include="SyntaxType.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSyntax.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="Contextual.h">
       <Filter>Syntax\Elementary</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,10 +13,10 @@ BEGIN_DOMINION_COMPILATION_ESSAY
 //
 //*****************************************************************************************************************//
 CLASS_DECLARATION(CScalarSyntax, C_SCALAR_SYNTAX);
-class LIBRARY_EXPORT CScalarSyntax : public CAbstractSyntaxTree<ESyntaxType>
+class LIBRARY_EXPORT CScalarSyntax : public CBaseSyntax
 {
 public:
-  CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, CScalarSyntax);
+  CLASS_INHERITOR(CBaseSyntax, CScalarSyntax);
 
   CScalarSyntax();
   CScalarSyntax(C_SCALAR_SYNTAX& that);
@@ -26,6 +26,8 @@ public:
 
   bool IsNil() const;
   EScalarType GetScalarType() const;
+
+  //CScalar Reduce(CContext context);
 
   CLASS_PROPERTY(CScalar, _value, Value);
 
