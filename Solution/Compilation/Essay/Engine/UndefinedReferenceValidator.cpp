@@ -1,14 +1,14 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #include "UndefinedReferenceValidator.h"
 
 using namespace Dominion::Compilation::Essay;
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //CUndefinedReferenceValidator
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 CUndefinedReferenceValidator::CUndefinedReferenceValidator()
 {
 }
@@ -27,10 +27,7 @@ CUndefinedReferenceValidator::~CUndefinedReferenceValidator()
 {
 }
 
-bool CUndefinedReferenceValidator::ValidateReference(C_NAMESPACE& referenceLiveNamespace,
-                                                     WSTRING& referenceName,
-                                                     EIdentifierType referenceIdentifierType,
-                                                     C_CONTEXT& context) const
+bool CUndefinedReferenceValidator::ValidateReference(C_NAMESPACE& referenceLiveNamespace, WSTRING& referenceName, EIdentifierType referenceIdentifierType, C_CONTEXT& context) const
 {
   auto referenceIdentifier = CIdentifier(referenceName);
   CNamespace syntaxLiveNamespace;

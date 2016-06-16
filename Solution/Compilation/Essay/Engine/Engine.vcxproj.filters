@@ -30,9 +30,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GrammarEnum.cpp">
-      <Filter>Syntax</Filter>
-    </ClCompile>
     <ClCompile Include="Context.cpp">
       <Filter>Syntax\Elementary</Filter>
     </ClCompile>
@@ -96,10 +93,13 @@
     <ClCompile Include="ReturnSyntax.cpp">
       <Filter>Syntax\ASTs\Statement</Filter>
     </ClCompile>
-    <ClCompile Include="SyntaxType.cpp">
+    <ClCompile Include="ReducibleSyntax.cpp">
       <Filter>Syntax\Elementary</Filter>
     </ClCompile>
-    <ClCompile Include="BaseSyntax.cpp">
+    <ClCompile Include="Variable.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
+    <ClCompile Include="Function.cpp">
       <Filter>Syntax\Elementary</Filter>
     </ClCompile>
   </ItemGroup>
@@ -189,10 +189,16 @@
     <ClInclude Include="SyntaxType.h">
       <Filter>Syntax\Elementary</Filter>
     </ClInclude>
-    <ClInclude Include="BaseSyntax.h">
+    <ClInclude Include="ReducibleSyntax.h">
       <Filter>Syntax\Elementary</Filter>
     </ClInclude>
     <ClInclude Include="Contextual.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="Variable.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="Function.h">
       <Filter>Syntax\Elementary</Filter>
     </ClInclude>
   </ItemGroup>

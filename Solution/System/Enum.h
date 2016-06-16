@@ -1,18 +1,18 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #pragma once
 
 #include "System/Object.h"
 #include "System/Comparable.h"
 
 BEGIN_DOMINION
-//*****************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //CEnum
 //
-//*****************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 template<typename TEnum>
 class LIBRARY_EXPORT CEnum : public CObject, public IComparable<CEnum<TEnum>>, public IComparable<TEnum>
 {
@@ -174,3 +174,13 @@ protected:
 };
 
 END_DOMINION
+
+#undef ENUM_CLASS_IMPLEMENT
+#define ENUM_CLASS_IMPLEMENT(CLASS_NAME, ENUM_TYPE) \
+  CLASS_NAME(){} \
+  CLASS_NAME(const CLASS_NAME& that) : CEnum(that) {} \
+  CLASS_NAME(const CLASS_NAME&& that) : CEnum(that) {} \
+  explicit CLASS_NAME(ENUM_TYPE value) : CEnum(value, STRING_TO_VALUE, VALUE_TO_STRING) {} \
+  explicit CLASS_NAME(WSTRING& valueString) : CEnum(valueString, STRING_TO_VALUE, VALUE_TO_STRING) {} \
+  virtual ~CLASS_NAME() {} \
+  const CLASS_NAME& operator=(const CLASS_NAME& that) {CEnum<ENUM_TYPE>::operator=(that); return *this;}

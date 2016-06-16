@@ -1,19 +1,19 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #pragma once
 
 #include "Compilation/Essay/Engine/Elementary.h"
 
 BEGIN_DOMINION_COMPILATION_ESSAY
-//*****************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //CVariableSyntax
 //
-//*****************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 CLASS_DECLARATION(CVariableSyntax, C_VARIABLE_SYNTAX);
-class LIBRARY_EXPORT CVariableSyntax : public CBaseSyntax
+class LIBRARY_EXPORT CVariableSyntax : public CReducibleSyntax
 {
 public:
   CLASS_INHERITOR(CAbstractSyntaxTree<ESyntaxType>, CVariableSyntax);
@@ -23,8 +23,10 @@ public:
   CVariableSyntax(C_VARIABLE_SYNTAX&& that);
   CVariableSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, WSTRING& name);
   virtual ~CVariableSyntax();
-
+  //{
   virtual CIdentifier GetIdentifier() const override;
+  virtual CScalar Reduce(IContextual<ESyntaxType, CReducibleSyntax>& context) const throw() override;
+  //}
 
   CLASS_PROPERTY(wstring, _name, Name);
 

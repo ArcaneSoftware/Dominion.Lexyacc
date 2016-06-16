@@ -1,15 +1,15 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #include "Producer.h"
 #include "Validators.h"
 
 using namespace Dominion::Compilation::Essay;
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //CProducer
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 CProducer::CProducer()
 {
 }
@@ -125,10 +125,7 @@ CProductor CProducer::MakeDefineVariable(C_DEFINE_VARIABLE_SYNTAX& syntax)
 
   if (result.GetSuccessed())
   {
-    _context.DefineVariable(syntax.GetAccessType(),
-                            syntax.GetLiveNamespace(),
-                            syntax.GetName(),
-                            syntax.GetInitialValueID());
+    _context.DefineVariable(syntax.GetAccessType(), syntax.GetLiveNamespace(), syntax.GetName(), syntax.GetInitialValueID());
   }
 
   return move(result);
@@ -155,11 +152,7 @@ CProductor CProducer::MakeDefineFunction(C_DEFINE_FUNCTION_SYNTAX& syntax)
 
   if (result.GetSuccessed())
   {
-    _context.DefineFunction(syntax.GetAccessType(),
-                            syntax.GetLiveNamespace(),
-                            syntax.GetName(),
-                            syntax.GetParameterChainID(),
-                            syntax.GetBlockID());
+    _context.DefineFunction(syntax.GetAccessType(), syntax.GetLiveNamespace(), syntax.GetName(), syntax.GetParameterChainID(), syntax.GetBlockID());
 
     if (syntax.GetName() == L"Main")
     {

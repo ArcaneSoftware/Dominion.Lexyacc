@@ -17,8 +17,9 @@ void F1()
     {
       auto c = engine.Run(ifs);
       auto context = engine.GetContext();
-
-      auto a = context.GetVariable(L"Business.a").IsAvailable();
+      auto entryID = context.GetEntryID();
+      auto entrySyntax = context.GetSyntax(entryID);
+      auto name = entrySyntax->GetIdentifier().ToString();
 
       for (int i = 0; i < context.GetSyntaxes().size(); i++)
       {

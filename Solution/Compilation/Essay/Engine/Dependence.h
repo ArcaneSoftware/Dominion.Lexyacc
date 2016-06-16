@@ -1,8 +1,8 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #pragma once
 
 #include "Compilation/Syntax/Dependence.h"
@@ -11,9 +11,8 @@
 #include "Compilation/Syntax/AbstractSyntaxTree.h"
 #include "Compilation/Syntax/Namespace.h"
 #include "Compilation/Syntax/Identifier.h"
-#include "Compilation/Syntax/Variable.h"
-#include "Compilation/Syntax/VariableType.h"
-#include "Compilation/Syntax/Function.h"
+#include "Compilation/Syntax/RowVariable.h"
+#include "Compilation/Syntax/RowFunction.h"
 #include "Compilation/Syntax/Error.h"
 #include "Compilation/Syntax/Productor.h"
 #include "Compilation/Syntax/ValidateProduction.h"

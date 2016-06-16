@@ -122,8 +122,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
 /* Line 35 of lalr1.cc  */
 #line 24 "./Parser.yy"
 
-  int64_t integer;
-  double decimal;
+  double numeric;
   wstring* litera;
   bool boolean;
   int32_t node;
@@ -131,7 +130,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
 
 
 /* Line 35 of lalr1.cc  */
-#line 135 "Parser.yy.h"
+#line 134 "Parser.yy.h"
     };
 #else
     typedef YYSTYPE semantic_type;
@@ -166,12 +165,11 @@ namespace Dominion { namespace Compilation { namespace Essay {
      Object = 277,
      Public = 278,
      Private = 279,
-     Integer = 280,
-     Decimal = 281,
-     Identifier = 282,
-     String = 283,
-     Boolean = 284,
-     UMINUS = 285
+     Numeric = 280,
+     Identifier = 281,
+     String = 282,
+     Boolean = 283,
+     UMINUS = 284
    };
 
     };
@@ -349,7 +347,7 @@ namespace Dominion { namespace Compilation { namespace Essay {
 } } } // Dominion::Compilation::Essay
 
 /* Line 35 of lalr1.cc  */
-#line 353 "Parser.yy.h"
+#line 351 "Parser.yy.h"
 
 
 

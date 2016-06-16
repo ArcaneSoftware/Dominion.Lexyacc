@@ -13,28 +13,51 @@
     <ClInclude Include="Productor.h" />
     <ClInclude Include="Scalar.h" />
     <ClInclude Include="ValidateProduction.h" />
-    <ClInclude Include="Variable.h" />
     <ClInclude Include="UnacceptableWordException.h">
       <Filter>Failure</Filter>
     </ClInclude>
     <ClInclude Include="Namespace.h" />
     <ClInclude Include="Identifier.h" />
     <ClInclude Include="NamedReference.h" />
-    <ClInclude Include="Function.h" />
-    <ClInclude Include="VariableType.h" />
+    <ClInclude Include="UnmatchedScalarTypeException.h">
+      <Filter>Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="NilScalarOperationException.h">
+      <Filter>Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="UnsupportedScalarOperationException.h">
+      <Filter>Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="OperationTypeEnum.h" />
+    <ClInclude Include="ZeroDivisorScalarExecption.h">
+      <Filter>Failure</Filter>
+    </ClInclude>
+    <ClInclude Include="RowVariable.h" />
+    <ClInclude Include="RowFunction.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Error.cpp" />
     <ClCompile Include="Productor.cpp" />
     <ClCompile Include="Scalar.cpp" />
-    <ClCompile Include="Variable.cpp" />
     <ClCompile Include="UnacceptableWordException.cpp">
       <Filter>Failure</Filter>
     </ClCompile>
     <ClCompile Include="Namespace.cpp" />
     <ClCompile Include="Identifier.cpp" />
     <ClCompile Include="NamedReference.cpp" />
-    <ClCompile Include="Function.cpp" />
-    <ClCompile Include="VariableType.cpp" />
+    <ClCompile Include="UnmatchedScalarTypeException.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="NilScalarOperationException.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="UnsupportedScalarOperationException.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="ZeroDivisorScalarExecption.cpp">
+      <Filter>Failure</Filter>
+    </ClCompile>
+    <ClCompile Include="RowVariable.cpp" />
+    <ClCompile Include="RowFunction.cpp" />
   </ItemGroup>
 </Project>

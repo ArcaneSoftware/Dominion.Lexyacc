@@ -1,17 +1,17 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #pragma once
 
 #include "Compilation/Syntax/Identifier.h"
 
 BEGIN_DOMINION_COMPILATION_SYNTAX
-//*****************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //CAbstractSyntaxTree
 //
-//*****************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 template<typename TESyntaxType>
 class LIBRARY_EXPORT CAbstractSyntaxTree : public CObject
 {
@@ -20,6 +20,7 @@ public:
   CLASS_INHERITOR(CObject, Class);
   typedef const TESyntaxType TE_SYNTAX_TYPE;
 
+protected:
   CAbstractSyntaxTree() :
     _liveLine(NONE_LINE)
   {
@@ -41,15 +42,14 @@ public:
   {
   }
 
-  explicit CAbstractSyntaxTree(TESyntaxType syntaxType,
-                               int32_t liveLine = NONE_LINE,
-                               C_NAMESPACE& liveNamespace = CNamespace()) :
+  explicit CAbstractSyntaxTree(TESyntaxType syntaxType, int32_t liveLine = NONE_LINE, C_NAMESPACE& liveNamespace = CNamespace()) :
     _syntaxType(syntaxType),
     _liveLine(liveLine),
     _liveNamespace(liveNamespace)
   {
   }
 
+public:
   virtual ~CAbstractSyntaxTree()
   {
   }

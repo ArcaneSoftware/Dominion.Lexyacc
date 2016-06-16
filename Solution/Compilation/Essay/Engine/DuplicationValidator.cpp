@@ -1,14 +1,14 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #include "DuplicationValidator.h"
 
 using namespace Dominion::Compilation::Essay;
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //CUndefinedReferenceValidator
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 CDuplicationValidator::CDuplicationValidator()
 {
 }
@@ -33,9 +33,7 @@ CError CDuplicationValidator::Validate(C_DEFINE_VARIABLE_SYNTAX& syntax, C_CONTE
 
   if (context.HasDefinedIdentifier(syntax.GetLiveNamespace(), syntax.GetName(), EIdentifierType::Variable))
   {
-    auto description = CWStringTemplate(L"Duplicated definition of variable:'%x.%x'").Format(
-                         syntax.GetLiveNamespace().ToString(),
-                         syntax.GetName());
+    auto description = CWStringTemplate(L"Duplicated definition of variable:'%x.%x'").Format(syntax.GetLiveNamespace().ToString(), syntax.GetName());
 
     result.SetSource(EErrorSource::Producing);
     result.SetLiveLine(syntax.GetLiveLine());

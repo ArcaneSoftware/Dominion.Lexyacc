@@ -146,7 +146,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AssignVariableSyntax.cpp" />
-    <ClCompile Include="BaseSyntax.cpp" />
+    <ClCompile Include="Function.cpp" />
+    <ClCompile Include="ReducibleSyntax.cpp" />
     <ClCompile Include="BlockSyntax.cpp" />
     <ClCompile Include="ChainSyntax.cpp" />
     <ClCompile Include="Context.cpp" />
@@ -155,7 +156,6 @@
     <ClCompile Include="DuplicationValidator.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FunctionSyntax.cpp" />
-    <ClCompile Include="GrammarEnum.cpp" />
     <ClCompile Include="NamingStack.cpp" />
     <ClCompile Include="NoneSyntaxValidator.cpp" />
     <ClCompile Include="NullOperationValidator.cpp" />
@@ -166,14 +166,15 @@
     <ClCompile Include="ScalarSyntax.cpp" />
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="Scanner.ll.cpp" />
-    <ClCompile Include="SyntaxType.cpp" />
     <ClCompile Include="UndefinedReferenceValidator.cpp" />
+    <ClCompile Include="Variable.cpp" />
     <ClCompile Include="VariableSyntax.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssignVariableSyntax.h" />
     <ClInclude Include="ASTs.h" />
-    <ClInclude Include="BaseSyntax.h" />
+    <ClInclude Include="Function.h" />
+    <ClInclude Include="ReducibleSyntax.h" />
     <ClInclude Include="BlockSyntax.h" />
     <ClInclude Include="ChainSyntax.h" />
     <ClInclude Include="Context.h" />
@@ -201,6 +202,7 @@
     <ClInclude Include="SyntaxType.h" />
     <ClInclude Include="UndefinedReferenceValidator.h" />
     <ClInclude Include="Validators.h" />
+    <ClInclude Include="Variable.h" />
     <ClInclude Include="VariableSyntax.h" />
   </ItemGroup>
   <ItemGroup>

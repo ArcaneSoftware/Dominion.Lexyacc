@@ -1,14 +1,14 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #include "Context.h"
 
 using namespace Dominion::Compilation::Essay;
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //CContext
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 wstring CContext::DEFAULT_TO_KEY(WSTRING& input)
 {
   return input;
@@ -61,11 +61,7 @@ void CContext::DefineVariable(EAccessType access, C_NAMESPACE& liveNamespace, WS
   _variableMap[_ToKey(identifier.ToString())] = CVariable(access, identifier, initialValueID, initialValueID);
 }
 
-void CContext::DefineFunction(EAccessType access,
-                              C_NAMESPACE& liveNamespace,
-                              WSTRING& name,
-                              int32_t parameterChainID,
-                              int32_t blockID)
+void CContext::DefineFunction(EAccessType access, C_NAMESPACE& liveNamespace, WSTRING& name, int32_t parameterChainID, int32_t blockID)
 {
   auto identifier = CIdentifier(liveNamespace, name);
 
@@ -103,7 +99,7 @@ bool CContext::ExistSyntax(int32_t syntaxID) const
   return syntaxID != NONE_ID && syntaxID < _syntaxes.size();
 }
 
-shared_ptr<CAbstractSyntaxTree<ESyntaxType>> CContext::GetSyntax(int32_t syntaxID) const
+shared_ptr<CReducibleSyntax> CContext::GetSyntax(int32_t syntaxID) const
 {
   if (ExistSyntax(syntaxID))
   {
@@ -111,13 +107,13 @@ shared_ptr<CAbstractSyntaxTree<ESyntaxType>> CContext::GetSyntax(int32_t syntaxI
   }
   else
   {
-    return shared_ptr<CAbstractSyntaxTree<ESyntaxType>>(nullptr);
+    return shared_ptr<CReducibleSyntax>(nullptr);
   }
 }
 
-int32_t CContext::AppendSyntax(CAbstractSyntaxTree<ESyntaxType>* syntax)
+int32_t CContext::AppendSyntax(CReducibleSyntax* syntax)
 {
-  _syntaxes.push_back(shared_ptr<CAbstractSyntaxTree<ESyntaxType>>(syntax));
+  _syntaxes.push_back(shared_ptr<CReducibleSyntax>(syntax));
 
   return _syntaxes.size() - 1;
 }
@@ -132,6 +128,18 @@ CVariable CContext::GetVariable(WSTRING& identifier) const
 CVariable CContext::GetVariable(C_IDENTIFIER& identifier) const
 {
   return GetVariable(identifier.ToString());
+}
+
+CFunction CContext::GetFunction(WSTRING & identifier) const
+{
+  auto iterator = _functionMap.find(identifier);
+
+  return iterator == _functionMap.end() ? move(CFunction()) : iterator->second;
+}
+
+CFunction CContext::GetFunction(C_IDENTIFIER & identifier) const
+{
+  return GetFunction(identifier.ToString());
 }
 
 bool CContext::SetVariableValue(WSTRING& identifier, int valueID)

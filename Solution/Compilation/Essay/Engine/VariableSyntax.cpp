@@ -1,33 +1,33 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #include "VariableSyntax.h"
 
 using namespace Dominion::Compilation::Essay;
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //CVariableSyntax
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 CVariableSyntax::CVariableSyntax() :
-  CBaseSyntax(ESyntaxType::Variable)
+  CReducibleSyntax(ESyntaxType::Variable)
 {
 }
 
 CVariableSyntax::CVariableSyntax(C_VARIABLE_SYNTAX& that) :
-  CBaseSyntax(that),
+  CReducibleSyntax(that),
   _name(that._name)
 {
 }
 
 CVariableSyntax::CVariableSyntax(C_VARIABLE_SYNTAX&& that) :
-  CBaseSyntax(that),
+  CReducibleSyntax(that),
   _name(move(that._name))
 {
 }
 
 CVariableSyntax::CVariableSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, WSTRING& name) :
-  CBaseSyntax(ESyntaxType::Variable, liveLine, liveNamespace),
+  CReducibleSyntax(ESyntaxType::Variable, liveLine, liveNamespace),
   _name(name)
 {
 }
@@ -41,9 +41,17 @@ CIdentifier CVariableSyntax::GetIdentifier() const
   return CIdentifier(GetLiveNamespace(), _name);
 }
 
+CScalar CVariableSyntax::Reduce(IContextual<ESyntaxType, CReducibleSyntax>& context) const throw()
+{
+  CIdentifier identifier(GetLiveNamespace(), GetName());
+  auto variable = context.GetVariable(identifier);
+
+  return context.GetSyntax(variable.GetRealValueID())->Reduce(context);
+}
+
 C_VARIABLE_SYNTAX& CVariableSyntax::operator=(C_VARIABLE_SYNTAX& that)
 {
-  CBaseSyntax::operator=(that);
+  CReducibleSyntax::operator=(that);
 
   _name = that._name;
 

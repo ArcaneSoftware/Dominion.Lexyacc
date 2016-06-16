@@ -1,34 +1,34 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #include "ReturnSyntax.h"
 
 using namespace Dominion::Compilation::Essay;
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //CReturnSyntax
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 CReturnSyntax::CReturnSyntax() :
-  CBaseSyntax(ESyntaxType::Return),
+  CReducibleSyntax(ESyntaxType::Return),
   _expressionID(NONE_ID)
 {
 }
 
 CReturnSyntax::CReturnSyntax(C_RETURN_SYNTAX& that) :
-  CBaseSyntax(that),
+  CReducibleSyntax(that),
   _expressionID(that._expressionID)
 {
 }
 
 CReturnSyntax::CReturnSyntax(C_RETURN_SYNTAX&& that) :
-  CBaseSyntax(that),
+  CReducibleSyntax(that),
   _expressionID(move(that._expressionID))
 {
 }
 
 CReturnSyntax::CReturnSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, int32_t expressionID) :
-  CBaseSyntax(ESyntaxType::DefineVariable, liveLine, liveNamespace),
+  CReducibleSyntax(ESyntaxType::Return, liveLine, liveNamespace),
   _expressionID(expressionID)
 {
 }
@@ -37,9 +37,14 @@ CReturnSyntax::~CReturnSyntax()
 {
 }
 
+CScalar CReturnSyntax::Reduce(IContextual<ESyntaxType, CReducibleSyntax>& context) const throw()
+{
+  return context.GetSyntax(GetExpressionID())->Reduce(context);
+}
+
 C_RETURN_SYNTAX& CReturnSyntax::operator=(C_RETURN_SYNTAX& that)
 {
-  CBaseSyntax::operator=(that);
+  CReducibleSyntax::operator=(that);
 
   _expressionID = that._expressionID;
 

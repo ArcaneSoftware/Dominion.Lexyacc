@@ -1,18 +1,19 @@
-//********************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//********************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #pragma once
 
 #include "Compilation/Essay/Engine/SyntaxType.h"
+#include "Compilation/Essay/Engine/Function.h"
 
 BEGIN_DOMINION_COMPILATION_ESSAY
-//********************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //IContextual
 //
-//********************************************************************************************************************//
-template<typename TESyntaxType>
+//***********************************************************************************************************************************************************************************//
+template<typename TESyntaxType, typename TSyntax>
 struct LIBRARY_EXPORT IContextual
 {
   virtual void DefineVariable(EAccessType access, C_NAMESPACE& liveNamespace, WSTRING& name, int32_t initialValueID) = 0;
@@ -20,10 +21,12 @@ struct LIBRARY_EXPORT IContextual
   virtual bool HasDefinedIdentifier(WSTRING& fullName, EIdentifierType identifierType) const = 0;
   virtual bool HasDefinedIdentifier(C_NAMESPACE& liveNamespace, WSTRING& name, EIdentifierType identifierType) const = 0;
   virtual bool ExistSyntax(int32_t syntaxID) const = 0;
-  virtual shared_ptr<CAbstractSyntaxTree<TESyntaxType>> GetSyntax(int32_t id) const = 0;
-  virtual int32_t AppendSyntax(CAbstractSyntaxTree<TESyntaxType>* syntax) = 0;
+  virtual shared_ptr<TSyntax> GetSyntax(int32_t id) const = 0;
+  virtual int32_t AppendSyntax(TSyntax* syntax) = 0;
   virtual CVariable GetVariable(WSTRING& identifier) const = 0;
   virtual CVariable GetVariable(C_IDENTIFIER& identifier) const = 0;
+  virtual CFunction GetFunction(WSTRING& identifier) const = 0;
+  virtual CFunction GetFunction(C_IDENTIFIER& identifier) const = 0;
   virtual bool SetVariableValue(WSTRING& identifier, int valueID) = 0;
   virtual bool SetVariableValue(C_IDENTIFIER& identifier, int valueID) = 0;
 };

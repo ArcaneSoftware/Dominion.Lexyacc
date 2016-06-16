@@ -162,28 +162,35 @@
     <ClInclude Include="Dependence.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="Failure.h" />
-    <ClInclude Include="Function.h" />
+    <ClInclude Include="RowFunction.h" />
     <ClInclude Include="Identifier.h" />
     <ClInclude Include="NamedReference.h" />
     <ClInclude Include="Namespace.h" />
+    <ClInclude Include="NilScalarOperationException.h" />
+    <ClInclude Include="OperationTypeEnum.h" />
     <ClInclude Include="Productor.h" />
     <ClInclude Include="Scalar.h" />
+    <ClInclude Include="UnmatchedScalarTypeException.h" />
     <ClInclude Include="UnacceptableWordException.h" />
+    <ClInclude Include="UnsupportedScalarOperationException.h" />
     <ClInclude Include="ValidateProduction.h" />
-    <ClInclude Include="Variable.h" />
-    <ClInclude Include="VariableType.h" />
+    <ClInclude Include="RowVariable.h" />
+    <ClInclude Include="ZeroDivisorScalarExecption.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Error.cpp" />
-    <ClCompile Include="Function.cpp" />
+    <ClCompile Include="RowFunction.cpp" />
     <ClCompile Include="Identifier.cpp" />
     <ClCompile Include="NamedReference.cpp" />
     <ClCompile Include="Namespace.cpp" />
+    <ClCompile Include="NilScalarOperationException.cpp" />
     <ClCompile Include="Productor.cpp" />
     <ClCompile Include="Scalar.cpp" />
+    <ClCompile Include="UnmatchedScalarTypeException.cpp" />
     <ClCompile Include="UnacceptableWordException.cpp" />
-    <ClCompile Include="Variable.cpp" />
-    <ClCompile Include="VariableType.cpp" />
+    <ClCompile Include="UnsupportedScalarOperationException.cpp" />
+    <ClCompile Include="RowVariable.cpp" />
+    <ClCompile Include="ZeroDivisorScalarExecption.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

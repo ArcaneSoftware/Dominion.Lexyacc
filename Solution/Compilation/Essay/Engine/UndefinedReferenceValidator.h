@@ -1,17 +1,17 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #pragma once
 
 #include "Compilation/Essay/Engine/ASTs.h"
 
 BEGIN_DOMINION_COMPILATION_ESSAY
-//*****************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //CUndefinedReferenceValidator
 //
-//*****************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 CLASS_DECLARATION(CUndefinedReferenceValidator, C_UNDEFINED_REFERENCE_VALIDATOR);
 class LIBRARY_EXPORT CUndefinedReferenceValidator :
   public CObject,
@@ -26,10 +26,7 @@ public:
   CUndefinedReferenceValidator(C_UNDEFINED_REFERENCE_VALIDATOR&& that);
   virtual ~CUndefinedReferenceValidator();
 
-  bool ValidateReference(C_NAMESPACE& referenceLiveNamespace,
-                         WSTRING& referenceName,
-                         EIdentifierType referenceIdentifierType,
-                         C_CONTEXT& context) const;
+  bool ValidateReference(C_NAMESPACE& referenceLiveNamespace, WSTRING& referenceName, EIdentifierType referenceIdentifierType, C_CONTEXT& context) const;
 
 public:
   //{

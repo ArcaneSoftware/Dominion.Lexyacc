@@ -1,22 +1,22 @@
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #include "DefineVariableSyntax.h"
 
 using namespace Dominion::Compilation::Essay;
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //CDefineVariableSyntax
-//*******************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 CDefineVariableSyntax::CDefineVariableSyntax() :
-  CBaseSyntax(ESyntaxType::DefineVariable),
+  CReducibleSyntax(ESyntaxType::DefineVariable),
   _initialValueID(NONE_ID)
 {
 }
 
 CDefineVariableSyntax::CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX& that) :
-  CBaseSyntax(that),
+  CReducibleSyntax(that),
   _accessType(that._accessType),
   _variableType(that._variableType),
   _name(that._name),
@@ -25,7 +25,7 @@ CDefineVariableSyntax::CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX& that) :
 }
 
 CDefineVariableSyntax::CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX&& that) :
-  CBaseSyntax(that),
+  CReducibleSyntax(that),
   _accessType(move(that._accessType)),
   _variableType(move(that._variableType)),
   _name(move(that._name)),
@@ -34,7 +34,7 @@ CDefineVariableSyntax::CDefineVariableSyntax(C_DEFINE_VARIABLE_SYNTAX&& that) :
 }
 
 CDefineVariableSyntax::CDefineVariableSyntax(int32_t liveLine, C_NAMESPACE& liveNamespace, EAccessType access, EVariableType variableType, WSTRING& name, int32_t initialValueID) :
-  CBaseSyntax(ESyntaxType::DefineVariable, liveLine, liveNamespace),
+  CReducibleSyntax(ESyntaxType::DefineVariable, liveLine, liveNamespace),
   _accessType(access),
   _variableType(variableType),
   _name(name),
@@ -46,9 +46,22 @@ CDefineVariableSyntax::~CDefineVariableSyntax()
 {
 }
 
+CIdentifier CDefineVariableSyntax::GetIdentifier() const
+{
+  return CIdentifier(GetLiveNamespace(), GetName());
+}
+
+CScalar CDefineVariableSyntax::Reduce(IContextual<ESyntaxType, CReducibleSyntax>& context) const throw()
+{
+  CIdentifier identifier(GetLiveNamespace(), GetName());
+  auto variable = context.GetVariable(identifier);
+
+  return context.GetSyntax(variable.GetRealValueID())->Reduce(context);
+}
+
 C_DEFINE_VARIABLE_SYNTAX& CDefineVariableSyntax::operator=(C_DEFINE_VARIABLE_SYNTAX& that)
 {
-  CBaseSyntax::operator=(that);
+  CReducibleSyntax::operator=(that);
 
   _accessType = that._accessType;
   _variableType = that._variableType;

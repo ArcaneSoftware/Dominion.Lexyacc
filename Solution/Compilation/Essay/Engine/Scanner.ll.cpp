@@ -433,11 +433,11 @@ goto find_rule; \
 #line 1 "./Scanner.ll"
 #define INITIAL 0
 #line 2 "./Scanner.ll"
-//********************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 //ORGANIZATION:
 //AUTHOR:
 //SUMMARY:
-//********************************************************************************************************************//
+//***********************************************************************************************************************************************************************************//
 #include "Compilation/Essay/Engine/Scanner.h"
 
 using namespace std;
@@ -895,18 +895,18 @@ case 29:
 YY_RULE_SETUP
 #line 132 "./Scanner.ll"
 {
-  yylval->integer = atoi(yytext);
+  yylval->numeric = atoi(yytext);
 
-  return YToken::Integer;
+  return YToken::Numeric;
 }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
 #line 138 "./Scanner.ll"
 {
-  yylval->decimal = atof(yytext);
+  yylval->numeric = atof(yytext);
 
-  return YToken::Decimal;
+  return YToken::Numeric;
 }
 	YY_BREAK
 case 31:
