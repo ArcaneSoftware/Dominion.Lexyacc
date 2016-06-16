@@ -23,8 +23,13 @@ public:
   CFunction(C_FUNCTION&& that);
   CFunction(EAccessType access, C_IDENTIFIER& identifier, int32_t parameterChainID = NONE_ID, int32_t blockID = NONE_ID);
   virtual ~CFunction();
-
+  //{
+  CLASS_PROPERTY(vector<CVariable>, _parameters, Parameters);
+  //}
   C_FUNCTION& operator=(C_FUNCTION& that);
+
+private:
+  vector<CVariable> _parameters;
 };
 
 END_DOMINION_COMPILATION_ESSAY
