@@ -57,3 +57,12 @@ C_VARIABLE_SYNTAX& CVariableSyntax::operator=(C_VARIABLE_SYNTAX& that)
 
   return *this;
 }
+
+C_VARIABLE_SYNTAX& CVariableSyntax::operator=(C_VARIABLE_SYNTAX&& that)
+{
+  CReducibleSyntax::operator=(that);
+
+  _name = move(that._name);
+
+  return *this;
+}

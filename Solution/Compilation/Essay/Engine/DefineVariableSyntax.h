@@ -35,6 +35,7 @@ public:
   //}
   //{
   C_DEFINE_VARIABLE_SYNTAX& operator=(C_DEFINE_VARIABLE_SYNTAX& that);
+  C_DEFINE_VARIABLE_SYNTAX& operator=(C_DEFINE_VARIABLE_SYNTAX&& that);
   //}
 private:
   EAccessType _accessType;

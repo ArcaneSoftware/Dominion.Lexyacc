@@ -67,3 +67,10 @@ C_DUPLICATION_VALIDATOR& CDuplicationValidator::operator=(C_DUPLICATION_VALIDATO
 
   return *this;
 }
+
+C_DUPLICATION_VALIDATOR& CDuplicationValidator::operator=(C_DUPLICATION_VALIDATOR&& that)
+{
+  CObject::operator=(that);
+
+  return *this;
+}

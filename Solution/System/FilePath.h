@@ -38,6 +38,7 @@ public:
   wstring ParentDirectory() const;
 
   C_FILE_PATH& operator=(C_FILE_PATH& that);
+  C_FILE_PATH& operator=(C_FILE_PATH&& that);
 
 private:
   vector<wstring> _directory;

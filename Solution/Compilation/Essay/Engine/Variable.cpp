@@ -38,3 +38,10 @@ C_VARIABLE& CVariable::operator=(C_VARIABLE& that)
 
   return *this;
 }
+
+C_VARIABLE& CVariable::operator=(C_VARIABLE&& that)
+{
+  CRowVariable::operator=(that);
+
+  return *this;
+}

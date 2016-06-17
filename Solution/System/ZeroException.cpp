@@ -51,3 +51,10 @@ C_ZERO_EXCEPTION& CZeroException::operator=(C_ZERO_EXCEPTION& that)
 
   return *this;
 }
+
+C_ZERO_EXCEPTION& CZeroException::operator=(C_ZERO_EXCEPTION&& that)
+{
+  CException::operator=(that);
+
+  return *this;
+}

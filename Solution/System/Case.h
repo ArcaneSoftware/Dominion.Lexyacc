@@ -32,6 +32,7 @@ public:
   CLASS_PROPERTY(wstring, _notes, Notes);
 
   C_CASE& operator=(C_CASE& that);
+  C_CASE& operator=(C_CASE&& that);
 
 private:
   CScene _scene;

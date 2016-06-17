@@ -25,6 +25,7 @@ public:
   virtual ~CVariable();
 
   C_VARIABLE& operator=(C_VARIABLE& that);
+  C_VARIABLE& operator=(C_VARIABLE&& that);
 };
 
 END_DOMINION_COMPILATION_ESSAY

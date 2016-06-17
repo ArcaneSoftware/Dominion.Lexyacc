@@ -82,3 +82,10 @@ C_UNDEFINED_REFERENCE_VALIDATOR& CUndefinedReferenceValidator::operator=(C_UNDEF
 
   return *this;
 }
+
+C_UNDEFINED_REFERENCE_VALIDATOR& CUndefinedReferenceValidator::operator=(C_UNDEFINED_REFERENCE_VALIDATOR&& that)
+{
+  CObject::operator=(that);
+
+  return *this;
+}

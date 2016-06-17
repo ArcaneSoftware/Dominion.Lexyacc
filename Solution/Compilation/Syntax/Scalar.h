@@ -86,6 +86,7 @@ public:
   //}
   //{
   C_SCALAR& operator=(C_SCALAR& that) throw();
+  C_SCALAR& operator=(C_SCALAR&& that) throw();
   CScalar operator+(C_SCALAR& right) throw();
   CScalar operator-(C_SCALAR& right) throw();
   CScalar operator*(C_SCALAR& right) throw();

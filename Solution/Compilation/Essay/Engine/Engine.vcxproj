@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="AssignVariableSyntax.cpp" />
     <ClCompile Include="Function.cpp" />
+    <ClCompile Include="FunctionInvoker.cpp" />
     <ClCompile Include="ReducibleSyntax.cpp" />
     <ClCompile Include="BlockSyntax.cpp" />
     <ClCompile Include="ChainSyntax.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="AssignVariableSyntax.h" />
     <ClInclude Include="ASTs.h" />
     <ClInclude Include="Function.h" />
+    <ClInclude Include="FunctionInvoker.h" />
     <ClInclude Include="ReducibleSyntax.h" />
     <ClInclude Include="BlockSyntax.h" />
     <ClInclude Include="ChainSyntax.h" />

@@ -113,3 +113,12 @@ C_NAMESPACE& CNamespace::operator=(C_NAMESPACE& that)
 
   return *this;
 }
+
+C_NAMESPACE& CNamespace::operator=(C_NAMESPACE&& that)
+{
+  CObject::operator=(that);
+
+  _structure = move(that._structure);
+
+  return *this;
+}

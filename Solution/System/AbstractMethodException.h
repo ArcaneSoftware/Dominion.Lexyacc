@@ -30,6 +30,7 @@ public:
   virtual ~CAbstractMethodException();
 
   C_ABSTRACT_METHOD_EXCEPTION& operator=(C_ABSTRACT_METHOD_EXCEPTION& that);
+  C_ABSTRACT_METHOD_EXCEPTION& operator=(C_ABSTRACT_METHOD_EXCEPTION&& that);
 };
 
 END_DOMINION

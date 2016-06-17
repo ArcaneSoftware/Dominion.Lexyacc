@@ -79,3 +79,12 @@ C_EXCEPTION& CException::operator=(C_EXCEPTION& that)
 
   return *this;
 }
+
+C_EXCEPTION& CException::operator=(C_EXCEPTION&& that)
+{
+  CObject::Clone(that);
+
+  _caseStack = move(that._caseStack);
+
+  return *this;
+}

@@ -71,6 +71,15 @@ public:
     return *this;
   }
 
+  CLASS& operator=(CLASS&& that)
+  {
+    CObject::operator=(that);
+
+    _core = move(that._core);
+
+    return *this;
+  }
+
 protected:
   vector<TElement> _core;
 };

@@ -30,6 +30,7 @@ public:
   CLASS_PROPERTY(int32_t, _argumentChainID, ArgumentChainID);
 
   C_FUNCTION_SYNTAX& operator=(C_FUNCTION_SYNTAX& that);
+  C_FUNCTION_SYNTAX& operator=(C_FUNCTION_SYNTAX&& that);
 
 private:
   wstring _name;

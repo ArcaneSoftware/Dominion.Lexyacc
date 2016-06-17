@@ -51,3 +51,10 @@ C_EMPTY_STRING_EXCEPTION& CEmptyStringException::operator=(C_EMPTY_STRING_EXCEPT
 
   return *this;
 }
+
+C_EMPTY_STRING_EXCEPTION& CEmptyStringException::operator=(C_EMPTY_STRING_EXCEPTION&& that)
+{
+  CException::operator=(that);
+
+  return *this;
+}

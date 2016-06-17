@@ -29,6 +29,7 @@ public:
   virtual ~CInvokingException();
 
   C_INVOKE_METHOD_EXCEPTION& operator=(C_INVOKE_METHOD_EXCEPTION& that);
+  C_INVOKE_METHOD_EXCEPTION& operator=(C_INVOKE_METHOD_EXCEPTION&& that);
 };
 
 END_DOMINION

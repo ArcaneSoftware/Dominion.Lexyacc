@@ -63,3 +63,15 @@ C_DEFINE_FUNCTION_SYNTAX& CDefineFunctionSyntax::operator=(C_DEFINE_FUNCTION_SYN
 
   return *this;
 }
+
+C_DEFINE_FUNCTION_SYNTAX& CDefineFunctionSyntax::operator=(C_DEFINE_FUNCTION_SYNTAX&& that)
+{
+  CReducibleSyntax::operator=(that);
+
+  _accessType = move(that._accessType);
+  _name = move(that._name);
+  _parameterChainID = move(that._parameterChainID);
+  _blockID = move(that._blockID);
+
+  return *this;
+}

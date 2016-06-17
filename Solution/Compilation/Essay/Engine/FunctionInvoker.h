@@ -5,40 +5,34 @@
 //***********************************************************************************************************************************************************************************//
 #pragma once
 
-#include "System/Object.h"
+#include "Compilation/Essay/Engine/Function.h"
+#include "Compilation/Essay/Engine/Contextual.h"
+#include "Compilation/Essay/Engine/ReducibleSyntax.h"
 
-BEGIN_DOMINION
+BEGIN_DOMINION_COMPILATION_ESSAY
 //***********************************************************************************************************************************************************************************//
-//CScene
-//It warps location information to indicate specific source code.
+//CFunctionInvoker
+//
 //***********************************************************************************************************************************************************************************//
-CLASS_DECLARATION(CScene, C_SCENE);
-class LIBRARY_EXPORT CScene : public CObject
+CLASS_DECLARATION(CFunctionInvoker, C_FUNCTION_INVOKER);
+class LIBRARY_EXPORT CFunctionInvoker : public CObject
 {
 public:
-  CLASS_INHERITOR(CObject, CScene);
-  CScene();
-  CScene(C_SCENE& that);
-  CScene(C_SCENE&& that);
-  CScene(WSTRING& a_class, WSTRING& method, int32_t lineNumber);
-  virtual ~CScene();
+  CLASS_INHERITOR(CObject, CFunctionInvoker);
+
+  CFunctionInvoker();
+  CFunctionInvoker(C_FUNCTION_INVOKER& that);
+  CFunctionInvoker(C_FUNCTION_INVOKER&& that);
+  explicit CFunctionInvoker(C_FUNCTION& function);
+  virtual ~CFunctionInvoker();
   //{
-  virtual wstring ToString() const override;
+  CScalar Invoke(IContextual<ESyntaxType, CReducibleSyntax>* context, size_t count, ...) const;
   //}
-  CLASS_PROPERTY(wstring, _class, Class);
-  CLASS_PROPERTY(wstring, _method, Method);
-  CLASS_PROPERTY(int32_t, _lineNumber, LineNumber);
-
-  C_SCENE& operator=(C_SCENE& that);
-  C_SCENE& operator=(C_SCENE&& that);
-
+  //{
+  CLASS_PROPERTY(CFunction, _function, Function);
+  //}
 private:
-  wstring _class;
-  wstring _method;
-  int32_t _lineNumber;
+  CFunction _function;
 };
 
-END_DOMINION
-
-#undef  THIS_SCENE
-#define THIS_SCENE(METHOD) CScene(ThisName(), METHOD, __LINE__)
+END_DOMINION_COMPILATION_ESSAY

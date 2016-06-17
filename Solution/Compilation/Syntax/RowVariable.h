@@ -73,6 +73,7 @@ public:
   CLASS_PROPERTY(bool, _isArgument, IsArgument);
 
   C_ROW_VARIABLE& operator=(C_ROW_VARIABLE& that);
+  C_ROW_VARIABLE& operator=(C_ROW_VARIABLE&& that);
 
 private:
   int32_t _initialValueID;

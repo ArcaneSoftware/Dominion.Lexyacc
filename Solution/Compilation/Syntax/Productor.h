@@ -28,6 +28,7 @@ public:
   CLASS_PROPERTY(int32_t, _id, ID);
 
   C_PRODUCTOR& operator=(C_PRODUCTOR& that);
+  C_PRODUCTOR& operator=(C_PRODUCTOR&& that);
 
 protected:
   bool _successed;

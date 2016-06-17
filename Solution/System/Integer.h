@@ -128,6 +128,15 @@ public:
     return *this;
   }
 
+  CLASS& operator=(CLASS&& that)
+  {
+    CObject::operator=(that);
+
+    _value = move(that._value);
+
+    return *this;
+  }
+
   CLASS& operator=(TNumeric that)
   {
     _value = that;

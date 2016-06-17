@@ -61,6 +61,7 @@ public:
   CLASS_PROPERTY(CIdentifier, _identifier, Identifier);
 
   C_NAMED_REFERENCE& operator=(C_NAMED_REFERENCE& that);
+  C_NAMED_REFERENCE& operator=(C_NAMED_REFERENCE&& that);
 
 private:
   EAccessType _accessType;

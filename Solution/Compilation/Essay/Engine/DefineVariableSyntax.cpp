@@ -70,3 +70,15 @@ C_DEFINE_VARIABLE_SYNTAX& CDefineVariableSyntax::operator=(C_DEFINE_VARIABLE_SYN
 
   return *this;
 }
+
+C_DEFINE_VARIABLE_SYNTAX& CDefineVariableSyntax::operator=(C_DEFINE_VARIABLE_SYNTAX&& that)
+{
+  CReducibleSyntax::operator=(that);
+
+  _accessType = move(that._accessType);
+  _variableType = move(that._variableType);
+  _name = move(that._name);
+  _initialValueID = move(that._initialValueID);
+
+  return *this;
+}

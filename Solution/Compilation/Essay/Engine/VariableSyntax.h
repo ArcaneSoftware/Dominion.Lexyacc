@@ -31,6 +31,7 @@ public:
   CLASS_PROPERTY(wstring, _name, Name);
 
   C_VARIABLE_SYNTAX& operator=(C_VARIABLE_SYNTAX& that);
+  C_VARIABLE_SYNTAX& operator=(C_VARIABLE_SYNTAX&& that);
 
 private:
   wstring _name;

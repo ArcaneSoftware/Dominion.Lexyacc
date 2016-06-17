@@ -184,3 +184,15 @@ C_FILE_PATH& CFilePath::operator=(C_FILE_PATH& that)
 
   return *this;
 }
+
+C_FILE_PATH& CFilePath::operator=(C_FILE_PATH&& that)
+{
+  CObject::operator=(that);
+
+  _directory = move(that._directory);
+  _filename = move(that._filename);
+  _division = move(that._division);
+  _relative = move(that._relative);
+
+  return *this;
+}

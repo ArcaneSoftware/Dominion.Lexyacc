@@ -76,3 +76,15 @@ C_CASE& CCase::operator=(C_CASE& that)
 
   return *this;
 }
+
+C_CASE& CCase::operator=(C_CASE&& that)
+{
+  CObject::operator=(that);
+
+  _scene = move(that._scene);
+  _message = move(that._message);
+  _arguments = move(that._arguments);
+  _notes = move(that._notes);
+
+  return *this;
+}

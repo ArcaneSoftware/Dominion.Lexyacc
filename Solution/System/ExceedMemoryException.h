@@ -30,6 +30,7 @@ public:
   virtual ~CExceedMemoryException();
 
   C_EXCEED_MEMORY_EXCEPTION& operator=(C_EXCEED_MEMORY_EXCEPTION& that);
+  C_EXCEED_MEMORY_EXCEPTION& operator=(C_EXCEED_MEMORY_EXCEPTION&& that);
 };
 
 END_DOMINION

@@ -44,3 +44,10 @@ C_INVOKE_METHOD_EXCEPTION& CInvokingException::operator=(C_INVOKE_METHOD_EXCEPTI
 
   return *this;
 }
+
+C_INVOKE_METHOD_EXCEPTION& CInvokingException::operator=(C_INVOKE_METHOD_EXCEPTION&& that)
+{
+  CException::operator=(that);
+
+  return *this;
+}

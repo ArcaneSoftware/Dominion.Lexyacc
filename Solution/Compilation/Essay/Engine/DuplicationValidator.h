@@ -30,6 +30,7 @@ public:
   virtual CError Validate(C_DEFINE_FUNCTION_SYNTAX& syntax, C_CONTEXT& context) const override;
   //}
   C_DUPLICATION_VALIDATOR& operator=(C_DUPLICATION_VALIDATOR& that);
+  C_DUPLICATION_VALIDATOR& operator=(C_DUPLICATION_VALIDATOR&& that);
 };
 
 END_DOMINION_COMPILATION_ESSAY

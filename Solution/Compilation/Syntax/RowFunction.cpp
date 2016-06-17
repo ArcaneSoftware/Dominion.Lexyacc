@@ -49,3 +49,13 @@ C_ROW_FUNCTION& CRowFunction::operator=(C_ROW_FUNCTION& that)
 
   return *this;
 }
+
+C_ROW_FUNCTION& CRowFunction::operator=(C_ROW_FUNCTION && that)
+{
+  CNamedReference::operator=(that);
+
+  _parameterChainID = move(that._parameterChainID);
+  _blockID = move(that._blockID);
+
+  return *this;
+}

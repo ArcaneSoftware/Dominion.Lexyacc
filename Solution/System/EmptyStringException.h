@@ -30,6 +30,7 @@ public:
   virtual ~CEmptyStringException();
 
   C_EMPTY_STRING_EXCEPTION& operator=(C_EMPTY_STRING_EXCEPTION& that);
+  C_EMPTY_STRING_EXCEPTION& operator=(C_EMPTY_STRING_EXCEPTION&& that);
 };
 
 END_DOMINION

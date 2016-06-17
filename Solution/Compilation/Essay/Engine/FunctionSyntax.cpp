@@ -54,3 +54,13 @@ C_FUNCTION_SYNTAX& CFunctionSyntax::operator=(C_FUNCTION_SYNTAX& that)
 
   return *this;
 }
+
+C_FUNCTION_SYNTAX& CFunctionSyntax::operator=(C_FUNCTION_SYNTAX&& that)
+{
+  CReducibleSyntax::operator=(that);
+
+  _name = move(that._name);
+  _argumentChainID = move(that._argumentChainID);
+
+  return *this;
+}

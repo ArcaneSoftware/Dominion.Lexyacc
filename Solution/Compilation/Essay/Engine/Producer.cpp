@@ -213,3 +213,14 @@ C_PRODUCER& CProducer::operator=(C_PRODUCER& that)
 
   return *this;
 }
+
+C_PRODUCER& CProducer::operator=(C_PRODUCER&& that)
+{
+  CObject::operator=(that);
+
+  _file = move(that._file);
+  _context = move(that._context);
+  _errorVector = move(that._errorVector);
+
+  return *this;
+}

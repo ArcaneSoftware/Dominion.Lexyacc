@@ -32,6 +32,7 @@ public:
   CLASS_PROPERTY(wstring, _userMessage, UserMessage);
 
   C_TROUBLESPOT& operator=(C_TROUBLESPOT& that);
+  C_TROUBLESPOT& operator=(C_TROUBLESPOT&& that);
 
 private:
   CScene  _scene;

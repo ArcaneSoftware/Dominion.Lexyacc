@@ -58,3 +58,13 @@ C_ASSIGN_VARIABLE_SYNTAX& CAssignVariableSyntax::operator=(C_ASSIGN_VARIABLE_SYN
 
   return *this;
 }
+
+C_ASSIGN_VARIABLE_SYNTAX& CAssignVariableSyntax::operator=(C_ASSIGN_VARIABLE_SYNTAX&& that)
+{
+  CReducibleSyntax::operator=(that);
+
+  _variableID = move(that._variableID);
+  _valueID = move(that._valueID);
+
+  return *this;
+}

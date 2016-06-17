@@ -68,6 +68,15 @@ C_BOOL& CBool::operator=(C_BOOL& that)
   return *this;
 }
 
+C_BOOL& CBool::operator=(C_BOOL&& that)
+{
+  CObject::operator=(that);
+
+  _value = move(that._value);
+
+  return *this;
+}
+
 C_BOOL& CBool::operator=(bool that)
 {
   _value = that;

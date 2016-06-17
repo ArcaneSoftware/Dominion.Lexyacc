@@ -28,6 +28,7 @@ public:
   CLASS_PROPERTY(int32_t, _blockID, BlockID);
 
   C_ROW_FUNCTION& operator=(C_ROW_FUNCTION& that);
+  C_ROW_FUNCTION& operator=(C_ROW_FUNCTION&& that);
 
 private:
   int32_t _parameterChainID;

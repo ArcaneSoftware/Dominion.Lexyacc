@@ -30,6 +30,7 @@ public:
   virtual ~CZeroException();
 
   C_ZERO_EXCEPTION& operator=(C_ZERO_EXCEPTION& that);
+  C_ZERO_EXCEPTION& operator=(C_ZERO_EXCEPTION&& that);
 };
 
 END_DOMINION

@@ -50,3 +50,10 @@ C_ABSTRACT_METHOD_EXCEPTION& CAbstractMethodException::operator=(C_ABSTRACT_METH
 
   return *this;
 }
+
+C_ABSTRACT_METHOD_EXCEPTION& CAbstractMethodException::operator=(C_ABSTRACT_METHOD_EXCEPTION&& that)
+{
+  CException::operator=(that);
+
+  return *this;
+}

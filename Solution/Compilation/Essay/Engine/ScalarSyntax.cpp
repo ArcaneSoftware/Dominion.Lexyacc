@@ -59,3 +59,12 @@ C_SCALAR_SYNTAX& CScalarSyntax::operator=(C_SCALAR_SYNTAX& that)
 
   return *this;
 }
+
+C_SCALAR_SYNTAX& CScalarSyntax::operator=(C_SCALAR_SYNTAX&& that)
+{
+  CReducibleSyntax::operator=(that);
+
+  _value = move(that._value);
+
+  return *this;
+}

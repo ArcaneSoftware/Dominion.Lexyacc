@@ -34,6 +34,7 @@ public:
   CLASS_PROPERTY(CScalar, _value, Value);
 
   C_SCALAR_SYNTAX& operator=(C_SCALAR_SYNTAX& that);
+  C_SCALAR_SYNTAX& operator=(C_SCALAR_SYNTAX&& that);
 
 private:
   CScalar _value;

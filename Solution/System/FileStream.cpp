@@ -52,9 +52,14 @@ bool CFileStream::IsOpened()
 
 C_FILE_STREAM& CFileStream::operator=(C_FILE_STREAM& that)
 {
-  throw CInvokingException(CTroublespot(THIS_SCENE(L"operator="),
-                                        L"that", CInvokingException::MAKE_NOTE(L"operator="),
-                                        NSTR));
+  throw CInvokingException(CTroublespot(THIS_SCENE(L"operator="), L"that", CInvokingException::MAKE_NOTE(L"operator="), NSTR));
+
+  return *this;
+}
+
+C_FILE_STREAM& CFileStream::operator=(C_FILE_STREAM&& that)
+{
+  throw CInvokingException(CTroublespot(THIS_SCENE(L"operator="), L"that", CInvokingException::MAKE_NOTE(L"operator="), NSTR));
 
   return *this;
 }

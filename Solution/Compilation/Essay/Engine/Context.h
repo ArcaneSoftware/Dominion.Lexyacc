@@ -57,6 +57,7 @@ public:
 
 public:
   C_CONTEXT& operator=(C_CONTEXT& that);
+  C_CONTEXT& operator=(C_CONTEXT&& that);
 
 private:
   map<wstring, CVariable> _variableMap;

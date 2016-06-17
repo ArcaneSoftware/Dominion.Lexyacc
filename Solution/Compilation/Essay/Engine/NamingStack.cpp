@@ -38,3 +38,10 @@ C_NAMING_STACK& CNamingStack::operator=(C_NAMING_STACK& that)
 
   return *this;
 }
+
+C_NAMING_STACK& CNamingStack::operator=(C_NAMING_STACK&& that)
+{
+  CStack<wstring>::operator=(that);
+
+  return *this;
+}

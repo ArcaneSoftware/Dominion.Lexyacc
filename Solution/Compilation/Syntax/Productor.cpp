@@ -49,3 +49,13 @@ C_PRODUCTOR& CProductor::operator=(C_PRODUCTOR& that)
 
   return *this;
 }
+
+C_PRODUCTOR& CProductor::operator=(C_PRODUCTOR&& that)
+{
+  CObject::operator=(that);
+
+  _successed = move(that._successed);
+  _id = move(that._id);
+
+  return *this;
+}

@@ -64,8 +64,14 @@ void CContext::DefineVariable(EAccessType access, C_NAMESPACE& liveNamespace, WS
 void CContext::DefineFunction(EAccessType access, C_NAMESPACE& liveNamespace, WSTRING& name, int32_t parameterChainID, int32_t blockID)
 {
   auto identifier = CIdentifier(liveNamespace, name);
+  auto function = CFunction(access, identifier, parameterChainID, blockID);
 
-  _functionMap[_ToKey(identifier.ToString())] = CFunction(access, identifier, parameterChainID, blockID);
+  for each(auto each in GetSyntax(parameterChainID)->Pick(this))
+  {
+    function.AppendParameter(each);
+  }
+
+  _functionMap[_ToKey(identifier.ToString())] = move(function);
 }
 
 bool CContext::HasDefinedIdentifier(WSTRING& fullName, EIdentifierType identifierType) const
@@ -101,14 +107,9 @@ bool CContext::ExistSyntax(int32_t syntaxID) const
 
 shared_ptr<CReducibleSyntax> CContext::GetSyntax(int32_t syntaxID) const
 {
-  if (ExistSyntax(syntaxID))
-  {
-    return _syntaxes[syntaxID];
-  }
-  else
-  {
-    return shared_ptr<CReducibleSyntax>(nullptr);
-  }
+  return ExistSyntax(syntaxID) ?
+         _syntaxes[syntaxID] :
+         shared_ptr<CReducibleSyntax>(nullptr);
 }
 
 int32_t CContext::AppendSyntax(CReducibleSyntax* syntax)
@@ -177,6 +178,19 @@ C_CONTEXT& CContext::operator=(C_CONTEXT& that)
   _syntaxes = that._syntaxes;
   _ToKey = that._ToKey;
   _entryID = that._entryID;
+
+  return *this;
+}
+
+C_CONTEXT& CContext::operator=(C_CONTEXT&& that)
+{
+  CObject::operator=(that);
+
+  _variableMap = move(that._variableMap);
+  _functionMap = move(that._functionMap);
+  _syntaxes = move(that._syntaxes);
+  _ToKey = move(that._ToKey);
+  _entryID = move(that._entryID);
 
   return *this;
 }

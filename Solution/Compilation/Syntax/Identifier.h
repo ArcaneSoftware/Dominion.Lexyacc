@@ -49,6 +49,7 @@ public:
   CLASS_PROPERTY(wstring, _name, Name);
 
   C_IDENTIFIER& operator=(C_IDENTIFIER& that);
+  C_IDENTIFIER& operator=(C_IDENTIFIER&& that);
 
 private:
   CNamespace _liveNamespace;

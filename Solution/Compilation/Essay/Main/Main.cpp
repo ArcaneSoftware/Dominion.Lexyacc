@@ -1,4 +1,6 @@
 #include "Compilation/Essay/Engine/Engine.h"
+#include "Compilation/Essay/Engine/FunctionInvoker.h"
+
 
 using namespace Dominion;
 using namespace Dominion::Compilation::Syntax;
@@ -19,12 +21,12 @@ void F1()
       auto context = engine.GetContext();
       auto entryID = context.GetEntryID();
       auto entrySyntax = context.GetSyntax(entryID);
-      auto name = entrySyntax->GetIdentifier().ToString();
+      auto function = context.GetFunction(entrySyntax->GetIdentifier().ToString());
 
-      for (int i = 0; i < context.GetSyntaxes().size(); i++)
-      {
-        auto syntax = context.GetSyntax(i);
-      }
+      auto invoker = CFunctionInvoker(function);
+      CScalar x1((double)2);
+      CScalar y1((double)2);
+      invoker.Invoke(&context, 2,x1, y1);
     }
   }
   catch (CException& e)

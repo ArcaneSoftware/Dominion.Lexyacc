@@ -3,56 +3,49 @@
 //AUTHOR:
 //SUMMARY:
 //***********************************************************************************************************************************************************************************//
-#include "Function.h"
+#include "FunctionInvoker.h"
 
 using namespace Dominion::Compilation::Essay;
 //***********************************************************************************************************************************************************************************//
-//CFunction
+//CFunctionInvoker
 //***********************************************************************************************************************************************************************************//
-CFunction::CFunction()
+CFunctionInvoker::CFunctionInvoker()
 {
 }
 
-CFunction::CFunction(C_FUNCTION& that) :
-  CRowFunction(that),
-  _parameters(that._parameters)
+CFunctionInvoker::CFunctionInvoker(C_FUNCTION_INVOKER& that) :
+  CObject(that),
+  _function(that._function)
 {
 }
 
-CFunction::CFunction(C_FUNCTION&& that) :
-  CRowFunction(that),
-  _parameters(move(that._parameters))
+CFunctionInvoker::CFunctionInvoker(C_FUNCTION_INVOKER&& that) :
+  CObject(that),
+  _function(move(that._function))
 {
 }
 
-CFunction::CFunction(EAccessType access, C_IDENTIFIER& identifier, int32_t parameterChainID, int32_t blockID) :
-  CRowFunction(access, identifier, parameterChainID, blockID)
+CFunctionInvoker::CFunctionInvoker(C_FUNCTION& function) :
+  _function(function)
 {
 }
 
-CFunction::~CFunction()
+CFunctionInvoker::~CFunctionInvoker()
 {
 }
 
-void CFunction::AppendParameter(int defineVariableID)
+CScalar CFunctionInvoker::Invoke(IContextual<ESyntaxType, CReducibleSyntax>* context, size_t count, ...) const
 {
-  _parameters.push_back(defineVariableID);
-}
+  va_list argument;
+  va_start(argument, count);
 
-C_FUNCTION& CFunction::operator=(C_FUNCTION& that)
-{
-  CRowFunction::operator=(that);
+  do
+  {
+    auto o = va_arg(argument, CScalar);
+  }
+  while (argument != 0);
 
-  _parameters = that._parameters;
+  va_end(argument);
 
-  return *this;
-}
-
-C_FUNCTION & CFunction::operator=(C_FUNCTION && that)
-{
-  CRowFunction::operator=(that);
-
-  _parameters = move(that._parameters);
-
-  return *this;
+  return CScalar();
 }

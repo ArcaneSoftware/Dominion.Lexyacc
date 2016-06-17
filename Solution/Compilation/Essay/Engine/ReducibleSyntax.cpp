@@ -15,12 +15,12 @@ CReducibleSyntax::CReducibleSyntax() :
 {
 }
 
-CReducibleSyntax::CReducibleSyntax(C_BASE_SYNTAX& that) :
+CReducibleSyntax::CReducibleSyntax(C_REDUCIBLE_SYNTAX& that) :
   CAbstractSyntaxTree<ESyntaxType>(that)
 {
 }
 
-CReducibleSyntax::CReducibleSyntax(C_BASE_SYNTAX&& that) :
+CReducibleSyntax::CReducibleSyntax(C_REDUCIBLE_SYNTAX&& that) :
   CAbstractSyntaxTree<ESyntaxType>(that)
 {
 }
@@ -40,7 +40,19 @@ CScalar CReducibleSyntax::Reduce(IContextual<ESyntaxType, CReducibleSyntax>& con
   return CScalar();
 }
 
-C_BASE_SYNTAX& CReducibleSyntax::operator=(C_BASE_SYNTAX& that)
+vector<int> CReducibleSyntax::Pick(IContextual<ESyntaxType, CReducibleSyntax>* context) const throw()
+{
+  return vector<int>();
+}
+
+C_REDUCIBLE_SYNTAX& CReducibleSyntax::operator=(C_REDUCIBLE_SYNTAX& that)
+{
+  CAbstractSyntaxTree<ESyntaxType>::operator=(that);
+
+  return *this;
+}
+
+C_REDUCIBLE_SYNTAX & CReducibleSyntax::operator=(C_REDUCIBLE_SYNTAX && that)
 {
   CAbstractSyntaxTree<ESyntaxType>::operator=(that);
 

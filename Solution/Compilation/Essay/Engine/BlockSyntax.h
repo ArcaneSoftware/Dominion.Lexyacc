@@ -32,6 +32,7 @@ public:
   //}
   //{
   C_BLOCK_SYNTAX& operator=(C_BLOCK_SYNTAX& that);
+  C_BLOCK_SYNTAX& operator=(C_BLOCK_SYNTAX&& that);
   //}
 private:
   int32_t _statementID;

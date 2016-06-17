@@ -96,3 +96,10 @@ C_NULL_BINARY_OPERATION_VALIDATOR& CNullBinaryOperationValidator::operator=(C_NU
 
   return *this;
 }
+
+C_NULL_BINARY_OPERATION_VALIDATOR& CNullBinaryOperationValidator::operator=(C_NULL_BINARY_OPERATION_VALIDATOR&& that)
+{
+  CObject::operator=(that);
+
+  return *this;
+}

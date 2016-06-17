@@ -89,6 +89,4 @@ public:
   ENUM_CLASS_IMPLEMENT(CSyntaxTypeEnum, ESyntaxType);
 };
 
-
-
 END_DOMINION_COMPILATION_ESSAY

@@ -75,3 +75,17 @@ CError CNoneSyntaxValidator::Validate(C_RETURN_SYNTAX& syntax, C_CONTEXT& contex
 
   return move(result);
 }
+
+C_NONE_SYNTAX_VALIDATOR& CNoneSyntaxValidator::operator=(C_NONE_SYNTAX_VALIDATOR& that)
+{
+  CObject::operator=(that);
+
+  return *this;
+}
+
+C_NONE_SYNTAX_VALIDATOR& CNoneSyntaxValidator::operator=(C_NONE_SYNTAX_VALIDATOR&& that)
+{
+  CObject::operator=(that);
+
+  return *this;
+}

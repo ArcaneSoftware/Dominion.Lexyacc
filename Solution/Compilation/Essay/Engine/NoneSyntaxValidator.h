@@ -32,6 +32,7 @@ public:
   virtual CError Validate(C_RETURN_SYNTAX& syntax, C_CONTEXT& context) const override;
   //}
   C_NONE_SYNTAX_VALIDATOR& operator=(C_NONE_SYNTAX_VALIDATOR& that);
+  C_NONE_SYNTAX_VALIDATOR& operator=(C_NONE_SYNTAX_VALIDATOR&& that);
 };
 
 END_DOMINION_COMPILATION_ESSAY

@@ -40,6 +40,7 @@ public:
   //}
 public:
   C_OBJECT& operator=(C_OBJECT& that);
+  C_OBJECT& operator=(C_OBJECT&& that);
 };
 
 END_DOMINION

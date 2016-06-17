@@ -32,6 +32,7 @@ public:
   //}
   //{
   C_ASSIGN_VARIABLE_SYNTAX& operator=(C_ASSIGN_VARIABLE_SYNTAX& that);
+  C_ASSIGN_VARIABLE_SYNTAX& operator=(C_ASSIGN_VARIABLE_SYNTAX&& that);
   //}
 private:
   int32_t _variableID;

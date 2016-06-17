@@ -152,7 +152,19 @@ C_SCALAR& CScalar::operator=(C_SCALAR& that)
   return *this;
 }
 
-CScalar CScalar::operator+(C_SCALAR & right) throw()
+C_SCALAR& CScalar::operator=(C_SCALAR&& that) throw()
+{
+  CObject::operator=(that);
+
+  _scalarType = move(that._scalarType);
+  _numericValue = move(that._numericValue);
+  _stringValue = move(that._stringValue);
+  _booleanValue = move(that._booleanValue);
+
+  return *this;
+}
+
+CScalar CScalar::operator+(C_SCALAR& right) throw()
 {
   CNilScalarOperationException::CHECK(*this, CTroublespot(THIS_SCENE(L"operator+"), NSTR, NSTR, NSTR));
   CNilScalarOperationException::CHECK(right, CTroublespot(THIS_SCENE(L"operator+"), L"right", NSTR, NSTR));
@@ -193,7 +205,7 @@ CScalar CScalar::operator+(C_SCALAR & right) throw()
   return move(result);
 }
 
-CScalar CScalar::operator-(C_SCALAR & right) throw()
+CScalar CScalar::operator-(C_SCALAR& right) throw()
 {
   CNilScalarOperationException::CHECK(*this, CTroublespot(THIS_SCENE(L"operator-"), NSTR, NSTR, NSTR));
   CNilScalarOperationException::CHECK(right, CTroublespot(THIS_SCENE(L"operator-"), L"right", NSTR, NSTR));
@@ -222,7 +234,7 @@ CScalar CScalar::operator-(C_SCALAR & right) throw()
   return move(result);
 }
 
-CScalar CScalar::operator*(C_SCALAR & right) throw()
+CScalar CScalar::operator*(C_SCALAR& right) throw()
 {
   CNilScalarOperationException::CHECK(*this, CTroublespot(THIS_SCENE(L"operator-"), NSTR, NSTR, NSTR));
   CNilScalarOperationException::CHECK(right, CTroublespot(THIS_SCENE(L"operator-"), L"right", NSTR, NSTR));
@@ -251,7 +263,7 @@ CScalar CScalar::operator*(C_SCALAR & right) throw()
   return move(result);
 }
 
-CScalar CScalar::operator/(C_SCALAR & right) throw()
+CScalar CScalar::operator/(C_SCALAR& right) throw()
 {
   CNilScalarOperationException::CHECK(*this, CTroublespot(THIS_SCENE(L"operator-"), NSTR, NSTR, NSTR));
   CNilScalarOperationException::CHECK(right, CTroublespot(THIS_SCENE(L"operator-"), L"right", NSTR, NSTR));

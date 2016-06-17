@@ -32,6 +32,7 @@ public:
   CLASS_PROPERTY(int32_t, _blockID, BlockID);
 
   C_DEFINE_FUNCTION_SYNTAX& operator=(C_DEFINE_FUNCTION_SYNTAX& that);
+  C_DEFINE_FUNCTION_SYNTAX& operator=(C_DEFINE_FUNCTION_SYNTAX&& that);
 
 private:
   EAccessType _accessType;

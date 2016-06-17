@@ -61,6 +61,13 @@ public:
 
     return *this;
   }
+
+  CLASS& operator=(CLASS&& that)
+  {
+    CException::operator=(that);
+
+    return *this;
+  }
 };
 
 END_DOMINION

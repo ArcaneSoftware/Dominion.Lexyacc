@@ -41,6 +41,7 @@ public:
   CLASS_PROPERTY(vector<CCase>, _caseStack, CaseStack);
 
   C_EXCEPTION& operator=(C_EXCEPTION& that);
+  C_EXCEPTION& operator=(C_EXCEPTION&& that);
 
 private:
   vector<CCase> _caseStack;

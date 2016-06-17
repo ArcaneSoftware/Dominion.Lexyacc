@@ -55,3 +55,13 @@ C_BLOCK_SYNTAX& CBlockSyntax::operator=(C_BLOCK_SYNTAX& that)
 
   return *this;
 }
+
+C_BLOCK_SYNTAX& CBlockSyntax::operator=(C_BLOCK_SYNTAX&& that)
+{
+  CReducibleSyntax::operator=(that);
+
+  _statementID = move(that._statementID);
+  _blockID = move(that._blockID);
+
+  return *this;
+}

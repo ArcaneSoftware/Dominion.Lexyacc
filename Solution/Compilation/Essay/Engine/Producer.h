@@ -83,6 +83,7 @@ public:
   CNamespace GetLiveNamespace() const;
 
   C_PRODUCER& operator=(C_PRODUCER& that);
+  C_PRODUCER& operator=(C_PRODUCER&& that);
 
 private:
   wstring _file;

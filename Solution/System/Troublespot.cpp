@@ -60,3 +60,14 @@ C_TROUBLESPOT& CTroublespot::operator=(C_TROUBLESPOT& that)
 
   return *this;
 }
+
+C_TROUBLESPOT& CTroublespot::operator=(C_TROUBLESPOT&& that)
+{
+  CObject::operator=(that);
+
+  _scene = move(that._scene);
+  _arguments = move(that._arguments);
+  _notes = move(that._notes);
+
+  return *this;
+}

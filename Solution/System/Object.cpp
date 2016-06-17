@@ -60,3 +60,8 @@ C_OBJECT& CObject::operator=(C_OBJECT& that)
 {
   return *this;
 }
+
+C_OBJECT& CObject::operator=(C_OBJECT && that)
+{
+  return *this;
+}

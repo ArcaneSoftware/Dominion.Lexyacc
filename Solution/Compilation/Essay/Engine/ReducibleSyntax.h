@@ -14,7 +14,7 @@ typedef function<wstring(WSTRING&)> FToContextKey;
 //CReducibleSyntax
 //
 //***********************************************************************************************************************************************************************************//
-CLASS_DECLARATION(CReducibleSyntax, C_BASE_SYNTAX);
+CLASS_DECLARATION(CReducibleSyntax, C_REDUCIBLE_SYNTAX);
 class LIBRARY_EXPORT CReducibleSyntax : public CAbstractSyntaxTree<ESyntaxType>
 {
 public:
@@ -22,16 +22,18 @@ public:
 
 protected:
   CReducibleSyntax();
-  CReducibleSyntax(C_BASE_SYNTAX& that);
-  CReducibleSyntax(C_BASE_SYNTAX&& that);
+  CReducibleSyntax(C_REDUCIBLE_SYNTAX& that);
+  CReducibleSyntax(C_REDUCIBLE_SYNTAX&& that);
   explicit CReducibleSyntax(ESyntaxType syntaxType, int32_t liveLine = NONE_LINE, C_NAMESPACE& liveNamespace = CNamespace());
 public:
   virtual ~CReducibleSyntax();
   //{
   virtual CScalar Reduce(IContextual<ESyntaxType, CReducibleSyntax>& context) const throw();
+  virtual vector<int> Pick(IContextual<ESyntaxType, CReducibleSyntax>* context) const throw();
   //}
   //{
-  C_BASE_SYNTAX& operator=(C_BASE_SYNTAX& that);
+  C_REDUCIBLE_SYNTAX& operator=(C_REDUCIBLE_SYNTAX& that);
+  C_REDUCIBLE_SYNTAX& operator=(C_REDUCIBLE_SYNTAX&& that);
   //}
 };
 

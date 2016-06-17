@@ -30,6 +30,7 @@ public:
   CLASS_PROPERTY(EStdIosMode, _mode, Mode);
 
   C_FILE_STREAM& operator=(C_FILE_STREAM& that);
+  C_FILE_STREAM& operator=(C_FILE_STREAM&& that);
 
 private:
   wstring _path;

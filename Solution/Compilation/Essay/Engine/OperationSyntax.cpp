@@ -82,3 +82,14 @@ C_OPERATION_SYNTAX& COperationSyntax::operator=(C_OPERATION_SYNTAX& that)
 
   return *this;
 }
+
+C_OPERATION_SYNTAX& COperationSyntax::operator=(C_OPERATION_SYNTAX&& that)
+{
+  CReducibleSyntax::operator=(that);
+
+  _operationType = move(that._operationType);
+  _leftOperandID = move(that._leftOperandID);
+  _rightOperandID = move(that._rightOperandID);
+
+  return *this;
+}

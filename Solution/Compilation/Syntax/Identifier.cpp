@@ -82,3 +82,13 @@ C_IDENTIFIER& CIdentifier::operator=(C_IDENTIFIER& that)
 
   return *this;
 }
+
+C_IDENTIFIER& CIdentifier::operator=(C_IDENTIFIER&& that)
+{
+  CObject::operator=(that);
+
+  _liveNamespace = move(that._liveNamespace);
+  _name = move(that._name);
+
+  return *this;
+}

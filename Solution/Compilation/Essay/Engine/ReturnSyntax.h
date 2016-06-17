@@ -31,6 +31,7 @@ public:
   //}
   //{
   C_RETURN_SYNTAX& operator=(C_RETURN_SYNTAX& that);
+  C_RETURN_SYNTAX& operator=(C_RETURN_SYNTAX&& that);
   //}
 private:
   int32_t _expressionID;

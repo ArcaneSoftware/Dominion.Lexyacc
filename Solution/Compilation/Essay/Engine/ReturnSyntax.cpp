@@ -50,3 +50,12 @@ C_RETURN_SYNTAX& CReturnSyntax::operator=(C_RETURN_SYNTAX& that)
 
   return *this;
 }
+
+C_RETURN_SYNTAX& CReturnSyntax::operator=(C_RETURN_SYNTAX&& that)
+{
+  CReducibleSyntax::operator=(that);
+
+  _expressionID = move(that._expressionID);
+
+  return *this;
+}

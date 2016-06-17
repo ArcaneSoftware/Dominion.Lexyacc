@@ -52,3 +52,10 @@ C_SUBSCRIPT_OVERFLOW_EXCEPTION& CSubscriptOverflowException::operator=(C_SUBSCRI
 
   return *this;
 }
+
+C_SUBSCRIPT_OVERFLOW_EXCEPTION& CSubscriptOverflowException::operator=(C_SUBSCRIPT_OVERFLOW_EXCEPTION&& that)
+{
+  CException::operator=(that);
+
+  return *this;
+}

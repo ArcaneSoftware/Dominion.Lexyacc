@@ -57,3 +57,14 @@ C_SCENE& CScene::operator=(C_SCENE& that)
 
   return *this;
 }
+
+C_SCENE & CScene::operator=(C_SCENE && that)
+{
+  CObject::operator=(that);
+
+  _class = move(that._class);
+  _method = move(that._method);
+  _lineNumber = move(that._lineNumber);
+
+  return *this;
+}

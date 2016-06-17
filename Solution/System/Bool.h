@@ -34,6 +34,7 @@ public:
   //}
   //{
   C_BOOL& operator=(C_BOOL& that);
+  C_BOOL& operator=(C_BOOL&& that);
   C_BOOL& operator=(bool that);
   bool operator==(C_BOOL& that);
   bool operator==(bool that);

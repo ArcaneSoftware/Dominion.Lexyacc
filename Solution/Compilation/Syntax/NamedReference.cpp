@@ -109,3 +109,13 @@ C_NAMED_REFERENCE& CNamedReference::operator=(C_NAMED_REFERENCE& that)
 
   return *this;
 }
+
+C_NAMED_REFERENCE& CNamedReference::operator=(C_NAMED_REFERENCE && that)
+{
+  CObject::operator=(that);
+
+  _accessType = move(that._accessType);
+  _identifier = move(that._identifier);
+
+  return *this;
+}

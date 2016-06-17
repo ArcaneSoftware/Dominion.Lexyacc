@@ -102,6 +102,9 @@
     <ClCompile Include="Function.cpp">
       <Filter>Syntax\Elementary</Filter>
     </ClCompile>
+    <ClCompile Include="FunctionInvoker.cpp">
+      <Filter>Syntax\Elementary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GrammarEnum.h">
@@ -199,6 +202,9 @@
       <Filter>Syntax\Elementary</Filter>
     </ClInclude>
     <ClInclude Include="Function.h">
+      <Filter>Syntax\Elementary</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionInvoker.h">
       <Filter>Syntax\Elementary</Filter>
     </ClInclude>
   </ItemGroup>

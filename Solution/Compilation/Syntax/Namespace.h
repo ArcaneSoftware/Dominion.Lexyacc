@@ -39,6 +39,7 @@ public:
   CNamespace GetParent() const;
 
   C_NAMESPACE& operator=(C_NAMESPACE& that);
+  C_NAMESPACE& operator=(C_NAMESPACE&& that);
 
 private:
   vector<wstring> _structure;

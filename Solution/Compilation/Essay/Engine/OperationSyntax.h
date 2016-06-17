@@ -33,6 +33,7 @@ public:
   //}
 public:
   C_OPERATION_SYNTAX& operator=(C_OPERATION_SYNTAX& that);
+  C_OPERATION_SYNTAX& operator=(C_OPERATION_SYNTAX&& that);
 
 private:
   EOperationType _operationType;

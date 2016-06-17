@@ -64,3 +64,14 @@ C_ROW_VARIABLE& CRowVariable::operator=(C_ROW_VARIABLE& that)
 
   return *this;
 }
+
+C_ROW_VARIABLE& CRowVariable::operator=(C_ROW_VARIABLE && that)
+{
+  CNamedReference::operator=(that);
+
+  _initialValueID = move(that._initialValueID);
+  _realValueID = move(that._realValueID);
+  _isArgument = move(that._isArgument);
+
+  return *this;
+}

@@ -30,6 +30,7 @@ public:
   virtual ~CSubscriptOverflowException();
 
   C_SUBSCRIPT_OVERFLOW_EXCEPTION& operator=(C_SUBSCRIPT_OVERFLOW_EXCEPTION& that);
+  C_SUBSCRIPT_OVERFLOW_EXCEPTION& operator=(C_SUBSCRIPT_OVERFLOW_EXCEPTION&& that);
 };
 
 END_DOMINION

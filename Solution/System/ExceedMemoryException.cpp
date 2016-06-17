@@ -52,3 +52,10 @@ C_EXCEED_MEMORY_EXCEPTION& CExceedMemoryException::operator=(C_EXCEED_MEMORY_EXC
 
   return *this;
 }
+
+C_EXCEED_MEMORY_EXCEPTION& CExceedMemoryException::operator=(C_EXCEED_MEMORY_EXCEPTION&& that)
+{
+  CException::operator=(that);
+
+  return *this;
+}

@@ -41,12 +41,38 @@ CChainSyntax::~CChainSyntax()
 {
 }
 
+vector<int32_t> CChainSyntax::Pick(IContextual<ESyntaxType, CReducibleSyntax>* context) const throw()
+{
+  vector<int32_t> result;
+
+  result.push_back(GetCurrentID());
+
+  if (GetNextID() != NONE_ID)
+  {
+    auto sub = context->GetSyntax(GetNextID())->Pick(context);
+
+    result.insert(result.end(), sub.begin(), sub.end());
+  }
+
+  return move(result);
+}
+
 C_CHAIN_SYNTAX& CChainSyntax::operator=(C_CHAIN_SYNTAX& that)
 {
   CReducibleSyntax::operator=(that);
 
   _currentID = that._currentID;
   _nextID = that._nextID;
+
+  return *this;
+}
+
+C_CHAIN_SYNTAX& CChainSyntax::operator=(C_CHAIN_SYNTAX&& that)
+{
+  CReducibleSyntax::operator=(that);
+
+  _currentID = move(that._currentID);
+  _nextID = move(that._nextID);
 
   return *this;
 }

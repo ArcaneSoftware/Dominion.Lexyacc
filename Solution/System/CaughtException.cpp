@@ -18,6 +18,16 @@ CCaughtException::CCaughtException()
 {
 }
 
+CCaughtException::CCaughtException(C_CAUGHT_EXCEPTION& that) :
+  CException(that)
+{
+}
+
+CCaughtException::CCaughtException(C_CAUGHT_EXCEPTION&& that) :
+  CException(that)
+{
+}
+
 CCaughtException::CCaughtException(C_SCENE& scene, C_EXCEPTION& cause, WSTRING& notes)
 {
   SetCaseStack(cause.GetCaseStack());
@@ -26,6 +36,13 @@ CCaughtException::CCaughtException(C_SCENE& scene, C_EXCEPTION& cause, WSTRING& 
 }
 
 C_CAUGHT_EXCEPTION& CCaughtException::operator=(C_CAUGHT_EXCEPTION& that)
+{
+  CException::operator=(that);
+
+  return *this;
+}
+
+C_CAUGHT_EXCEPTION& CCaughtException::operator=(C_CAUGHT_EXCEPTION&& that)
 {
   CException::operator=(that);
 

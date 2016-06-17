@@ -26,6 +26,7 @@ public:
   CNamespace GetNamespace() const;
 
   C_NAMING_STACK& operator=(C_NAMING_STACK& that);
+  C_NAMING_STACK& operator=(C_NAMING_STACK&& that);
 };
 
 END_DOMINION_COMPILATION_ESSAY
