@@ -52,6 +52,11 @@ CIdentifier CDefineFunctionSyntax::GetIdentifier() const
   return CIdentifier(GetLiveNamespace(), GetName());
 }
 
+CScalar CDefineFunctionSyntax::Reduce(IContextual<ESyntaxType, CReducibleSyntax>& context) const throw()
+{
+  return context.GetSyntax(GetBlockID())->Reduce(context);
+}
+
 C_DEFINE_FUNCTION_SYNTAX& CDefineFunctionSyntax::operator=(C_DEFINE_FUNCTION_SYNTAX& that)
 {
   CReducibleSyntax::operator=(that);

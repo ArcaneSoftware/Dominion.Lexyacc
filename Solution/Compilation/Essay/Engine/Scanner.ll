@@ -129,13 +129,13 @@ using namespace Dominion::Compilation::Essay;
   return YToken::Identifier;
 }
 
-[0-9]+ {
+[+-]?[0-9]+ {
   yylval->numeric = atoi(yytext);
 
   return YToken::Numeric;
 }
 
-[0-9]+"."[0-9]* {
+[+-]?[0-9]+"."[0-9]* {
   yylval->numeric = atof(yytext);
 
   return YToken::Numeric;

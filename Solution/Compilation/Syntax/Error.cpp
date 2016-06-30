@@ -100,10 +100,7 @@ CError::~CError()
 
 wstring CError::ToString() const
 {
-  auto string = CWStringTemplate(L"Encounter [%x] error:[%x] at line[%x] of file:[%x]").
-                Format(CEErrorSource(_source).ToString(),
-                       _description,
-                       _liveLine, _file);
+  auto string = CWStringTemplate(L"Encounter [%x] error:[%x] at line[%x] of file:[%x]"). Format(CEErrorSource(_source).ToString(), _description, _liveLine, _file);
 
   return move(string);
 }

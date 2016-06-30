@@ -68,7 +68,10 @@ void CContext::DefineFunction(EAccessType access, C_NAMESPACE& liveNamespace, WS
 
   for each(auto each in GetSyntax(parameterChainID)->Pick(this))
   {
-    function.AppendParameter(each);
+    auto paremeter = GetSyntax(each)->GetIdentifier().ToString();
+
+    function.AppendParameterID(each);
+    function.AppendParameter(paremeter);
   }
 
   _functionMap[_ToKey(identifier.ToString())] = move(function);
@@ -141,6 +144,34 @@ CFunction CContext::GetFunction(WSTRING & identifier) const
 CFunction CContext::GetFunction(C_IDENTIFIER & identifier) const
 {
   return GetFunction(identifier.ToString());
+}
+
+void CContext::AppendArgument(WSTRING & function, int32_t argumentID)
+{
+  auto iterator = _functionMap.find(function);
+
+  if (iterator != _functionMap.end())
+  {
+    int32_t no = iterator->second.AppendArgumentID(argumentID);
+
+    auto defineVariableSyntax = GetSyntax(no);
+    SetVariableValue(defineVariableSyntax->GetIdentifier(), argumentID);
+  }
+}
+
+void CContext::AppendArgument(C_IDENTIFIER & function, int32_t argumentID)
+{
+  AppendArgument(function.ToString(), argumentID);
+}
+
+void CContext::AssignFunctionArgumentID(WSTRING& function, WSTRING& parameter, int32_t argumentID)
+{
+  auto functionIterator = _functionMap.find(function);
+
+  if (functionIterator != _functionMap.end())
+  {
+    SetVariableValue(parameter, argumentID);
+  }
 }
 
 bool CContext::SetVariableValue(WSTRING& identifier, int valueID)

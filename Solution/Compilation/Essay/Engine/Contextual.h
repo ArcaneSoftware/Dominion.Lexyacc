@@ -27,6 +27,12 @@ struct LIBRARY_EXPORT IContextual
   virtual CVariable GetVariable(C_IDENTIFIER& identifier) const = 0;
   virtual CFunction GetFunction(WSTRING& identifier) const = 0;
   virtual CFunction GetFunction(C_IDENTIFIER& identifier) const = 0;
+
+  virtual void AppendArgument(WSTRING& function, int32_t argumentID) = 0;
+  virtual void AppendArgument(C_IDENTIFIER& function, int32_t argumentID) = 0;
+
+  virtual void AssignFunctionArgumentID(WSTRING& function, WSTRING& parameter, int32_t argumentID) = 0;
+
   virtual bool SetVariableValue(WSTRING& identifier, int valueID) = 0;
   virtual bool SetVariableValue(C_IDENTIFIER& identifier, int valueID) = 0;
 };

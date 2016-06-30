@@ -25,6 +25,7 @@ public:
   virtual ~CDefineFunctionSyntax();
   //{
   virtual CIdentifier GetIdentifier() const override;
+  virtual CScalar Reduce(IContextual<ESyntaxType, CReducibleSyntax>& context) const throw() override;
   //}
   CLASS_PROPERTY(EAccessType, _accessType, AccessType);
   CLASS_PROPERTY(wstring, _name, Name);

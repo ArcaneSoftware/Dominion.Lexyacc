@@ -49,9 +49,7 @@ CError CDuplicationValidator::Validate(C_DEFINE_FUNCTION_SYNTAX& syntax, C_CONTE
 
   if (context.HasDefinedIdentifier(syntax.GetLiveNamespace(), syntax.GetName(), EIdentifierType::Function))
   {
-    auto description = CWStringTemplate(L"Duplicated definition of function:'%x.%x'").Format(
-                         syntax.GetLiveNamespace().ToString(),
-                         syntax.GetName());
+    auto description = CWStringTemplate(L"Duplicated definition of function:'%x.%x'").Format(syntax.GetLiveNamespace().ToString(), syntax.GetName());
 
     result.SetSource(EErrorSource::Producing);
     result.SetLiveLine(syntax.GetLiveLine());

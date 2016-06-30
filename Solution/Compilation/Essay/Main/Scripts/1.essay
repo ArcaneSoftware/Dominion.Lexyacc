@@ -1,10 +1,15 @@
 naming Business
 {
+  function Do1(var x)
+  {
+    x * 1;
+  }
+
 	function Main(var x, var y)
 	{
-    var a = 9;
-    var b = 10;
+    var a = 90;
+    var b = 40;
 
-		var cust = a+b;
+		var cust = (x*(a+y)*y)*-1;
 	}
 }

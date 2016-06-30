@@ -50,7 +50,7 @@ C_ROW_FUNCTION& CRowFunction::operator=(C_ROW_FUNCTION& that)
   return *this;
 }
 
-C_ROW_FUNCTION& CRowFunction::operator=(C_ROW_FUNCTION && that)
+C_ROW_FUNCTION& CRowFunction::operator=(C_ROW_FUNCTION&& that)
 {
   CNamedReference::operator=(that);
 

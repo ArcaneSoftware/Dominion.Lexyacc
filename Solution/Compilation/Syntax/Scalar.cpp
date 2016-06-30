@@ -202,6 +202,8 @@ CScalar CScalar::operator+(C_SCALAR& right) throw()
     }
   }
 
+  result.SetScalarType(GetScalarType());
+
   return move(result);
 }
 
@@ -230,6 +232,7 @@ CScalar CScalar::operator-(C_SCALAR& right) throw()
   }
 
   result.SetNumericValue(_numericValue - right.GetNumericValue());
+  result.SetScalarType(GetScalarType());
 
   return move(result);
 }
@@ -259,6 +262,7 @@ CScalar CScalar::operator*(C_SCALAR& right) throw()
   }
 
   result.SetNumericValue(_numericValue * right.GetNumericValue());
+  result.SetScalarType(GetScalarType());
 
   return move(result);
 }
@@ -290,6 +294,7 @@ CScalar CScalar::operator/(C_SCALAR& right) throw()
   CZeroDivisorScalarExecption::CHECK(right, CTroublespot(THIS_SCENE(L"operator*"), L"right", NSTR, NSTR));
 
   result.SetNumericValue(_numericValue / right.GetNumericValue());
+  result.SetScalarType(GetScalarType());
 
   return move(result);
 }

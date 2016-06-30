@@ -1,5 +1,6 @@
 #include "Compilation/Essay/Engine/Engine.h"
 #include "Compilation/Essay/Engine/FunctionInvoker.h"
+#include "Compilation/Essay/Engine/ScalarSyntax.h"
 
 
 using namespace Dominion;
@@ -20,13 +21,21 @@ void F1()
       auto c = engine.Run(ifs);
       auto context = engine.GetContext();
       auto entryID = context.GetEntryID();
-      auto entrySyntax = context.GetSyntax(entryID);
-      auto function = context.GetFunction(entrySyntax->GetIdentifier().ToString());
 
-      auto invoker = CFunctionInvoker(function);
+      auto invoker = CFunctionInvoker(entryID, &context);
       CScalar x1((double)2);
-      CScalar y1((double)2);
-      invoker.Invoke(&context, 2,x1, y1);
+      CScalar y1((double)4);
+
+      int32_t xid = context.AppendSyntax(new CScalarSyntax(-1, CNamespace(), x1));
+      int32_t yid = context.AppendSyntax(new CScalarSyntax(-1, CNamespace(), y1));
+
+      /*invoker.AppendArgument(xid);
+      invoker.AppendArgument(yid);*/
+
+      invoker.AssignArgumentID(L"Business.Main.x", xid);
+      invoker.AssignArgumentID(L"Business.Main.y", yid);
+
+      auto result = invoker.Invoke();
     }
   }
   catch (CException& e)

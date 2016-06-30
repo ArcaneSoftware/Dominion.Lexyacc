@@ -23,16 +23,19 @@ public:
   CFunctionInvoker();
   CFunctionInvoker(C_FUNCTION_INVOKER& that);
   CFunctionInvoker(C_FUNCTION_INVOKER&& that);
-  explicit CFunctionInvoker(C_FUNCTION& function);
+  explicit CFunctionInvoker(int32_t defineFunctionID, IContextual<ESyntaxType, CReducibleSyntax>* context);
   virtual ~CFunctionInvoker();
   //{
-  CScalar Invoke(IContextual<ESyntaxType, CReducibleSyntax>* context, size_t count, ...) const;
+  void AppendArgumentID(int32_t argumentID);
+  void AssignArgumentID(WSTRING& variable, int32_t argumentID);
+  CScalar Invoke();
   //}
   //{
-  CLASS_PROPERTY(CFunction, _function, Function);
+  CLASS_PROPERTY(int32_t, _defineFunctionID, DefineFunctionID);
   //}
 private:
-  CFunction _function;
+  int32_t _defineFunctionID;
+  IContextual<ESyntaxType, CReducibleSyntax>* _context;
 };
 
 END_DOMINION_COMPILATION_ESSAY
