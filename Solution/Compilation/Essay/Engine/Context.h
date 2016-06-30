@@ -41,12 +41,8 @@ public:
   virtual shared_ptr<CReducibleSyntax> GetSyntax(int32_t id) const override;
   virtual int32_t AppendSyntax(CReducibleSyntax* syntax) override;
   virtual CVariable GetVariable(WSTRING& identifier) const override;
-  virtual CVariable GetVariable(C_IDENTIFIER& identifier) const override;
   virtual CFunction GetFunction(WSTRING& identifier) const override;
-  virtual CFunction GetFunction(C_IDENTIFIER& identifier) const override;
 
-  virtual void AppendArgument(WSTRING& function, int32_t argumentID) override;
-  virtual void AppendArgument(C_IDENTIFIER& function, int32_t argumentID) override;
 
   virtual void AssignFunctionArgumentID(WSTRING& function, WSTRING& parameter, int32_t argumentID) override;
 

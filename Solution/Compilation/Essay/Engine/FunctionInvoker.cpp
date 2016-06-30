@@ -36,18 +36,11 @@ CFunctionInvoker::~CFunctionInvoker()
 {
 }
 
-void CFunctionInvoker::AppendArgumentID(int32_t argumentID)
+void CFunctionInvoker::AssignArgumentID(WSTRING & parameter, int32_t argumentID)
 {
   auto defineFunctionSyntex = _context->GetSyntax(_defineFunctionID);
 
-  _context->AppendArgument(defineFunctionSyntex->GetIdentifier(), argumentID);
-}
-
-void CFunctionInvoker::AssignArgumentID(WSTRING & variable, int32_t argumentID)
-{
-  auto defineFunctionSyntex = _context->GetSyntax(_defineFunctionID);
-
-  _context->AssignFunctionArgumentID(defineFunctionSyntex->GetIdentifier().ToString(), variable, argumentID);
+  _context->AssignFunctionArgumentID(defineFunctionSyntex->GetIdentifier().ToString(), parameter, argumentID);
 }
 
 CScalar CFunctionInvoker::Invoke()

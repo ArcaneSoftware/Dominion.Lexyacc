@@ -24,21 +24,16 @@ public:
   CFunction(EAccessType access, C_IDENTIFIER& identifier, int32_t parameterChainID = NONE_ID, int32_t blockID = NONE_ID);
   virtual ~CFunction();
   //{
-  void AppendParameterID(int32_t parameterID);
   void AppendParameter(WSTRING& parameter);
-  int32_t AppendArgumentID(int32_t argumentID);
   int32_t GetParameterCount() const;
   //}
   //{
-  CLASS_PROPERTY(vector<int32_t>, _parameterIDs, ParameterIDs);
-  CLASS_PROPERTY(vector<int32_t>, _argumentIDs, ArgumentIDs);
+  CLASS_PROPERTY(vector<wstring>, _parameters, Parameters);
   //}
   C_FUNCTION& operator=(C_FUNCTION& that);
   C_FUNCTION& operator=(C_FUNCTION&& that);
 
 private:
-  vector<int32_t> _parameterIDs;
-  vector<int32_t> _argumentIDs;
   vector<wstring> _parameters;
 };
 

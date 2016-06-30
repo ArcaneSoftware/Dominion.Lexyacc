@@ -28,10 +28,7 @@ void F1()
 
       int32_t xid = context.AppendSyntax(new CScalarSyntax(-1, CNamespace(), x1));
       int32_t yid = context.AppendSyntax(new CScalarSyntax(-1, CNamespace(), y1));
-
-      /*invoker.AppendArgument(xid);
-      invoker.AppendArgument(yid);*/
-
+      
       invoker.AssignArgumentID(L"Business.Main.x", xid);
       invoker.AssignArgumentID(L"Business.Main.y", yid);
 

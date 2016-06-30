@@ -44,7 +44,7 @@ CIdentifier CVariableSyntax::GetIdentifier() const
 CScalar CVariableSyntax::Reduce(IContextual<ESyntaxType, CReducibleSyntax>& context) const throw()
 {
   CIdentifier identifier(GetLiveNamespace(), GetName());
-  auto variable = context.GetVariable(identifier);
+  auto variable = context.GetVariable(identifier.ToString());
 
   return context.GetSyntax(variable.GetRealValueID())->Reduce(context);
 }

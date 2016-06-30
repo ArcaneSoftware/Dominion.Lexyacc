@@ -26,8 +26,7 @@ public:
   explicit CFunctionInvoker(int32_t defineFunctionID, IContextual<ESyntaxType, CReducibleSyntax>* context);
   virtual ~CFunctionInvoker();
   //{
-  void AppendArgumentID(int32_t argumentID);
-  void AssignArgumentID(WSTRING& variable, int32_t argumentID);
+  void AssignArgumentID(WSTRING& parameter, int32_t argumentID);
   CScalar Invoke();
   //}
   //{
